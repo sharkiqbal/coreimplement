@@ -3,6 +3,9 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 
 const AuthContext = createContext(null);
 
+const adminEmail = import.meta.env.VITE_ADMIN_EMAIL;
+const adminPassword = import.meta.env.VITE_ADMIN_PASSWORD;
+
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {
@@ -25,8 +28,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const signin = (email, password) => {
-    // Your authentication logic
-    if (email === "superadmin@gmail.com" && password === "admin") {
+    if (email === adminEmail && password === adminPassword) {
       const userData = { email, role: "admin" };
       setUser(userData);
       localStorage.setItem("authUser", JSON.stringify(userData));
