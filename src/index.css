@@ -1,0 +1,47 @@
+/* Add this to your src/index.css file */
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced smooth scrolling with custom timing */
+* {
+  scroll-behavior: smooth;
+}
+
+/* For better scroll performance */
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Smooth scrolling for specific containers if needed */
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+/* Optional: Add momentum scrolling for iOS devices */
+body {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Optional: Custom scroll animation timing */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom scroll timing function */
+  html, body {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Accounts for fixed header */
+  }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
