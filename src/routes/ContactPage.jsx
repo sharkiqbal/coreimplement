@@ -48,7 +48,7 @@ function CalendlyWidget45min() {
           <div className="p-4 md:p-8">
             <div
               className="calendly-inline-widget rounded-lg overflow-hidden shadow-inner"
-              data-url="https://calendly.com/ataulrehmangee994/level-meet?month=2025-10&hide_gdpr_banner=1"
+              data-url={import.meta.env.VITE_CALENDLY_45MIN_URL}
               style={{ minWidth: "320px", height: "800px" }}
             />
           </div>
@@ -98,7 +98,7 @@ function CalendlyWidget20min() {
           <div className="p-4 md:p-8">
             <div
               className="calendly-inline-widget rounded-lg overflow-hidden shadow-inner"
-              data-url="https://calendly.com/ataulrehmangee994/20-minute-meeting?month=2025-10&hide_gdpr_banner=1"
+              data-url={import.meta.env.VITE_CALENDLY_20MIN_URL}
               style={{ minWidth: "320px", height: "800px" }}
             />
           </div>
