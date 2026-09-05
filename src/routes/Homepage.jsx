@@ -11,6 +11,9 @@ import {
   Star,
   Users,
   TrendingUp,
+  Calendar,
+  Search,
+  CheckCircle2,
 } from "lucide-react";
 import { getAllServices } from "../service/serviceService";
 import { getAllReviews } from "../service/reviewService";
@@ -56,6 +59,49 @@ const Homepage = () => {
     "from-green-500 to-green-600",
     "from-purple-500 to-purple-600",
     "from-orange-500 to-orange-600",
+  ];
+
+  // How It Works steps
+  const howItWorksSteps = [
+    {
+      icon: Calendar,
+      bg: "bg-blue-100",
+      iconColor: "text-blue-600",
+      title: "Schedule a Free Discovery Call",
+      description:
+        "We start with a no-cost conversation to learn how your business actually runs day to day, your workflows, your tools, and where things slow you down.",
+      bullets: [
+        "30-minute call at a time that works for you",
+        "We ask about your current processes and pain points",
+        "No sales pitch, just listening",
+      ],
+    },
+    {
+      icon: Search,
+      bg: "bg-purple-100",
+      iconColor: "text-purple-600",
+      title: "We Analyze & Send a Free Proposal",
+      description:
+        "Our team digs into what we learned and maps out exactly where AI and automation can realistically save you time and money.",
+      bullets: [
+        "Free, no-obligation process analysis",
+        "We prioritize the highest-impact opportunities first",
+        "You receive a clear proposal with scope, timeline, and cost",
+      ],
+    },
+    {
+      icon: Rocket,
+      bg: "bg-green-100",
+      iconColor: "text-green-600",
+      title: "We Implement What You Choose",
+      description:
+        "You decide what to move forward with. We build, test, and roll out the automations and process improvements, tailored to your team and your goals.",
+      bullets: [
+        "You approve only what fits your budget and priorities",
+        "We handle setup, integration, and training",
+        "Ongoing support to keep everything running smoothly",
+      ],
+    },
   ];
 
   useEffect(() => {
@@ -278,6 +324,95 @@ const Homepage = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center px-4 py-2 bg-blue-50 rounded-full shadow-sm border border-blue-100 mb-6">
+              <span className="text-sm font-semibold text-blue-600">
+                Simple, Transparent Process
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
+              How It{" "}
+              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                Works
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              From first conversation to fully implemented automation, here's
+              exactly what it looks like to work with{" "}
+              {companyProfile?.companyName || "Core Implementations"}.
+            </p>
+          </div>
+
+          <div className="relative grid md:grid-cols-3 gap-8 lg:gap-10">
+            {/* Connecting line for desktop */}
+            <div className="hidden md:block absolute top-20 left-[16.5%] right-[16.5%] h-0.5 bg-gradient-to-r from-blue-200 via-indigo-300 to-purple-200"></div>
+
+            {howItWorksSteps.map((step, index) => {
+              const StepIcon = step.icon;
+              return (
+                <div
+                  key={index}
+                  className="relative bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+                >
+                  <div className="flex items-center justify-between mb-6">
+                    <div
+                      className={`${step.bg} w-16 h-16 rounded-xl flex items-center justify-center shadow-md`}
+                    >
+                      <StepIcon className={`w-8 h-8 ${step.iconColor}`} />
+                    </div>
+                    <span className="text-5xl font-extrabold text-gray-100">
+                      0{index + 1}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    {step.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed mb-5">
+                    {step.description}
+                  </p>
+                  <ul className="space-y-2.5">
+                    {step.bullets.map((bullet, bIdx) => (
+                      <li
+                        key={bIdx}
+                        className="flex items-start gap-2 text-sm text-gray-600"
+                      >
+                        <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="text-center mt-14">
+            <button
+              onClick={() => navigate("/contact")}
+              className="group bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-10 py-5 rounded-xl text-lg font-bold hover:from-blue-700 hover:to-indigo-700 transition-all transform hover:scale-105 hover:-translate-y-1 shadow-xl hover:shadow-2xl inline-flex items-center justify-center"
+            >
+              Start With a Free Discovery Call
+              <svg
+                className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </button>
           </div>
         </div>
       </section>
