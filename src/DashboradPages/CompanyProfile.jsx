@@ -327,6 +327,25 @@ const CompanyProfileTab = () => {
                   </p>
                 )}
 
+                {/* Location */}
+                {isEditing ? (
+                  <input
+                    type="text"
+                    value={member.location || ""}
+                    onChange={(e) =>
+                      updateTeamMember(member.id, "location", e.target.value)
+                    }
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg mb-3 text-center text-sm focus:ring-2 focus:ring-blue-500"
+                    placeholder="Location (e.g. Houston, Texas)"
+                  />
+                ) : (
+                  member.location && (
+                    <p className="text-xs text-gray-500 text-center mb-3">
+                      {member.location}
+                    </p>
+                  )
+                )}
+
                 {/* Description */}
                 {isEditing ? (
                   <textarea
@@ -342,6 +361,30 @@ const CompanyProfileTab = () => {
                   <p className="text-sm text-gray-600 text-center">
                     {member.description}
                   </p>
+                )}
+
+                {/* LinkedIn URL */}
+                {isEditing ? (
+                  <input
+                    type="url"
+                    value={member.linkedin || ""}
+                    onChange={(e) =>
+                      updateTeamMember(member.id, "linkedin", e.target.value)
+                    }
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg mt-3 text-sm focus:ring-2 focus:ring-blue-500"
+                    placeholder="LinkedIn URL (optional)"
+                  />
+                ) : (
+                  member.linkedin && (
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-center text-sm text-blue-600 hover:text-blue-700 mt-3"
+                    >
+                      LinkedIn ↗
+                    </a>
+                  )
                 )}
               </div>
             ))}

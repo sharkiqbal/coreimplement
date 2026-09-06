@@ -7,6 +7,7 @@ import {
   Lightbulb,
   Heart,
   LinkedinIcon,
+  MapPin,
 } from "lucide-react";
 import { getCompanyProfile } from "../service/companyProfileService";
 import Footer from "../component/Footer";
@@ -17,11 +18,11 @@ import Action from "../component/Action";
 const AboutPage = () => {
   const [teamMembers, setTeamMembers] = useState([]);
   const [loading, setLoading] = useState(true);
-  const valuesRef = useRef(null);
+  const teamRef = useRef(null);
 
-  const scrollToValues = () => {
-    if (valuesRef.current) {
-      const element = valuesRef.current;
+  const scrollToTeam = () => {
+    if (teamRef.current) {
+      const element = teamRef.current;
       const offset = 80; // Account for navigation height and some padding
       const elementPosition = element.offsetTop;
       const offsetPosition = elementPosition - offset;
@@ -121,14 +122,15 @@ const AboutPage = () => {
 
           {/* Subheading */}
           <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto font-normal mb-5 sm:mb-8 px-4">
-            Bridging the gap between enterprise AI capabilities and small
-            business accessibility
+            We help growing businesses automate the manual, repetitive work
+            slowing them down, using the same caliber of AI and automation
+            that enterprises rely on.
           </p>
 
           {/* Optional CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-2 justify-center items-center px-4">
             <button
-              onClick={scrollToValues}
+              onClick={scrollToTeam}
               className="group w-full sm:w-auto px-8 py-3.5 sm:px-10 sm:py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-bold text-base sm:text-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 flex items-center justify-center mx-auto"
             >
               Learn More
@@ -150,8 +152,131 @@ const AboutPage = () => {
         </div>
       </section>
 
+      {/* Team Section - Dynamic from Firebase */}
+      <section ref={teamRef} className="py-10 sm:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 sm:mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+              Meet Our Team
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600">
+              The experts dedicated to your AI transformation
+            </p>
+            <p className="text-sm sm:text-base text-gray-500 mt-3 max-w-2xl mx-auto">
+              Founded by two business co-founders based in Houston, Texas,
+              alongside a technical co-founder based in Pakistan who leads
+              our AI and automation engineering.
+            </p>
+          </div>
+
+          {loading ? (
+            <div className="text-center py-12">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+              <p className="mt-4 text-gray-600">Loading team members...</p>
+            </div>
+          ) : teamMembers.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-gray-500 text-lg">No team members found.</p>
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {teamMembers.map((member, index) => {
+                const avatarColor = avatarColors[index % avatarColors.length];
+                const roleColor = roleColors[index % roleColors.length];
+
+                return (
+                  <div
+                    key={member.id}
+                    className="bg-white rounded-xl p-5 sm:p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100 group"
+                  >
+                    <div className="flex items-center gap-4 mb-4 sm:mb-6">
+                      <div
+                        className={`w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br ${avatarColor} rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform flex-shrink-0`}
+                      >
+                        <span className="text-white text-lg sm:text-2xl font-bold">
+                          {getInitials(member.name)}
+                        </span>
+                      </div>
+                      <div className="min-w-0">
+                        <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-1 truncate">
+                          {member.name}
+                        </h3>
+                        <p className={`${roleColor} font-medium text-sm sm:text-base`}>
+                          {member.role}
+                        </p>
+                        {member.location && (
+                          <p className="flex items-center gap-1 text-gray-500 text-xs sm:text-sm mt-1">
+                            <MapPin className="w-3.5 h-3.5 flex-shrink-0" />
+                            {member.location}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                    <p className="text-gray-600 mb-4 leading-relaxed text-sm sm:text-base">
+                      {member.description}
+                    </p>
+                    {member.linkedin && (
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${member.name} on LinkedIn`}
+                        className="inline-block"
+                      >
+                        <LinkedinIcon className="w-5 h-5 text-gray-400 hover:text-blue-600 cursor-pointer transition-colors" />
+                      </a>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Mission & Vision */}
+      <section className="py-10 sm:py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-12">
+            <div className="bg-white rounded-xl p-5 sm:p-8 shadow-lg hover:shadow-2xl transition-shadow">
+              <div className="flex items-center gap-3 sm:block mb-3 sm:mb-6">
+                <div className="bg-blue-100 w-12 h-12 sm:w-16 sm:h-16 rounded-lg flex items-center justify-center sm:mb-6 shadow-md flex-shrink-0">
+                  <Target className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
+                  Our Mission
+                </h3>
+              </div>
+              <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+                To take the manual, repetitive work slowing businesses down
+                — data entry, quoting, reporting, customer follow-ups — and
+                automate it with the same caliber of AI enterprises rely on.
+                We believe every business deserves that advantage, not just
+                the ones with in-house engineering teams.
+              </p>
+            </div>
+            <div className="bg-white rounded-xl p-5 sm:p-8 shadow-lg hover:shadow-2xl transition-shadow">
+              <div className="flex items-center gap-3 sm:block mb-3 sm:mb-6">
+                <div className="bg-green-100 w-12 h-12 sm:w-16 sm:h-16 rounded-lg flex items-center justify-center sm:mb-6 shadow-md flex-shrink-0">
+                  <Lightbulb className="w-6 h-6 sm:w-8 sm:h-8 text-green-600" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
+                  Our Vision
+                </h3>
+              </div>
+              <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+                A future where SMBs of every kind lead their industries through
+                intelligent automation, where businesses compete at a whole
+                new level while staying true to their roots, and where AI
+                amplifies human creativity rather than replacing it.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Values */}
-      <section ref={valuesRef} className="py-10 sm:py-20">
+      <section className="py-10 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
@@ -182,7 +307,7 @@ const AboutPage = () => {
                   <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-green-600" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-900 sm:text-center sm:mt-4 sm:mb-3">
-                  Local Partnership
+                  Genuine Partnership
                 </h3>
               </div>
               <p className="text-gray-600 text-sm sm:text-base sm:text-center">
@@ -220,104 +345,6 @@ const AboutPage = () => {
               </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Mission & Vision */}
-      <section className="py-10 sm:py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-6 sm:gap-12">
-            <div className="bg-white rounded-xl p-5 sm:p-8 shadow-lg hover:shadow-2xl transition-shadow">
-              <div className="flex items-center gap-3 sm:block mb-3 sm:mb-6">
-                <div className="bg-blue-100 w-12 h-12 sm:w-16 sm:h-16 rounded-lg flex items-center justify-center sm:mb-6 shadow-md flex-shrink-0">
-                  <Target className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
-                  Our Mission
-                </h3>
-              </div>
-              <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
-                To democratize AI for small and medium businesses everywhere,
-                providing enterprise-level automation and intelligence tools
-                that are accessible, affordable, and immediately practical. We
-                believe every business deserves the competitive advantage that
-                AI provides.
-              </p>
-            </div>
-            <div className="bg-white rounded-xl p-5 sm:p-8 shadow-lg hover:shadow-2xl transition-shadow">
-              <div className="flex items-center gap-3 sm:block mb-3 sm:mb-6">
-                <div className="bg-green-100 w-12 h-12 sm:w-16 sm:h-16 rounded-lg flex items-center justify-center sm:mb-6 shadow-md flex-shrink-0">
-                  <Lightbulb className="w-6 h-6 sm:w-8 sm:h-8 text-green-600" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
-                  Our Vision
-                </h3>
-              </div>
-              <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
-                A future where SMBs of every kind lead their industries through
-                intelligent automation, where businesses compete at a whole
-                new level while staying true to their roots, and where AI
-                amplifies human creativity rather than replacing it.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section - Dynamic from Firebase */}
-      <section className="py-10 sm:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 sm:mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
-              Meet Our Team
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-600">
-              The experts dedicated to your AI transformation
-            </p>
-          </div>
-
-          {loading ? (
-            <div className="text-center py-12">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-              <p className="mt-4 text-gray-600">Loading team members...</p>
-            </div>
-          ) : teamMembers.length === 0 ? (
-            <div className="text-center py-12">
-              <p className="text-gray-500 text-lg">No team members found.</p>
-            </div>
-          ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {teamMembers.map((member, index) => {
-                const avatarColor = avatarColors[index % avatarColors.length];
-                const roleColor = roleColors[index % roleColors.length];
-
-                return (
-                  <div
-                    key={member.id}
-                    className="bg-white rounded-xl p-5 sm:p-8 text-center shadow-lg hover:shadow-2xl transition-all border border-gray-100 group"
-                  >
-                    <div
-                      className={`w-20 h-20 sm:w-32 sm:h-32 bg-gradient-to-br ${avatarColor} rounded-full mx-auto mb-3 sm:mb-6 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}
-                    >
-                      <span className="text-white text-xl sm:text-3xl font-bold">
-                        {getInitials(member.name)}
-                      </span>
-                    </div>
-                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-1.5 sm:mb-2">
-                      {member.name}
-                    </h3>
-                    <p className={`${roleColor} font-medium mb-3 sm:mb-4 text-sm sm:text-base`}>
-                      {member.role}
-                    </p>
-                    <p className="text-gray-600 mb-4 leading-relaxed text-sm sm:text-base">
-                      {member.description}
-                    </p>
-                    <LinkedinIcon className="w-5 h-5 text-gray-400 hover:text-blue-600 cursor-pointer mx-auto transition-colors" />
-                  </div>
-                );
-              })}
-            </div>
-          )}
         </div>
       </section>
 

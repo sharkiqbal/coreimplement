@@ -14,24 +14,29 @@ const DEFAULT_COMPANY_DATA = {
   teamMembers: [
     {
       id: 1,
-      name: "John Smith",
-      role: "CEO & Founder",
+      name: "Shar Iqbal",
+      role: "Co-Founder",
+      location: "Houston, Texas",
       description:
-        "15+ years in AI and machine learning, leading innovation in SMB solutions.",
+        "Three years consulting on major enterprise implementations for Fortune 500 companies at a Big Four firm, plus firsthand experience building and running his own business — a combination he channels into helping clients find automation that actually delivers.",
+      linkedin: "https://www.linkedin.com/in/shar-iqbal/",
     },
     {
       id: 2,
-      name: "Sarah Johnson",
-      role: "CTO",
+      name: "Saif Iqbal",
+      role: "Co-Founder",
+      location: "Houston, Texas",
       description:
-        "Expert in automation systems with a passion for simplifying complex technology.",
+        "Five years leading digital transformation at one of the world's largest energy companies — experience he channels into helping growing businesses adopt AI with that same enterprise-grade rigor.",
+      linkedin: "https://www.linkedin.com/in/saif-mohammad-iqbal-303117175/",
     },
     {
       id: 3,
-      name: "Mike Chen",
-      role: "Lead Developer",
+      name: "Faisal Khan",
+      role: "Technical Co-Founder",
+      location: "Pakistan",
       description:
-        "Full-stack developer specializing in AI integration and custom solutions.",
+        "Extensive hands-on experience in AI and automation, leading the engineering behind every solution we build.",
     },
   ],
 };
