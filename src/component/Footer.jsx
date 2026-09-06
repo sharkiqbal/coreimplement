@@ -45,60 +45,59 @@ const Footer = () => {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
-        <div className="grid md:grid-cols-3 gap-8 sm:gap-12 mb-8 sm:mb-12">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-12 mb-6 sm:mb-12">
           {/* Company Info */}
-          <div className="md:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
+          <div className="sm:col-span-2 md:col-span-1">
+            <div className="flex items-center gap-3 mb-3 sm:mb-4">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-75"></div>
                 <div className="relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-2">
                   <BrainCircuit
-                    className="w-8 h-8 text-white"
+                    className="w-7 h-7 sm:w-8 sm:h-8 text-white"
                     strokeWidth={1.5}
                   />
                 </div>
               </div>
-              <h3 className="text-xl font-bold">{companyName}</h3>
+              <h3 className="text-lg sm:text-xl font-bold">{companyName}</h3>
             </div>
-            <p className="text-gray-400 mb-6 leading-relaxed">
+            <p className="text-gray-400 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
               AI made simple for SMBs. Automating the manual, repetitive work
               that slows growing businesses down, wherever they're located.
             </p>
-            <div className="flex items-center text-gray-400 mb-6 group cursor-pointer">
-              <div className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center mr-3 group-hover:bg-white/10 transition-colors">
-                <MapPin className="w-5 h-5" />
-              </div>
-              <div>
-                <p className="text-sm text-gray-500">Based in</p>
-                <span className="font-semibold text-white">Houston, Texas</span>
-              </div>
+            <div className="flex items-center gap-2 text-gray-300 mb-4 sm:mb-6">
+              <MapPin className="w-4 h-4 text-gray-500 flex-shrink-0" />
+              <span className="text-sm sm:text-base font-medium">
+                Based in Houston, Texas
+              </span>
             </div>
             <div className="flex space-x-3">
               <a
                 href="#"
-                className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-blue-600 hover:scale-110 transition-all duration-300 group"
+                className="w-9 h-9 sm:w-10 sm:h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-blue-600 hover:scale-110 transition-all duration-300 group"
               >
-                <LinkedinIcon className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+                <LinkedinIcon className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-white transition-colors" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-pink-600 hover:scale-110 transition-all duration-300 group"
+                className="w-9 h-9 sm:w-10 sm:h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-pink-600 hover:scale-110 transition-all duration-300 group"
               >
-                <Instagram className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+                <Instagram className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-white transition-colors" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-blue-400 hover:scale-110 transition-all duration-300 group"
+                className="w-9 h-9 sm:w-10 sm:h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-blue-400 hover:scale-110 transition-all duration-300 group"
               >
-                <Twitter className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+                <Twitter className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-white transition-colors" />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold text-lg mb-6 text-white">Quick Links</h4>
-            <div className="space-y-3">
+            <h4 className="font-bold text-base sm:text-lg mb-3 sm:mb-6 text-white">
+              Quick Links
+            </h4>
+            <div className="grid grid-cols-2 sm:grid-cols-1 gap-x-4 gap-y-2 sm:gap-y-3">
               {[
                 { label: "Home", to: "/" },
                 { label: "Services", to: "/services" },
@@ -109,9 +108,9 @@ const Footer = () => {
                 <Link
                   key={link.label}
                   to={link.to}
-                  className="group flex items-center text-gray-400 hover:text-white transition-colors"
+                  className="group flex items-center text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
                 >
-                  <ArrowRight className="w-4 h-4 mr-2 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
+                  <ArrowRight className="hidden sm:block w-4 h-4 mr-2 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
                   <span className="group-hover:translate-x-1 transition-transform duration-300">
                     {link.label}
                   </span>
@@ -122,43 +121,51 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="font-bold text-lg mb-6 text-white">Contact</h4>
-            <div className="space-y-4">
+            <h4 className="font-bold text-base sm:text-lg mb-3 sm:mb-6 text-white">
+              Contact
+            </h4>
+            <div className="space-y-3 sm:space-y-4">
               <a
                 href="tel:7135550123"
-                className="group flex items-start hover:text-blue-400 transition-colors"
+                className="group flex items-center gap-3 hover:text-blue-400 transition-colors"
               >
-                <div className="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center mr-3 group-hover:bg-blue-600/20 transition-colors flex-shrink-0">
-                  <Phone className="w-5 h-5 text-gray-400 group-hover:text-blue-400 transition-colors" />
+                <div className="w-9 h-9 sm:w-10 sm:h-10 bg-white/5 rounded-lg flex items-center justify-center group-hover:bg-blue-600/20 transition-colors flex-shrink-0">
+                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-blue-400 transition-colors" />
                 </div>
                 <div>
-                  <p className="text-xs text-gray-500 mb-1">Call us</p>
-                  <span className="text-gray-300 font-medium">
+                  <p className="hidden sm:block text-xs text-gray-500 mb-1">
+                    Call us
+                  </p>
+                  <span className="text-gray-300 font-medium text-sm sm:text-base">
                     (713) 555-0123
                   </span>
                 </div>
               </a>
               <a
                 href="mailto:hello@coreimplementations.com"
-                className="group flex items-start hover:text-blue-400 transition-colors"
+                className="group flex items-center gap-3 hover:text-blue-400 transition-colors"
               >
-                <div className="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center mr-3 group-hover:bg-blue-600/20 transition-colors flex-shrink-0">
-                  <Mail className="w-5 h-5 text-gray-400 group-hover:text-blue-400 transition-colors" />
+                <div className="w-9 h-9 sm:w-10 sm:h-10 bg-white/5 rounded-lg flex items-center justify-center group-hover:bg-blue-600/20 transition-colors flex-shrink-0">
+                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-blue-400 transition-colors" />
                 </div>
                 <div>
-                  <p className="text-xs text-gray-500 mb-1">Email us</p>
-                  <span className="text-gray-300 font-medium break-all">
+                  <p className="hidden sm:block text-xs text-gray-500 mb-1">
+                    Email us
+                  </p>
+                  <span className="text-gray-300 font-medium break-all text-sm sm:text-base">
                     hello@coreimplementations.com
                   </span>
                 </div>
               </a>
-              <div className="flex items-start">
-                <div className="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
-                  <Clock className="w-5 h-5 text-gray-400" />
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 bg-white/5 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
                 </div>
                 <div>
-                  <p className="text-xs text-gray-500 mb-1">Business hours</p>
-                  <span className="text-gray-300 font-medium">
+                  <p className="hidden sm:block text-xs text-gray-500 mb-1">
+                    Business hours
+                  </p>
+                  <span className="text-gray-300 font-medium text-sm sm:text-base">
                     Mon-Fri 9AM-6PM CST
                   </span>
                 </div>
@@ -168,13 +175,13 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex flex-col md:flex-row items-center gap-4">
-              <p className="text-gray-400 text-sm">
+        <div className="border-t border-gray-800 pt-5 sm:pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4">
+            <div className="flex flex-col md:flex-row items-center gap-3 sm:gap-4">
+              <p className="text-gray-400 text-xs sm:text-sm">
                 © {currentYear} {companyName}. All rights reserved.
               </p>
-              <div className="flex items-center gap-4 text-sm">
+              <div className="flex items-center gap-4 text-xs sm:text-sm">
                 <Link
                   to="/privacy"
                   className="text-gray-400 hover:text-white transition-colors"
