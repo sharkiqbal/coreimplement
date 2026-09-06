@@ -98,8 +98,8 @@ const CaseStudiesPage = () => {
 
           {/* Subheading */}
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto font-normal mb-8 px-4">
-            See how Texas SMBs have transformed their operations with our AI
-            solutions
+            See how businesses across industries have transformed their
+            operations with our AI solutions
           </p>
 
           {/* Stats Pills */}

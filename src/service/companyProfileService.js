@@ -10,7 +10,7 @@ const DEFAULT_COMPANY_DATA = {
   completeProjects: "50+",
   headline: "Streamline Your Business with AI",
   description:
-    "We help Texas SMBs unlock AI automation for efficiency and growth. Transform your operations with intelligent solutions designed for your business.",
+    "We help growing businesses automate the manual, repetitive work slowing them down using AI, so teams spend less time on data entry, quotes, and reports, and more time on what matters.",
   teamMembers: [
     {
       id: 1,

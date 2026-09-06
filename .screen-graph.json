@@ -76,15 +76,15 @@
       }
     },
     {
-      "id": "src/routes/Homepage.jsx:177:33-to-src/routes/ContactPage.jsx",
+      "id": "src/routes/Homepage.jsx:232:33-to-src/routes/ContactPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "navigate(\"/contact\")",
-          "line": 177,
-          "endLine": 177,
+          "line": 232,
+          "endLine": 232,
           "column": 33,
           "endColumn": 53,
           "sourceFile": "src/routes/Homepage.jsx"
@@ -92,15 +92,15 @@
       }
     },
     {
-      "id": "src/routes/Homepage.jsx:398:29-to-src/routes/ContactPage.jsx",
+      "id": "src/routes/Homepage.jsx:453:29-to-src/routes/ContactPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "navigate(\"/contact\")",
-          "line": 398,
-          "endLine": 398,
+          "line": 453,
+          "endLine": 453,
           "column": 29,
           "endColumn": 49,
           "sourceFile": "src/routes/Homepage.jsx"

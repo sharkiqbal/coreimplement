@@ -35,7 +35,7 @@ const Action = () => {
           </h2>
 
           <p className="text-xl md:text-2xl mb-10 opacity-95 max-w-3xl mx-auto leading-relaxed font-medium">
-            Join dozens of Texas SMBs that have already streamlined their
+            Join dozens of businesses that have already streamlined their
             operations with AI. Book your free consultation today and discover
             what's possible for your business.
           </p>
@@ -134,7 +134,7 @@ const Action = () => {
                   />
                 </svg>
               </div>
-              <span className="font-semibold">Local Texas Expertise</span>
+              <span className="font-semibold">Hands-On, Dedicated Support</span>
             </div>
           </div>
         </div>

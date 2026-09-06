@@ -182,8 +182,9 @@ const AboutPage = () => {
                 Local Partnership
               </h3>
               <p className="text-gray-600">
-                We're not just vendors—we're Texas neighbors invested in the
-                success of local businesses and communities.
+                We're proud of our Texas roots, but we bring that same
+                neighbor-like partnership to every business we work with,
+                wherever they're located.
               </p>
             </div>
             <div className="text-center group">
@@ -226,7 +227,7 @@ const AboutPage = () => {
                 Our Mission
               </h3>
               <p className="text-gray-600 leading-relaxed">
-                To democratize AI for small and medium businesses across Texas,
+                To democratize AI for small and medium businesses everywhere,
                 providing enterprise-level automation and intelligence tools
                 that are accessible, affordable, and immediately practical. We
                 believe every business deserves the competitive advantage that
@@ -241,10 +242,10 @@ const AboutPage = () => {
                 Our Vision
               </h3>
               <p className="text-gray-600 leading-relaxed">
-                A future where Texas SMBs lead their industries through
-                intelligent automation, where local businesses compete globally
-                while staying true to their roots, and where AI amplifies human
-                creativity rather than replacing it.
+                A future where SMBs of every kind lead their industries through
+                intelligent automation, where businesses compete at a whole
+                new level while staying true to their roots, and where AI
+                amplifies human creativity rather than replacing it.
               </p>
             </div>
           </div>

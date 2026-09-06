@@ -61,8 +61,8 @@ const Footer = () => {
               <h3 className="text-xl font-bold">{companyName}</h3>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
-              AI made simple for SMBs. Transforming Texas businesses with
-              intelligent automation and data-driven insights.
+              AI made simple for SMBs. Automating the manual, repetitive work
+              that slows growing businesses down, wherever they're located.
             </p>
             <div className="flex items-center text-gray-400 mb-6 group cursor-pointer">
               <div className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center mr-3 group-hover:bg-white/10 transition-colors">

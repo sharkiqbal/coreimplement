@@ -14,6 +14,11 @@ import {
   Calendar,
   Search,
   CheckCircle2,
+  Database,
+  FileText,
+  Mail,
+  BarChart3,
+  PlugZap,
 } from "lucide-react";
 import { getAllServices } from "../service/serviceService";
 import { getAllReviews } from "../service/reviewService";
@@ -104,6 +109,56 @@ const Homepage = () => {
     },
   ];
 
+  // Manual work categories we automate, across any industry
+  const manualWorkCategories = [
+    {
+      icon: Database,
+      bg: "bg-blue-100",
+      iconColor: "text-blue-600",
+      title: "Manual Data Entry & Reconciliation",
+      description:
+        "Copying numbers between spreadsheets, systems, and software eats hours every week.",
+      examples: "Common in accounting, bookkeeping, retail, logistics",
+    },
+    {
+      icon: FileText,
+      bg: "bg-purple-100",
+      iconColor: "text-purple-600",
+      title: "Manual Quoting & Proposals",
+      description:
+        "Building custom quotes or proposals by hand slows your sales cycle and caps how many you can send.",
+      examples: "Common in insurance, contracting, consulting",
+    },
+    {
+      icon: Mail,
+      bg: "bg-green-100",
+      iconColor: "text-green-600",
+      title: "Repetitive Customer Communication",
+      description:
+        "Answering the same questions, following up on leads, and sorting emails by hand.",
+      examples: "Common in service businesses, real estate, support teams",
+    },
+    {
+      icon: BarChart3,
+      bg: "bg-orange-100",
+      iconColor: "text-orange-600",
+      title: "Manual Reporting & Analysis",
+      description:
+        "Pulling data together into reports or dashboards by hand, every week or month.",
+      examples: "Common in finance, operations, agencies",
+    },
+  ];
+
+  // Tools we commonly integrate with
+  const integrationTools = [
+    "QuickBooks",
+    "HubSpot",
+    "Salesforce",
+    "Gmail & Outlook",
+    "Google Sheets & Excel",
+    "Calendly",
+  ];
+
   useEffect(() => {
     loadData();
   }, []);
@@ -168,7 +223,7 @@ const Homepage = () => {
                 </h1>
                 <p className="text-xl text-gray-600 max-w-3xl mx-auto font-normal">
                   {companyProfile?.description ||
-                    "We help Texas SMBs unlock AI automation for efficiency and growth."}
+                    "We help growing businesses automate the manual, repetitive work slowing them down using AI, so teams spend less time on data entry, quotes, and reports, and more time on what matters."}
                 </p>
               </div>
 
@@ -247,7 +302,7 @@ const Homepage = () => {
                     />
                   </svg>
                   <span className="text-sm font-semibold text-gray-700">
-                    Texas-Based Support
+                    Hands-On, Personal Support
                   </span>
                 </div>
               </div>
@@ -328,22 +383,140 @@ const Homepage = () => {
         </div>
       </section>
 
-      {/* How It Works Section */}
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+      {/* Who We Help - Pain Points, Any Industry */}
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center px-4 py-2 bg-blue-50 rounded-full shadow-sm border border-blue-100 mb-6">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left: Copy */}
+            <div>
+              <span className="text-sm font-bold text-indigo-600 uppercase tracking-wide">
+                Built For Every Industry
+              </span>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-2 mb-4 leading-tight">
+                If It's{" "}
+                <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                  Repetitive
+                </span>
+                , We Can Probably Automate It
+              </h2>
+              <p className="text-lg text-gray-600 mb-4 leading-relaxed">
+                We're not limited to one industry. If your team is buried in
+                manual data entry, back-and-forth emails, quotes, or reports,
+                there's a good chance AI can take it off their plate,
+                whatever business you're in.
+              </p>
+              <p className="text-gray-500">
+                Don't see your exact process listed? That's the point, if
+                it's manual and repetitive, we'll take a look.
+              </p>
+            </div>
+
+            {/* Right: Compact category grid */}
+            <div className="grid sm:grid-cols-2 gap-6">
+              {manualWorkCategories.map((category, index) => {
+                const CategoryIcon = category.icon;
+                return (
+                  <div
+                    key={index}
+                    className="bg-white rounded-xl p-6 shadow-md border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                  >
+                    <div
+                      className={`${category.bg} w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-md`}
+                    >
+                      <CategoryIcon
+                        className={`w-6 h-6 ${category.iconColor}`}
+                      />
+                    </div>
+                    <h3 className="text-base font-semibold text-gray-900 mb-2">
+                      {category.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed mb-3">
+                      {category.description}
+                    </p>
+                    <p className="text-xs font-medium text-gray-400">
+                      {category.examples}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Key Services Snapshot - Dynamic */}
+      <section ref={servicesRef} className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
+              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                Our Core{" "}
+              </span>{" "}
+              Services
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Comprehensive AI solutions tailored for small and medium
+              businesses ready to embrace the future.
+            </p>
+          </div>
+
+          {loading ? (
+            <div className="text-center py-12">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+              <p className="mt-4 text-gray-600">Loading services...</p>
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {services.map((service, index) => {
+                const IconComponent = getIconComponent(service.logoId);
+                const colors = colorSchemes[index % colorSchemes.length];
+
+                return (
+                  <div
+                    key={service.id}
+                    className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group"
+                  >
+                    <div
+                      className={`${colors.bg} w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:${colors.hoverBg} transition-colors shadow-md`}
+                    >
+                      <IconComponent className={`w-8 h-8 ${colors.icon}`} />
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                      {service.name}
+                    </h3>
+                    <p className="text-gray-600 mb-4 leading-relaxed">
+                      {service.solution}
+                    </p>
+                    <a
+                      href="#"
+                      className="text-blue-600 font-medium flex items-center hover:text-blue-700 transition-colors"
+                    >
+                      Learn More <ChevronRight className="w-4 h-4 ml-1" />
+                    </a>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="py-16 bg-gradient-to-b from-white to-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center px-4 py-2 bg-blue-50 rounded-full shadow-sm border border-blue-100 mb-3">
               <span className="text-sm font-semibold text-blue-600">
                 Simple, Transparent Process
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
               How It{" "}
               <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
                 Works
               </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               From first conversation to fully implemented automation, here's
               exactly what it looks like to work with{" "}
               {companyProfile?.companyName || "Core Implementations"}.
@@ -417,65 +590,8 @@ const Homepage = () => {
         </div>
       </section>
 
-      {/* Key Services Snapshot - Dynamic */}
-      <section ref={servicesRef} className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
-              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                Our Core{" "}
-              </span>{" "}
-              Services
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive AI solutions tailored for small and medium
-              businesses ready to embrace the future.
-            </p>
-          </div>
-
-          {loading ? (
-            <div className="text-center py-12">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-              <p className="mt-4 text-gray-600">Loading services...</p>
-            </div>
-          ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {services.map((service, index) => {
-                const IconComponent = getIconComponent(service.logoId);
-                const colors = colorSchemes[index % colorSchemes.length];
-
-                return (
-                  <div
-                    key={service.id}
-                    className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group"
-                  >
-                    <div
-                      className={`${colors.bg} w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:${colors.hoverBg} transition-colors shadow-md`}
-                    >
-                      <IconComponent className={`w-8 h-8 ${colors.icon}`} />
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                      {service.name}
-                    </h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed">
-                      {service.solution}
-                    </p>
-                    <a
-                      href="#"
-                      className="text-blue-600 font-medium flex items-center hover:text-blue-700 transition-colors"
-                    >
-                      Learn More <ChevronRight className="w-4 h-4 ml-1" />
-                    </a>
-                  </div>
-                );
-              })}
-            </div>
-          )}
-        </div>
-      </section>
-
       {/* Trust Builders Section - Dynamic */}
-      <section className="relative py-24 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 overflow-hidden">
+      <section className="relative py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
           <div className="absolute top-20 right-10 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
           <div
@@ -485,28 +601,28 @@ const Homepage = () => {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-md border border-blue-100 mb-6">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-md border border-blue-100 mb-3">
               <span className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
               <span className="text-sm font-semibold text-gray-700">
                 Proven Track Record
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
               Trusted by{" "}
               <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
                 Growing Businesses
               </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl text-center mx-auto">
-              See why Texas SMBs choose{" "}
+            <p className="text-lg text-gray-600 max-w-3xl text-center mx-auto">
+              See why growing businesses choose{" "}
               {companyProfile?.companyName || "Core Implementations"} for their
               AI transformation
             </p>
           </div>
 
           {/* Stats */}
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
             <div className="text-center">
               <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <Users className="w-8 h-8 text-blue-600" />
@@ -532,61 +648,104 @@ const Homepage = () => {
             </div>
           </div>
 
-          {/* Testimonials - Dynamic */}
-          {loading ? (
-            <div className="text-center py-12">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-              <p className="mt-4 text-gray-600">Loading testimonials...</p>
-            </div>
-          ) : (
-            <div className="grid md:grid-cols-2 gap-8 mb-16">
-              {reviews.map((review, index) => {
-                const avatarColor = avatarColors[index % avatarColors.length];
-
-                return (
+          {/* Works With Your Stack + Testimonials */}
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Left: Tools & AI */}
+            <div className="bg-white/60 backdrop-blur-sm border border-white rounded-2xl p-8 shadow-lg h-full">
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                Built To Fit Your Existing Stack
+              </h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                We don't ask you to abandon the software you already rely
+                on. We build automations that connect to it, and use
+                industry-leading AI models under the hood.
+              </p>
+              <div className="flex flex-wrap gap-3 mb-6">
+                {integrationTools.map((tool, index) => (
                   <div
-                    key={review.id}
-                    className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100"
+                    key={index}
+                    className="flex items-center gap-2 px-4 py-2.5 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md hover:border-indigo-200 transition-all"
                   >
-                    <div className="absolute top-6 right-6 text-blue-100 text-6xl font-serif opacity-50">
-                      "
-                    </div>
-
-                    <div className="relative">
-                      <div className="flex items-center mb-6">
-                        {[...Array(review.rating || 5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            className="w-6 h-6 text-yellow-400 fill-current drop-shadow-sm"
-                          />
-                        ))}
-                      </div>
-                      <blockquote className="text-lg text-gray-700 mb-8 leading-relaxed font-medium">
-                        "{review.description}"
-                      </blockquote>
-                      <div className="flex items-center">
-                        <div
-                          className={`relative w-16 h-16 bg-gradient-to-br ${avatarColor} rounded-full flex items-center justify-center mr-4 shadow-lg`}
-                        >
-                          <span className="text-white font-bold text-xl">
-                            {getInitials(review.name)}
-                          </span>
-                        </div>
-                        <div>
-                          <div className="font-bold text-gray-900 text-lg">
-                            {review.name}
-                          </div>
-                          <div className="text-gray-600 font-medium">
-                            {review.designation}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <PlugZap className="w-4 h-4 text-indigo-500" />
+                    <span className="text-sm font-semibold text-gray-700">
+                      {tool}
+                    </span>
                   </div>
-                );
-              })}
+                ))}
+              </div>
+              <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 border border-indigo-100 rounded-xl p-6">
+                <p className="text-sm font-semibold text-gray-500 mb-2">
+                  Powered By Leading AI
+                </p>
+                <p className="text-lg font-bold text-gray-900">
+                  Claude (Anthropic) & ChatGPT (OpenAI)
+                </p>
+                <p className="text-sm text-gray-600 mt-2">
+                  We match the right model to the job, so your automations
+                  are accurate, reliable, and built to last.
+                </p>
+              </div>
             </div>
-          )}
+
+            {/* Right: Testimonials - Dynamic */}
+            <div className="space-y-8">
+              {loading ? (
+                <div className="text-center py-12">
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+                  <p className="mt-4 text-gray-600">
+                    Loading testimonials...
+                  </p>
+                </div>
+              ) : (
+                reviews.map((review, index) => {
+                  const avatarColor =
+                    avatarColors[index % avatarColors.length];
+
+                  return (
+                    <div
+                      key={review.id}
+                      className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100"
+                    >
+                      <div className="absolute top-6 right-6 text-blue-100 text-6xl font-serif opacity-50">
+                        "
+                      </div>
+
+                      <div className="relative">
+                        <div className="flex items-center mb-6">
+                          {[...Array(review.rating || 5)].map((_, i) => (
+                            <Star
+                              key={i}
+                              className="w-6 h-6 text-yellow-400 fill-current drop-shadow-sm"
+                            />
+                          ))}
+                        </div>
+                        <blockquote className="text-lg text-gray-700 mb-8 leading-relaxed font-medium">
+                          "{review.description}"
+                        </blockquote>
+                        <div className="flex items-center">
+                          <div
+                            className={`relative w-16 h-16 bg-gradient-to-br ${avatarColor} rounded-full flex items-center justify-center mr-4 shadow-lg`}
+                          >
+                            <span className="text-white font-bold text-xl">
+                              {getInitials(review.name)}
+                            </span>
+                          </div>
+                          <div>
+                            <div className="font-bold text-gray-900 text-lg">
+                              {review.name}
+                            </div>
+                            <div className="text-gray-600 font-medium">
+                              {review.designation}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })
+              )}
+            </div>
+          </div>
         </div>
       </section>
       <Action />
