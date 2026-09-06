@@ -100,27 +100,27 @@ const Navigation = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16 sm:h-20">
           {/* Logo */}
           <Link
             to="/"
-            className="flex-shrink-0 cursor-pointer flex items-center gap-3 group"
+            className="flex-shrink-0 cursor-pointer flex items-center gap-2 sm:gap-3 group min-w-0"
           >
-            <div className="relative">
+            <div className="relative flex-shrink-0">
               {/* Animated gradient background */}
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity"></div>
-              <div className="relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-2 transform group-hover:scale-110 transition-transform duration-300">
+              <div className="relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-1.5 sm:p-2 transform group-hover:scale-110 transition-transform duration-300">
                 <BrainCircuit
-                  className="w-8 h-8 text-white"
+                  className="w-6 h-6 sm:w-8 sm:h-8 text-white"
                   strokeWidth={1.5}
                 />
               </div>
             </div>
-            <div>
-              <h1 className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+            <div className="min-w-0">
+              <h1 className="text-base sm:text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent truncate">
                 {companyName}
               </h1>
-              <p className="text-xs text-gray-500 font-medium">
+              <p className="hidden sm:block text-xs text-gray-500 font-medium">
                 AI Solutions for SMBs
               </p>
             </div>

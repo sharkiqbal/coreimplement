@@ -59,7 +59,7 @@ const ServicesPage = () => {
   };
 
   return (
-    <div className="pt-16">
+    <div className="pt-16 sm:pt-20">
       <Navigation />
 
       {/* Hero Section */}
@@ -82,7 +82,7 @@ const ServicesPage = () => {
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-8 sm:py-12 lg:py-16 flex flex-col items-center justify-center w-full">
           {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-indigo-200 mb-8">
+          <div className="inline-flex items-center px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-indigo-200 mb-4 sm:mb-8">
             <span className="w-2 h-2 bg-indigo-600 rounded-full mr-2 animate-pulse"></span>
             <span className="text-sm font-medium text-gray-800">
               Tailored for SMBs
@@ -90,7 +90,7 @@ const ServicesPage = () => {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight drop-shadow-sm">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 sm:mb-6 leading-tight drop-shadow-sm">
             Comprehensive{" "}
             <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
               AI Solutions
@@ -99,7 +99,7 @@ const ServicesPage = () => {
           </h1>
 
           {/* Subheading */}
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto font-normal mb-8 px-4">
+          <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto font-normal mb-5 sm:mb-8 px-4">
             From strategy to implementation, we provide end-to-end AI services
             designed specifically for growing businesses
           </p>
@@ -144,55 +144,57 @@ const ServicesPage = () => {
           return (
             <section
               key={service.id}
-              className={`py-20 ${colorScheme.section}`}
+              className={`py-10 sm:py-20 ${colorScheme.section}`}
             >
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div
-                  className={`grid lg:grid-cols-2 gap-12 items-center ${
+                  className={`grid lg:grid-cols-2 gap-8 sm:gap-12 items-center ${
                     !isEven ? "lg:flex-row-reverse" : ""
                   }`}
                 >
                   {/* Content Side */}
                   <div className={isEven ? "order-1" : "order-1 lg:order-2"}>
-                    <div
-                      className={`${colorScheme.bg} w-16 h-16 rounded-lg flex items-center justify-center mb-6 shadow-lg transform hover:scale-110 transition-transform`}
-                    >
-                      <IconComponent
-                        className={`w-8 h-8 ${colorScheme.text}`}
-                      />
+                    <div className="flex items-center gap-3 sm:block mb-4 sm:mb-6">
+                      <div
+                        className={`${colorScheme.bg} w-12 h-12 sm:w-16 sm:h-16 rounded-lg flex items-center justify-center sm:mb-6 shadow-lg transform hover:scale-110 transition-transform flex-shrink-0`}
+                      >
+                        <IconComponent
+                          className={`w-6 h-6 sm:w-8 sm:h-8 ${colorScheme.text}`}
+                        />
+                      </div>
+                      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
+                        {service.name}
+                      </h2>
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                      {service.name}
-                    </h2>
-                    <div className="space-y-6">
-                      <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
-                        <h3 className="text-xl font-semibold text-gray-900 mb-3 flex items-center">
-                          <span className="w-2 h-2 bg-red-500 rounded-full mr-2"></span>
+                    <div className="space-y-4 sm:space-y-6">
+                      <div className="bg-white p-4 sm:p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+                        <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 flex items-center">
+                          <span className="w-2 h-2 bg-red-500 rounded-full mr-2 flex-shrink-0"></span>
                           The Problem
                         </h3>
-                        <p className="text-gray-600 leading-relaxed">
+                        <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
                           {service.problem}
                         </p>
                       </div>
-                      <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
-                        <h3 className="text-xl font-semibold text-gray-900 mb-3 flex items-center">
-                          <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                      <div className="bg-white p-4 sm:p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+                        <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 flex items-center">
+                          <span className="w-2 h-2 bg-green-500 rounded-full mr-2 flex-shrink-0"></span>
                           Our Solution
                         </h3>
-                        <p className="text-gray-600 leading-relaxed">
+                        <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
                           {service.solution}
                         </p>
                       </div>
-                      <div className="bg-gradient-to-br from-white to-gray-50 p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
-                        <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                          <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                      <div className="bg-gradient-to-br from-white to-gray-50 p-4 sm:p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+                        <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center">
+                          <span className="w-2 h-2 bg-blue-500 rounded-full mr-2 flex-shrink-0"></span>
                           What You Get
                         </h3>
-                        <ul className="space-y-3 text-gray-600">
+                        <ul className="space-y-2 sm:space-y-3 text-gray-600">
                           {service.points.map((point, idx) => (
                             <li key={idx} className="flex items-start group">
                               <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-                              <span className="leading-relaxed">{point}</span>
+                              <span className="leading-relaxed text-sm sm:text-base">{point}</span>
                             </li>
                           ))}
                         </ul>
@@ -202,7 +204,7 @@ const ServicesPage = () => {
 
                   {/* Visual Side */}
                   <div
-                    className={`${
+                    className={`hidden lg:block ${
                       isEven ? "order-2" : "order-2 lg:order-1"
                     } relative`}
                   >

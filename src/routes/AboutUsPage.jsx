@@ -78,7 +78,7 @@ const AboutPage = () => {
   };
 
   return (
-    <div className="pt-16">
+    <div className="pt-16 sm:pt-20">
       <Navigation />
       {/* Hero Section */}
       <section className="relative min-h-[70vh] bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-50 flex items-center overflow-hidden">
@@ -104,7 +104,7 @@ const AboutPage = () => {
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-blue-200 mb-8">
+          <div className="inline-flex items-center px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-blue-200 mb-4 sm:mb-8">
             <span className="w-2 h-2 bg-blue-600 rounded-full mr-2 animate-pulse"></span>
             <span className="text-sm font-medium text-gray-800">
               Empowering Small Businesses
@@ -112,7 +112,7 @@ const AboutPage = () => {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight drop-shadow-sm">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 sm:mb-6 leading-tight drop-shadow-sm">
             Why Core Implementations{" "}
             <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
               Exists
@@ -120,7 +120,7 @@ const AboutPage = () => {
           </h1>
 
           {/* Subheading */}
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto font-normal mb-8 px-4">
+          <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto font-normal mb-5 sm:mb-8 px-4">
             Bridging the gap between enterprise AI capabilities and small
             business accessibility
           </p>
@@ -129,7 +129,7 @@ const AboutPage = () => {
           <div className="flex flex-col sm:flex-row gap-2 justify-center items-center px-4">
             <button
               onClick={scrollToValues}
-              className="group w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-bold text-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 flex items-center justify-center mx-auto"
+              className="group w-full sm:w-auto px-8 py-3.5 sm:px-10 sm:py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-bold text-base sm:text-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 flex items-center justify-center mx-auto"
             >
               Learn More
               <svg
@@ -151,62 +151,70 @@ const AboutPage = () => {
       </section>
 
       {/* Values */}
-      <section ref={valuesRef} className="py-20">
+      <section ref={valuesRef} className="py-10 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-8 sm:mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
               Our Core Values
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-lg sm:text-xl text-gray-600">
               The principles that guide everything we do
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center group">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                <Shield className="w-8 h-8 text-blue-600" />
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8">
+            <div className="group">
+              <div className="flex items-center gap-3 sm:block mb-2 sm:mb-4">
+                <div className="bg-blue-100 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center sm:mx-auto shadow-lg group-hover:scale-110 transition-transform flex-shrink-0">
+                  <Shield className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
+                </div>
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 sm:text-center sm:mt-4 sm:mb-3">
+                  Transparency
+                </h3>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Transparency
-              </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 text-sm sm:text-base sm:text-center">
                 Clear communication about costs, timelines, and realistic
                 outcomes. No technical jargon, no overselling.
               </p>
             </div>
-            <div className="text-center group">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                <Heart className="w-8 h-8 text-green-600" />
+            <div className="group">
+              <div className="flex items-center gap-3 sm:block mb-2 sm:mb-4">
+                <div className="bg-green-100 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center sm:mx-auto shadow-lg group-hover:scale-110 transition-transform flex-shrink-0">
+                  <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-green-600" />
+                </div>
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 sm:text-center sm:mt-4 sm:mb-3">
+                  Local Partnership
+                </h3>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Local Partnership
-              </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 text-sm sm:text-base sm:text-center">
                 We're proud of our Texas roots, but we bring that same
                 neighbor-like partnership to every business we work with,
                 wherever they're located.
               </p>
             </div>
-            <div className="text-center group">
-              <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                <Award className="w-8 h-8 text-purple-600" />
+            <div className="group">
+              <div className="flex items-center gap-3 sm:block mb-2 sm:mb-4">
+                <div className="bg-purple-100 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center sm:mx-auto shadow-lg group-hover:scale-110 transition-transform flex-shrink-0">
+                  <Award className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />
+                </div>
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 sm:text-center sm:mt-4 sm:mb-3">
+                  Excellence
+                </h3>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Excellence
-              </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 text-sm sm:text-base sm:text-center">
                 Delivering solutions that exceed expectations while maintaining
                 the highest standards of quality and reliability.
               </p>
             </div>
-            <div className="text-center group">
-              <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                <Users className="w-8 h-8 text-orange-600" />
+            <div className="group">
+              <div className="flex items-center gap-3 sm:block mb-2 sm:mb-4">
+                <div className="bg-orange-100 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center sm:mx-auto shadow-lg group-hover:scale-110 transition-transform flex-shrink-0">
+                  <Users className="w-6 h-6 sm:w-8 sm:h-8 text-orange-600" />
+                </div>
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 sm:text-center sm:mt-4 sm:mb-3">
+                  Human-Centered
+                </h3>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Human-Centered
-              </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 text-sm sm:text-base sm:text-center">
                 AI should enhance human capabilities, not replace them. We
                 design solutions that empower your team.
               </p>
@@ -216,17 +224,19 @@ const AboutPage = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-10 sm:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-shadow">
-              <div className="bg-blue-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6 shadow-md">
-                <Target className="w-8 h-8 text-blue-600" />
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-12">
+            <div className="bg-white rounded-xl p-5 sm:p-8 shadow-lg hover:shadow-2xl transition-shadow">
+              <div className="flex items-center gap-3 sm:block mb-3 sm:mb-6">
+                <div className="bg-blue-100 w-12 h-12 sm:w-16 sm:h-16 rounded-lg flex items-center justify-center sm:mb-6 shadow-md flex-shrink-0">
+                  <Target className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
+                  Our Mission
+                </h3>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Our Mission
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
                 To democratize AI for small and medium businesses everywhere,
                 providing enterprise-level automation and intelligence tools
                 that are accessible, affordable, and immediately practical. We
@@ -234,14 +244,16 @@ const AboutPage = () => {
                 AI provides.
               </p>
             </div>
-            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-shadow">
-              <div className="bg-green-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6 shadow-md">
-                <Lightbulb className="w-8 h-8 text-green-600" />
+            <div className="bg-white rounded-xl p-5 sm:p-8 shadow-lg hover:shadow-2xl transition-shadow">
+              <div className="flex items-center gap-3 sm:block mb-3 sm:mb-6">
+                <div className="bg-green-100 w-12 h-12 sm:w-16 sm:h-16 rounded-lg flex items-center justify-center sm:mb-6 shadow-md flex-shrink-0">
+                  <Lightbulb className="w-6 h-6 sm:w-8 sm:h-8 text-green-600" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
+                  Our Vision
+                </h3>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Our Vision
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
                 A future where SMBs of every kind lead their industries through
                 intelligent automation, where businesses compete at a whole
                 new level while staying true to their roots, and where AI
@@ -253,13 +265,13 @@ const AboutPage = () => {
       </section>
 
       {/* Team Section - Dynamic from Firebase */}
-      <section className="py-20 bg-white">
+      <section className="py-10 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-8 sm:mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
               Meet Our Team
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-lg sm:text-xl text-gray-600">
               The experts dedicated to your AI transformation
             </p>
           </div>
@@ -282,22 +294,22 @@ const AboutPage = () => {
                 return (
                   <div
                     key={member.id}
-                    className="bg-white rounded-xl p-8 text-center shadow-lg hover:shadow-2xl transition-all border border-gray-100 group"
+                    className="bg-white rounded-xl p-5 sm:p-8 text-center shadow-lg hover:shadow-2xl transition-all border border-gray-100 group"
                   >
                     <div
-                      className={`w-32 h-32 bg-gradient-to-br ${avatarColor} rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}
+                      className={`w-20 h-20 sm:w-32 sm:h-32 bg-gradient-to-br ${avatarColor} rounded-full mx-auto mb-3 sm:mb-6 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}
                     >
-                      <span className="text-white text-3xl font-bold">
+                      <span className="text-white text-xl sm:text-3xl font-bold">
                         {getInitials(member.name)}
                       </span>
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-1.5 sm:mb-2">
                       {member.name}
                     </h3>
-                    <p className={`${roleColor} font-medium mb-4`}>
+                    <p className={`${roleColor} font-medium mb-3 sm:mb-4 text-sm sm:text-base`}>
                       {member.role}
                     </p>
-                    <p className="text-gray-600 mb-4 leading-relaxed">
+                    <p className="text-gray-600 mb-4 leading-relaxed text-sm sm:text-base">
                       {member.description}
                     </p>
                     <LinkedinIcon className="w-5 h-5 text-gray-400 hover:text-blue-600 cursor-pointer mx-auto transition-colors" />

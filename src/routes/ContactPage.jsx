@@ -240,7 +240,7 @@ const EnhancedContactPage = () => {
         </div>
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-8 sm:py-12 lg:py-16 flex flex-col items-center justify-center w-full">
-          <div className="inline-flex items-center px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-emerald-200 mb-8">
+          <div className="inline-flex items-center px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-emerald-200 mb-4 sm:mb-8">
             <svg
               className="w-4 h-4 text-emerald-600 mr-2"
               fill="currentColor"
@@ -257,21 +257,21 @@ const EnhancedContactPage = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 sm:mb-6 leading-tight">
             Get Started{" "}
             <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
               Today
             </span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto font-normal mb-8 px-4">
+          <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto font-normal mb-5 sm:mb-8 px-4">
             Choose the best way to connect: quick contact, schedule a meeting,
             or submit a detailed RFP
           </p>
 
           <button
             onClick={scrollToContactForm}
-            className="group px-10 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-bold text-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 flex items-center justify-center mx-auto"
+            className="group px-8 py-3.5 sm:px-10 sm:py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-bold text-base sm:text-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 flex items-center justify-center mx-auto"
           >
             Choose Your Path
             <svg
@@ -292,14 +292,14 @@ const EnhancedContactPage = () => {
       </section>
 
       {/* Main Content with Tabs */}
-      <section ref={contactFormRef} className="py-20">
+      <section ref={contactFormRef} className="py-10 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Tab Navigation */}
-          <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-2 mb-8">
+          <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-2 mb-6 sm:mb-8">
             <div className="grid grid-cols-3 gap-2">
               <button
                 onClick={() => setActiveTab("contact")}
-                className={`flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-bold transition-all ${
+                className={`flex items-center justify-center gap-2 px-3 py-3 sm:px-6 sm:py-4 rounded-xl font-bold transition-all ${
                   activeTab === "contact"
                     ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg"
                     : "text-gray-600 hover:bg-gray-100"
@@ -312,7 +312,7 @@ const EnhancedContactPage = () => {
 
               <button
                 onClick={() => setActiveTab("appointment")}
-                className={`flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-bold transition-all ${
+                className={`flex items-center justify-center gap-2 px-3 py-3 sm:px-6 sm:py-4 rounded-xl font-bold transition-all ${
                   activeTab === "appointment"
                     ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg"
                     : "text-gray-600 hover:bg-gray-100"
@@ -325,7 +325,7 @@ const EnhancedContactPage = () => {
 
               <button
                 onClick={() => setActiveTab("rfp")}
-                className={`flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-bold transition-all ${
+                className={`flex items-center justify-center gap-2 px-3 py-3 sm:px-6 sm:py-4 rounded-xl font-bold transition-all ${
                   activeTab === "rfp"
                     ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg"
                     : "text-gray-600 hover:bg-gray-100"
@@ -339,16 +339,16 @@ const EnhancedContactPage = () => {
           </div>
 
           {/* Tab Content */}
-          <div className="grid lg:grid-cols-3 gap-12">
+          <div className="grid lg:grid-cols-3 gap-6 sm:gap-12">
             {/* Left Column - Info */}
-            <div className="lg:col-span-1 space-y-8">
+            <div className="lg:col-span-1 space-y-5 sm:space-y-8">
               <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-6">
                   {activeTab === "contact" && "Let's Talk"}
                   {activeTab === "appointment" && "Schedule Time"}
                   {activeTab === "rfp" && "Submit Your RFP"}
                 </h2>
-                <p className="text-lg text-gray-600 mb-8">
+                <p className="text-base sm:text-lg text-gray-600 mb-5 sm:mb-8">
                   {activeTab === "contact" &&
                     "Quick questions? Drop us a message and we'll respond within 24 hours."}
                   {activeTab === "appointment" &&
@@ -358,50 +358,50 @@ const EnhancedContactPage = () => {
                 </p>
               </div>
 
-              <div className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-blue-600" />
+              <div className="space-y-4 sm:space-y-6">
+                <div className="flex items-center space-x-3 sm:space-x-4">
+                  <div className="bg-blue-100 w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900">Phone</div>
-                    <div className="text-gray-600">(713) 555-0123</div>
+                    <div className="font-semibold text-gray-900 text-sm sm:text-base">Phone</div>
+                    <div className="text-gray-600 text-sm sm:text-base">(713) 555-0123</div>
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-4">
-                  <div className="bg-green-100 w-12 h-12 rounded-lg flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-green-600" />
+                <div className="flex items-center space-x-3 sm:space-x-4">
+                  <div className="bg-green-100 w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900">Email</div>
-                    <div className="text-gray-600">
+                    <div className="font-semibold text-gray-900 text-sm sm:text-base">Email</div>
+                    <div className="text-gray-600 text-sm sm:text-base">
                       hello@coreimplementations.com
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-4">
-                  <div className="bg-purple-100 w-12 h-12 rounded-lg flex items-center justify-center">
-                    <Clock className="w-6 h-6 text-purple-600" />
+                <div className="flex items-center space-x-3 sm:space-x-4">
+                  <div className="bg-purple-100 w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600" />
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900">
+                    <div className="font-semibold text-gray-900 text-sm sm:text-base">
                       Business Hours
                     </div>
-                    <div className="text-gray-600">
+                    <div className="text-gray-600 text-sm sm:text-base">
                       Monday - Friday: 9AM - 6PM CST
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-4">
-                  <div className="bg-orange-100 w-12 h-12 rounded-lg flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-orange-600" />
+                <div className="flex items-center space-x-3 sm:space-x-4">
+                  <div className="bg-orange-100 w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-orange-600" />
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900">Location</div>
-                    <div className="text-gray-600">Houston, Texas</div>
+                    <div className="font-semibold text-gray-900 text-sm sm:text-base">Location</div>
+                    <div className="text-gray-600 text-sm sm:text-base">Houston, Texas</div>
                   </div>
                 </div>
               </div>
@@ -411,7 +411,7 @@ const EnhancedContactPage = () => {
             <div className="lg:col-span-2">
               {/* Quick Contact Form */}
               {activeTab === "contact" && (
-                <div className="bg-white border border-gray-200 rounded-xl p-8 shadow-lg">
+                <div className="bg-white border border-gray-200 rounded-xl p-5 sm:p-8 shadow-lg">
                   <h3 className="text-2xl font-bold text-gray-900 mb-6">
                     Send Us a Message
                   </h3>
@@ -539,7 +539,7 @@ const EnhancedContactPage = () => {
 
               {/* Calendly Embed */}
               {activeTab === "appointment" && (
-                <div className="bg-white border border-gray-200 rounded-xl p-8 shadow-lg">
+                <div className="bg-white border border-gray-200 rounded-xl p-5 sm:p-8 shadow-lg">
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">
                     Choose Your Meeting Type
                   </h3>
@@ -643,7 +643,7 @@ const EnhancedContactPage = () => {
 
               {/* RFP Form */}
               {activeTab === "rfp" && (
-                <div className="bg-white border border-gray-200 rounded-xl p-8 shadow-lg">
+                <div className="bg-white border border-gray-200 rounded-xl p-5 sm:p-8 shadow-lg">
                   <h3 className="text-2xl font-bold text-gray-900 mb-6">
                     Submit Your RFP
                   </h3>

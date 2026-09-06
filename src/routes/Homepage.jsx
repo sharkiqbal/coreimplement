@@ -195,7 +195,7 @@ const Homepage = () => {
   };
 
   return (
-    <div className="pt-16">
+    <div className="pt-16 sm:pt-20">
       <Navigation />
       {/* Hero Section */}
       <section className="relative min-h-[70vh] bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-50 flex items-center overflow-hidden">
@@ -212,25 +212,25 @@ const Homepage = () => {
           ></div>
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 flex flex-col items-center justify-center w-full">
-          <div className="grid lg:grid-cols-2 gap-12 items-center w-full max-w-6xl">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-14 flex flex-col items-center justify-center w-full">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center w-full max-w-6xl">
             {/* Left Content */}
-            <div className="space-y-8">
-              <div className="space-y-6">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+            <div className="space-y-5 sm:space-y-8">
+              <div className="space-y-3 sm:space-y-6">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
                   {companyProfile?.headline ||
                     "Streamline Your Business with AI"}
                 </h1>
-                <p className="text-xl text-gray-600 max-w-3xl mx-auto font-normal">
+                <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto font-normal">
                   {companyProfile?.description ||
                     "We help growing businesses automate the manual, repetitive work slowing them down using AI, so teams spend less time on data entry, quotes, and reports, and more time on what matters."}
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <button
                   onClick={() => navigate("/contact")}
-                  className="group bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-10 py-5 rounded-xl text-lg font-bold hover:from-blue-700 hover:to-indigo-700 transition-all transform hover:scale-105 hover:-translate-y-1 shadow-xl hover:shadow-2xl flex items-center justify-center"
+                  className="group bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3.5 sm:px-10 sm:py-5 rounded-xl text-base sm:text-lg font-bold hover:from-blue-700 hover:to-indigo-700 transition-all transform hover:scale-105 hover:-translate-y-1 shadow-xl hover:shadow-2xl flex items-center justify-center"
                 >
                   Book a Free Consultation
                   <svg
@@ -249,17 +249,17 @@ const Homepage = () => {
                 </button>
                 <button
                   onClick={scrollToServices}
-                  className="bg-white/90 backdrop-blur-sm border-2 border-gray-300 text-gray-700 px-10 py-5 rounded-xl text-lg font-bold hover:border-indigo-600 hover:text-indigo-600 hover:bg-white transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  className="bg-white/90 backdrop-blur-sm border-2 border-gray-300 text-gray-700 px-6 py-3.5 sm:px-10 sm:py-5 rounded-xl text-base sm:text-lg font-bold hover:border-indigo-600 hover:text-indigo-600 hover:bg-white transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 >
                   Learn More
                 </button>
               </div>
 
               {/* Trust Indicators */}
-              <div className="flex flex-wrap gap-6 pt-4">
+              <div className="flex flex-wrap gap-x-5 gap-y-2 sm:gap-6 pt-1 sm:pt-4">
                 <div className="flex items-center">
                   <svg
-                    className="w-5 h-5 text-green-600 mr-2"
+                    className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 mr-1.5 sm:mr-2"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -269,13 +269,13 @@ const Homepage = () => {
                       clipRule="evenodd"
                     />
                   </svg>
-                  <span className="text-sm font-semibold text-gray-700">
+                  <span className="text-xs sm:text-sm font-semibold text-gray-700">
                     Free Consultation
                   </span>
                 </div>
                 <div className="flex items-center">
                   <svg
-                    className="w-5 h-5 text-green-600 mr-2"
+                    className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 mr-1.5 sm:mr-2"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -285,13 +285,13 @@ const Homepage = () => {
                       clipRule="evenodd"
                     />
                   </svg>
-                  <span className="text-sm font-semibold text-gray-700">
+                  <span className="text-xs sm:text-sm font-semibold text-gray-700">
                     No Long-Term Contracts
                   </span>
                 </div>
                 <div className="flex items-center">
                   <svg
-                    className="w-5 h-5 text-green-600 mr-2"
+                    className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 mr-1.5 sm:mr-2"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -301,7 +301,7 @@ const Homepage = () => {
                       clipRule="evenodd"
                     />
                   </svg>
-                  <span className="text-sm font-semibold text-gray-700">
+                  <span className="text-xs sm:text-sm font-semibold text-gray-700">
                     Hands-On, Personal Support
                   </span>
                 </div>
@@ -309,19 +309,19 @@ const Homepage = () => {
             </div>
 
             {/* Right Content - Dashboard continues... */}
-            <div className="relative">
+            <div className="hidden lg:block relative">
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-yellow-400 rounded-full mix-blend-multiply filter blur-xl opacity-40 animate-pulse"></div>
               <div
                 className="absolute -bottom-4 -left-4 w-32 h-32 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-40 animate-pulse"
                 style={{ animationDelay: "0.7s" }}
               ></div>
 
-              <div className="relative bg-gradient-to-br from-blue-500 via-indigo-600 to-purple-600 rounded-3xl p-8 shadow-2xl transform hover:scale-105 transition-transform duration-300">
-                <div className="space-y-6">
+              <div className="relative bg-gradient-to-br from-blue-500 via-indigo-600 to-purple-600 rounded-3xl p-5 sm:p-8 shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                <div className="space-y-3 sm:space-y-6">
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
+                    <div className="flex items-center space-x-2 sm:space-x-3">
                       <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse shadow-lg shadow-green-400/50"></div>
-                      <span className="text-white font-bold text-lg">
+                      <span className="text-white font-bold text-base sm:text-lg">
                         AI Systems Active
                       </span>
                     </div>
@@ -332,7 +332,7 @@ const Homepage = () => {
                     </div>
                   </div>
 
-                  <div className="space-y-4">
+                  <div className="space-y-2.5 sm:space-y-4">
                     {[
                       {
                         label: "Process Efficiency",
@@ -355,21 +355,21 @@ const Homepage = () => {
                     ].map((metric, idx) => (
                       <div
                         key={idx}
-                        className="bg-white/20 backdrop-blur-md rounded-xl p-5 border border-white/30 shadow-lg hover:bg-white/25 transition-all"
+                        className="bg-white/20 backdrop-blur-md rounded-xl p-3.5 sm:p-5 border border-white/30 shadow-lg hover:bg-white/25 transition-all"
                       >
-                        <div className="flex items-center justify-between mb-3">
-                          <span className="text-white font-semibold">
+                        <div className="flex items-center justify-between mb-2 sm:mb-3">
+                          <span className="text-white font-semibold text-sm sm:text-base">
                             {metric.label}
                           </span>
                           <span
-                            className={`text-${metric.color}-200 text-xl font-bold`}
+                            className={`text-${metric.color}-200 text-lg sm:text-xl font-bold`}
                           >
                             {metric.value}
                           </span>
                         </div>
-                        <div className="w-full bg-white/20 rounded-full h-3">
+                        <div className="w-full bg-white/20 rounded-full h-2.5 sm:h-3">
                           <div
-                            className={`bg-gradient-to-r from-${metric.color}-400 to-${metric.color}-300 h-3 rounded-full shadow-lg`}
+                            className={`bg-gradient-to-r from-${metric.color}-400 to-${metric.color}-300 h-2.5 sm:h-3 rounded-full shadow-lg`}
                             style={{ width: metric.width }}
                           ></div>
                         </div>
@@ -384,53 +384,55 @@ const Homepage = () => {
       </section>
 
       {/* Who We Help - Pain Points, Any Industry */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-10 sm:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Left: Copy */}
             <div>
               <span className="text-sm font-bold text-indigo-600 uppercase tracking-wide">
                 Built For Every Industry
               </span>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-2 mb-4 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-2 mb-3 sm:mb-4 leading-tight">
                 If It's{" "}
                 <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
                   Repetitive
                 </span>
                 , We Can Probably Automate It
               </h2>
-              <p className="text-lg text-gray-600 mb-4 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-600 mb-3 sm:mb-4 leading-relaxed">
                 We're not limited to one industry. If your team is buried in
                 manual data entry, back-and-forth emails, quotes, or reports,
                 there's a good chance AI can take it off their plate,
                 whatever business you're in.
               </p>
-              <p className="text-gray-500">
+              <p className="text-sm sm:text-base text-gray-500">
                 Don't see your exact process listed? That's the point, if
                 it's manual and repetitive, we'll take a look.
               </p>
             </div>
 
             {/* Right: Compact category grid */}
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
               {manualWorkCategories.map((category, index) => {
                 const CategoryIcon = category.icon;
                 return (
                   <div
                     key={index}
-                    className="bg-white rounded-xl p-6 shadow-md border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                    className="bg-white rounded-xl p-4 sm:p-6 shadow-md border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                   >
-                    <div
-                      className={`${category.bg} w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-md`}
-                    >
-                      <CategoryIcon
-                        className={`w-6 h-6 ${category.iconColor}`}
-                      />
+                    <div className="flex items-center gap-3 mb-2 sm:mb-4">
+                      <div
+                        className={`${category.bg} w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center shadow-md flex-shrink-0`}
+                      >
+                        <CategoryIcon
+                          className={`w-5 h-5 sm:w-6 sm:h-6 ${category.iconColor}`}
+                        />
+                      </div>
+                      <h3 className="text-base font-semibold text-gray-900">
+                        {category.title}
+                      </h3>
                     </div>
-                    <h3 className="text-base font-semibold text-gray-900 mb-2">
-                      {category.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed mb-3">
+                    <p className="text-gray-600 text-sm leading-relaxed mb-2 sm:mb-3">
                       {category.description}
                     </p>
                     <p className="text-xs font-medium text-gray-400">
@@ -445,7 +447,7 @@ const Homepage = () => {
       </section>
 
       {/* Key Services Snapshot - Dynamic */}
-      <section ref={servicesRef} className="py-16 bg-white">
+      <section ref={servicesRef} className="py-10 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
@@ -466,7 +468,7 @@ const Homepage = () => {
               <p className="mt-4 text-gray-600">Loading services...</p>
             </div>
           ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8">
               {services.map((service, index) => {
                 const IconComponent = getIconComponent(service.logoId);
                 const colors = colorSchemes[index % colorSchemes.length];
@@ -474,17 +476,19 @@ const Homepage = () => {
                 return (
                   <div
                     key={service.id}
-                    className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group"
+                    className="bg-white border border-gray-200 rounded-xl p-5 sm:p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group"
                   >
-                    <div
-                      className={`${colors.bg} w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:${colors.hoverBg} transition-colors shadow-md`}
-                    >
-                      <IconComponent className={`w-8 h-8 ${colors.icon}`} />
+                    <div className="flex items-center gap-3 sm:block mb-3 sm:mb-6">
+                      <div
+                        className={`${colors.bg} w-12 h-12 sm:w-16 sm:h-16 rounded-lg flex items-center justify-center sm:mb-6 group-hover:${colors.hoverBg} transition-colors shadow-md flex-shrink-0`}
+                      >
+                        <IconComponent className={`w-6 h-6 sm:w-8 sm:h-8 ${colors.icon}`} />
+                      </div>
+                      <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
+                        {service.name}
+                      </h3>
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                      {service.name}
-                    </h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed">
+                    <p className="text-gray-600 mb-4 leading-relaxed text-sm sm:text-base">
                       {service.solution}
                     </p>
                     <a
@@ -502,7 +506,7 @@ const Homepage = () => {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-16 bg-gradient-to-b from-white to-gray-50">
+      <section className="py-10 sm:py-16 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <div className="inline-flex items-center px-4 py-2 bg-blue-50 rounded-full shadow-sm border border-blue-100 mb-3">
@@ -523,7 +527,7 @@ const Homepage = () => {
             </p>
           </div>
 
-          <div className="relative grid md:grid-cols-3 gap-8 lg:gap-10">
+          <div className="relative grid md:grid-cols-3 gap-5 sm:gap-8 lg:gap-10">
             {/* Connecting line for desktop */}
             <div className="hidden md:block absolute top-20 left-[16.5%] right-[16.5%] h-0.5 bg-gradient-to-r from-blue-200 via-indigo-300 to-purple-200"></div>
 
@@ -532,25 +536,25 @@ const Homepage = () => {
               return (
                 <div
                   key={index}
-                  className="relative bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+                  className="relative bg-white rounded-2xl p-5 sm:p-8 shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
                 >
-                  <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center justify-between mb-4 sm:mb-6">
                     <div
-                      className={`${step.bg} w-16 h-16 rounded-xl flex items-center justify-center shadow-md`}
+                      className={`${step.bg} w-12 h-12 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center shadow-md`}
                     >
-                      <StepIcon className={`w-8 h-8 ${step.iconColor}`} />
+                      <StepIcon className={`w-6 h-6 sm:w-8 sm:h-8 ${step.iconColor}`} />
                     </div>
-                    <span className="text-5xl font-extrabold text-gray-100">
+                    <span className="text-4xl sm:text-5xl font-extrabold text-gray-100">
                       0{index + 1}
                     </span>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">
                     {step.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed mb-5">
+                  <p className="text-gray-600 leading-relaxed mb-3 sm:mb-5 text-sm sm:text-base">
                     {step.description}
                   </p>
-                  <ul className="space-y-2.5">
+                  <ul className="space-y-2 sm:space-y-2.5">
                     {step.bullets.map((bullet, bIdx) => (
                       <li
                         key={bIdx}
@@ -566,10 +570,10 @@ const Homepage = () => {
             })}
           </div>
 
-          <div className="text-center mt-14">
+          <div className="text-center mt-10 sm:mt-14">
             <button
               onClick={() => navigate("/contact")}
-              className="group bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-10 py-5 rounded-xl text-lg font-bold hover:from-blue-700 hover:to-indigo-700 transition-all transform hover:scale-105 hover:-translate-y-1 shadow-xl hover:shadow-2xl inline-flex items-center justify-center"
+              className="group bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3.5 sm:px-10 sm:py-5 rounded-xl text-base sm:text-lg font-bold hover:from-blue-700 hover:to-indigo-700 transition-all transform hover:scale-105 hover:-translate-y-1 shadow-xl hover:shadow-2xl inline-flex items-center justify-center"
             >
               Start With a Free Discovery Call
               <svg
@@ -591,7 +595,7 @@ const Homepage = () => {
       </section>
 
       {/* Trust Builders Section - Dynamic */}
-      <section className="relative py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 overflow-hidden">
+      <section className="relative py-12 sm:py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
           <div className="absolute top-20 right-10 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
           <div
@@ -622,62 +626,72 @@ const Homepage = () => {
           </div>
 
           {/* Stats */}
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-3 gap-2 sm:gap-8 mb-8 sm:mb-12">
             <div className="text-center">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <Users className="w-8 h-8 text-blue-600" />
+              <div className="bg-blue-100 w-10 h-10 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-4 shadow-lg">
+                <Users className="w-5 h-5 sm:w-8 sm:h-8 text-blue-600" />
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">
+              <div className="text-lg sm:text-3xl font-bold text-gray-900 mb-0.5 sm:mb-2">
                 {companyProfile?.completeProjects || "50+"}
               </div>
-              <div className="text-gray-600">Complete Projects</div>
+              <div className="text-[11px] sm:text-base text-gray-600 leading-tight">
+                Complete Projects
+              </div>
             </div>
             <div className="text-center">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <TrendingUp className="w-8 h-8 text-green-600" />
+              <div className="bg-green-100 w-10 h-10 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-4 shadow-lg">
+                <TrendingUp className="w-5 h-5 sm:w-8 sm:h-8 text-green-600" />
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">73%</div>
-              <div className="text-gray-600">Average Efficiency Gain</div>
+              <div className="text-lg sm:text-3xl font-bold text-gray-900 mb-0.5 sm:mb-2">
+                73%
+              </div>
+              <div className="text-[11px] sm:text-base text-gray-600 leading-tight">
+                Average Efficiency Gain
+              </div>
             </div>
             <div className="text-center">
-              <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <Star className="w-8 h-8 text-purple-600" />
+              <div className="bg-purple-100 w-10 h-10 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-4 shadow-lg">
+                <Star className="w-5 h-5 sm:w-8 sm:h-8 text-purple-600" />
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">4.9/5</div>
-              <div className="text-gray-600">Client Satisfaction</div>
+              <div className="text-lg sm:text-3xl font-bold text-gray-900 mb-0.5 sm:mb-2">
+                4.9/5
+              </div>
+              <div className="text-[11px] sm:text-base text-gray-600 leading-tight">
+                Client Satisfaction
+              </div>
             </div>
           </div>
 
           {/* Works With Your Stack + Testimonials */}
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-12 items-start">
             {/* Left: Tools & AI */}
-            <div className="bg-white/60 backdrop-blur-sm border border-white rounded-2xl p-8 shadow-lg h-full">
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">
+            <div className="bg-white/60 backdrop-blur-sm border border-white rounded-2xl p-5 sm:p-8 shadow-lg h-full">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">
                 Built To Fit Your Existing Stack
               </h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-600 mb-5 sm:mb-6 leading-relaxed text-sm sm:text-base">
                 We don't ask you to abandon the software you already rely
                 on. We build automations that connect to it, and use
                 industry-leading AI models under the hood.
               </p>
-              <div className="flex flex-wrap gap-3 mb-6">
+              <div className="flex flex-wrap gap-2 sm:gap-3 mb-5 sm:mb-6">
                 {integrationTools.map((tool, index) => (
                   <div
                     key={index}
-                    className="flex items-center gap-2 px-4 py-2.5 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md hover:border-indigo-200 transition-all"
+                    className="flex items-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-4 sm:py-2.5 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md hover:border-indigo-200 transition-all"
                   >
                     <PlugZap className="w-4 h-4 text-indigo-500" />
-                    <span className="text-sm font-semibold text-gray-700">
+                    <span className="text-xs sm:text-sm font-semibold text-gray-700">
                       {tool}
                     </span>
                   </div>
                 ))}
               </div>
-              <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 border border-indigo-100 rounded-xl p-6">
+              <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 border border-indigo-100 rounded-xl p-4 sm:p-6">
                 <p className="text-sm font-semibold text-gray-500 mb-2">
                   Powered By Leading AI
                 </p>
-                <p className="text-lg font-bold text-gray-900">
+                <p className="text-base sm:text-lg font-bold text-gray-900">
                   Claude (Anthropic) & ChatGPT (OpenAI)
                 </p>
                 <p className="text-sm text-gray-600 mt-2">
@@ -688,7 +702,7 @@ const Homepage = () => {
             </div>
 
             {/* Right: Testimonials - Dynamic */}
-            <div className="space-y-8">
+            <div className="space-y-5 sm:space-y-8">
               {loading ? (
                 <div className="text-center py-12">
                   <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
@@ -704,37 +718,37 @@ const Homepage = () => {
                   return (
                     <div
                       key={review.id}
-                      className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100"
+                      className="group relative bg-white rounded-2xl p-5 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100"
                     >
-                      <div className="absolute top-6 right-6 text-blue-100 text-6xl font-serif opacity-50">
+                      <div className="absolute top-4 right-4 sm:top-6 sm:right-6 text-blue-100 text-4xl sm:text-6xl font-serif opacity-50">
                         "
                       </div>
 
                       <div className="relative">
-                        <div className="flex items-center mb-6">
+                        <div className="flex items-center mb-4 sm:mb-6">
                           {[...Array(review.rating || 5)].map((_, i) => (
                             <Star
                               key={i}
-                              className="w-6 h-6 text-yellow-400 fill-current drop-shadow-sm"
+                              className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400 fill-current drop-shadow-sm"
                             />
                           ))}
                         </div>
-                        <blockquote className="text-lg text-gray-700 mb-8 leading-relaxed font-medium">
+                        <blockquote className="text-base sm:text-lg text-gray-700 mb-5 sm:mb-8 leading-relaxed font-medium">
                           "{review.description}"
                         </blockquote>
                         <div className="flex items-center">
                           <div
-                            className={`relative w-16 h-16 bg-gradient-to-br ${avatarColor} rounded-full flex items-center justify-center mr-4 shadow-lg`}
+                            className={`relative w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br ${avatarColor} rounded-full flex items-center justify-center mr-3 sm:mr-4 shadow-lg flex-shrink-0`}
                           >
-                            <span className="text-white font-bold text-xl">
+                            <span className="text-white font-bold text-base sm:text-xl">
                               {getInitials(review.name)}
                             </span>
                           </div>
                           <div>
-                            <div className="font-bold text-gray-900 text-lg">
+                            <div className="font-bold text-gray-900 text-base sm:text-lg">
                               {review.name}
                             </div>
-                            <div className="text-gray-600 font-medium">
+                            <div className="text-gray-600 font-medium text-sm sm:text-base">
                               {review.designation}
                             </div>
                           </div>

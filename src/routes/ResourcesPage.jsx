@@ -199,7 +199,7 @@ const ResourcesPage = () => {
   };
 
   return (
-    <div className="pt-16">
+    <div className="pt-16 sm:pt-20">
       <Navigation />
       {/* Hero Section */}
       <section className="relative min-h-[70vh] bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-50 flex items-center overflow-hidden">
@@ -221,7 +221,7 @@ const ResourcesPage = () => {
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-8 sm:py-12 lg:py-16 flex flex-col items-center justify-center w-full">
           {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-amber-200 mb-8">
+          <div className="inline-flex items-center px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-amber-200 mb-4 sm:mb-8">
             <svg
               className="w-4 h-4 text-amber-600 mr-2"
               fill="currentColor"
@@ -235,7 +235,7 @@ const ResourcesPage = () => {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight drop-shadow-sm">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 sm:mb-6 leading-tight drop-shadow-sm">
             AI Resources &{" "}
             <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
               Insights
@@ -243,7 +243,7 @@ const ResourcesPage = () => {
           </h1>
 
           {/* Subheading */}
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto font-normal mb-8 px-4">
+          <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto font-normal mb-5 sm:mb-8 px-4">
             Expert guidance, tools, and resources to help you succeed with AI
             implementation
           </p>
@@ -275,41 +275,47 @@ const ResourcesPage = () => {
       </section>
 
       {/* Resource Categories */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-8 sm:py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Lightbulb className="w-8 h-8 text-blue-600" />
+          <div className="grid md:grid-cols-3 gap-5 sm:gap-8">
+            <div>
+              <div className="flex items-center gap-3 sm:block mb-2 sm:mb-4">
+                <div className="bg-blue-100 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center sm:mx-auto flex-shrink-0">
+                  <Lightbulb className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
+                </div>
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 sm:text-center sm:mt-4 sm:mb-2">
+                  Getting Started
+                </h3>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Getting Started
-              </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 text-sm sm:text-base sm:text-center">
                 Beginner-friendly content to help you understand AI
                 opportunities for your business
               </p>
             </div>
-            <div className="text-center">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Cog className="w-8 h-8 text-green-600" />
+            <div>
+              <div className="flex items-center gap-3 sm:block mb-2 sm:mb-4">
+                <div className="bg-green-100 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center sm:mx-auto flex-shrink-0">
+                  <Cog className="w-6 h-6 sm:w-8 sm:h-8 text-green-600" />
+                </div>
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 sm:text-center sm:mt-4 sm:mb-2">
+                  Implementation
+                </h3>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Implementation
-              </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 text-sm sm:text-base sm:text-center">
                 Technical guides and best practices for successful AI project
                 execution
               </p>
             </div>
-            <div className="text-center">
-              <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Target className="w-8 h-8 text-purple-600" />
+            <div>
+              <div className="flex items-center gap-3 sm:block mb-2 sm:mb-4">
+                <div className="bg-purple-100 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center sm:mx-auto flex-shrink-0">
+                  <Target className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />
+                </div>
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 sm:text-center sm:mt-4 sm:mb-2">
+                  Strategy
+                </h3>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Strategy
-              </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 text-sm sm:text-base sm:text-center">
                 Business planning resources and strategic frameworks for AI
                 adoption
               </p>
@@ -319,13 +325,13 @@ const ResourcesPage = () => {
       </section>
 
       {/* Blog Section - Dynamic */}
-      <section className="py-20 bg-white">
+      <section className="py-10 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-8 sm:mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
               Latest Insights
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-lg sm:text-xl text-gray-600">
               Expert articles on AI implementation for small and medium
               businesses
             </p>
@@ -343,7 +349,7 @@ const ResourcesPage = () => {
               </p>
             </div>
           ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
               {blogPosts.map((post) => (
                 <article
                   key={post.id}
