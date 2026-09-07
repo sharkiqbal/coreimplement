@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   Brain,
   Sparkles,
@@ -8,6 +8,11 @@ import {
   Lightbulb,
   Zap,
   CheckCircle,
+  ArrowRight,
+  Phone,
+  Mail,
+  PlugZap,
+  TrendingUp,
 } from "lucide-react";
 import { getAllServices, slugifyServiceName } from "../service/serviceService";
 import Footer from "../component/Footer";
@@ -19,6 +24,7 @@ const ServicesPage = () => {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Icon mapping
   const iconMap = {
@@ -71,12 +77,207 @@ const ServicesPage = () => {
     return iconMap[logoId] || Target;
   };
 
+  // Distinct illustrative "screenshot" mockup per service, keyed by logoId
+  const renderServiceVisual = (service) => {
+    switch (service.logoId) {
+      case "target":
+        return (
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-bold text-gray-900">
+                Automated Workflow
+              </span>
+              <div className="flex items-center gap-1.5 px-2.5 py-1 bg-green-50 rounded-full">
+                <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
+                <span className="text-xs font-semibold text-green-700">
+                  Live
+                </span>
+              </div>
+            </div>
+            <div className="space-y-2.5">
+              {[
+                { label: "Invoice received", done: true },
+                { label: "Data extracted by AI", done: true },
+                { label: "Synced to QuickBooks", done: true },
+                { label: "Approval sent", done: false },
+              ].map((step, i) => (
+                <div
+                  key={i}
+                  className={`flex items-center gap-3 p-3 rounded-xl border ${
+                    step.done
+                      ? "bg-blue-50/60 border-blue-100"
+                      : "bg-gray-50 border-gray-100"
+                  }`}
+                >
+                  {step.done ? (
+                    <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                  ) : (
+                    <div className="w-5 h-5 rounded-full border-2 border-gray-300 border-t-blue-500 animate-spin flex-shrink-0"></div>
+                  )}
+                  <span className="text-sm font-medium text-gray-700">
+                    {step.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-100 flex items-center justify-between">
+              <span className="text-sm font-semibold text-gray-600">
+                Hours saved this week
+              </span>
+              <span className="text-2xl font-bold text-blue-600">14</span>
+            </div>
+          </div>
+        );
+      case "zap":
+        return (
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-bold text-gray-900">
+                AI Communication Hub
+              </span>
+              <div className="flex items-center gap-1.5 px-2.5 py-1 bg-green-50 rounded-full">
+                <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
+                <span className="text-xs font-semibold text-green-700">
+                  Live
+                </span>
+              </div>
+            </div>
+            <div className="bg-green-50/60 border border-green-100 rounded-xl p-4">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-4 h-4 text-green-600" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-gray-900">
+                    Incoming Call
+                  </p>
+                  <p className="text-xs text-green-700 font-medium">
+                    AI Agent Answering...
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-gray-50 border border-gray-100 rounded-xl p-4">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-9 h-9 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-4 h-4 text-blue-600" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-sm font-semibold text-gray-900 truncate">
+                    New Lead Inquiry
+                  </p>
+                  <p className="text-xs text-gray-500 truncate">
+                    "Do you have availability this week?"
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-1.5 pl-12">
+                <CheckCircle className="w-3.5 h-3.5 text-green-500 flex-shrink-0" />
+                <span className="text-xs font-semibold text-green-700">
+                  AI draft reply ready
+                </span>
+              </div>
+            </div>
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-4 border border-green-100 flex items-center justify-between">
+              <span className="text-sm font-semibold text-gray-600">
+                Avg. response time
+              </span>
+              <span className="text-2xl font-bold text-green-600">8 sec</span>
+            </div>
+          </div>
+        );
+      case "sparkles":
+        return (
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-bold text-gray-900">
+                Your Custom Dashboard
+              </span>
+              <div className="flex items-center gap-1.5 px-2.5 py-1 bg-green-50 rounded-full">
+                <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
+                <span className="text-xs font-semibold text-green-700">
+                  Synced
+                </span>
+              </div>
+            </div>
+            <div className="flex items-end gap-2 h-24 bg-purple-50/60 border border-purple-100 rounded-xl p-4">
+              {[40, 65, 45, 80, 60, 95].map((h, i) => (
+                <div
+                  key={i}
+                  className="flex-1 bg-gradient-to-t from-purple-500 to-purple-300 rounded-t-md"
+                  style={{ height: `${h}%` }}
+                ></div>
+              ))}
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {["QuickBooks", "Salesforce", "Slack", "Sheets"].map(
+                (tool, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-50 border border-gray-200 rounded-lg"
+                  >
+                    <PlugZap className="w-3.5 h-3.5 text-purple-500" />
+                    <span className="text-xs font-semibold text-gray-700">
+                      {tool}
+                    </span>
+                  </div>
+                )
+              )}
+            </div>
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-4 border border-purple-100 flex items-center justify-between">
+              <span className="text-sm font-semibold text-gray-600">
+                Systems connected
+              </span>
+              <span className="text-2xl font-bold text-purple-600">4</span>
+            </div>
+          </div>
+        );
+      case "rocket":
+        return (
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-bold text-gray-900">
+                Campaign Performance
+              </span>
+              <div className="flex items-center gap-1.5 px-2.5 py-1 bg-green-50 rounded-full">
+                <TrendingUp className="w-3.5 h-3.5 text-green-600" />
+                <span className="text-xs font-semibold text-green-700">
+                  Trending Up
+                </span>
+              </div>
+            </div>
+            <div className="flex items-end gap-2 h-24 bg-orange-50/60 border border-orange-100 rounded-xl p-4">
+              {[30, 45, 40, 60, 70, 90].map((h, i) => (
+                <div
+                  key={i}
+                  className="flex-1 bg-gradient-to-t from-orange-500 to-orange-300 rounded-t-md"
+                  style={{ height: `${h}%` }}
+                ></div>
+              ))}
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-xl p-3.5 border border-orange-100">
+                <div className="text-xl font-bold text-orange-600">+128%</div>
+                <div className="text-xs text-gray-600">Leads Generated</div>
+              </div>
+              <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-3.5 border border-green-100">
+                <div className="text-xl font-bold text-green-600">-34%</div>
+                <div className="text-xs text-gray-600">Cost Per Lead</div>
+              </div>
+            </div>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="pt-16 sm:pt-20">
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-50 flex items-center overflow-hidden">
+      <section className="relative min-h-[60vh] bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-50 flex items-center overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
           <div className="absolute top-20 right-10 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-pulse"></div>
@@ -98,7 +299,7 @@ const ServicesPage = () => {
           <div className="inline-flex items-center px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-indigo-200 mb-4 sm:mb-8">
             <span className="w-2 h-2 bg-indigo-600 rounded-full mr-2 animate-pulse"></span>
             <span className="text-sm font-medium text-gray-800">
-              Tailored for SMBs
+              Tailored for Growing Businesses
             </span>
           </div>
 
@@ -108,29 +309,53 @@ const ServicesPage = () => {
             <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
               AI Solutions
             </span>{" "}
-            for SMBs
+            for Every Business
           </h1>
 
           {/* Subheading */}
-          <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto font-normal mb-5 sm:mb-8 px-4">
-            From strategy to implementation, we provide end-to-end AI services
-            designed specifically for growing businesses
+          <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto font-normal mb-6 sm:mb-8 px-4">
+            From strategy to implementation, we provide end-to-end AI and
+            automation services designed to fit however your business
+            already operates.
           </p>
 
-          {/* Feature Pills */}
-          <div className="flex flex-wrap gap-3 justify-center items-center px-4">
-            <span className="px-5 py-2 bg-white/90 backdrop-blur-sm rounded-full text-sm font-semibold text-gray-700 shadow-md border border-gray-200">
-              Strategy
-            </span>
-            <span className="px-5 py-2 bg-white/90 backdrop-blur-sm rounded-full text-sm font-semibold text-gray-700 shadow-md border border-gray-200">
-              Implementation
-            </span>
-            <span className="px-5 py-2 bg-white/90 backdrop-blur-sm rounded-full text-sm font-semibold text-gray-700 shadow-md border border-gray-200">
-              Support
-            </span>
+          {/* Hero CTA */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <button
+              onClick={() => navigate("/contact")}
+              className="group bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3.5 sm:px-10 sm:py-5 rounded-xl text-base sm:text-lg font-bold hover:from-blue-700 hover:to-indigo-700 transition-all transform hover:scale-105 hover:-translate-y-1 shadow-xl hover:shadow-2xl flex items-center justify-center"
+            >
+              Book a Free Consultation
+              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+            </button>
           </div>
         </div>
       </section>
+
+      {/* Quick Jump Nav - sticks below main nav for orientation while scrolling */}
+      {!loading && services.length > 0 && (
+        <div className="sticky top-16 sm:top-20 z-30 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+              {services.map((service) => {
+                const IconComponent = getIconComponent(service.logoId);
+                return (
+                  <a
+                    key={service.id}
+                    href={`#${slugifyServiceName(service.name)}`}
+                    className="flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2.5 bg-gray-50 hover:bg-indigo-50 border border-gray-200 hover:border-indigo-200 rounded-full transition-colors group"
+                  >
+                    <IconComponent className="w-4 h-4 text-gray-500 group-hover:text-indigo-600 transition-colors flex-shrink-0" />
+                    <span className="text-xs sm:text-sm font-semibold text-gray-700 group-hover:text-indigo-600 transition-colors">
+                      {service.name}
+                    </span>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Dynamic Services Sections */}
       {loading ? (
@@ -158,7 +383,7 @@ const ServicesPage = () => {
             <section
               key={service.id}
               id={slugifyServiceName(service.name)}
-              className={`py-10 sm:py-20 scroll-mt-16 sm:scroll-mt-20 ${colorScheme.section}`}
+              className={`py-10 sm:py-20 scroll-mt-32 sm:scroll-mt-36 ${colorScheme.section}`}
             >
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div
@@ -213,89 +438,38 @@ const ServicesPage = () => {
                           ))}
                         </ul>
                       </div>
+
+                      {/* Per-service CTA */}
+                      <button
+                        onClick={() => navigate("/contact")}
+                        className={`inline-flex items-center gap-2 font-bold ${colorScheme.text} hover:gap-3 transition-all group`}
+                      >
+                        Get Started With {service.name}
+                        <ArrowRight className="w-4 h-4 transition-transform" />
+                      </button>
                     </div>
                   </div>
 
-                  {/* Visual Side */}
+                  {/* Visual Side - distinct mockup per service */}
                   <div
                     className={`hidden lg:block ${
                       isEven ? "order-2" : "order-2 lg:order-1"
                     } relative`}
                   >
-                    <div className="relative h-full min-h-[400px] lg:min-h-[600px]">
+                    <div className="relative h-full min-h-[400px] lg:min-h-[520px]">
                       {/* Decorative Background */}
                       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-3xl transform rotate-3"></div>
 
                       {/* Main Card */}
-                      <div className="relative bg-white rounded-3xl shadow-2xl p-8 transform -rotate-2 hover:rotate-0 transition-transform duration-300">
-                        <div className="space-y-6">
-                          {/* Large Icon Display */}
-                          <div
-                            className={`${colorScheme.bg} w-24 h-24 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-lg`}
-                          >
-                            <IconComponent
-                              className={`w-16 h-16 ${colorScheme.text}`}
-                            />
-                          </div>
-
-                          {/* Stats Cards */}
-                          <div className="grid grid-cols-2 gap-4">
-                            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-4 rounded-xl border border-blue-100">
-                              <div className="text-3xl font-bold text-blue-600 mb-1">
-                                Fast
-                              </div>
-                              <div className="text-xs text-gray-600">
-                                Implementation
-                              </div>
-                            </div>
-                            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-4 rounded-xl border border-green-100">
-                              <div className="text-3xl font-bold text-green-600 mb-1">
-                                ROI
-                              </div>
-                              <div className="text-xs text-gray-600">
-                                Focused
-                              </div>
-                            </div>
-                            <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-4 rounded-xl border border-purple-100">
-                              <div className="text-3xl font-bold text-purple-600 mb-1">
-                                24/7
-                              </div>
-                              <div className="text-xs text-gray-600">
-                                Support
-                              </div>
-                            </div>
-                            <div className="bg-gradient-to-br from-orange-50 to-yellow-50 p-4 rounded-xl border border-orange-100">
-                              <div className="text-3xl font-bold text-orange-600 mb-1">
-                                100%
-                              </div>
-                              <div className="text-xs text-gray-600">
-                                Custom
-                              </div>
-                            </div>
-                          </div>
-
-                          {/* Feature Highlights */}
-                          <div className="space-y-3 pt-4">
-                            <div className="flex items-center bg-gray-50 p-3 rounded-lg">
-                              <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                              <span className="text-sm font-medium text-gray-700">
-                                Scalable Solutions
-                              </span>
-                            </div>
-                            <div className="flex items-center bg-gray-50 p-3 rounded-lg">
-                              <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                              <span className="text-sm font-medium text-gray-700">
-                                Expert Team
-                              </span>
-                            </div>
-                            <div className="flex items-center bg-gray-50 p-3 rounded-lg">
-                              <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
-                              <span className="text-sm font-medium text-gray-700">
-                                Proven Results
-                              </span>
-                            </div>
-                          </div>
+                      <div className="relative bg-white rounded-3xl shadow-2xl p-6 sm:p-8 transform -rotate-2 hover:rotate-0 transition-transform duration-300">
+                        {/* Window Chrome */}
+                        <div className="flex items-center gap-1.5 mb-5">
+                          <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                          <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                          <div className="w-3 h-3 rounded-full bg-green-400"></div>
                         </div>
+
+                        {renderServiceVisual(service)}
                       </div>
 
                       {/* Floating Accent Elements */}
