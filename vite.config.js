@@ -8,6 +8,9 @@ export default defineConfig(({ mode }) => ({
   plugins: [react(), mode === "development" && screenGraphPlugin()],
   publicDir: "./static",
   base: "./",
+  build: {
+    sourcemap: true,
+  },
   css: {
     postcss: {
       plugins: [tailwind()],

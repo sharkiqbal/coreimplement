@@ -1,0 +1,31 @@
+# Core Implementations
+
+> Core Implementations helps growing businesses automate manual, repetitive work — data entry, quoting, reporting, and customer communication — using Claude, ChatGPT, and custom AI built around the tools businesses already use (QuickBooks, HubSpot, Salesforce, Slack, and more). Based in Houston, Texas, serving businesses of any size or industry.
+
+## Company
+
+- [About Us](https://coreimplement.com/about): Founders and background of Core Implementations.
+- [Contact](https://coreimplement.com/contact): Book a free consultation or send a message.
+- [Privacy Policy](https://coreimplement.com/privacy): How Core Implementations collects, uses, and protects information.
+- [Terms of Service](https://coreimplement.com/terms): Terms governing use of the Core Implementations website.
+
+## Services
+
+- [Business Process Automation](https://coreimplement.com/services#business-process-automation): Automating repetitive workflows and integrating existing business tools.
+- [AI-Powered Customer Communication](https://coreimplement.com/services#ai-powered-customer-communication): AI voice agents and AI-managed email for calls and customer messages.
+- [Custom AI Software & Integrations](https://coreimplement.com/services#custom-ai-software-integrations): Custom dashboards, portals, and internal tools connected to existing software.
+- [AI-Powered Marketing & Growth](https://coreimplement.com/services#ai-powered-marketing-growth): AI-driven content, ad optimization, and lead generation.
+
+## Case Studies
+
+- [Case Studies](https://coreimplement.com/case-studies): Real automation and AI implementation results for growing businesses.
+
+## Resources
+
+- [Resources & Insights](https://coreimplement.com/resources): Articles on AI automation, custom software, and workflow optimization.
+- [5 Signs Your Business Is Ready for AI Automation](https://coreimplement.com/resources/is-your-business-ready-for-ai-automation)
+- [AI Voice Agents vs. Traditional Call Centers](https://coreimplement.com/resources/ai-voice-agents-vs-traditional-call-centers)
+- [How to Automate Workflows Without Replacing Your Software](https://coreimplement.com/resources/automate-workflows-without-replacing-your-software)
+- [ChatGPT vs. Claude: Which AI Model Is Right for Your Business?](https://coreimplement.com/resources/chatgpt-vs-claude-for-business)
+- [The Real Cost of Manual Data Entry](https://coreimplement.com/resources/true-cost-of-manual-data-entry-and-automation-roi)
+- [AI Marketing Automation for Small Business](https://coreimplement.com/resources/ai-marketing-automation-for-small-business)

@@ -501,7 +501,9 @@ const Homepage = () => {
                       to={`/services#${slugifyServiceName(service.name)}`}
                       className="text-blue-600 font-medium flex items-center hover:text-blue-700 transition-colors"
                     >
-                      Learn More <ChevronRight className="w-4 h-4 ml-1" />
+                      Learn More
+                      <span className="sr-only"> about {service.name}</span>
+                      <ChevronRight className="w-4 h-4 ml-1" />
                     </Link>
                   </div>
                 );
