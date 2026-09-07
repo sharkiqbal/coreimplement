@@ -162,7 +162,7 @@ const SignInPage = () => {
                       ? "border-red-300 focus:ring-red-500 focus:border-red-500"
                       : "border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                   } rounded-xl focus:ring-2 transition-all shadow-sm hover:shadow-md`}
-                  placeholder="admin@coreimplementations.com"
+                  placeholder="admin@coreimplement.com"
                 />
               </div>
               {errors.email && (

@@ -8,6 +8,8 @@ import ContactPage from "./routes/ContactPage";
 import Homepage from "./routes/Homepage";
 import ResourcesPage from "./routes/ResourcesPage";
 import ServicesPage from "./routes/ServicesPage";
+import PrivacyPage from "./routes/PrivacyPage";
+import TermsPage from "./routes/TermsPage";
 import ScrollToTop from "./component/ScrollToTop";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./component/ProtectedRoute";
@@ -39,6 +41,8 @@ createRoot(document.getElementById("app")).render(
           <Route path="/case-studies" element={<CaseStudiesPage />} />
           <Route path="/resources" element={<ResourcesPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/terms" element={<TermsPage />} />
         </Routes>
       </AuthProvider>
     </Router>

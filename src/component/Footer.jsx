@@ -4,9 +4,6 @@ import {
   Phone,
   Mail,
   Clock,
-  LinkedinIcon,
-  Instagram,
-  Twitter,
   BrainCircuit,
   ArrowRight,
 } from "lucide-react";
@@ -64,31 +61,11 @@ const Footer = () => {
               AI made simple for SMBs. Automating the manual, repetitive work
               that slows growing businesses down, wherever they're located.
             </p>
-            <div className="flex items-center gap-2 text-gray-300 mb-4 sm:mb-6">
+            <div className="flex items-center gap-2 text-gray-300">
               <MapPin className="w-4 h-4 text-gray-500 flex-shrink-0" />
               <span className="text-sm sm:text-base font-medium">
                 Based in Houston, Texas
               </span>
-            </div>
-            <div className="flex space-x-3">
-              <a
-                href="#"
-                className="w-9 h-9 sm:w-10 sm:h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-blue-600 hover:scale-110 transition-all duration-300 group"
-              >
-                <LinkedinIcon className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-white transition-colors" />
-              </a>
-              <a
-                href="#"
-                className="w-9 h-9 sm:w-10 sm:h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-pink-600 hover:scale-110 transition-all duration-300 group"
-              >
-                <Instagram className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-white transition-colors" />
-              </a>
-              <a
-                href="#"
-                className="w-9 h-9 sm:w-10 sm:h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-blue-400 hover:scale-110 transition-all duration-300 group"
-              >
-                <Twitter className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-white transition-colors" />
-              </a>
             </div>
           </div>
 
@@ -126,7 +103,7 @@ const Footer = () => {
             </h4>
             <div className="space-y-3 sm:space-y-4">
               <a
-                href="tel:7135550123"
+                href="tel:+12484534597"
                 className="group flex items-center gap-3 hover:text-blue-400 transition-colors"
               >
                 <div className="w-9 h-9 sm:w-10 sm:h-10 bg-white/5 rounded-lg flex items-center justify-center group-hover:bg-blue-600/20 transition-colors flex-shrink-0">
@@ -137,12 +114,12 @@ const Footer = () => {
                     Call us
                   </p>
                   <span className="text-gray-300 font-medium text-sm sm:text-base">
-                    (713) 555-0123
+                    (248) 453-4597
                   </span>
                 </div>
               </a>
               <a
-                href="mailto:hello@coreimplementations.com"
+                href="mailto:hello@coreimplement.com"
                 className="group flex items-center gap-3 hover:text-blue-400 transition-colors"
               >
                 <div className="w-9 h-9 sm:w-10 sm:h-10 bg-white/5 rounded-lg flex items-center justify-center group-hover:bg-blue-600/20 transition-colors flex-shrink-0">
@@ -153,7 +130,7 @@ const Footer = () => {
                     Email us
                   </p>
                   <span className="text-gray-300 font-medium break-all text-sm sm:text-base">
-                    hello@coreimplementations.com
+                    hello@coreimplement.com
                   </span>
                 </div>
               </a>

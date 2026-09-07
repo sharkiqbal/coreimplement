@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import {
   Brain,
   Sparkles,
@@ -8,7 +9,7 @@ import {
   Zap,
   CheckCircle,
 } from "lucide-react";
-import { getAllServices } from "../service/serviceService";
+import { getAllServices, slugifyServiceName } from "../service/serviceService";
 import Footer from "../component/Footer";
 import Navigation from "../component/Navigation";
 import Action from "../component/Action";
@@ -17,6 +18,7 @@ import Action from "../component/Action";
 const ServicesPage = () => {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
+  const location = useLocation();
 
   // Icon mapping
   const iconMap = {
@@ -41,6 +43,17 @@ const ServicesPage = () => {
   useEffect(() => {
     loadServices();
   }, []);
+
+  useEffect(() => {
+    if (!loading && services.length > 0 && location.hash) {
+      const el = document.getElementById(location.hash.slice(1));
+      if (el) {
+        requestAnimationFrame(() => {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      }
+    }
+  }, [loading, services, location.hash]);
 
   const loadServices = async () => {
     try {
@@ -144,7 +157,8 @@ const ServicesPage = () => {
           return (
             <section
               key={service.id}
-              className={`py-10 sm:py-20 ${colorScheme.section}`}
+              id={slugifyServiceName(service.name)}
+              className={`py-10 sm:py-20 scroll-mt-16 sm:scroll-mt-20 ${colorScheme.section}`}
             >
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div

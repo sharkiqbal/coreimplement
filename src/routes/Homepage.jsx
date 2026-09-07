@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import {
   ChevronRight,
   Brain,
@@ -20,7 +20,7 @@ import {
   BarChart3,
   PlugZap,
 } from "lucide-react";
-import { getAllServices } from "../service/serviceService";
+import { getAllServices, slugifyServiceName } from "../service/serviceService";
 import { getAllReviews } from "../service/reviewService";
 import { getCompanyProfile } from "../service/companyProfileService";
 import Footer from "../component/Footer";
@@ -491,12 +491,12 @@ const Homepage = () => {
                     <p className="text-gray-600 mb-4 leading-relaxed text-sm sm:text-base">
                       {service.solution}
                     </p>
-                    <a
-                      href="#"
+                    <Link
+                      to={`/services#${slugifyServiceName(service.name)}`}
                       className="text-blue-600 font-medium flex items-center hover:text-blue-700 transition-colors"
                     >
                       Learn More <ChevronRight className="w-4 h-4 ml-1" />
-                    </a>
+                    </Link>
                   </div>
                 );
               })}

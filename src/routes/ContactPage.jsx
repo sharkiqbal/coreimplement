@@ -365,7 +365,7 @@ const EnhancedContactPage = () => {
                   </div>
                   <div>
                     <div className="font-semibold text-gray-900 text-sm sm:text-base">Phone</div>
-                    <div className="text-gray-600 text-sm sm:text-base">(713) 555-0123</div>
+                    <div className="text-gray-600 text-sm sm:text-base">(248) 453-4597</div>
                   </div>
                 </div>
 
@@ -376,7 +376,7 @@ const EnhancedContactPage = () => {
                   <div>
                     <div className="font-semibold text-gray-900 text-sm sm:text-base">Email</div>
                     <div className="text-gray-600 text-sm sm:text-base">
-                      hello@coreimplementations.com
+                      hello@coreimplement.com
                     </div>
                   </div>
                 </div>
@@ -502,7 +502,7 @@ const EnhancedContactPage = () => {
                             })
                           }
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                          placeholder="(713) 555-0123"
+                          placeholder="(248) 453-4597"
                         />
                       </div>
                     </div>
