@@ -35,9 +35,9 @@ const Action = () => {
           </h2>
 
           <p className="text-base sm:text-xl md:text-2xl mb-6 sm:mb-10 opacity-95 max-w-3xl mx-auto leading-relaxed font-medium">
-            Join dozens of businesses that have already streamlined their
-            operations with AI. Book your free consultation today and discover
-            what's possible for your business.
+            Join the businesses already streamlining their operations with
+            AI. Book your free consultation today and discover what's
+            possible for your business.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 sm:mb-10">

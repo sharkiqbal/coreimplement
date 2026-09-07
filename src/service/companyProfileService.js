@@ -7,7 +7,7 @@ const COLLECTION_NAME = "settings";
 // Default company data
 const DEFAULT_COMPANY_DATA = {
   companyName: "Core Implementations",
-  completeProjects: "50+",
+  completeProjects: "5+",
   headline: "Streamline Your Business with AI",
   description:
     "We help growing businesses automate the manual, repetitive work slowing them down using AI, so teams spend less time on data entry, quotes, and reports, and more time on what matters.",

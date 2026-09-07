@@ -106,7 +106,7 @@ const CaseStudiesPage = () => {
           <div className="flex flex-row gap-3 sm:gap-4 justify-center items-center px-4">
             <div className="px-4 py-2 sm:px-6 sm:py-3 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200">
               <div className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                34+
+                4+
               </div>
               <div className="text-[11px] sm:text-sm text-gray-600 font-medium">
                 Success Stories
@@ -114,7 +114,7 @@ const CaseStudiesPage = () => {
             </div>
             <div className="px-4 py-2 sm:px-6 sm:py-3 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200">
               <div className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                85%
+                70%+
               </div>
               <div className="text-[11px] sm:text-sm text-gray-600 font-medium">
                 Efficiency Gain
@@ -122,10 +122,10 @@ const CaseStudiesPage = () => {
             </div>
             <div className="px-4 py-2 sm:px-6 sm:py-3 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200">
               <div className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                $2M+
+                6-10 Wks
               </div>
               <div className="text-[11px] sm:text-sm text-gray-600 font-medium">
-                Cost Savings
+                Typical Delivery
               </div>
             </div>
           </div>

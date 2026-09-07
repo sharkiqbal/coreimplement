@@ -632,7 +632,7 @@ const Homepage = () => {
                 <Users className="w-5 h-5 sm:w-8 sm:h-8 text-blue-600" />
               </div>
               <div className="text-lg sm:text-3xl font-bold text-gray-900 mb-0.5 sm:mb-2">
-                {companyProfile?.completeProjects || "50+"}
+                {companyProfile?.completeProjects || "5+"}
               </div>
               <div className="text-[11px] sm:text-base text-gray-600 leading-tight">
                 Complete Projects
@@ -654,7 +654,7 @@ const Homepage = () => {
                 <Star className="w-5 h-5 sm:w-8 sm:h-8 text-purple-600" />
               </div>
               <div className="text-lg sm:text-3xl font-bold text-gray-900 mb-0.5 sm:mb-2">
-                4.9/5
+                4.5/5
               </div>
               <div className="text-[11px] sm:text-base text-gray-600 leading-tight">
                 Client Satisfaction

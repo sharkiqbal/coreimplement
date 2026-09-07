@@ -189,7 +189,7 @@ const CompanyProfileTab = () => {
                   setEditData({ ...editData, completeProjects: e.target.value })
                 }
                 className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
-                placeholder="e.g., 50+"
+                placeholder="e.g., 5+"
               />
             ) : (
               <div className="px-4 py-3 bg-gray-50 rounded-xl text-gray-900 font-semibold">
