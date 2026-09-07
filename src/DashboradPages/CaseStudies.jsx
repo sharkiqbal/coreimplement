@@ -1,20 +1,38 @@
 import React, { useState, useEffect } from "react";
-import { X, Plus, Edit, Trash2, Save, CheckCircle, Clock } from "lucide-react";
+import {
+  X,
+  Plus,
+  Edit,
+  Trash2,
+  Save,
+  CheckCircle,
+  Clock,
+  Gamepad2,
+  Package,
+  Phone,
+  Mail,
+  Megaphone,
+  Cog,
+} from "lucide-react";
 import {
   getAllCaseStudies,
   addCaseStudy,
   updateCaseStudy,
   deleteCaseStudy,
 } from "../service/caseStudyService";
+import { getAllServices } from "../service/serviceService";
 
 const CaseStudiesTab = () => {
   const [caseStudies, setCaseStudies] = useState([]);
+  const [services, setServices] = useState([]);
   const [showCaseStudyModal, setShowCaseStudyModal] = useState(false);
   const [editingCaseStudy, setEditingCaseStudy] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [loading, setLoading] = useState(true);
   const [caseStudyForm, setCaseStudyForm] = useState({
     industryType: "",
+    logoId: "",
+    relatedService: "",
     projectName: "",
     companyName: "",
     challenge: "",
@@ -34,11 +52,22 @@ const CaseStudiesTab = () => {
     "Technology",
     "Hospitality",
     "Education",
+    "E-Commerce",
   ];
 
-  // Load case studies from Firebase on component mount
+  const logoOptions = [
+    { id: "gamepad", name: "Gamepad", icon: Gamepad2 },
+    { id: "package", name: "Package", icon: Package },
+    { id: "phone", name: "Phone", icon: Phone },
+    { id: "mail", name: "Mail", icon: Mail },
+    { id: "megaphone", name: "Megaphone", icon: Megaphone },
+    { id: "cog", name: "Cog", icon: Cog },
+  ];
+
+  // Load case studies and services from Firebase on component mount
   useEffect(() => {
     loadCaseStudies();
+    loadServices();
   }, []);
 
   const loadCaseStudies = async () => {
@@ -54,9 +83,25 @@ const CaseStudiesTab = () => {
     }
   };
 
+  const loadServices = async () => {
+    try {
+      const data = await getAllServices();
+      setServices(data);
+    } catch (error) {
+      console.error("Error loading services:", error);
+    }
+  };
+
+  const getLogoIcon = (logoId) => {
+    const logo = logoOptions.find((l) => l.id === logoId);
+    return logo ? logo.icon : Cog;
+  };
+
   const openAddModal = () => {
     setCaseStudyForm({
       industryType: "",
+      logoId: "",
+      relatedService: "",
       projectName: "",
       companyName: "",
       challenge: "",
@@ -71,6 +116,8 @@ const CaseStudiesTab = () => {
   const openEditModal = (caseStudy) => {
     setCaseStudyForm({
       industryType: caseStudy.industryType,
+      logoId: caseStudy.logoId || "",
+      relatedService: caseStudy.relatedService || "",
       projectName: caseStudy.projectName,
       companyName: caseStudy.companyName,
       challenge: caseStudy.challenge,
@@ -144,6 +191,8 @@ const CaseStudiesTab = () => {
 
       const caseStudyData = {
         industryType: caseStudyForm.industryType,
+        logoId: caseStudyForm.logoId,
+        relatedService: caseStudyForm.relatedService,
         projectName: caseStudyForm.projectName,
         companyName: caseStudyForm.companyName,
         challenge: caseStudyForm.challenge,
@@ -237,9 +286,20 @@ const CaseStudiesTab = () => {
             >
               <div className="p-6">
                 <div className="flex items-start justify-between mb-4">
-                  <span className="px-3 py-1 text-xs font-bold rounded-full bg-blue-100 text-blue-700">
-                    {caseStudy.industryType}
-                  </span>
+                  <div className="flex items-center gap-2">
+                    {caseStudy.logoId &&
+                      (() => {
+                        const LogoIcon = getLogoIcon(caseStudy.logoId);
+                        return (
+                          <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <LogoIcon className="w-4 h-4 text-gray-600" />
+                          </div>
+                        );
+                      })()}
+                    <span className="px-3 py-1 text-xs font-bold rounded-full bg-blue-100 text-blue-700">
+                      {caseStudy.industryType}
+                    </span>
+                  </div>
                   <div className="flex gap-2">
                     <button
                       onClick={() => openEditModal(caseStudy)}
@@ -353,6 +413,54 @@ const CaseStudiesTab = () => {
                   {industryTypeOptions.map((type) => (
                     <option key={type} value={type}>
                       {type}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Icon */}
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-2">
+                  Icon
+                </label>
+                <div className="grid grid-cols-6 gap-3">
+                  {logoOptions.map((logo) => {
+                    const LogoIcon = logo.icon;
+                    return (
+                      <button
+                        key={logo.id}
+                        type="button"
+                        onClick={() => handleInputChange("logoId", logo.id)}
+                        className={`p-3 rounded-xl border-2 flex items-center justify-center transition-all ${
+                          caseStudyForm.logoId === logo.id
+                            ? "border-blue-500 bg-blue-50"
+                            : "border-gray-200 hover:border-gray-300"
+                        }`}
+                        title={logo.name}
+                      >
+                        <LogoIcon className="w-5 h-5 text-gray-700" />
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Related Service */}
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-2">
+                  Related Service
+                </label>
+                <select
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                  value={caseStudyForm.relatedService}
+                  onChange={(e) =>
+                    handleInputChange("relatedService", e.target.value)
+                  }
+                >
+                  <option value="">None</option>
+                  {services.map((service) => (
+                    <option key={service.id} value={service.name}>
+                      {service.name}
                     </option>
                   ))}
                 </select>

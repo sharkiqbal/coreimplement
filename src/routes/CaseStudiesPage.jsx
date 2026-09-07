@@ -1,6 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { CheckCircle, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
+import {
+  CheckCircle,
+  Clock,
+  Gamepad2,
+  Package,
+  Phone,
+  Mail,
+  Megaphone,
+  Cog,
+  ArrowRight,
+} from "lucide-react";
 import { getAllCaseStudies } from "../service/caseStudyService";
+import { slugify } from "../utils/slugify";
 import Footer from "../component/Footer";
 import Navigation from "../component/Navigation";
 import Action from "../component/Action";
@@ -23,7 +35,19 @@ const CaseStudiesPage = () => {
     Technology: { bg: "bg-cyan-100", text: "text-cyan-800" },
     Hospitality: { bg: "bg-yellow-100", text: "text-yellow-800" },
     Education: { bg: "bg-red-100", text: "text-red-800" },
+    "E-Commerce": { bg: "bg-emerald-100", text: "text-emerald-800" },
   };
+
+  // Icon per case study, keyed by its logoId
+  const iconMap = {
+    gamepad: Gamepad2,
+    package: Package,
+    phone: Phone,
+    mail: Mail,
+    megaphone: Megaphone,
+  };
+
+  const getIconComponent = (logoId) => iconMap[logoId] || Cog;
 
   useEffect(() => {
     loadCaseStudies();
@@ -51,7 +75,7 @@ const CaseStudiesPage = () => {
     <div className="pt-16 sm:pt-20">
       <SEO
         title="Case Studies"
-        description="Real automation and AI implementation results for growing businesses — from call handling to inventory management to email processing."
+        description="Real automation and AI implementation results for growing businesses — from call handling and email triage to inventory management and marketing."
         path="/case-studies"
       />
       <Navigation />
@@ -112,7 +136,7 @@ const CaseStudiesPage = () => {
           <div className="flex flex-row gap-3 sm:gap-4 justify-center items-center px-4">
             <div className="px-4 py-2 sm:px-6 sm:py-3 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200">
               <div className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                4+
+                5+
               </div>
               <div className="text-[11px] sm:text-sm text-gray-600 font-medium">
                 Success Stories
@@ -128,7 +152,7 @@ const CaseStudiesPage = () => {
             </div>
             <div className="px-4 py-2 sm:px-6 sm:py-3 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200">
               <div className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                6-10 Wks
+                3-10 Wks
               </div>
               <div className="text-[11px] sm:text-sm text-gray-600 font-medium">
                 Typical Delivery
@@ -157,6 +181,7 @@ const CaseStudiesPage = () => {
               {caseStudies.map((study, index) => {
                 const industryColor = getIndustryColors(study.industryType);
                 const isEven = index % 2 === 0;
+                const IconComponent = getIconComponent(study.logoId);
 
                 return (
                   <div
@@ -167,12 +192,21 @@ const CaseStudiesPage = () => {
                   >
                     {/* Content Side */}
                     <div className={!isEven ? "lg:col-start-2" : ""}>
-                      <div
-                        className={`${industryColor.bg} text-sm font-medium px-4 py-2 rounded-full inline-block mb-3 sm:mb-4 shadow-sm`}
-                      >
-                        <span className={industryColor.text}>
-                          {study.industryType}
-                        </span>
+                      <div className="flex items-center gap-3 mb-3 sm:mb-4">
+                        <div
+                          className={`${industryColor.bg} w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm`}
+                        >
+                          <IconComponent
+                            className={`w-5 h-5 ${industryColor.text}`}
+                          />
+                        </div>
+                        <div
+                          className={`${industryColor.bg} text-sm font-medium px-4 py-2 rounded-full inline-block shadow-sm`}
+                        >
+                          <span className={industryColor.text}>
+                            {study.industryType}
+                          </span>
+                        </div>
                       </div>
                       <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 sm:mb-4">
                         {study.projectName}
@@ -201,6 +235,16 @@ const CaseStudiesPage = () => {
                             {study.solution}
                           </p>
                         </div>
+
+                        {study.relatedService && (
+                          <Link
+                            to={`/services#${slugify(study.relatedService)}`}
+                            className={`inline-flex items-center gap-2 font-bold ${industryColor.text} hover:gap-3 transition-all`}
+                          >
+                            See the {study.relatedService} service
+                            <ArrowRight className="w-4 h-4" />
+                          </Link>
+                        )}
                       </div>
                     </div>
 
