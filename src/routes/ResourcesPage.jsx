@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import {
   ChevronRight,
@@ -19,11 +19,20 @@ import Navigation from "../component/Navigation";
 import Action from "../component/Action";
 import SEO from "../component/SEO";
 
+// Maps each hero pill to the article categories (blogType) it should surface
+const PILL_CATEGORY_MAP = {
+  Guides: ["Getting Started", "Implementation"],
+  Tools: ["Technology", "Automation"],
+  "Best Practices": ["Best Practices", "Strategy"],
+};
+
 // Resources Page Component
 const ResourcesPage = () => {
   const [services, setServices] = useState([]);
   const [blogPosts, setBlogPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [activeFilter, setActiveFilter] = useState(null);
+  const insightsRef = useRef(null);
 
   // Icon mapping
   const iconMap = {
@@ -68,6 +77,17 @@ const ResourcesPage = () => {
   const getIconComponent = (logoId) => {
     return iconMap[logoId] || Target;
   };
+
+  const handlePillClick = (pill) => {
+    setActiveFilter((current) => (current === pill ? null : pill));
+    insightsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const filteredPosts = activeFilter
+    ? blogPosts.filter((post) =>
+        PILL_CATEGORY_MAP[activeFilter].includes(post.blogType)
+      )
+    : blogPosts;
 
   const getCategoryColor = (category) => {
     const colors = {
@@ -140,26 +160,68 @@ const ResourcesPage = () => {
 
           {/* Resource Category Pills */}
           <div className="flex flex-wrap gap-3 justify-center items-center px-4">
-            <div className="group px-5 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-md border border-gray-200 hover:shadow-lg transition-all duration-200 cursor-pointer">
-              <span className="text-sm font-semibold text-gray-700 group-hover:text-blue-600 transition-colors">
+            <button
+              onClick={() => handlePillClick("Guides")}
+              className={`group px-5 py-2 rounded-full shadow-md border transition-all duration-200 ${
+                activeFilter === "Guides"
+                  ? "bg-blue-600 border-blue-600 shadow-lg"
+                  : "bg-white/90 backdrop-blur-sm border-gray-200 hover:shadow-lg"
+              }`}
+            >
+              <span
+                className={`text-sm font-semibold transition-colors ${
+                  activeFilter === "Guides"
+                    ? "text-white"
+                    : "text-gray-700 group-hover:text-blue-600"
+                }`}
+              >
                 📚 Guides
               </span>
-            </div>
-            <div className="group px-5 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-md border border-gray-200 hover:shadow-lg transition-all duration-200 cursor-pointer">
-              <span className="text-sm font-semibold text-gray-700 group-hover:text-indigo-600 transition-colors">
+            </button>
+            <button
+              onClick={() => handlePillClick("Tools")}
+              className={`group px-5 py-2 rounded-full shadow-md border transition-all duration-200 ${
+                activeFilter === "Tools"
+                  ? "bg-indigo-600 border-indigo-600 shadow-lg"
+                  : "bg-white/90 backdrop-blur-sm border-gray-200 hover:shadow-lg"
+              }`}
+            >
+              <span
+                className={`text-sm font-semibold transition-colors ${
+                  activeFilter === "Tools"
+                    ? "text-white"
+                    : "text-gray-700 group-hover:text-indigo-600"
+                }`}
+              >
                 🛠️ Tools
               </span>
-            </div>
-            <div className="group px-5 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-md border border-gray-200 hover:shadow-lg transition-all duration-200 cursor-pointer">
-              <span className="text-sm font-semibold text-gray-700 group-hover:text-purple-600 transition-colors">
+            </button>
+            <button
+              onClick={() => handlePillClick("Best Practices")}
+              className={`group px-5 py-2 rounded-full shadow-md border transition-all duration-200 ${
+                activeFilter === "Best Practices"
+                  ? "bg-purple-600 border-purple-600 shadow-lg"
+                  : "bg-white/90 backdrop-blur-sm border-gray-200 hover:shadow-lg"
+              }`}
+            >
+              <span
+                className={`text-sm font-semibold transition-colors ${
+                  activeFilter === "Best Practices"
+                    ? "text-white"
+                    : "text-gray-700 group-hover:text-purple-600"
+                }`}
+              >
                 💡 Best Practices
               </span>
-            </div>
-            <div className="group px-5 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-md border border-gray-200 hover:shadow-lg transition-all duration-200 cursor-pointer">
+            </button>
+            <Link
+              to="/case-studies"
+              className="group px-5 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-md border border-gray-200 hover:shadow-lg transition-all duration-200"
+            >
               <span className="text-sm font-semibold text-gray-700 group-hover:text-pink-600 transition-colors">
                 📊 Case Studies
               </span>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
@@ -215,16 +277,24 @@ const ResourcesPage = () => {
       </section>
 
       {/* Blog Section - Dynamic */}
-      <section className="py-10 sm:py-20 bg-white">
+      <section ref={insightsRef} className="py-10 sm:py-20 bg-white scroll-mt-16 sm:scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
-              Latest Insights
+              {activeFilter ? `${activeFilter}` : "Latest Insights"}
             </h2>
             <p className="text-lg sm:text-xl text-gray-600">
               Expert articles on AI implementation for small and medium
               businesses
             </p>
+            {activeFilter && (
+              <button
+                onClick={() => setActiveFilter(null)}
+                className="mt-4 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors"
+              >
+                Clear filter — show all articles
+              </button>
+            )}
           </div>
 
           {loading ? (
@@ -232,15 +302,17 @@ const ResourcesPage = () => {
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
               <p className="mt-4 text-gray-600">Loading blog posts...</p>
             </div>
-          ) : blogPosts.length === 0 ? (
+          ) : filteredPosts.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-gray-500 text-lg">
-                No blog posts available yet.
+                {activeFilter
+                  ? `No articles in ${activeFilter} yet.`
+                  : "No blog posts available yet."}
               </p>
             </div>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
-              {blogPosts.map((post) => (
+              {filteredPosts.map((post) => (
                 <article
                   key={post.id}
                   className="bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border border-gray-100 group"
