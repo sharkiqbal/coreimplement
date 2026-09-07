@@ -1,10 +1,13 @@
 // src/context/AuthContext.jsx
 import React, { createContext, useContext, useState, useEffect } from "react";
+import {
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut as firebaseSignOut,
+} from "firebase/auth";
+import { auth } from "../firebase/firebase";
 
 const AuthContext = createContext(null);
-
-const adminEmail = import.meta.env.VITE_ADMIN_EMAIL;
-const adminPassword = import.meta.env.VITE_ADMIN_PASSWORD;
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
@@ -18,28 +21,29 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Check if user is already logged in (on page load)
+  // Firebase keeps the session persisted itself - this just mirrors its
+  // real, server-verified auth state into context on load and on change.
   useEffect(() => {
-    const storedUser = localStorage.getItem("authUser");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
-    setLoading(false);
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      setUser(
+        firebaseUser ? { email: firebaseUser.email, role: "admin" } : null
+      );
+      setLoading(false);
+    });
+    return unsubscribe;
   }, []);
 
-  const signin = (email, password) => {
-    if (email === adminEmail && password === adminPassword) {
-      const userData = { email, role: "admin" };
-      setUser(userData);
-      localStorage.setItem("authUser", JSON.stringify(userData));
+  const signin = async (email, password) => {
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
       return true;
+    } catch (error) {
+      return false;
     }
-    return false;
   };
 
-  const signout = () => {
-    setUser(null);
-    localStorage.removeItem("authUser");
+  const signout = async () => {
+    await firebaseSignOut(auth);
   };
 
   const value = {

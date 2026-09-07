@@ -49,7 +49,7 @@ const SignInPage = () => {
 
     if (!formData.password) {
       newErrors.password = "Password is required";
-    } else if (formData.password.length < 6 && formData.password !== "admin") {
+    } else if (formData.password.length < 6) {
       newErrors.password = "Password must be at least 6 characters";
     }
 
@@ -68,7 +68,7 @@ const SignInPage = () => {
 
     try {
       // Use the signin function from AuthContext
-      const success = signin(formData.email, formData.password);
+      const success = await signin(formData.email, formData.password);
 
       if (success) {
         // Navigate to the page they were trying to access or dashboard

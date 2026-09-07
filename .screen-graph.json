@@ -136,15 +136,15 @@
       }
     },
     {
-      "id": "src/routes/Homepage.jsx:581:29-to-src/routes/ContactPage.jsx",
+      "id": "src/routes/Homepage.jsx:583:29-to-src/routes/ContactPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "navigate(\"/contact\")",
-          "line": 581,
-          "endLine": 581,
+          "line": 583,
+          "endLine": 583,
           "column": 29,
           "endColumn": 49,
           "sourceFile": "src/routes/Homepage.jsx"
@@ -616,17 +616,33 @@
       }
     },
     {
-      "id": "src/routes/ResourcesPage.jsx:88:6-to-src/routes/ResourcesPage.jsx",
+      "id": "src/routes/ResourcesPage.jsx:108:6-to-src/routes/ResourcesPage.jsx",
       "source": "src/routes/ResourcesPage.jsx",
       "target": "src/routes/ResourcesPage.jsx",
       "data": {
         "viaRoute": "/resources",
         "trigger": {
           "element": "<SEO\n        title=\"AI Resources & Insights\"\n        description=\"Guides, best practices, and insights on AI automation, custom software, and workflow optimization for growing businesses.\"\n        path=\"/resources\"\n      />",
-          "line": 88,
-          "endLine": 92,
+          "line": 108,
+          "endLine": 112,
           "column": 6,
           "endColumn": 8,
+          "sourceFile": "src/routes/ResourcesPage.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/routes/ResourcesPage.jsx:217:12-to-src/routes/CaseStudiesPage.jsx",
+      "source": "src/routes/ResourcesPage.jsx",
+      "target": "src/routes/CaseStudiesPage.jsx",
+      "data": {
+        "viaRoute": "/case-studies",
+        "trigger": {
+          "element": "<Link\n              to=\"/case-studies\"\n              className=\"group px-5 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-md border border-gray-200 hover:shadow-lg transition-all duration-200\"\n            >\n              <span className=\"text-sm font-semibold text-gray-700 group-hover:text-pink-600 transition-colors\">\n                📊 Case Studies\n              </span>\n            </Link>",
+          "line": 217,
+          "endLine": 224,
+          "column": 12,
+          "endColumn": 19,
           "sourceFile": "src/routes/ResourcesPage.jsx"
         }
       }

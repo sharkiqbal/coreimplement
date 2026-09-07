@@ -1,16 +1,16 @@
 import { initializeApp } from "firebase/app";
 import { initializeFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
+import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyC7metrkgJw9WJo9RWUF_XsY5nnaZn5qvk",
-  authDomain: "website-44684.firebaseapp.com",
-  projectId: "website-44684",
-  storageBucket: "website-44684.firebasestorage.app",
-  messagingSenderId: "819313129901",
-  appId: "1:819313129901:web:f37497a346e0b1385f4924",
-  measurementId: "G-HG4P7XWR0L",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 // Initialize Firebase
@@ -25,5 +25,8 @@ export const db = initializeFirestore(app, {
 
 // Initialize Storage
 export const storage = getStorage(app);
+
+// Initialize Auth (admin sign-in)
+export const auth = getAuth(app);
 
 export default app;
