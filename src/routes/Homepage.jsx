@@ -26,6 +26,7 @@ import { getCompanyProfile } from "../service/companyProfileService";
 import Footer from "../component/Footer";
 import Navigation from "../component/Navigation";
 import Action from "../component/Action";
+import SEO from "../component/SEO";
 
 // Homepage Component
 const Homepage = () => {
@@ -196,6 +197,11 @@ const Homepage = () => {
 
   return (
     <div className="pt-16 sm:pt-20">
+      <SEO
+        title="AI Automation for Growing Businesses"
+        description="Core Implementations helps growing businesses automate manual, repetitive work using Claude, ChatGPT, and custom AI built around the tools you already use. Book a free consultation."
+        path="/"
+      />
       <Navigation />
       {/* Hero Section */}
       <section className="relative min-h-[70vh] bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-50 flex items-center overflow-hidden">

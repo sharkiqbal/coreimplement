@@ -18,6 +18,7 @@ import { getAllServices, slugifyServiceName } from "../service/serviceService";
 import Footer from "../component/Footer";
 import Navigation from "../component/Navigation";
 import Action from "../component/Action";
+import SEO from "../component/SEO";
 
 // Services Page Component
 const ServicesPage = () => {
@@ -274,6 +275,11 @@ const ServicesPage = () => {
 
   return (
     <div className="pt-16 sm:pt-20">
+      <SEO
+        title="AI Automation Services"
+        description="Business process automation, AI customer communication, custom AI software, and AI-powered marketing — built around the tools your business already uses."
+        path="/services"
+      />
       <Navigation />
 
       {/* Hero Section */}

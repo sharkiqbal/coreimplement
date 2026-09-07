@@ -4,6 +4,7 @@ import { getAllCaseStudies } from "../service/caseStudyService";
 import Footer from "../component/Footer";
 import Navigation from "../component/Navigation";
 import Action from "../component/Action";
+import SEO from "../component/SEO";
 
 // Case Studies Page Component
 const CaseStudiesPage = () => {
@@ -48,6 +49,11 @@ const CaseStudiesPage = () => {
 
   return (
     <div className="pt-16 sm:pt-20">
+      <SEO
+        title="Case Studies"
+        description="Real automation and AI implementation results for growing businesses — from call handling to inventory management to email processing."
+        path="/case-studies"
+      />
       <Navigation />
       {/* Hero Section */}
       <section className="relative min-h-[70vh] bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-50 flex items-center overflow-hidden">

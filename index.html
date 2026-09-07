@@ -2,14 +2,43 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Core Implement AI</title>
+    <!--
+      Only globally-constant, non-conflicting tags live here. Everything page-specific
+      (description, robots, canonical, og:*, twitter:*) is owned exclusively by the
+      <SEO> component (react-helmet-async) on each route - duplicating them here would
+      create two competing tags in the DOM once Helmet mounts, which is worse than
+      having none in the static markup.
+    -->
+    <title>Core Implementations | AI Automation for Growing Businesses</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Core Implement AI helps growing businesses automate manual, repetitive work, from data entry and quoting to reporting and customer communication, using Claude, ChatGPT, and custom AI built around the tools you already use." />
+    <meta name="theme-color" content="#4f46e5" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
     <style>
       @import url("https://fonts.googleapis.com/css?family=Poppins:500,400,700");
       @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
     </style>
     <link href="tailwind.css" rel="stylesheet" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Core Implementations",
+        "url": "https://coreimplement.com/",
+        "description": "AI automation and custom software consultancy helping growing businesses automate manual, repetitive work.",
+        "email": "hello@coreimplement.com",
+        "telephone": "+12484534597",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Houston",
+          "addressRegion": "TX",
+          "addressCountry": "US"
+        },
+        "areaServed": "US",
+        "priceRange": "$$"
+      }
+    </script>
   </head>
   <body>
     <div id="app"></div>

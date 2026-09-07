@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   ChevronRight,
   Brain,
@@ -10,127 +11,19 @@ import {
   Calendar,
   Clock,
   Cog,
-  X,
 } from "lucide-react";
 import { getAllServices } from "../service/serviceService";
-import { getAllBlogs } from "../service/blogService";
+import { getAllBlogs, getBlogSlug } from "../service/blogService";
 import Footer from "../component/Footer";
 import Navigation from "../component/Navigation";
 import Action from "../component/Action";
-
-// Blog Modal Component
-const BlogModal = ({ blog, onClose }) => {
-  useEffect(() => {
-    // Prevent body scroll when modal is open
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, []);
-
-  const getCategoryColor = (category) => {
-    const colors = {
-      "Getting Started": "bg-blue-100 text-blue-800",
-      Strategy: "bg-green-100 text-green-800",
-      Implementation: "bg-purple-100 text-purple-800",
-      "Case Study": "bg-orange-100 text-orange-800",
-      "Industry Insights": "bg-pink-100 text-pink-800",
-      "Best Practices": "bg-indigo-100 text-indigo-800",
-      Technology: "bg-cyan-100 text-cyan-800",
-      Automation: "bg-yellow-100 text-yellow-800",
-    };
-    return colors[category] || "bg-gray-100 text-gray-800";
-  };
-
-  return (
-    <div className="fixed inset-0 z-50 overflow-hidden">
-      {/* Backdrop */}
-      <div
-        className="absolute inset-0 bg-black bg-opacity-50 transition-opacity"
-        onClick={onClose}
-      />
-
-      {/* Modal */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="flex items-center justify-center min-h-screen px-4 pt-4 pb-20">
-          <div className="relative bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
-            {/* Header */}
-            <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between z-10">
-              <div className="flex items-center space-x-3">
-                <span
-                  className={`text-sm font-medium px-3 py-1 rounded-full ${getCategoryColor(
-                    blog.blogType
-                  )}`}
-                >
-                  {blog.blogType}
-                </span>
-                {blog.readTime && (
-                  <span className="text-sm text-gray-500 flex items-center">
-                    <Clock className="w-4 h-4 mr-1" />
-                    {blog.readTime}
-                  </span>
-                )}
-              </div>
-              <button
-                onClick={onClose}
-                className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-              >
-                <X className="w-6 h-6 text-gray-600" />
-              </button>
-            </div>
-
-            {/* Content */}
-            <div className="overflow-y-auto max-h-[calc(90vh-80px)] px-6 py-8">
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                {blog.blogName}
-              </h1>
-
-              <div className="flex items-center text-sm text-gray-500 mb-8">
-                <Calendar className="w-4 h-4 mr-1" />
-                {blog.publishDate
-                  ? new Date(blog.publishDate).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })
-                  : "Recent"}
-              </div>
-
-              <div className="prose prose-lg max-w-none">
-                <p className="text-xl text-gray-700 leading-relaxed mb-6">
-                  {blog.description}
-                </p>
-
-                {blog.content && (
-                  <div
-                    className="text-gray-600 leading-relaxed"
-                    dangerouslySetInnerHTML={{ __html: blog.content }}
-                  />
-                )}
-
-                {!blog.content && (
-                  <div className="text-gray-600 leading-relaxed space-y-4">
-                    <p>{blog.description}</p>
-                    <p className="italic text-gray-500">
-                      Full content coming soon...
-                    </p>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+import SEO from "../component/SEO";
 
 // Resources Page Component
 const ResourcesPage = () => {
   const [services, setServices] = useState([]);
   const [blogPosts, setBlogPosts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedBlog, setSelectedBlog] = useState(null);
 
   // Icon mapping
   const iconMap = {
@@ -190,16 +83,13 @@ const ResourcesPage = () => {
     return colors[category] || "bg-gray-100 text-gray-800";
   };
 
-  const handleReadMore = (blog) => {
-    setSelectedBlog(blog);
-  };
-
-  const handleCloseModal = () => {
-    setSelectedBlog(null);
-  };
-
   return (
     <div className="pt-16 sm:pt-20">
+      <SEO
+        title="AI Resources & Insights"
+        description="Guides, best practices, and insights on AI automation, custom software, and workflow optimization for growing businesses."
+        path="/resources"
+      />
       <Navigation />
       {/* Hero Section */}
       <section className="relative min-h-[70vh] bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-50 flex items-center overflow-hidden">
@@ -371,9 +261,11 @@ const ResourcesPage = () => {
                     )}
                   </div>
 
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 cursor-pointer transition-colors line-clamp-2">
-                    {post.blogName}
-                  </h3>
+                  <Link to={`/resources/${getBlogSlug(post)}`}>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 cursor-pointer transition-colors line-clamp-2">
+                      {post.blogName}
+                    </h3>
+                  </Link>
 
                   <p className="text-gray-600 mb-4 line-clamp-3 leading-relaxed">
                     {post.description}
@@ -386,13 +278,13 @@ const ResourcesPage = () => {
                         ? new Date(post.publishDate).toLocaleDateString()
                         : "Recent"}
                     </span>
-                    <button
-                      onClick={() => handleReadMore(post)}
+                    <Link
+                      to={`/resources/${getBlogSlug(post)}`}
                       className="text-blue-600 font-medium flex items-center hover:text-blue-700 transition-colors group"
                     >
                       Read More
                       <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                    </button>
+                    </Link>
                   </div>
                 </article>
               ))}
@@ -403,11 +295,6 @@ const ResourcesPage = () => {
 
       <Action />
       <Footer />
-
-      {/* Blog Modal */}
-      {selectedBlog && (
-        <BlogModal blog={selectedBlog} onClose={handleCloseModal} />
-      )}
     </div>
   );
 };

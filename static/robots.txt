@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin-core-0004
+Disallow: /admindashboard
+
+Sitemap: https://coreimplement.com/sitemap.xml

@@ -13,6 +13,7 @@ import { getCompanyProfile } from "../service/companyProfileService";
 import Footer from "../component/Footer";
 import Navigation from "../component/Navigation";
 import Action from "../component/Action";
+import SEO from "../component/SEO";
 
 // About Us Page Component
 const AboutPage = () => {
@@ -80,6 +81,11 @@ const AboutPage = () => {
 
   return (
     <div className="pt-16 sm:pt-20">
+      <SEO
+        title="About Us"
+        description="Meet the team behind Core Implementations — two business co-founders in Houston and a technical co-founder in Pakistan, bringing enterprise-grade AI experience to growing businesses."
+        path="/about"
+      />
       <Navigation />
       {/* Hero Section */}
       <section className="relative min-h-[70vh] bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-50 flex items-center overflow-hidden">

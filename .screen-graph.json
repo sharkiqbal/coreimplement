@@ -51,10 +51,38 @@
       ]
     },
     {
+      "id": "src/routes/ResourceArticlePage.jsx",
+      "label": "ResourceArticlePage",
+      "routes": [
+        "/resources/:slug"
+      ]
+    },
+    {
       "id": "src/routes/ContactPage.jsx",
       "label": "ContactPage",
       "routes": [
         "/contact"
+      ]
+    },
+    {
+      "id": "src/routes/PrivacyPage.jsx",
+      "label": "PrivacyPage",
+      "routes": [
+        "/privacy"
+      ]
+    },
+    {
+      "id": "src/routes/TermsPage.jsx",
+      "label": "TermsPage",
+      "routes": [
+        "/terms"
+      ]
+    },
+    {
+      "id": "src/routes/NotFoundPage.jsx",
+      "label": "NotFoundPage",
+      "routes": [
+        "*"
       ]
     }
   ],
@@ -76,15 +104,31 @@
       }
     },
     {
-      "id": "src/routes/Homepage.jsx:232:33-to-src/routes/ContactPage.jsx",
+      "id": "src/routes/Homepage.jsx:200:6-to-src/routes/Homepage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/Homepage.jsx",
+      "data": {
+        "viaRoute": "/",
+        "trigger": {
+          "element": "<SEO\n        title=\"AI Automation for Growing Businesses\"\n        description=\"Core Implementations helps growing businesses automate manual, repetitive work using Claude, ChatGPT, and custom AI built around the tools you already use. Book a free consultation.\"\n        path=\"/\"\n      />",
+          "line": 200,
+          "endLine": 204,
+          "column": 6,
+          "endColumn": 8,
+          "sourceFile": "src/routes/Homepage.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/routes/Homepage.jsx:238:33-to-src/routes/ContactPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "navigate(\"/contact\")",
-          "line": 232,
-          "endLine": 232,
+          "line": 238,
+          "endLine": 238,
           "column": 33,
           "endColumn": 53,
           "sourceFile": "src/routes/Homepage.jsx"
@@ -92,15 +136,15 @@
       }
     },
     {
-      "id": "src/routes/Homepage.jsx:453:29-to-src/routes/ContactPage.jsx",
+      "id": "src/routes/Homepage.jsx:581:29-to-src/routes/ContactPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "navigate(\"/contact\")",
-          "line": 453,
-          "endLine": 453,
+          "line": 581,
+          "endLine": 581,
           "column": 29,
           "endColumn": 49,
           "sourceFile": "src/routes/Homepage.jsx"
@@ -114,7 +158,7 @@
       "data": {
         "viaRoute": "/",
         "trigger": {
-          "element": "<Link\n            to=\"/\"\n            className=\"flex-shrink-0 cursor-pointer flex items-center gap-3 group\"\n          >\n            <div className=\"relative\">\n              {/* Animated gradient background */}\n              <div className=\"absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity\"></div>\n              <div className=\"relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-2 transform group-hover:scale-110 transition-transform duration-300\">\n                <BrainCircuit\n                  className=\"w-8 h-8 text-white\"\n                  strokeWidth={1.5}\n                />\n              </div>\n            </div>\n            <div>\n              <h1 className=\"text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent\">\n                {companyName}\n              </h1>\n              <p className=\"text-xs text-gray-500 font-medium\">\n                AI Solutions for SMBs\n              </p>\n            </div>\n          </Link>",
+          "element": "<Link\n            to=\"/\"\n            className=\"flex-shrink-0 cursor-pointer flex items-center gap-2 sm:gap-3 group min-w-0\"\n          >\n            <div className=\"relative flex-shrink-0\">\n              {/* Animated gradient background */}\n              <div className=\"absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity\"></div>\n              <div className=\"relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-1.5 sm:p-2 transform group-hover:scale-110 transition-transform duration-300\">\n                <BrainCircuit\n                  className=\"w-6 h-6 sm:w-8 sm:h-8 text-white\"\n                  strokeWidth={1.5}\n                />\n              </div>\n            </div>\n            <div className=\"min-w-0\">\n              <h1 className=\"text-base sm:text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent truncate\">\n                {companyName}\n              </h1>\n              <p className=\"hidden sm:block text-xs text-gray-500 font-medium\">\n                AI Solutions for SMBs\n              </p>\n            </div>\n          </Link>",
           "line": 105,
           "endLine": 127,
           "column": 10,
@@ -156,15 +200,623 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:192:16-to-src/routes/ContactPage.jsx",
+      "id": "src/component/Footer.jsx:162:16-to-src/routes/PrivacyPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/PrivacyPage.jsx",
+      "data": {
+        "viaRoute": "/privacy",
+        "trigger": {
+          "element": "<Link\n                  to=\"/privacy\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Privacy\n                </Link>",
+          "line": 162,
+          "endLine": 167,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Footer.jsx:169:16-to-src/routes/TermsPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/TermsPage.jsx",
+      "data": {
+        "viaRoute": "/terms",
+        "trigger": {
+          "element": "<Link\n                  to=\"/terms\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Terms\n                </Link>",
+          "line": 169,
+          "endLine": 174,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Footer.jsx:176:16-to-src/routes/ContactPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<Link\n                  to=\"/contact\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Contact\n                </Link>",
-          "line": 192,
-          "endLine": 197,
+          "line": 176,
+          "endLine": 181,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/routes/AboutUsPage.jsx:84:6-to-src/routes/AboutUsPage.jsx",
+      "source": "src/routes/AboutUsPage.jsx",
+      "target": "src/routes/AboutUsPage.jsx",
+      "data": {
+        "viaRoute": "/about",
+        "trigger": {
+          "element": "<SEO\n        title=\"About Us\"\n        description=\"Meet the team behind Core Implementations — two business co-founders in Houston and a technical co-founder in Pakistan, bringing enterprise-grade AI experience to growing businesses.\"\n        path=\"/about\"\n      />",
+          "line": 84,
+          "endLine": 88,
+          "column": 6,
+          "endColumn": 8,
+          "sourceFile": "src/routes/AboutUsPage.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Navigation.jsx:105:10-to-src/routes/Homepage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/Homepage.jsx",
+      "data": {
+        "viaRoute": "/",
+        "trigger": {
+          "element": "<Link\n            to=\"/\"\n            className=\"flex-shrink-0 cursor-pointer flex items-center gap-2 sm:gap-3 group min-w-0\"\n          >\n            <div className=\"relative flex-shrink-0\">\n              {/* Animated gradient background */}\n              <div className=\"absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity\"></div>\n              <div className=\"relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-1.5 sm:p-2 transform group-hover:scale-110 transition-transform duration-300\">\n                <BrainCircuit\n                  className=\"w-6 h-6 sm:w-8 sm:h-8 text-white\"\n                  strokeWidth={1.5}\n                />\n              </div>\n            </div>\n            <div className=\"min-w-0\">\n              <h1 className=\"text-base sm:text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent truncate\">\n                {companyName}\n              </h1>\n              <p className=\"hidden sm:block text-xs text-gray-500 font-medium\">\n                AI Solutions for SMBs\n              </p>\n            </div>\n          </Link>",
+          "line": 105,
+          "endLine": 127,
+          "column": 10,
+          "endColumn": 17,
+          "sourceFile": "src/component/Navigation.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Action.jsx:45:29-to-src/routes/ContactPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/ContactPage.jsx",
+      "data": {
+        "viaRoute": "/contact",
+        "trigger": {
+          "element": "navigate(\"/contact\")",
+          "line": 45,
+          "endLine": 45,
+          "column": 29,
+          "endColumn": 49,
+          "sourceFile": "src/component/Action.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Action.jsx:69:29-to-src/routes/ServicesPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/ServicesPage.jsx",
+      "data": {
+        "viaRoute": "/services",
+        "trigger": {
+          "element": "navigate(\"/services\")",
+          "line": 69,
+          "endLine": 69,
+          "column": 29,
+          "endColumn": 50,
+          "sourceFile": "src/component/Action.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Footer.jsx:162:16-to-src/routes/PrivacyPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/PrivacyPage.jsx",
+      "data": {
+        "viaRoute": "/privacy",
+        "trigger": {
+          "element": "<Link\n                  to=\"/privacy\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Privacy\n                </Link>",
+          "line": 162,
+          "endLine": 167,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Footer.jsx:169:16-to-src/routes/TermsPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/TermsPage.jsx",
+      "data": {
+        "viaRoute": "/terms",
+        "trigger": {
+          "element": "<Link\n                  to=\"/terms\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Terms\n                </Link>",
+          "line": 169,
+          "endLine": 174,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Footer.jsx:176:16-to-src/routes/ContactPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/ContactPage.jsx",
+      "data": {
+        "viaRoute": "/contact",
+        "trigger": {
+          "element": "<Link\n                  to=\"/contact\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Contact\n                </Link>",
+          "line": 176,
+          "endLine": 181,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/routes/ServicesPage.jsx:278:6-to-src/routes/ServicesPage.jsx",
+      "source": "src/routes/ServicesPage.jsx",
+      "target": "src/routes/ServicesPage.jsx",
+      "data": {
+        "viaRoute": "/services",
+        "trigger": {
+          "element": "<SEO\n        title=\"AI Automation Services\"\n        description=\"Business process automation, AI customer communication, custom AI software, and AI-powered marketing — built around the tools your business already uses.\"\n        path=\"/services\"\n      />",
+          "line": 278,
+          "endLine": 282,
+          "column": 6,
+          "endColumn": 8,
+          "sourceFile": "src/routes/ServicesPage.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/routes/ServicesPage.jsx:331:29-to-src/routes/ContactPage.jsx",
+      "source": "src/routes/ServicesPage.jsx",
+      "target": "src/routes/ContactPage.jsx",
+      "data": {
+        "viaRoute": "/contact",
+        "trigger": {
+          "element": "navigate(\"/contact\")",
+          "line": 331,
+          "endLine": 331,
+          "column": 29,
+          "endColumn": 49,
+          "sourceFile": "src/routes/ServicesPage.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/routes/ServicesPage.jsx:450:39-to-src/routes/ContactPage.jsx",
+      "source": "src/routes/ServicesPage.jsx",
+      "target": "src/routes/ContactPage.jsx",
+      "data": {
+        "viaRoute": "/contact",
+        "trigger": {
+          "element": "navigate(\"/contact\")",
+          "line": 450,
+          "endLine": 450,
+          "column": 39,
+          "endColumn": 59,
+          "sourceFile": "src/routes/ServicesPage.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Navigation.jsx:105:10-to-src/routes/Homepage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/Homepage.jsx",
+      "data": {
+        "viaRoute": "/",
+        "trigger": {
+          "element": "<Link\n            to=\"/\"\n            className=\"flex-shrink-0 cursor-pointer flex items-center gap-2 sm:gap-3 group min-w-0\"\n          >\n            <div className=\"relative flex-shrink-0\">\n              {/* Animated gradient background */}\n              <div className=\"absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity\"></div>\n              <div className=\"relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-1.5 sm:p-2 transform group-hover:scale-110 transition-transform duration-300\">\n                <BrainCircuit\n                  className=\"w-6 h-6 sm:w-8 sm:h-8 text-white\"\n                  strokeWidth={1.5}\n                />\n              </div>\n            </div>\n            <div className=\"min-w-0\">\n              <h1 className=\"text-base sm:text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent truncate\">\n                {companyName}\n              </h1>\n              <p className=\"hidden sm:block text-xs text-gray-500 font-medium\">\n                AI Solutions for SMBs\n              </p>\n            </div>\n          </Link>",
+          "line": 105,
+          "endLine": 127,
+          "column": 10,
+          "endColumn": 17,
+          "sourceFile": "src/component/Navigation.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Action.jsx:45:29-to-src/routes/ContactPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/ContactPage.jsx",
+      "data": {
+        "viaRoute": "/contact",
+        "trigger": {
+          "element": "navigate(\"/contact\")",
+          "line": 45,
+          "endLine": 45,
+          "column": 29,
+          "endColumn": 49,
+          "sourceFile": "src/component/Action.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Action.jsx:69:29-to-src/routes/ServicesPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/ServicesPage.jsx",
+      "data": {
+        "viaRoute": "/services",
+        "trigger": {
+          "element": "navigate(\"/services\")",
+          "line": 69,
+          "endLine": 69,
+          "column": 29,
+          "endColumn": 50,
+          "sourceFile": "src/component/Action.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Footer.jsx:162:16-to-src/routes/PrivacyPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/PrivacyPage.jsx",
+      "data": {
+        "viaRoute": "/privacy",
+        "trigger": {
+          "element": "<Link\n                  to=\"/privacy\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Privacy\n                </Link>",
+          "line": 162,
+          "endLine": 167,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Footer.jsx:169:16-to-src/routes/TermsPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/TermsPage.jsx",
+      "data": {
+        "viaRoute": "/terms",
+        "trigger": {
+          "element": "<Link\n                  to=\"/terms\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Terms\n                </Link>",
+          "line": 169,
+          "endLine": 174,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Footer.jsx:176:16-to-src/routes/ContactPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/ContactPage.jsx",
+      "data": {
+        "viaRoute": "/contact",
+        "trigger": {
+          "element": "<Link\n                  to=\"/contact\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Contact\n                </Link>",
+          "line": 176,
+          "endLine": 181,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/routes/CaseStudiesPage.jsx:52:6-to-src/routes/CaseStudiesPage.jsx",
+      "source": "src/routes/CaseStudiesPage.jsx",
+      "target": "src/routes/CaseStudiesPage.jsx",
+      "data": {
+        "viaRoute": "/case-studies",
+        "trigger": {
+          "element": "<SEO\n        title=\"Case Studies\"\n        description=\"Real automation and AI implementation results for growing businesses — from call handling to inventory management to email processing.\"\n        path=\"/case-studies\"\n      />",
+          "line": 52,
+          "endLine": 56,
+          "column": 6,
+          "endColumn": 8,
+          "sourceFile": "src/routes/CaseStudiesPage.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Navigation.jsx:105:10-to-src/routes/Homepage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/Homepage.jsx",
+      "data": {
+        "viaRoute": "/",
+        "trigger": {
+          "element": "<Link\n            to=\"/\"\n            className=\"flex-shrink-0 cursor-pointer flex items-center gap-2 sm:gap-3 group min-w-0\"\n          >\n            <div className=\"relative flex-shrink-0\">\n              {/* Animated gradient background */}\n              <div className=\"absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity\"></div>\n              <div className=\"relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-1.5 sm:p-2 transform group-hover:scale-110 transition-transform duration-300\">\n                <BrainCircuit\n                  className=\"w-6 h-6 sm:w-8 sm:h-8 text-white\"\n                  strokeWidth={1.5}\n                />\n              </div>\n            </div>\n            <div className=\"min-w-0\">\n              <h1 className=\"text-base sm:text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent truncate\">\n                {companyName}\n              </h1>\n              <p className=\"hidden sm:block text-xs text-gray-500 font-medium\">\n                AI Solutions for SMBs\n              </p>\n            </div>\n          </Link>",
+          "line": 105,
+          "endLine": 127,
+          "column": 10,
+          "endColumn": 17,
+          "sourceFile": "src/component/Navigation.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Action.jsx:45:29-to-src/routes/ContactPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/ContactPage.jsx",
+      "data": {
+        "viaRoute": "/contact",
+        "trigger": {
+          "element": "navigate(\"/contact\")",
+          "line": 45,
+          "endLine": 45,
+          "column": 29,
+          "endColumn": 49,
+          "sourceFile": "src/component/Action.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Action.jsx:69:29-to-src/routes/ServicesPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/ServicesPage.jsx",
+      "data": {
+        "viaRoute": "/services",
+        "trigger": {
+          "element": "navigate(\"/services\")",
+          "line": 69,
+          "endLine": 69,
+          "column": 29,
+          "endColumn": 50,
+          "sourceFile": "src/component/Action.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Footer.jsx:162:16-to-src/routes/PrivacyPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/PrivacyPage.jsx",
+      "data": {
+        "viaRoute": "/privacy",
+        "trigger": {
+          "element": "<Link\n                  to=\"/privacy\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Privacy\n                </Link>",
+          "line": 162,
+          "endLine": 167,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Footer.jsx:169:16-to-src/routes/TermsPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/TermsPage.jsx",
+      "data": {
+        "viaRoute": "/terms",
+        "trigger": {
+          "element": "<Link\n                  to=\"/terms\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Terms\n                </Link>",
+          "line": 169,
+          "endLine": 174,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Footer.jsx:176:16-to-src/routes/ContactPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/ContactPage.jsx",
+      "data": {
+        "viaRoute": "/contact",
+        "trigger": {
+          "element": "<Link\n                  to=\"/contact\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Contact\n                </Link>",
+          "line": 176,
+          "endLine": 181,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/routes/ResourcesPage.jsx:88:6-to-src/routes/ResourcesPage.jsx",
+      "source": "src/routes/ResourcesPage.jsx",
+      "target": "src/routes/ResourcesPage.jsx",
+      "data": {
+        "viaRoute": "/resources",
+        "trigger": {
+          "element": "<SEO\n        title=\"AI Resources & Insights\"\n        description=\"Guides, best practices, and insights on AI automation, custom software, and workflow optimization for growing businesses.\"\n        path=\"/resources\"\n      />",
+          "line": 88,
+          "endLine": 92,
+          "column": 6,
+          "endColumn": 8,
+          "sourceFile": "src/routes/ResourcesPage.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Navigation.jsx:105:10-to-src/routes/Homepage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/Homepage.jsx",
+      "data": {
+        "viaRoute": "/",
+        "trigger": {
+          "element": "<Link\n            to=\"/\"\n            className=\"flex-shrink-0 cursor-pointer flex items-center gap-2 sm:gap-3 group min-w-0\"\n          >\n            <div className=\"relative flex-shrink-0\">\n              {/* Animated gradient background */}\n              <div className=\"absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity\"></div>\n              <div className=\"relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-1.5 sm:p-2 transform group-hover:scale-110 transition-transform duration-300\">\n                <BrainCircuit\n                  className=\"w-6 h-6 sm:w-8 sm:h-8 text-white\"\n                  strokeWidth={1.5}\n                />\n              </div>\n            </div>\n            <div className=\"min-w-0\">\n              <h1 className=\"text-base sm:text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent truncate\">\n                {companyName}\n              </h1>\n              <p className=\"hidden sm:block text-xs text-gray-500 font-medium\">\n                AI Solutions for SMBs\n              </p>\n            </div>\n          </Link>",
+          "line": 105,
+          "endLine": 127,
+          "column": 10,
+          "endColumn": 17,
+          "sourceFile": "src/component/Navigation.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Action.jsx:45:29-to-src/routes/ContactPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/ContactPage.jsx",
+      "data": {
+        "viaRoute": "/contact",
+        "trigger": {
+          "element": "navigate(\"/contact\")",
+          "line": 45,
+          "endLine": 45,
+          "column": 29,
+          "endColumn": 49,
+          "sourceFile": "src/component/Action.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Action.jsx:69:29-to-src/routes/ServicesPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/ServicesPage.jsx",
+      "data": {
+        "viaRoute": "/services",
+        "trigger": {
+          "element": "navigate(\"/services\")",
+          "line": 69,
+          "endLine": 69,
+          "column": 29,
+          "endColumn": 50,
+          "sourceFile": "src/component/Action.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Footer.jsx:162:16-to-src/routes/PrivacyPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/PrivacyPage.jsx",
+      "data": {
+        "viaRoute": "/privacy",
+        "trigger": {
+          "element": "<Link\n                  to=\"/privacy\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Privacy\n                </Link>",
+          "line": 162,
+          "endLine": 167,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Footer.jsx:169:16-to-src/routes/TermsPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/TermsPage.jsx",
+      "data": {
+        "viaRoute": "/terms",
+        "trigger": {
+          "element": "<Link\n                  to=\"/terms\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Terms\n                </Link>",
+          "line": 169,
+          "endLine": 174,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Footer.jsx:176:16-to-src/routes/ContactPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/ContactPage.jsx",
+      "data": {
+        "viaRoute": "/contact",
+        "trigger": {
+          "element": "<Link\n                  to=\"/contact\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Contact\n                </Link>",
+          "line": 176,
+          "endLine": 181,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/routes/ResourceArticlePage.jsx:90:29-to-src/routes/ResourcesPage.jsx",
+      "source": "src/routes/ResourceArticlePage.jsx",
+      "target": "src/routes/ResourcesPage.jsx",
+      "data": {
+        "viaRoute": "/resources",
+        "trigger": {
+          "element": "navigate(\"/resources\")",
+          "line": 90,
+          "endLine": 90,
+          "column": 29,
+          "endColumn": 51,
+          "sourceFile": "src/routes/ResourceArticlePage.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/routes/ResourceArticlePage.jsx:140:10-to-src/routes/ResourcesPage.jsx",
+      "source": "src/routes/ResourceArticlePage.jsx",
+      "target": "src/routes/ResourcesPage.jsx",
+      "data": {
+        "viaRoute": "/resources",
+        "trigger": {
+          "element": "<Link\n            to=\"/resources\"\n            className=\"inline-flex items-center gap-1.5 text-sm font-semibold text-gray-600 hover:text-indigo-600 transition-colors mb-6\"\n          >\n            <ArrowLeft className=\"w-4 h-4\" />\n            Back to Resources\n          </Link>",
+          "line": 140,
+          "endLine": 146,
+          "column": 10,
+          "endColumn": 17,
+          "sourceFile": "src/routes/ResourceArticlePage.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Navigation.jsx:105:10-to-src/routes/Homepage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/Homepage.jsx",
+      "data": {
+        "viaRoute": "/",
+        "trigger": {
+          "element": "<Link\n            to=\"/\"\n            className=\"flex-shrink-0 cursor-pointer flex items-center gap-2 sm:gap-3 group min-w-0\"\n          >\n            <div className=\"relative flex-shrink-0\">\n              {/* Animated gradient background */}\n              <div className=\"absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity\"></div>\n              <div className=\"relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-1.5 sm:p-2 transform group-hover:scale-110 transition-transform duration-300\">\n                <BrainCircuit\n                  className=\"w-6 h-6 sm:w-8 sm:h-8 text-white\"\n                  strokeWidth={1.5}\n                />\n              </div>\n            </div>\n            <div className=\"min-w-0\">\n              <h1 className=\"text-base sm:text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent truncate\">\n                {companyName}\n              </h1>\n              <p className=\"hidden sm:block text-xs text-gray-500 font-medium\">\n                AI Solutions for SMBs\n              </p>\n            </div>\n          </Link>",
+          "line": 105,
+          "endLine": 127,
+          "column": 10,
+          "endColumn": 17,
+          "sourceFile": "src/component/Navigation.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Footer.jsx:162:16-to-src/routes/PrivacyPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/PrivacyPage.jsx",
+      "data": {
+        "viaRoute": "/privacy",
+        "trigger": {
+          "element": "<Link\n                  to=\"/privacy\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Privacy\n                </Link>",
+          "line": 162,
+          "endLine": 167,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Footer.jsx:169:16-to-src/routes/TermsPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/TermsPage.jsx",
+      "data": {
+        "viaRoute": "/terms",
+        "trigger": {
+          "element": "<Link\n                  to=\"/terms\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Terms\n                </Link>",
+          "line": 169,
+          "endLine": 174,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Footer.jsx:176:16-to-src/routes/ContactPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/ContactPage.jsx",
+      "data": {
+        "viaRoute": "/contact",
+        "trigger": {
+          "element": "<Link\n                  to=\"/contact\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Contact\n                </Link>",
+          "line": 176,
+          "endLine": 181,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -178,7 +830,7 @@
       "data": {
         "viaRoute": "/",
         "trigger": {
-          "element": "<Link\n            to=\"/\"\n            className=\"flex-shrink-0 cursor-pointer flex items-center gap-3 group\"\n          >\n            <div className=\"relative\">\n              {/* Animated gradient background */}\n              <div className=\"absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity\"></div>\n              <div className=\"relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-2 transform group-hover:scale-110 transition-transform duration-300\">\n                <BrainCircuit\n                  className=\"w-8 h-8 text-white\"\n                  strokeWidth={1.5}\n                />\n              </div>\n            </div>\n            <div>\n              <h1 className=\"text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent\">\n                {companyName}\n              </h1>\n              <p className=\"text-xs text-gray-500 font-medium\">\n                AI Solutions for SMBs\n              </p>\n            </div>\n          </Link>",
+          "element": "<Link\n            to=\"/\"\n            className=\"flex-shrink-0 cursor-pointer flex items-center gap-2 sm:gap-3 group min-w-0\"\n          >\n            <div className=\"relative flex-shrink-0\">\n              {/* Animated gradient background */}\n              <div className=\"absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity\"></div>\n              <div className=\"relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-1.5 sm:p-2 transform group-hover:scale-110 transition-transform duration-300\">\n                <BrainCircuit\n                  className=\"w-6 h-6 sm:w-8 sm:h-8 text-white\"\n                  strokeWidth={1.5}\n                />\n              </div>\n            </div>\n            <div className=\"min-w-0\">\n              <h1 className=\"text-base sm:text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent truncate\">\n                {companyName}\n              </h1>\n              <p className=\"hidden sm:block text-xs text-gray-500 font-medium\">\n                AI Solutions for SMBs\n              </p>\n            </div>\n          </Link>",
           "line": 105,
           "endLine": 127,
           "column": 10,
@@ -188,47 +840,47 @@
       }
     },
     {
-      "id": "src/component/Action.jsx:45:29-to-src/routes/ContactPage.jsx",
+      "id": "src/component/Footer.jsx:162:16-to-src/routes/PrivacyPage.jsx",
       "source": "src/routes/Homepage.jsx",
-      "target": "src/routes/ContactPage.jsx",
+      "target": "src/routes/PrivacyPage.jsx",
       "data": {
-        "viaRoute": "/contact",
+        "viaRoute": "/privacy",
         "trigger": {
-          "element": "navigate(\"/contact\")",
-          "line": 45,
-          "endLine": 45,
-          "column": 29,
-          "endColumn": 49,
-          "sourceFile": "src/component/Action.jsx"
+          "element": "<Link\n                  to=\"/privacy\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Privacy\n                </Link>",
+          "line": 162,
+          "endLine": 167,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
         }
       }
     },
     {
-      "id": "src/component/Action.jsx:69:29-to-src/routes/ServicesPage.jsx",
+      "id": "src/component/Footer.jsx:169:16-to-src/routes/TermsPage.jsx",
       "source": "src/routes/Homepage.jsx",
-      "target": "src/routes/ServicesPage.jsx",
+      "target": "src/routes/TermsPage.jsx",
       "data": {
-        "viaRoute": "/services",
+        "viaRoute": "/terms",
         "trigger": {
-          "element": "navigate(\"/services\")",
-          "line": 69,
-          "endLine": 69,
-          "column": 29,
-          "endColumn": 50,
-          "sourceFile": "src/component/Action.jsx"
+          "element": "<Link\n                  to=\"/terms\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Terms\n                </Link>",
+          "line": 169,
+          "endLine": 174,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
         }
       }
     },
     {
-      "id": "src/component/Footer.jsx:192:16-to-src/routes/ContactPage.jsx",
+      "id": "src/component/Footer.jsx:176:16-to-src/routes/ContactPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<Link\n                  to=\"/contact\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Contact\n                </Link>",
-          "line": 192,
-          "endLine": 197,
+          "line": 176,
+          "endLine": 181,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -242,7 +894,7 @@
       "data": {
         "viaRoute": "/",
         "trigger": {
-          "element": "<Link\n            to=\"/\"\n            className=\"flex-shrink-0 cursor-pointer flex items-center gap-3 group\"\n          >\n            <div className=\"relative\">\n              {/* Animated gradient background */}\n              <div className=\"absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity\"></div>\n              <div className=\"relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-2 transform group-hover:scale-110 transition-transform duration-300\">\n                <BrainCircuit\n                  className=\"w-8 h-8 text-white\"\n                  strokeWidth={1.5}\n                />\n              </div>\n            </div>\n            <div>\n              <h1 className=\"text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent\">\n                {companyName}\n              </h1>\n              <p className=\"text-xs text-gray-500 font-medium\">\n                AI Solutions for SMBs\n              </p>\n            </div>\n          </Link>",
+          "element": "<Link\n            to=\"/\"\n            className=\"flex-shrink-0 cursor-pointer flex items-center gap-2 sm:gap-3 group min-w-0\"\n          >\n            <div className=\"relative flex-shrink-0\">\n              {/* Animated gradient background */}\n              <div className=\"absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity\"></div>\n              <div className=\"relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-1.5 sm:p-2 transform group-hover:scale-110 transition-transform duration-300\">\n                <BrainCircuit\n                  className=\"w-6 h-6 sm:w-8 sm:h-8 text-white\"\n                  strokeWidth={1.5}\n                />\n              </div>\n            </div>\n            <div className=\"min-w-0\">\n              <h1 className=\"text-base sm:text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent truncate\">\n                {companyName}\n              </h1>\n              <p className=\"hidden sm:block text-xs text-gray-500 font-medium\">\n                AI Solutions for SMBs\n              </p>\n            </div>\n          </Link>",
           "line": 105,
           "endLine": 127,
           "column": 10,
@@ -284,18 +936,66 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:192:16-to-src/routes/ContactPage.jsx",
+      "id": "src/component/Footer.jsx:162:16-to-src/routes/PrivacyPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/PrivacyPage.jsx",
+      "data": {
+        "viaRoute": "/privacy",
+        "trigger": {
+          "element": "<Link\n                  to=\"/privacy\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Privacy\n                </Link>",
+          "line": 162,
+          "endLine": 167,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Footer.jsx:169:16-to-src/routes/TermsPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/TermsPage.jsx",
+      "data": {
+        "viaRoute": "/terms",
+        "trigger": {
+          "element": "<Link\n                  to=\"/terms\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Terms\n                </Link>",
+          "line": 169,
+          "endLine": 174,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Footer.jsx:176:16-to-src/routes/ContactPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<Link\n                  to=\"/contact\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Contact\n                </Link>",
-          "line": 192,
-          "endLine": 197,
+          "line": 176,
+          "endLine": 181,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/routes/ContactPage.jsx:287:6-to-src/routes/ContactPage.jsx",
+      "source": "src/routes/ContactPage.jsx",
+      "target": "src/routes/ContactPage.jsx",
+      "data": {
+        "viaRoute": "/contact",
+        "trigger": {
+          "element": "<SEO\n        title=\"Contact Us\"\n        description=\"Book a free consultation with Core Implementations. Tell us about your business and we'll show you what AI automation can do for you.\"\n        path=\"/contact\"\n      />",
+          "line": 287,
+          "endLine": 291,
+          "column": 6,
+          "endColumn": 8,
+          "sourceFile": "src/routes/ContactPage.jsx"
         }
       }
     },
@@ -306,7 +1006,7 @@
       "data": {
         "viaRoute": "/",
         "trigger": {
-          "element": "<Link\n            to=\"/\"\n            className=\"flex-shrink-0 cursor-pointer flex items-center gap-3 group\"\n          >\n            <div className=\"relative\">\n              {/* Animated gradient background */}\n              <div className=\"absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity\"></div>\n              <div className=\"relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-2 transform group-hover:scale-110 transition-transform duration-300\">\n                <BrainCircuit\n                  className=\"w-8 h-8 text-white\"\n                  strokeWidth={1.5}\n                />\n              </div>\n            </div>\n            <div>\n              <h1 className=\"text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent\">\n                {companyName}\n              </h1>\n              <p className=\"text-xs text-gray-500 font-medium\">\n                AI Solutions for SMBs\n              </p>\n            </div>\n          </Link>",
+          "element": "<Link\n            to=\"/\"\n            className=\"flex-shrink-0 cursor-pointer flex items-center gap-2 sm:gap-3 group min-w-0\"\n          >\n            <div className=\"relative flex-shrink-0\">\n              {/* Animated gradient background */}\n              <div className=\"absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity\"></div>\n              <div className=\"relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-1.5 sm:p-2 transform group-hover:scale-110 transition-transform duration-300\">\n                <BrainCircuit\n                  className=\"w-6 h-6 sm:w-8 sm:h-8 text-white\"\n                  strokeWidth={1.5}\n                />\n              </div>\n            </div>\n            <div className=\"min-w-0\">\n              <h1 className=\"text-base sm:text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent truncate\">\n                {companyName}\n              </h1>\n              <p className=\"hidden sm:block text-xs text-gray-500 font-medium\">\n                AI Solutions for SMBs\n              </p>\n            </div>\n          </Link>",
           "line": 105,
           "endLine": 127,
           "column": 10,
@@ -348,18 +1048,66 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:192:16-to-src/routes/ContactPage.jsx",
+      "id": "src/component/Footer.jsx:162:16-to-src/routes/PrivacyPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/PrivacyPage.jsx",
+      "data": {
+        "viaRoute": "/privacy",
+        "trigger": {
+          "element": "<Link\n                  to=\"/privacy\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Privacy\n                </Link>",
+          "line": 162,
+          "endLine": 167,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Footer.jsx:169:16-to-src/routes/TermsPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/TermsPage.jsx",
+      "data": {
+        "viaRoute": "/terms",
+        "trigger": {
+          "element": "<Link\n                  to=\"/terms\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Terms\n                </Link>",
+          "line": 169,
+          "endLine": 174,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Footer.jsx:176:16-to-src/routes/ContactPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<Link\n                  to=\"/contact\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Contact\n                </Link>",
-          "line": 192,
-          "endLine": 197,
+          "line": 176,
+          "endLine": 181,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/routes/PrivacyPage.jsx:20:6-to-src/routes/PrivacyPage.jsx",
+      "source": "src/routes/PrivacyPage.jsx",
+      "target": "src/routes/PrivacyPage.jsx",
+      "data": {
+        "viaRoute": "/privacy",
+        "trigger": {
+          "element": "<SEO\n        title=\"Privacy Policy\"\n        description=\"How Core Implementations collects, uses, and protects your information.\"\n        path=\"/privacy\"\n      />",
+          "line": 20,
+          "endLine": 24,
+          "column": 6,
+          "endColumn": 8,
+          "sourceFile": "src/routes/PrivacyPage.jsx"
         }
       }
     },
@@ -370,7 +1118,7 @@
       "data": {
         "viaRoute": "/",
         "trigger": {
-          "element": "<Link\n            to=\"/\"\n            className=\"flex-shrink-0 cursor-pointer flex items-center gap-3 group\"\n          >\n            <div className=\"relative\">\n              {/* Animated gradient background */}\n              <div className=\"absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity\"></div>\n              <div className=\"relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-2 transform group-hover:scale-110 transition-transform duration-300\">\n                <BrainCircuit\n                  className=\"w-8 h-8 text-white\"\n                  strokeWidth={1.5}\n                />\n              </div>\n            </div>\n            <div>\n              <h1 className=\"text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent\">\n                {companyName}\n              </h1>\n              <p className=\"text-xs text-gray-500 font-medium\">\n                AI Solutions for SMBs\n              </p>\n            </div>\n          </Link>",
+          "element": "<Link\n            to=\"/\"\n            className=\"flex-shrink-0 cursor-pointer flex items-center gap-2 sm:gap-3 group min-w-0\"\n          >\n            <div className=\"relative flex-shrink-0\">\n              {/* Animated gradient background */}\n              <div className=\"absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity\"></div>\n              <div className=\"relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-1.5 sm:p-2 transform group-hover:scale-110 transition-transform duration-300\">\n                <BrainCircuit\n                  className=\"w-6 h-6 sm:w-8 sm:h-8 text-white\"\n                  strokeWidth={1.5}\n                />\n              </div>\n            </div>\n            <div className=\"min-w-0\">\n              <h1 className=\"text-base sm:text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent truncate\">\n                {companyName}\n              </h1>\n              <p className=\"hidden sm:block text-xs text-gray-500 font-medium\">\n                AI Solutions for SMBs\n              </p>\n            </div>\n          </Link>",
           "line": 105,
           "endLine": 127,
           "column": 10,
@@ -380,50 +1128,66 @@
       }
     },
     {
-      "id": "src/component/Action.jsx:45:29-to-src/routes/ContactPage.jsx",
+      "id": "src/component/Footer.jsx:162:16-to-src/routes/PrivacyPage.jsx",
       "source": "src/routes/Homepage.jsx",
-      "target": "src/routes/ContactPage.jsx",
+      "target": "src/routes/PrivacyPage.jsx",
       "data": {
-        "viaRoute": "/contact",
+        "viaRoute": "/privacy",
         "trigger": {
-          "element": "navigate(\"/contact\")",
-          "line": 45,
-          "endLine": 45,
-          "column": 29,
-          "endColumn": 49,
-          "sourceFile": "src/component/Action.jsx"
+          "element": "<Link\n                  to=\"/privacy\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Privacy\n                </Link>",
+          "line": 162,
+          "endLine": 167,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
         }
       }
     },
     {
-      "id": "src/component/Action.jsx:69:29-to-src/routes/ServicesPage.jsx",
+      "id": "src/component/Footer.jsx:169:16-to-src/routes/TermsPage.jsx",
       "source": "src/routes/Homepage.jsx",
-      "target": "src/routes/ServicesPage.jsx",
+      "target": "src/routes/TermsPage.jsx",
       "data": {
-        "viaRoute": "/services",
+        "viaRoute": "/terms",
         "trigger": {
-          "element": "navigate(\"/services\")",
-          "line": 69,
-          "endLine": 69,
-          "column": 29,
-          "endColumn": 50,
-          "sourceFile": "src/component/Action.jsx"
+          "element": "<Link\n                  to=\"/terms\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Terms\n                </Link>",
+          "line": 169,
+          "endLine": 174,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
         }
       }
     },
     {
-      "id": "src/component/Footer.jsx:192:16-to-src/routes/ContactPage.jsx",
+      "id": "src/component/Footer.jsx:176:16-to-src/routes/ContactPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<Link\n                  to=\"/contact\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Contact\n                </Link>",
-          "line": 192,
-          "endLine": 197,
+          "line": 176,
+          "endLine": 181,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/routes/TermsPage.jsx:20:6-to-src/routes/TermsPage.jsx",
+      "source": "src/routes/TermsPage.jsx",
+      "target": "src/routes/TermsPage.jsx",
+      "data": {
+        "viaRoute": "/terms",
+        "trigger": {
+          "element": "<SEO\n        title=\"Terms of Service\"\n        description=\"The terms governing your use of the Core Implementations website.\"\n        path=\"/terms\"\n      />",
+          "line": 20,
+          "endLine": 24,
+          "column": 6,
+          "endColumn": 8,
+          "sourceFile": "src/routes/TermsPage.jsx"
         }
       }
     },
@@ -434,7 +1198,7 @@
       "data": {
         "viaRoute": "/",
         "trigger": {
-          "element": "<Link\n            to=\"/\"\n            className=\"flex-shrink-0 cursor-pointer flex items-center gap-3 group\"\n          >\n            <div className=\"relative\">\n              {/* Animated gradient background */}\n              <div className=\"absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity\"></div>\n              <div className=\"relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-2 transform group-hover:scale-110 transition-transform duration-300\">\n                <BrainCircuit\n                  className=\"w-8 h-8 text-white\"\n                  strokeWidth={1.5}\n                />\n              </div>\n            </div>\n            <div>\n              <h1 className=\"text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent\">\n                {companyName}\n              </h1>\n              <p className=\"text-xs text-gray-500 font-medium\">\n                AI Solutions for SMBs\n              </p>\n            </div>\n          </Link>",
+          "element": "<Link\n            to=\"/\"\n            className=\"flex-shrink-0 cursor-pointer flex items-center gap-2 sm:gap-3 group min-w-0\"\n          >\n            <div className=\"relative flex-shrink-0\">\n              {/* Animated gradient background */}\n              <div className=\"absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity\"></div>\n              <div className=\"relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-1.5 sm:p-2 transform group-hover:scale-110 transition-transform duration-300\">\n                <BrainCircuit\n                  className=\"w-6 h-6 sm:w-8 sm:h-8 text-white\"\n                  strokeWidth={1.5}\n                />\n              </div>\n            </div>\n            <div className=\"min-w-0\">\n              <h1 className=\"text-base sm:text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent truncate\">\n                {companyName}\n              </h1>\n              <p className=\"hidden sm:block text-xs text-gray-500 font-medium\">\n                AI Solutions for SMBs\n              </p>\n            </div>\n          </Link>",
           "line": 105,
           "endLine": 127,
           "column": 10,
@@ -444,47 +1208,127 @@
       }
     },
     {
-      "id": "src/component/Action.jsx:45:29-to-src/routes/ContactPage.jsx",
+      "id": "src/component/Footer.jsx:162:16-to-src/routes/PrivacyPage.jsx",
       "source": "src/routes/Homepage.jsx",
-      "target": "src/routes/ContactPage.jsx",
+      "target": "src/routes/PrivacyPage.jsx",
       "data": {
-        "viaRoute": "/contact",
+        "viaRoute": "/privacy",
         "trigger": {
-          "element": "navigate(\"/contact\")",
-          "line": 45,
-          "endLine": 45,
-          "column": 29,
-          "endColumn": 49,
-          "sourceFile": "src/component/Action.jsx"
+          "element": "<Link\n                  to=\"/privacy\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Privacy\n                </Link>",
+          "line": 162,
+          "endLine": 167,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
         }
       }
     },
     {
-      "id": "src/component/Action.jsx:69:29-to-src/routes/ServicesPage.jsx",
+      "id": "src/component/Footer.jsx:169:16-to-src/routes/TermsPage.jsx",
       "source": "src/routes/Homepage.jsx",
-      "target": "src/routes/ServicesPage.jsx",
+      "target": "src/routes/TermsPage.jsx",
       "data": {
-        "viaRoute": "/services",
+        "viaRoute": "/terms",
         "trigger": {
-          "element": "navigate(\"/services\")",
-          "line": 69,
-          "endLine": 69,
-          "column": 29,
-          "endColumn": 50,
-          "sourceFile": "src/component/Action.jsx"
+          "element": "<Link\n                  to=\"/terms\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Terms\n                </Link>",
+          "line": 169,
+          "endLine": 174,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
         }
       }
     },
     {
-      "id": "src/component/Footer.jsx:192:16-to-src/routes/ContactPage.jsx",
+      "id": "src/component/Footer.jsx:176:16-to-src/routes/ContactPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<Link\n                  to=\"/contact\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Contact\n                </Link>",
-          "line": 192,
-          "endLine": 197,
+          "line": 176,
+          "endLine": 181,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/routes/NotFoundPage.jsx:31:27-to-src/routes/Homepage.jsx",
+      "source": "src/routes/NotFoundPage.jsx",
+      "target": "src/routes/Homepage.jsx",
+      "data": {
+        "viaRoute": "/",
+        "trigger": {
+          "element": "navigate(\"/\")",
+          "line": 31,
+          "endLine": 31,
+          "column": 27,
+          "endColumn": 40,
+          "sourceFile": "src/routes/NotFoundPage.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Navigation.jsx:105:10-to-src/routes/Homepage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/Homepage.jsx",
+      "data": {
+        "viaRoute": "/",
+        "trigger": {
+          "element": "<Link\n            to=\"/\"\n            className=\"flex-shrink-0 cursor-pointer flex items-center gap-2 sm:gap-3 group min-w-0\"\n          >\n            <div className=\"relative flex-shrink-0\">\n              {/* Animated gradient background */}\n              <div className=\"absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity\"></div>\n              <div className=\"relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-1.5 sm:p-2 transform group-hover:scale-110 transition-transform duration-300\">\n                <BrainCircuit\n                  className=\"w-6 h-6 sm:w-8 sm:h-8 text-white\"\n                  strokeWidth={1.5}\n                />\n              </div>\n            </div>\n            <div className=\"min-w-0\">\n              <h1 className=\"text-base sm:text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent truncate\">\n                {companyName}\n              </h1>\n              <p className=\"hidden sm:block text-xs text-gray-500 font-medium\">\n                AI Solutions for SMBs\n              </p>\n            </div>\n          </Link>",
+          "line": 105,
+          "endLine": 127,
+          "column": 10,
+          "endColumn": 17,
+          "sourceFile": "src/component/Navigation.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Footer.jsx:162:16-to-src/routes/PrivacyPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/PrivacyPage.jsx",
+      "data": {
+        "viaRoute": "/privacy",
+        "trigger": {
+          "element": "<Link\n                  to=\"/privacy\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Privacy\n                </Link>",
+          "line": 162,
+          "endLine": 167,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Footer.jsx:169:16-to-src/routes/TermsPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/TermsPage.jsx",
+      "data": {
+        "viaRoute": "/terms",
+        "trigger": {
+          "element": "<Link\n                  to=\"/terms\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Terms\n                </Link>",
+          "line": 169,
+          "endLine": 174,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Footer.jsx:176:16-to-src/routes/ContactPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/ContactPage.jsx",
+      "data": {
+        "viaRoute": "/contact",
+        "trigger": {
+          "element": "<Link\n                  to=\"/contact\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Contact\n                </Link>",
+          "line": 176,
+          "endLine": 181,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"

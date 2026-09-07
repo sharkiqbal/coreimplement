@@ -15,60 +15,57 @@ import { addRFPSubmission } from "../service/rfpService";
 import Footer from "../component/Footer";
 import Navigation from "../component/Navigation";
 import Action from "../component/Action";
+import SEO from "../component/SEO";
+import { useCookieConsent } from "../context/CookieConsentContext";
 
-function CalendlyWidget45min() {
-  useEffect(() => {
-    // Load Calendly script
-    const script = document.createElement("script");
-    script.src = "https://assets.calendly.com/assets/external/widget.js";
-    script.async = true;
-    document.body.appendChild(script);
+// Calendly sets its own third-party cookies, so the embed only loads after cookie consent
+function CalendlyConsentGate({ children }) {
+  const { consent, acceptAll } = useCookieConsent();
 
-    return () => {
-      // Cleanup script on unmount
-      document.body.removeChild(script);
-    };
-  }, []);
+  if (consent === "accepted") {
+    return children;
+  }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4 md:p-8">
-      <div className="max-w-5xl mx-auto">
-        <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-          {/* Header */}
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-6 text-center">
-            <h1 className="text-3xl font-bold text-white mb-2">
-              Schedule a Meeting
-            </h1>
-            <p className="text-blue-100">
-              Choose a time that works best for you
-            </p>
-          </div>
-
-          {/* Calendly Widget */}
-          <div className="p-4 md:p-8">
-            <div
-              className="calendly-inline-widget rounded-lg overflow-hidden shadow-inner"
-              data-url={import.meta.env.VITE_CALENDLY_45MIN_URL}
-              style={{ minWidth: "320px", height: "800px" }}
-            />
-          </div>
-
-          {/* Footer */}
-          <div className="bg-gray-50 p-4 text-center border-t border-gray-200">
-            <p className="text-sm text-gray-600">
-              Powered by{" "}
-              <span className="font-semibold text-blue-600">Calendly</span>
-            </p>
-          </div>
-        </div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4 md:p-8 flex items-center justify-center">
+      <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center">
+        <p className="text-gray-900 font-bold text-lg mb-2">
+          Scheduling Widget Requires Cookies
+        </p>
+        <p className="text-gray-600 text-sm mb-6 leading-relaxed">
+          Our calendar is powered by Calendly, which uses cookies to work.
+          Accept cookies to book a time directly, or reach us at{" "}
+          <a
+            href="mailto:hello@coreimplement.com"
+            className="text-blue-600 font-semibold"
+          >
+            hello@coreimplement.com
+          </a>{" "}
+          or{" "}
+          <a href="tel:+12484534597" className="text-blue-600 font-semibold">
+            (248) 453-4597
+          </a>
+          .
+        </p>
+        <button
+          onClick={acceptAll}
+          className="w-full px-5 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl text-sm font-bold hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg"
+        >
+          Accept Cookies to Continue
+        </button>
       </div>
     </div>
   );
 }
 
-function CalendlyWidget20min() {
+function CalendlyWidget45min() {
+  const { consent } = useCookieConsent();
+  const calendlyAllowed = consent === "accepted";
+
   useEffect(() => {
-    // Load Calendly script
+    if (!calendlyAllowed) return;
+
+    // Load Calendly script (only after cookie consent, since it sets its own cookies)
     const script = document.createElement("script");
     script.src = "https://assets.calendly.com/assets/external/widget.js";
     script.async = true;
@@ -78,41 +75,100 @@ function CalendlyWidget20min() {
       // Cleanup script on unmount
       document.body.removeChild(script);
     };
-  }, []);
+  }, [calendlyAllowed]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4 md:p-8">
-      <div className="max-w-5xl mx-auto">
-        <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-          {/* Header */}
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-6 text-center">
-            <h1 className="text-3xl font-bold text-white mb-2">
-              Schedule a Meeting
-            </h1>
-            <p className="text-blue-100">
-              Choose a time that works best for you
-            </p>
-          </div>
+    <CalendlyConsentGate>
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4 md:p-8">
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+            {/* Header */}
+            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-6 text-center">
+              <h1 className="text-3xl font-bold text-white mb-2">
+                Schedule a Meeting
+              </h1>
+              <p className="text-blue-100">
+                Choose a time that works best for you
+              </p>
+            </div>
 
-          {/* Calendly Widget */}
-          <div className="p-4 md:p-8">
-            <div
-              className="calendly-inline-widget rounded-lg overflow-hidden shadow-inner"
-              data-url={import.meta.env.VITE_CALENDLY_20MIN_URL}
-              style={{ minWidth: "320px", height: "800px" }}
-            />
-          </div>
+            {/* Calendly Widget */}
+            <div className="p-4 md:p-8">
+              <div
+                className="calendly-inline-widget rounded-lg overflow-hidden shadow-inner"
+                data-url={import.meta.env.VITE_CALENDLY_45MIN_URL}
+                style={{ minWidth: "320px", height: "800px" }}
+              />
+            </div>
 
-          {/* Footer */}
-          <div className="bg-gray-50 p-4 text-center border-t border-gray-200">
-            <p className="text-sm text-gray-600">
-              Powered by{" "}
-              <span className="font-semibold text-blue-600">Calendly</span>
-            </p>
+            {/* Footer */}
+            <div className="bg-gray-50 p-4 text-center border-t border-gray-200">
+              <p className="text-sm text-gray-600">
+                Powered by{" "}
+                <span className="font-semibold text-blue-600">Calendly</span>
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </CalendlyConsentGate>
+  );
+}
+
+function CalendlyWidget20min() {
+  const { consent } = useCookieConsent();
+  const calendlyAllowed = consent === "accepted";
+
+  useEffect(() => {
+    if (!calendlyAllowed) return;
+
+    // Load Calendly script (only after cookie consent, since it sets its own cookies)
+    const script = document.createElement("script");
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup script on unmount
+      document.body.removeChild(script);
+    };
+  }, [calendlyAllowed]);
+
+  return (
+    <CalendlyConsentGate>
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4 md:p-8">
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+            {/* Header */}
+            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-6 text-center">
+              <h1 className="text-3xl font-bold text-white mb-2">
+                Schedule a Meeting
+              </h1>
+              <p className="text-blue-100">
+                Choose a time that works best for you
+              </p>
+            </div>
+
+            {/* Calendly Widget */}
+            <div className="p-4 md:p-8">
+              <div
+                className="calendly-inline-widget rounded-lg overflow-hidden shadow-inner"
+                data-url={import.meta.env.VITE_CALENDLY_20MIN_URL}
+                style={{ minWidth: "320px", height: "800px" }}
+              />
+            </div>
+
+            {/* Footer */}
+            <div className="bg-gray-50 p-4 text-center border-t border-gray-200">
+              <p className="text-sm text-gray-600">
+                Powered by{" "}
+                <span className="font-semibold text-blue-600">Calendly</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </CalendlyConsentGate>
   );
 }
 
@@ -228,6 +284,11 @@ const EnhancedContactPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO
+        title="Contact Us"
+        description="Book a free consultation with Core Implementations. Tell us about your business and we'll show you what AI automation can do for you."
+        path="/contact"
+      />
       <Navigation />
       {/* Hero Section */}
       <section className="relative min-h-[100vh] bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-50 py-12 sm:py-16 lg:py-24 overflow-hidden flex items-center justify-center">

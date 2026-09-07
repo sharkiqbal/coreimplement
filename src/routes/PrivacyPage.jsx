@@ -1,6 +1,7 @@
 import React from "react";
 import Footer from "../component/Footer";
 import Navigation from "../component/Navigation";
+import SEO from "../component/SEO";
 
 const Section = ({ title, children }) => (
   <div className="mb-8 sm:mb-10">
@@ -16,6 +17,11 @@ const Section = ({ title, children }) => (
 const PrivacyPage = () => {
   return (
     <div className="pt-16 sm:pt-20">
+      <SEO
+        title="Privacy Policy"
+        description="How Core Implementations collects, uses, and protects your information."
+        path="/privacy"
+      />
       <Navigation />
 
       {/* Header */}
@@ -95,10 +101,16 @@ const PrivacyPage = () => {
 
           <Section title="Cookies and Local Storage">
             <p>
-              Our Site may use browser local storage to support basic
-              functionality, such as keeping an authorized administrator
-              signed in. We do not currently use cookies or local storage
-              for advertising or cross-site tracking.
+              Our Site uses browser local storage for essential functionality,
+              such as remembering your cookie preference and keeping an
+              authorized administrator signed in. When you accept cookies,
+              our Calendly scheduling widget may also set its own cookies to
+              enable booking. We do not use cookies or local storage for
+              advertising or cross-site tracking, and non-essential
+              third-party embeds like Calendly only load after you accept
+              cookies via the banner shown on your first visit. You can
+              change your preference at any time by clearing your browser's
+              site data for this Site.
             </p>
           </Section>
 

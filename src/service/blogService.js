@@ -10,8 +10,12 @@ import {
   query,
 } from "firebase/firestore";
 import { db } from "../firebase/firebase";
+import { slugify } from "../utils/slugify";
 
 const COLLECTION_NAME = "blogPosts";
+
+// A post's slug is its stored `slug` field, falling back to one derived from its title
+export const getBlogSlug = (blog) => blog.slug || slugify(blog.blogName);
 
 // Get all blog posts
 export const getAllBlogs = async () => {
@@ -33,6 +37,12 @@ export const getAllBlogs = async () => {
     console.error("Error getting blogs:", error);
     throw error;
   }
+};
+
+// Get a single blog post by its slug
+export const getBlogBySlug = async (slug) => {
+  const blogs = await getAllBlogs();
+  return blogs.find((blog) => getBlogSlug(blog) === slug) || null;
 };
 
 // Add new blog post

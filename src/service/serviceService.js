@@ -11,16 +11,12 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase/firebase";
 
+import { slugify } from "../utils/slugify";
+
 const COLLECTION_NAME = "services";
 
 // Convert a service name into a URL-safe anchor slug (e.g. "AI-Powered Marketing & Growth" -> "ai-powered-marketing-growth")
-export const slugifyServiceName = (name) => {
-  return (name || "")
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-};
+export const slugifyServiceName = slugify;
 
 // Get all services
 export const getAllServices = async () => {

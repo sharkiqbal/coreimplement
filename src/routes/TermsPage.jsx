@@ -1,6 +1,7 @@
 import React from "react";
 import Footer from "../component/Footer";
 import Navigation from "../component/Navigation";
+import SEO from "../component/SEO";
 
 const Section = ({ title, children }) => (
   <div className="mb-8 sm:mb-10">
@@ -16,6 +17,11 @@ const Section = ({ title, children }) => (
 const TermsPage = () => {
   return (
     <div className="pt-16 sm:pt-20">
+      <SEO
+        title="Terms of Service"
+        description="The terms governing your use of the Core Implementations website."
+        path="/terms"
+      />
       <Navigation />
 
       {/* Header */}
