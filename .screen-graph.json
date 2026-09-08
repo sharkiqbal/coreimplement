@@ -93,8 +93,8 @@
       ]
     },
     {
-      "id": "src/routes/platformPreview/PersonaDocuments.jsx",
-      "label": "PersonaDocuments",
+      "id": "src/routes/firmOS/DocumentsQueue.jsx",
+      "label": "DocumentsQueue",
       "routes": [
         "documents"
       ]
@@ -114,8 +114,8 @@
       ]
     },
     {
-      "id": "src/routes/platformPreview/PersonaCommunications.jsx",
-      "label": "PersonaCommunications",
+      "id": "src/routes/firmOS/FirmCommunications.jsx",
+      "label": "FirmCommunications",
       "routes": [
         "communications"
       ]
@@ -125,6 +125,34 @@
       "label": "PersonaReports",
       "routes": [
         "reports"
+      ]
+    },
+    {
+      "id": "src/routes/firmOS/FirmOSLayout.jsx",
+      "label": "FirmOSLayout",
+      "routes": [
+        "/firm-os-preview"
+      ]
+    },
+    {
+      "id": "src/routes/firmOS/ClientsList.jsx",
+      "label": "ClientsList",
+      "routes": [
+        "clients"
+      ]
+    },
+    {
+      "id": "src/routes/firmOS/ClientDetail.jsx",
+      "label": "ClientDetail",
+      "routes": [
+        "clients/:clientId"
+      ]
+    },
+    {
+      "id": "src/routes/firmOS/PlaceholderPage.jsx",
+      "label": "PlaceholderPage",
+      "routes": [
+        "billing"
       ]
     },
     {

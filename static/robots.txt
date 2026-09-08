@@ -3,5 +3,6 @@ Allow: /
 Disallow: /admin-core-0004
 Disallow: /admindashboard
 Disallow: /platform-preview
+Disallow: /firm-os-preview
 
 Sitemap: https://coreimplement.com/sitemap.xml

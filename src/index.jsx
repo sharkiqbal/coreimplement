@@ -21,6 +21,13 @@ import PersonaAutomations from "./routes/platformPreview/PersonaAutomations";
 import PersonaIntegrations from "./routes/platformPreview/PersonaIntegrations";
 import PersonaCommunications from "./routes/platformPreview/PersonaCommunications";
 import PersonaReports from "./routes/platformPreview/PersonaReports";
+import FirmOSLayout from "./routes/firmOS/FirmOSLayout";
+import FirmDashboard from "./routes/firmOS/FirmDashboard";
+import ClientsList from "./routes/firmOS/ClientsList";
+import ClientDetail from "./routes/firmOS/ClientDetail";
+import DocumentsQueue from "./routes/firmOS/DocumentsQueue";
+import FirmCommunications from "./routes/firmOS/FirmCommunications";
+import FirmOSPlaceholder from "./routes/firmOS/PlaceholderPage";
 import ScrollToTop from "./component/ScrollToTop";
 import CookieConsentBanner from "./component/CookieConsentBanner";
 import { AuthProvider } from "./context/AuthContext";
@@ -75,6 +82,25 @@ createRoot(document.getElementById("app")).render(
                   element={<PersonaCommunications />}
                 />
                 <Route path="reports" element={<PersonaReports />} />
+              </Route>
+
+              {/* Hidden firm-OS demo - separate practice-management concept, unlisted */}
+              <Route path="/firm-os-preview" element={<FirmOSLayout />}>
+                <Route index element={<FirmDashboard />} />
+                <Route path="clients" element={<ClientsList />} />
+                <Route path="clients/:clientId" element={<ClientDetail />} />
+                <Route path="documents" element={<DocumentsQueue />} />
+                <Route path="communications" element={<FirmCommunications />} />
+                <Route
+                  path="billing"
+                  element={
+                    <FirmOSPlaceholder
+                      title="Billing"
+                      phase="Phase 5"
+                      description="Auto-generated invoices, payment reconciliation, and collections nudges will land here."
+                    />
+                  }
+                />
               </Route>
 
               <Route path="*" element={<NotFoundPage />} />
