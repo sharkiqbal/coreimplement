@@ -12,6 +12,7 @@ import {
 
 import { addContactSubmission } from "../service/contactService";
 import { addRFPSubmission } from "../service/rfpService";
+import { HONEYPOT_FIELD, isLikelySpam } from "../utils/spamGuard";
 import Footer from "../component/Footer";
 import Navigation from "../component/Navigation";
 import Action from "../component/Action";
@@ -202,6 +203,12 @@ const EnhancedContactPage = () => {
 
   const contactFormRef = useRef(null);
 
+  // Track when each form was rendered, and a honeypot field only bots fill in
+  const contactFormLoadedAt = useRef(Date.now());
+  const rfpFormLoadedAt = useRef(Date.now());
+  const [contactHoneypot, setContactHoneypot] = useState("");
+  const [rfpHoneypot, setRfpHoneypot] = useState("");
+
   const scrollToContactForm = () => {
     contactFormRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -222,7 +229,17 @@ const EnhancedContactPage = () => {
         return;
       }
 
-      await addContactSubmission(contactForm);
+      // Bots trip the honeypot or submit faster than a human could; fake a
+      // normal success so they don't retry with a different approach.
+      if (
+        !isLikelySpam({
+          honeypotValue: contactHoneypot,
+          formLoadedAt: contactFormLoadedAt.current,
+        })
+      ) {
+        await addContactSubmission(contactForm);
+      }
+
       setSubmitSuccess(true);
       setContactForm({
         name: "",
@@ -232,6 +249,8 @@ const EnhancedContactPage = () => {
         projectType: "",
         message: "",
       });
+      setContactHoneypot("");
+      contactFormLoadedAt.current = Date.now();
 
       setTimeout(() => setSubmitSuccess(false), 5000);
     } catch (error) {
@@ -258,7 +277,15 @@ const EnhancedContactPage = () => {
         return;
       }
 
-      await addRFPSubmission(rfpForm);
+      if (
+        !isLikelySpam({
+          honeypotValue: rfpHoneypot,
+          formLoadedAt: rfpFormLoadedAt.current,
+        })
+      ) {
+        await addRFPSubmission(rfpForm);
+      }
+
       setSubmitSuccess(true);
       setRFPForm({
         name: "",
@@ -272,6 +299,8 @@ const EnhancedContactPage = () => {
         budgetBand: "",
         additionalDetails: "",
       });
+      setRfpHoneypot("");
+      rfpFormLoadedAt.current = Date.now();
 
       setTimeout(() => setSubmitSuccess(false), 5000);
     } catch (error) {
@@ -492,6 +521,24 @@ const EnhancedContactPage = () => {
                   )}
 
                   <form onSubmit={handleContactSubmit} className="space-y-6">
+                    {/* Honeypot - hidden from real users, bots that auto-fill every field will trip it */}
+                    <div
+                      style={{ position: "absolute", left: "-9999px" }}
+                      aria-hidden="true"
+                    >
+                      <label htmlFor={HONEYPOT_FIELD}>
+                        Leave this field blank
+                      </label>
+                      <input
+                        type="text"
+                        id={HONEYPOT_FIELD}
+                        name={HONEYPOT_FIELD}
+                        tabIndex={-1}
+                        autoComplete="off"
+                        value={contactHoneypot}
+                        onChange={(e) => setContactHoneypot(e.target.value)}
+                      />
+                    </div>
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -729,6 +776,24 @@ const EnhancedContactPage = () => {
                   )}
 
                   <form onSubmit={handleRFPSubmit} className="space-y-6">
+                    {/* Honeypot - hidden from real users, bots that auto-fill every field will trip it */}
+                    <div
+                      style={{ position: "absolute", left: "-9999px" }}
+                      aria-hidden="true"
+                    >
+                      <label htmlFor={`rfp-${HONEYPOT_FIELD}`}>
+                        Leave this field blank
+                      </label>
+                      <input
+                        type="text"
+                        id={`rfp-${HONEYPOT_FIELD}`}
+                        name={HONEYPOT_FIELD}
+                        tabIndex={-1}
+                        autoComplete="off"
+                        value={rfpHoneypot}
+                        onChange={(e) => setRfpHoneypot(e.target.value)}
+                      />
+                    </div>
                     {/* Basic Info */}
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>

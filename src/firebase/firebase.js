@@ -2,6 +2,7 @@ import { initializeApp } from "firebase/app";
 import { initializeFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 import { getAuth } from "firebase/auth";
+import { initializeAppCheck, ReCaptchaEnterpriseProvider } from "firebase/app-check";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -15,6 +16,22 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
+// App Check: proves writes come from this real app (not a script hitting the
+// Firestore API directly) before Firestore accepts them. Debug token lets it
+// work on localhost during development without a real reCAPTCHA verification.
+if (import.meta.env.DEV) {
+  self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
+}
+
+if (import.meta.env.VITE_RECAPTCHA_ENTERPRISE_SITE_KEY) {
+  initializeAppCheck(app, {
+    provider: new ReCaptchaEnterpriseProvider(
+      import.meta.env.VITE_RECAPTCHA_ENTERPRISE_SITE_KEY
+    ),
+    isTokenAutoRefreshEnabled: true,
+  });
+}
 
 // Initialize Firestore with long-polling auto-detection - the default WebChannel
 // streaming connection can hang (ERR_TIMED_OUT on Listen/channel) behind certain

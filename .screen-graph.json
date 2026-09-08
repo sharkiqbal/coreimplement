@@ -504,15 +504,15 @@
       }
     },
     {
-      "id": "src/routes/CaseStudiesPage.jsx:52:6-to-src/routes/CaseStudiesPage.jsx",
+      "id": "src/routes/CaseStudiesPage.jsx:76:6-to-src/routes/CaseStudiesPage.jsx",
       "source": "src/routes/CaseStudiesPage.jsx",
       "target": "src/routes/CaseStudiesPage.jsx",
       "data": {
         "viaRoute": "/case-studies",
         "trigger": {
-          "element": "<SEO\n        title=\"Case Studies\"\n        description=\"Real automation and AI implementation results for growing businesses — from call handling to inventory management to email processing.\"\n        path=\"/case-studies\"\n      />",
-          "line": 52,
-          "endLine": 56,
+          "element": "<SEO\n        title=\"Case Studies\"\n        description=\"Real automation and AI implementation results for growing businesses — from call handling and email triage to inventory management and marketing.\"\n        path=\"/case-studies\"\n      />",
+          "line": 76,
+          "endLine": 80,
           "column": 6,
           "endColumn": 8,
           "sourceFile": "src/routes/CaseStudiesPage.jsx"
@@ -1000,15 +1000,15 @@
       }
     },
     {
-      "id": "src/routes/ContactPage.jsx:287:6-to-src/routes/ContactPage.jsx",
+      "id": "src/routes/ContactPage.jsx:316:6-to-src/routes/ContactPage.jsx",
       "source": "src/routes/ContactPage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<SEO\n        title=\"Contact Us\"\n        description=\"Book a free consultation with Core Implementations. Tell us about your business and we'll show you what AI automation can do for you.\"\n        path=\"/contact\"\n      />",
-          "line": 287,
-          "endLine": 291,
+          "line": 316,
+          "endLine": 320,
           "column": 6,
           "endColumn": 8,
           "sourceFile": "src/routes/ContactPage.jsx"
