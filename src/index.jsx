@@ -23,14 +23,12 @@ import PersonaCommunications from "./routes/platformPreview/PersonaCommunication
 import PersonaReports from "./routes/platformPreview/PersonaReports";
 import FirmOSLayout from "./routes/firmOS/FirmOSLayout";
 import FirmDashboard from "./routes/firmOS/FirmDashboard";
-import ClientsList from "./routes/firmOS/ClientsList";
+import ClientsPage from "./routes/firmOS/ClientsPage";
 import ClientDetail from "./routes/firmOS/ClientDetail";
-import DocumentsQueue from "./routes/firmOS/DocumentsQueue";
+import DocumentsPage from "./routes/firmOS/DocumentsPage";
 import FirmCommunications from "./routes/firmOS/FirmCommunications";
 import NewEngagement from "./routes/firmOS/NewEngagement";
-import PipelineBoard from "./routes/firmOS/PipelineBoard";
 import FirmBilling from "./routes/firmOS/FirmBilling";
-import BookkeepingQueue from "./routes/firmOS/BookkeepingQueue";
 import ScrollToTop from "./component/ScrollToTop";
 import CookieConsentBanner from "./component/CookieConsentBanner";
 import { AuthProvider } from "./context/AuthContext";
@@ -91,11 +89,9 @@ createRoot(document.getElementById("app")).render(
               <Route path="/firm-os-preview" element={<FirmOSLayout />}>
                 <Route index element={<FirmDashboard />} />
                 <Route path="new-engagement" element={<NewEngagement />} />
-                <Route path="clients" element={<ClientsList />} />
-                <Route path="pipeline" element={<PipelineBoard />} />
+                <Route path="clients" element={<ClientsPage />} />
                 <Route path="clients/:clientId" element={<ClientDetail />} />
-                <Route path="documents" element={<DocumentsQueue />} />
-                <Route path="bookkeeping" element={<BookkeepingQueue />} />
+                <Route path="documents" element={<DocumentsPage />} />
                 <Route path="communications" element={<FirmCommunications />} />
                 <Route path="billing" element={<FirmBilling />} />
               </Route>

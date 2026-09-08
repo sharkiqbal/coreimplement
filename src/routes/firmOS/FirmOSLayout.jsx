@@ -7,19 +7,13 @@ import {
   FileStack,
   MessageSquare,
   Receipt,
-  FileSignature,
-  Kanban,
-  Landmark,
 } from "lucide-react";
 import { FIRM_NAME } from "./mockData";
 
 const NAV_ITEMS = [
-  { to: "", label: "Dashboard", icon: LayoutDashboard, end: true },
-  { to: "new-engagement", label: "New Engagement", icon: FileSignature },
+  { to: "", label: "Home", icon: LayoutDashboard, end: true },
   { to: "clients", label: "Clients", icon: Users },
-  { to: "pipeline", label: "Pipeline", icon: Kanban },
   { to: "documents", label: "Documents", icon: FileStack },
-  { to: "bookkeeping", label: "Bookkeeping", icon: Landmark },
   { to: "communications", label: "Communications", icon: MessageSquare },
   { to: "billing", label: "Billing", icon: Receipt },
 ];

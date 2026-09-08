@@ -93,8 +93,8 @@
       ]
     },
     {
-      "id": "src/routes/firmOS/DocumentsQueue.jsx",
-      "label": "DocumentsQueue",
+      "id": "src/routes/firmOS/DocumentsPage.jsx",
+      "label": "DocumentsPage",
       "routes": [
         "documents"
       ]
@@ -142,17 +142,10 @@
       ]
     },
     {
-      "id": "src/routes/firmOS/ClientsList.jsx",
-      "label": "ClientsList",
+      "id": "src/routes/firmOS/ClientsPage.jsx",
+      "label": "ClientsPage",
       "routes": [
         "clients"
-      ]
-    },
-    {
-      "id": "src/routes/firmOS/PipelineBoard.jsx",
-      "label": "PipelineBoard",
-      "routes": [
-        "pipeline"
       ]
     },
     {
@@ -160,13 +153,6 @@
       "label": "ClientDetail",
       "routes": [
         "clients/:clientId"
-      ]
-    },
-    {
-      "id": "src/routes/firmOS/BookkeepingQueue.jsx",
-      "label": "BookkeepingQueue",
-      "routes": [
-        "bookkeeping"
       ]
     },
     {

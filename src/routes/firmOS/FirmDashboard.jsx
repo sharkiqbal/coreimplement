@@ -96,7 +96,7 @@ const FirmDashboard = () => {
         <div className="px-5 py-4 border-b border-slate-200 flex items-center justify-between gap-4">
           <h2 className="font-bold text-slate-900">Pipeline by status</h2>
           <Link
-            to="/firm-os-preview/pipeline"
+            to="/firm-os-preview/clients?view=board"
             className="text-sm font-semibold text-violet-700 hover:text-violet-800 whitespace-nowrap"
           >
             View full board →
