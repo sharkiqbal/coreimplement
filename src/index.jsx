@@ -27,6 +27,7 @@ import ClientsList from "./routes/firmOS/ClientsList";
 import ClientDetail from "./routes/firmOS/ClientDetail";
 import DocumentsQueue from "./routes/firmOS/DocumentsQueue";
 import FirmCommunications from "./routes/firmOS/FirmCommunications";
+import NewEngagement from "./routes/firmOS/NewEngagement";
 import FirmOSPlaceholder from "./routes/firmOS/PlaceholderPage";
 import ScrollToTop from "./component/ScrollToTop";
 import CookieConsentBanner from "./component/CookieConsentBanner";
@@ -87,6 +88,7 @@ createRoot(document.getElementById("app")).render(
               {/* Hidden firm-OS demo - separate practice-management concept, unlisted */}
               <Route path="/firm-os-preview" element={<FirmOSLayout />}>
                 <Route index element={<FirmDashboard />} />
+                <Route path="new-engagement" element={<NewEngagement />} />
                 <Route path="clients" element={<ClientsList />} />
                 <Route path="clients/:clientId" element={<ClientDetail />} />
                 <Route path="documents" element={<DocumentsQueue />} />

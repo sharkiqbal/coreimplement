@@ -7,11 +7,13 @@ import {
   FileStack,
   MessageSquare,
   Receipt,
+  FileSignature,
 } from "lucide-react";
 import { FIRM_NAME } from "./mockData";
 
 const NAV_ITEMS = [
   { to: "", label: "Dashboard", icon: LayoutDashboard, end: true },
+  { to: "new-engagement", label: "New Engagement", icon: FileSignature },
   { to: "clients", label: "Clients", icon: Users },
   { to: "documents", label: "Documents", icon: FileStack },
   { to: "communications", label: "Communications", icon: MessageSquare },

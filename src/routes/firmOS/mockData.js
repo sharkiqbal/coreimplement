@@ -345,6 +345,118 @@ export const getCommunicationsForClient = (clientId) =>
     (a, b) => new Date(b.timestamp) - new Date(a.timestamp)
   );
 
+// ---------------------------------------------------------------------------
+// Quoting & Engagement — the fee rules engine and starter-checklist logic
+// used when a new prospect signs on.
+// ---------------------------------------------------------------------------
+
+export const ENTITY_BASE_FEES = {
+  Individual: 300,
+  "S-Corp": 950,
+  "C-Corp": 1400,
+  Partnership: 900,
+  Trust: 700,
+};
+
+export const SCHEDULE_OPTIONS = [
+  { id: "K-1", label: "K-1 income", feeAdd: 150 },
+  { id: "Rental", label: "Rental property", feeAdd: 150 },
+  { id: "Crypto", label: "Crypto activity", feeAdd: 175 },
+  { id: "Payroll", label: "Payroll", feeAdd: 200 },
+  { id: "Multi-Partner", label: "Multiple partners/owners", feeAdd: 125 },
+  { id: "Fixed Assets", label: "Fixed assets / depreciation", feeAdd: 150 },
+];
+
+export const ADDITIONAL_STATE_OPTIONS = ["OK", "LA", "CA", "NY", "FL", "CO", "AZ", "GA"];
+const PER_ADDITIONAL_STATE_FEE = 120;
+const PRIOR_YEAR_INFLATION = 1.06;
+
+export const calculateQuote = ({ entityType, additionalStates, schedules, priorYearFee }) => {
+  const lineItems = [];
+  const base = ENTITY_BASE_FEES[entityType] || ENTITY_BASE_FEES.Individual;
+  lineItems.push({ label: `Base fee — ${entityType}`, amount: base });
+
+  const extraStates = additionalStates.length;
+  if (extraStates > 0) {
+    const amount = extraStates * PER_ADDITIONAL_STATE_FEE;
+    lineItems.push({
+      label: `${extraStates} additional state${extraStates === 1 ? "" : "s"}`,
+      amount,
+    });
+  }
+
+  schedules.forEach((id) => {
+    const opt = SCHEDULE_OPTIONS.find((s) => s.id === id);
+    if (opt) lineItems.push({ label: opt.label, amount: opt.feeAdd });
+  });
+
+  const calculated = lineItems.reduce((sum, l) => sum + l.amount, 0);
+
+  let total = calculated;
+  if (priorYearFee && priorYearFee > 0) {
+    const inflated = Math.round(priorYearFee * PRIOR_YEAR_INFLATION);
+    if (inflated > calculated) {
+      lineItems.push({
+        label: "Prior-year fee floor (+6% inflation)",
+        amount: inflated - calculated,
+      });
+      total = inflated;
+    }
+  }
+
+  return { lineItems, total };
+};
+
+export const buildStarterDocuments = (entityType, schedules) => {
+  const docs = [{ id: "sd0", label: "Signed engagement letter", status: "received" }];
+  let n = 1;
+  const push = (label) => docs.push({ id: `sd${n++}`, label, status: "missing" });
+
+  if (entityType === "Individual") {
+    push("W-2(s)");
+  } else if (entityType === "Trust") {
+    push("Prior-year 1041");
+  } else {
+    push("Prior-year business return");
+    push("Year-end financials");
+  }
+
+  if (schedules.includes("K-1")) push("K-1 form(s)");
+  if (schedules.includes("Rental")) push("1098 mortgage interest / property tax statements");
+  if (schedules.includes("Crypto")) push("Crypto exchange summary");
+  if (schedules.includes("Payroll")) push("Payroll summary");
+  if (schedules.includes("Multi-Partner")) push("Partner ownership schedule");
+  if (schedules.includes("Fixed Assets")) push("Fixed asset schedule");
+
+  return docs;
+};
+
+export const addClient = ({
+  name,
+  entityType,
+  additionalStates,
+  schedules,
+  fee,
+  contactEmail,
+}) => {
+  const id = `${name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-${Date.now().toString(36)}`;
+  const client = {
+    id,
+    name,
+    entityType,
+    status: "Not Started",
+    daysInStatus: 0,
+    states: ["TX", ...additionalStates],
+    schedules,
+    priorYearFee: fee,
+    fee,
+    contactEmail: contactEmail || "—",
+    documents: buildStarterDocuments(entityType, schedules),
+  };
+  CLIENTS.unshift(client);
+  return client;
+};
+
 export const getBottlenecks = () =>
   CLIENTS.filter((c) => c.status === "Awaiting Docs" && c.daysInStatus >= 7).sort(
     (a, b) => b.daysInStatus - a.daysInStatus

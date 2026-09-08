@@ -135,6 +135,13 @@
       ]
     },
     {
+      "id": "src/routes/firmOS/NewEngagement.jsx",
+      "label": "NewEngagement",
+      "routes": [
+        "new-engagement"
+      ]
+    },
+    {
       "id": "src/routes/firmOS/ClientsList.jsx",
       "label": "ClientsList",
       "routes": [
