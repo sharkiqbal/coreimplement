@@ -93,8 +93,14 @@ const FirmDashboard = () => {
       )}
 
       <div className="bg-white border border-slate-200 rounded-xl overflow-hidden">
-        <div className="px-5 py-4 border-b border-slate-200">
+        <div className="px-5 py-4 border-b border-slate-200 flex items-center justify-between gap-4">
           <h2 className="font-bold text-slate-900">Pipeline by status</h2>
+          <Link
+            to="/firm-os-preview/pipeline"
+            className="text-sm font-semibold text-violet-700 hover:text-violet-800 whitespace-nowrap"
+          >
+            View full board →
+          </Link>
         </div>
         <div className="p-5 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
           {Object.entries(pipeline).map(([stage, count]) => {

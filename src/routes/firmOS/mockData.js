@@ -431,6 +431,27 @@ export const buildStarterDocuments = (entityType, schedules) => {
   return docs;
 };
 
+// Downstream actions the workflow engine fires when a status changes —
+// shown to make "status changes trigger the next module" visible, even
+// where that downstream module (e.g. Billing) isn't fully built yet.
+export const STATUS_TRIGGERS = {
+  "Awaiting Docs": "Added to the document nudge queue (Communications).",
+  "In Prep": "Packet assembly started from documents already on file.",
+  "In Review": "Queued for senior preparer review.",
+  "Sent to Client": "E-signature request queued via DocuSign.",
+  Signed: "Intake checklist marked complete.",
+  Filed: "Invoice will be auto-generated on next billing sweep (Phase 5).",
+  Invoiced: "Payment reminder scheduled if unpaid after 14 days (Phase 5).",
+};
+
+export const updateClientStatus = (clientId, newStatus) => {
+  const client = CLIENTS.find((c) => c.id === clientId);
+  if (!client) return null;
+  client.status = newStatus;
+  client.daysInStatus = 0;
+  return client;
+};
+
 export const addClient = ({
   name,
   entityType,

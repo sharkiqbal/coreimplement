@@ -149,6 +149,13 @@
       ]
     },
     {
+      "id": "src/routes/firmOS/PipelineBoard.jsx",
+      "label": "PipelineBoard",
+      "routes": [
+        "pipeline"
+      ]
+    },
+    {
       "id": "src/routes/firmOS/ClientDetail.jsx",
       "label": "ClientDetail",
       "routes": [
