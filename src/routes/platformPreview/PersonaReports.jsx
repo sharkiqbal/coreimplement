@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { getPersonaReports } from "@dataconnect/generated";
+import { AdvisoryLetterDemo } from "./aiDemos";
 import SEO from "../../component/SEO";
 
 const PersonaReports = () => {
@@ -47,6 +48,8 @@ const PersonaReports = () => {
         path={`/platform-preview/${industrySlug}/reports`}
         noindex
       />
+
+      {industry === "Accounting" && <AdvisoryLetterDemo />}
 
       {snapshots.length === 0 ? (
         <div className="bg-white border border-slate-200 rounded-xl p-8 text-center text-sm text-slate-500">

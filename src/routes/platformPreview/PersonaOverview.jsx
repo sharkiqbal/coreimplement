@@ -3,7 +3,7 @@ import { useOutletContext } from "react-router-dom";
 import { Clock, TrendingUp, Zap } from "lucide-react";
 import { getPersonaOverview } from "@dataconnect/generated";
 import { getStatusStyle, formatStatusLabel } from "./statusColors";
-import { ConnectedToolsStrip, WorkflowManagerDemo } from "./aiDemos";
+import { ConnectedToolsStrip, AIBriefingWidget } from "./aiDemos";
 import SEO from "../../component/SEO";
 
 const StatCard = ({ icon: Icon, label, value }) => (
@@ -66,7 +66,7 @@ const PersonaOverview = () => {
       {industry === "Accounting" && (
         <>
           <ConnectedToolsStrip />
-          <WorkflowManagerDemo />
+          <AIBriefingWidget />
         </>
       )}
 

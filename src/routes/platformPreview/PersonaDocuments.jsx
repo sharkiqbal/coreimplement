@@ -1,7 +1,7 @@
 import React from "react";
 import { useOutletContext } from "react-router-dom";
 import { Clock } from "lucide-react";
-import { DocumentProcessingDemo } from "./aiDemos";
+import { DocumentProcessingDemo, TransactionCategorizationDemo } from "./aiDemos";
 import SEO from "../../component/SEO";
 
 const PersonaDocuments = () => {
@@ -17,7 +17,10 @@ const PersonaDocuments = () => {
       />
 
       {industry === "Accounting" ? (
-        <DocumentProcessingDemo />
+        <>
+          <DocumentProcessingDemo />
+          <TransactionCategorizationDemo />
+        </>
       ) : (
         <div className="bg-white border border-slate-200 rounded-xl p-10 text-center">
           <Clock className="w-8 h-8 text-slate-300 mx-auto mb-3" />

@@ -19,6 +19,9 @@ import {
   HardDrive,
   Slack,
   PlugZap,
+  MapPin,
+  RefreshCw,
+  TrendingUp,
 } from "lucide-react";
 
 // ---------------------------------------------------------------------------
@@ -55,6 +58,11 @@ export const INTEGRATIONS = {
     icon: Slack,
     color: "text-fuchsia-700 bg-fuchsia-50 border-fuchsia-200",
     role: "Partner alerts for anything escalated",
+  },
+  Avalara: {
+    icon: MapPin,
+    color: "text-teal-700 bg-teal-50 border-teal-200",
+    role: "Multi-state sales tax & nexus tracking",
   },
 };
 
@@ -487,10 +495,31 @@ export const KnowledgeAssistantChat = () => {
 };
 
 // ---------------------------------------------------------------------------
-// Daily Workflow Manager
+// AI Briefing — tabbed: Daily Check / Month-End Close / Compliance Watch
 // ---------------------------------------------------------------------------
 
-export const WorkflowManagerDemo = () => {
+const RunPanelHeader = ({ description, buttonLabel, onRun, running }) => (
+  <div className="flex items-center justify-between gap-4 mb-4">
+    <p className="text-sm text-slate-500">{description}</p>
+    {!running && (
+      <button
+        onClick={onRun}
+        className="flex-shrink-0 px-4 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg text-sm font-bold hover:from-blue-700 hover:to-indigo-700 transition-all shadow-md whitespace-nowrap"
+      >
+        {buttonLabel}
+      </button>
+    )}
+  </div>
+);
+
+const ScanningRow = ({ text }) => (
+  <div className="flex items-center gap-2 text-sm font-medium text-blue-600 py-6 justify-center">
+    <Loader2 className="w-4 h-4 animate-spin" />
+    {text}
+  </div>
+);
+
+const DailyCheckPanel = () => {
   const [stage, setStage] = useState("idle"); // idle | scanning | done
   const [expanded, setExpanded] = useState(null);
   const [reviewed, setReviewed] = useState(false);
@@ -519,21 +548,478 @@ export const WorkflowManagerDemo = () => {
   ];
 
   return (
+    <div className="p-5">
+      <RunPanelHeader
+        description="Scans open engagements, handles the routine work, and escalates what needs a human."
+        buttonLabel="Run Daily Check"
+        onRun={run}
+        running={stage === "scanning"}
+      />
+
+      {stage === "idle" && (
+        <p className="text-sm text-slate-400">
+          Click "Run Daily Check" to see what the AI would find and act on
+          today.
+        </p>
+      )}
+
+      {stage === "scanning" && (
+        <ScanningRow text="Scanning 14 active engagements across Karbon and QuickBooks Online, plus 3 upcoming deadlines..." />
+      )}
+
+      {stage === "done" && (
+        <div className="space-y-5">
+          <div>
+            <p className="text-xs font-semibold text-emerald-700 uppercase tracking-wide mb-2">
+              Sent automatically ({reminders.length})
+            </p>
+            <div className="space-y-2">
+              {reminders.map((r) => (
+                <div
+                  key={r.id}
+                  className="border border-slate-200 rounded-lg overflow-hidden"
+                >
+                  <button
+                    onClick={() =>
+                      setExpanded(expanded === r.id ? null : r.id)
+                    }
+                    className="w-full flex items-center justify-between px-4 py-3 hover:bg-slate-50 transition-colors text-left"
+                  >
+                    <span className="flex items-center gap-2 text-sm font-medium text-slate-800">
+                      <Mail className="w-4 h-4 text-emerald-600" />
+                      {r.title}
+                    </span>
+                    <span className="flex items-center gap-2 flex-shrink-0">
+                      <ToolBadge name={r.tool} />
+                      <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">
+                        Sent
+                      </span>
+                      {expanded === r.id ? (
+                        <ChevronUp className="w-4 h-4 text-slate-400" />
+                      ) : (
+                        <ChevronDown className="w-4 h-4 text-slate-400" />
+                      )}
+                    </span>
+                  </button>
+                  {expanded === r.id && (
+                    <div className="px-4 pb-3 text-sm text-slate-600 border-t border-slate-100 pt-3">
+                      {r.draft}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">
+              Status updates made
+            </p>
+            <div className="flex items-center gap-3 text-sm text-slate-700 border border-slate-200 rounded-lg px-4 py-3">
+              <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+              <span className="flex-1">
+                3 returns moved from "In Prep" to "Ready for Review" after
+                final documents arrived.
+              </span>
+              <ToolBadge name="Karbon" />
+            </div>
+          </div>
+
+          <div>
+            <p className="text-xs font-semibold text-amber-700 uppercase tracking-wide mb-2">
+              Escalated to a human (1)
+            </p>
+            <div className="border border-amber-200 bg-amber-50 rounded-lg px-4 py-3">
+              <div className="flex items-start gap-2.5">
+                <AlertTriangle className="w-4.5 h-4.5 text-amber-600 flex-shrink-0 mt-0.5" />
+                <div className="flex-1">
+                  <p className="text-sm font-semibold text-slate-900">
+                    Martinez Auto Repair — rush return requested
+                  </p>
+                  <p className="text-sm text-slate-600 mt-0.5">
+                    Exceeds the standard 5-day SLA. Needs partner approval
+                    before committing to the deadline.
+                  </p>
+                  <ToolBadge name="Slack" className="mt-2" />
+                </div>
+                {!reviewed ? (
+                  <button
+                    onClick={() => setReviewed(true)}
+                    className="flex-shrink-0 text-xs font-bold px-3 py-1.5 bg-white border border-amber-300 text-amber-800 rounded-lg hover:bg-amber-100 transition-colors whitespace-nowrap"
+                  >
+                    Mark Reviewed
+                  </button>
+                ) : (
+                  <span className="flex-shrink-0 flex items-center gap-1 text-xs font-bold text-emerald-700 whitespace-nowrap">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    Reviewed
+                  </span>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+const CLOSE_TASKS = [
+  {
+    id: "bank-recon",
+    label: "Bank & credit card reconciliation",
+    detail: "All 4 accounts reconciled — zero variance.",
+    flagged: false,
+  },
+  {
+    id: "ar-aging",
+    label: "AR aging review",
+    detail: "No invoices over 90 days past due.",
+    flagged: false,
+  },
+  {
+    id: "ap-aging",
+    label: "AP aging review",
+    detail: "All vendor bills current.",
+    flagged: false,
+  },
+  {
+    id: "accruals",
+    label: "Accrual & prepaid entries",
+    detail: "3 recurring accruals posted for August.",
+    flagged: false,
+  },
+  {
+    id: "payroll-accrual",
+    label: "Payroll accrual",
+    detail: "Aug 29–31 payroll accrual posted: $4,120.",
+    flagged: false,
+  },
+  {
+    id: "fixed-assets",
+    label: "Fixed asset depreciation",
+    detail:
+      "A disposed asset (2019 delivery van) is still depreciating — $412/mo. Needs confirmation before removing it from the books.",
+    flagged: true,
+  },
+];
+
+const MonthEndClosePanel = () => {
+  const [stage, setStage] = useState("idle");
+  const [resolved, setResolved] = useState(false);
+
+  const run = () => {
+    setStage("scanning");
+    setResolved(false);
+    setTimeout(() => setStage("done"), 1800);
+  };
+
+  const openFlags = CLOSE_TASKS.filter((t) => t.flagged).length - (resolved ? 1 : 0);
+
+  return (
+    <div className="p-5">
+      <RunPanelHeader
+        description="Runs the firm's close checklist for August and flags anything that needs a human before the package goes to the partner."
+        buttonLabel="Run Close Check"
+        onRun={run}
+        running={stage === "scanning"}
+      />
+
+      {stage === "idle" && (
+        <p className="text-sm text-slate-400">
+          Click "Run Close Check" to walk through this month's close
+          checklist.
+        </p>
+      )}
+
+      {stage === "scanning" && (
+        <ScanningRow text="Reviewing the general ledger in QuickBooks Online..." />
+      )}
+
+      {stage === "done" && (
+        <div className="space-y-2">
+          {CLOSE_TASKS.map((t) => {
+            const isOpenFlag = t.flagged && !resolved;
+            return (
+              <div
+                key={t.id}
+                className={`border rounded-lg px-4 py-3 ${
+                  isOpenFlag
+                    ? "border-amber-200 bg-amber-50"
+                    : "border-slate-200"
+                }`}
+              >
+                <div className="flex items-start gap-2.5">
+                  {isOpenFlag ? (
+                    <AlertTriangle className="w-4.5 h-4.5 text-amber-600 flex-shrink-0 mt-0.5" />
+                  ) : (
+                    <CheckCircle2 className="w-4.5 h-4.5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  )}
+                  <div className="flex-1">
+                    <p className="text-sm font-semibold text-slate-900">
+                      {t.label}
+                    </p>
+                    <p className="text-sm text-slate-600 mt-0.5">
+                      {t.detail}
+                    </p>
+                  </div>
+                  {t.flagged &&
+                    (resolved ? (
+                      <span className="flex-shrink-0 flex items-center gap-1 text-xs font-bold text-emerald-700 whitespace-nowrap">
+                        <CheckCircle2 className="w-3.5 h-3.5" />
+                        Resolved
+                      </span>
+                    ) : (
+                      <button
+                        onClick={() => setResolved(true)}
+                        className="flex-shrink-0 text-xs font-bold px-3 py-1.5 bg-white border border-amber-300 text-amber-800 rounded-lg hover:bg-amber-100 transition-colors whitespace-nowrap"
+                      >
+                        Confirm & Remove
+                      </button>
+                    ))}
+                </div>
+              </div>
+            );
+          })}
+          <div className="flex items-center justify-between pt-2">
+            <p className="text-sm text-slate-500">
+              {openFlags === 0
+                ? "Close package ready for partner review."
+                : `${openFlags} item needs review before the close package is ready.`}
+            </p>
+            <ToolBadge name="Karbon" />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+const NEXUS_STATES = [
+  { state: "Colorado", revenue: 112400, threshold: 100000 },
+  { state: "Arizona", revenue: 71200, threshold: 100000 },
+  { state: "Georgia", revenue: 38500, threshold: 100000 },
+  { state: "Ohio", revenue: 19800, threshold: 100000 },
+];
+
+const ComplianceWatchPanel = () => {
+  const [stage, setStage] = useState("idle");
+  const [taskCreated, setTaskCreated] = useState(false);
+
+  const run = () => {
+    setStage("scanning");
+    setTaskCreated(false);
+    setTimeout(() => setStage("done"), 1600);
+  };
+
+  return (
+    <div className="p-5">
+      <RunPanelHeader
+        description="Tracks client revenue by state against economic nexus thresholds so a filing obligation never gets missed."
+        buttonLabel="Check Nexus Exposure"
+        onRun={run}
+        running={stage === "scanning"}
+      />
+
+      {stage === "idle" && (
+        <p className="text-sm text-slate-400">
+          Click "Check Nexus Exposure" to scan Riverside Home Services'
+          revenue by state.
+        </p>
+      )}
+
+      {stage === "scanning" && (
+        <ScanningRow text="Pulling state-by-state revenue from QuickBooks Online..." />
+      )}
+
+      {stage === "done" && (
+        <div className="space-y-2">
+          {NEXUS_STATES.map((s) => {
+            const pct = Math.min(100, Math.round((s.revenue / s.threshold) * 100));
+            const exceeded = s.revenue >= s.threshold;
+            const watch = !exceeded && pct >= 60;
+            return (
+              <div
+                key={s.state}
+                className={`border rounded-lg px-4 py-3 ${
+                  exceeded ? "border-amber-200 bg-amber-50" : "border-slate-200"
+                }`}
+              >
+                <div className="flex items-center justify-between gap-3 mb-1.5">
+                  <span className="flex items-center gap-2 text-sm font-semibold text-slate-900">
+                    <MapPin className="w-4 h-4 text-slate-400" />
+                    {s.state}
+                  </span>
+                  <span className="text-xs font-semibold text-slate-500 tabular-nums">
+                    ${s.revenue.toLocaleString()} / $
+                    {s.threshold.toLocaleString()}
+                  </span>
+                </div>
+                <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                  <div
+                    className={`h-full rounded-full ${
+                      exceeded
+                        ? "bg-amber-500"
+                        : watch
+                        ? "bg-blue-500"
+                        : "bg-emerald-500"
+                    }`}
+                    style={{ width: `${pct}%` }}
+                  ></div>
+                </div>
+                {exceeded && (
+                  <div className="mt-2.5 flex items-center justify-between gap-3">
+                    <p className="text-xs font-medium text-amber-800">
+                      Economic nexus threshold crossed — registration required
+                      within 30 days.
+                    </p>
+                    {taskCreated ? (
+                      <span className="flex-shrink-0 flex items-center gap-1 text-xs font-bold text-emerald-700 whitespace-nowrap">
+                        <CheckCircle2 className="w-3.5 h-3.5" />
+                        Task created
+                      </span>
+                    ) : (
+                      <button
+                        onClick={() => setTaskCreated(true)}
+                        className="flex-shrink-0 text-xs font-bold px-2.5 py-1.5 bg-white border border-amber-300 text-amber-800 rounded-lg hover:bg-amber-100 transition-colors whitespace-nowrap"
+                      >
+                        Create Registration Task
+                      </button>
+                    )}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+          <div className="flex items-center justify-end gap-2 pt-1">
+            <ToolBadge name="Avalara" />
+            <ToolBadge name="Karbon" />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+const BRIEFING_TABS = [
+  { id: "daily", label: "Daily Check" },
+  { id: "close", label: "Month-End Close" },
+  { id: "compliance", label: "Compliance Watch" },
+];
+
+export const AIBriefingWidget = () => {
+  const [tab, setTab] = useState("daily");
+
+  return (
+    <div className="bg-white border border-slate-200 rounded-xl overflow-hidden">
+      <div className="px-5 pt-4 border-b border-slate-200">
+        <h2 className="font-bold text-slate-900 mb-3">AI Briefing</h2>
+        <div className="flex gap-1">
+          {BRIEFING_TABS.map((t) => (
+            <button
+              key={t.id}
+              onClick={() => setTab(t.id)}
+              className={`px-3 py-2 text-sm font-semibold border-b-2 -mb-px transition-colors ${
+                tab === t.id
+                  ? "border-blue-600 text-blue-600"
+                  : "border-transparent text-slate-500 hover:text-slate-700"
+              }`}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className={tab === "daily" ? "" : "hidden"}>
+        <DailyCheckPanel />
+      </div>
+      <div className={tab === "close" ? "" : "hidden"}>
+        <MonthEndClosePanel />
+      </div>
+      <div className={tab === "compliance" ? "" : "hidden"}>
+        <ComplianceWatchPanel />
+      </div>
+    </div>
+  );
+};
+
+// ---------------------------------------------------------------------------
+// Bank Feed Categorization (Documents page)
+// ---------------------------------------------------------------------------
+
+const BANK_TRANSACTIONS = [
+  {
+    id: "t1",
+    date: "Sep 4",
+    desc: "AMAZON WEB SERVICES",
+    amount: 214.0,
+    category: "Software & Subscriptions",
+  },
+  {
+    id: "t2",
+    date: "Sep 4",
+    desc: "SHELL OIL 5729",
+    amount: 62.4,
+    category: "Vehicle Expenses",
+  },
+  {
+    id: "t3",
+    date: "Sep 3",
+    desc: "WEWORK MEMBERSHIP",
+    amount: 450.0,
+    category: "Rent & Occupancy",
+  },
+  {
+    id: "t4",
+    date: "Sep 3",
+    desc: "SQ *UNKNOWN VENDOR",
+    amount: 2400.0,
+    category: null,
+    options: ["Meals & Entertainment", "Software & Subscriptions"],
+  },
+  {
+    id: "t5",
+    date: "Sep 2",
+    desc: "USPS PO 0442",
+    amount: 18.5,
+    category: "Office Supplies",
+  },
+  {
+    id: "t6",
+    date: "Sep 1",
+    desc: "GOOGLE WORKSPACE",
+    amount: 72.0,
+    category: "Software & Subscriptions",
+  },
+];
+
+export const TransactionCategorizationDemo = () => {
+  const [stage, setStage] = useState("idle"); // idle | running | done
+  const [resolvedCategory, setResolvedCategory] = useState(null);
+
+  const run = () => {
+    setStage("running");
+    setResolvedCategory(null);
+    setTimeout(() => setStage("done"), 1600);
+  };
+
+  return (
     <div className="bg-white border border-slate-200 rounded-xl overflow-hidden">
       <div className="px-5 py-4 border-b border-slate-200 flex items-center justify-between gap-4">
         <div>
-          <h2 className="font-bold text-slate-900">Today's AI Briefing</h2>
+          <h2 className="font-bold text-slate-900">Bank Feed Categorization</h2>
           <p className="text-sm text-slate-500 mt-0.5">
-            Scans open engagements, handles the routine work, and escalates
-            what needs a human.
+            New transactions get categorized automatically — anything
+            ambiguous waits for a quick human call.
           </p>
         </div>
-        {stage !== "scanning" && (
+        {stage !== "running" && (
           <button
             onClick={run}
             className="flex-shrink-0 px-4 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg text-sm font-bold hover:from-blue-700 hover:to-indigo-700 transition-all shadow-md whitespace-nowrap"
           >
-            Run Daily Check
+            Categorize New Transactions
           </button>
         )}
       </div>
@@ -541,109 +1027,186 @@ export const WorkflowManagerDemo = () => {
       <div className="p-5">
         {stage === "idle" && (
           <p className="text-sm text-slate-400">
-            Click "Run Daily Check" to see what the AI would find and act on
-            today.
+            6 new transactions synced from the bank feed. Click to categorize
+            them.
           </p>
         )}
 
-        {stage === "scanning" && (
-          <div className="flex items-center gap-2 text-sm font-medium text-blue-600 py-6 justify-center">
-            <Loader2 className="w-4 h-4 animate-spin" />
-            Scanning 14 active engagements across Karbon and QuickBooks
-            Online, plus 3 upcoming deadlines...
-          </div>
+        {stage === "running" && (
+          <ScanningRow text="Matching transactions against vendor history..." />
         )}
 
         {stage === "done" && (
-          <div className="space-y-5">
-            <div>
-              <p className="text-xs font-semibold text-emerald-700 uppercase tracking-wide mb-2">
-                Sent automatically ({reminders.length})
-              </p>
-              <div className="space-y-2">
-                {reminders.map((r) => (
-                  <div
-                    key={r.id}
-                    className="border border-slate-200 rounded-lg overflow-hidden"
-                  >
-                    <button
-                      onClick={() =>
-                        setExpanded(expanded === r.id ? null : r.id)
-                      }
-                      className="w-full flex items-center justify-between px-4 py-3 hover:bg-slate-50 transition-colors text-left"
-                    >
-                      <span className="flex items-center gap-2 text-sm font-medium text-slate-800">
-                        <Mail className="w-4 h-4 text-emerald-600" />
-                        {r.title}
-                      </span>
-                      <span className="flex items-center gap-2 flex-shrink-0">
-                        <ToolBadge name={r.tool} />
-                        <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">
-                          Sent
-                        </span>
-                        {expanded === r.id ? (
-                          <ChevronUp className="w-4 h-4 text-slate-400" />
+          <div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="text-slate-500 text-xs uppercase tracking-wide">
+                  <tr>
+                    <th className="text-left font-semibold pb-2">Date</th>
+                    <th className="text-left font-semibold pb-2">
+                      Description
+                    </th>
+                    <th className="text-right font-semibold pb-2">Amount</th>
+                    <th className="text-left font-semibold pb-2 pl-4">
+                      Category
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {BANK_TRANSACTIONS.map((t) => (
+                    <tr key={t.id}>
+                      <td className="py-2.5 text-slate-500 whitespace-nowrap">
+                        {t.date}
+                      </td>
+                      <td className="py-2.5 text-slate-800 font-medium whitespace-nowrap">
+                        {t.desc}
+                      </td>
+                      <td className="py-2.5 text-right text-slate-700 tabular-nums whitespace-nowrap">
+                        ${t.amount.toFixed(2)}
+                      </td>
+                      <td className="py-2.5 pl-4">
+                        {t.category ? (
+                          <span className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-700 bg-emerald-50 px-2 py-1 rounded-full whitespace-nowrap">
+                            {t.category}
+                          </span>
+                        ) : resolvedCategory ? (
+                          <span className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-700 bg-emerald-50 px-2 py-1 rounded-full whitespace-nowrap">
+                            {resolvedCategory}
+                          </span>
                         ) : (
-                          <ChevronDown className="w-4 h-4 text-slate-400" />
+                          <div className="flex items-center gap-1.5 flex-wrap">
+                            <span className="text-xs font-semibold text-amber-700 bg-amber-50 px-2 py-1 rounded-full flex items-center gap-1 whitespace-nowrap">
+                              <AlertTriangle className="w-3 h-3" />
+                              Needs your call
+                            </span>
+                            {t.options.map((opt) => (
+                              <button
+                                key={opt}
+                                onClick={() => setResolvedCategory(opt)}
+                                className="text-xs font-medium px-2 py-1 border border-slate-200 rounded-full hover:border-blue-300 hover:text-blue-700 transition-colors whitespace-nowrap"
+                              >
+                                {opt}
+                              </button>
+                            ))}
+                          </div>
                         )}
-                      </span>
-                    </button>
-                    {expanded === r.id && (
-                      <div className="px-4 pb-3 text-sm text-slate-600 border-t border-slate-100 pt-3">
-                        {r.draft}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
-
-            <div>
-              <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">
-                Status updates made
+            <div className="flex items-center justify-between pt-4 mt-2 border-t border-slate-100">
+              <p className="text-sm text-slate-500">
+                {resolvedCategory
+                  ? "All 6 transactions categorized and posted."
+                  : "5 of 6 categorized automatically — 1 needs your input."}
               </p>
-              <div className="flex items-center gap-3 text-sm text-slate-700 border border-slate-200 rounded-lg px-4 py-3">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                <span className="flex-1">
-                  3 returns moved from "In Prep" to "Ready for Review" after
-                  final documents arrived.
+              <ToolBadge name="QuickBooks Online" />
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+// ---------------------------------------------------------------------------
+// Client Advisory Letter (Reports page)
+// ---------------------------------------------------------------------------
+
+export const AdvisoryLetterDemo = () => {
+  const [stage, setStage] = useState("idle"); // idle | generating | ready | sent
+
+  const generate = () => {
+    setStage("generating");
+    setTimeout(() => setStage("ready"), 1500);
+  };
+
+  return (
+    <div className="bg-white border border-slate-200 rounded-xl overflow-hidden">
+      <div className="px-5 py-4 border-b border-slate-200 flex items-center justify-between gap-4">
+        <div>
+          <h2 className="font-bold text-slate-900">Client Advisory Letter</h2>
+          <p className="text-sm text-slate-500 mt-0.5">
+            A plain-English monthly summary, drafted from the client's
+            financials — ready to review and send.
+          </p>
+        </div>
+        {stage === "idle" && (
+          <button
+            onClick={generate}
+            className="flex-shrink-0 px-4 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg text-sm font-bold hover:from-blue-700 hover:to-indigo-700 transition-all shadow-md whitespace-nowrap"
+          >
+            Generate August Letter
+          </button>
+        )}
+        {(stage === "ready" || stage === "sent") && (
+          <button
+            onClick={generate}
+            className="flex-shrink-0 flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-700"
+          >
+            <RefreshCw className="w-3.5 h-3.5" />
+            Regenerate
+          </button>
+        )}
+      </div>
+
+      <div className="p-5">
+        {stage === "idle" && (
+          <p className="text-sm text-slate-400">
+            No letter generated yet for this period.
+          </p>
+        )}
+
+        {stage === "generating" && (
+          <ScanningRow text="Analyzing August financials against budget and prior period..." />
+        )}
+
+        {(stage === "ready" || stage === "sent") && (
+          <div>
+            <div className="border border-slate-200 rounded-lg p-5 bg-slate-50 text-sm text-slate-700 leading-relaxed space-y-3">
+              <p className="font-semibold text-slate-900">
+                Subject: Your August Financial Summary
+              </p>
+              <p>Hi team — here's how August looked:</p>
+              <p>
+                <span className="inline-flex items-center gap-1 font-semibold text-emerald-700">
+                  <TrendingUp className="w-3.5 h-3.5" />
+                  Revenue was up 12% month-over-month
                 </span>
-                <ToolBadge name="Karbon" />
-              </div>
-            </div>
-
-            <div>
-              <p className="text-xs font-semibold text-amber-700 uppercase tracking-wide mb-2">
-                Escalated to a human (1)
+                , driven mainly by two new retainer clients that started
+                mid-month.
               </p>
-              <div className="border border-amber-200 bg-amber-50 rounded-lg px-4 py-3">
-                <div className="flex items-start gap-2.5">
-                  <AlertTriangle className="w-4.5 h-4.5 text-amber-600 flex-shrink-0 mt-0.5" />
-                  <div className="flex-1">
-                    <p className="text-sm font-semibold text-slate-900">
-                      Martinez Auto Repair — rush return requested
-                    </p>
-                    <p className="text-sm text-slate-600 mt-0.5">
-                      Exceeds the standard 5-day SLA. Needs partner approval
-                      before committing to the deadline.
-                    </p>
-                    <ToolBadge name="Slack" className="mt-2" />
-                  </div>
-                  {!reviewed ? (
-                    <button
-                      onClick={() => setReviewed(true)}
-                      className="flex-shrink-0 text-xs font-bold px-3 py-1.5 bg-white border border-amber-300 text-amber-800 rounded-lg hover:bg-amber-100 transition-colors whitespace-nowrap"
-                    >
-                      Mark Reviewed
-                    </button>
-                  ) : (
-                    <span className="flex-shrink-0 flex items-center gap-1 text-xs font-bold text-emerald-700 whitespace-nowrap">
-                      <CheckCircle2 className="w-3.5 h-3.5" />
-                      Reviewed
-                    </span>
-                  )}
-                </div>
-              </div>
+              <p>
+                <span className="inline-flex items-center gap-1 font-semibold text-amber-700">
+                  <TrendingUp className="w-3.5 h-3.5" />
+                  Software expenses rose 34%
+                </span>{" "}
+                — largely a new annual subscription paid upfront. Worth
+                confirming this was expected.
+              </p>
+              <p>
+                Cash runway remains healthy at approximately 7.4 months at
+                the current burn rate.
+              </p>
+              <p>Let us know if you'd like to walk through any of this on a call.</p>
+            </div>
+            <div className="flex items-center justify-between pt-4">
+              {stage === "sent" ? (
+                <span className="flex items-center gap-1.5 text-sm font-semibold text-emerald-700">
+                  <CheckCircle2 className="w-4 h-4" />
+                  Sent to client
+                </span>
+              ) : (
+                <button
+                  onClick={() => setStage("sent")}
+                  className="px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg text-sm font-bold hover:from-blue-700 hover:to-indigo-700 transition-all shadow-sm"
+                >
+                  Send to Client
+                </button>
+              )}
+              <ToolBadge name="Gmail" />
             </div>
           </div>
         )}
