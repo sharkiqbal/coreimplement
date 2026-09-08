@@ -16,6 +16,7 @@ import NotFoundPage from "./routes/NotFoundPage";
 import PersonaPicker from "./routes/platformPreview/PersonaPicker";
 import PlatformPreviewLayout from "./routes/platformPreview/PlatformPreviewLayout";
 import PersonaOverview from "./routes/platformPreview/PersonaOverview";
+import PersonaWorkspace from "./routes/platformPreview/PersonaWorkspace";
 import PersonaAutomations from "./routes/platformPreview/PersonaAutomations";
 import PersonaIntegrations from "./routes/platformPreview/PersonaIntegrations";
 import PersonaCommunications from "./routes/platformPreview/PersonaCommunications";
@@ -66,6 +67,7 @@ createRoot(document.getElementById("app")).render(
                 element={<PlatformPreviewLayout />}
               >
                 <Route index element={<PersonaOverview />} />
+                <Route path="workspace" element={<PersonaWorkspace />} />
                 <Route path="automations" element={<PersonaAutomations />} />
                 <Route path="integrations" element={<PersonaIntegrations />} />
                 <Route

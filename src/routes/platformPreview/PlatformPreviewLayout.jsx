@@ -3,6 +3,7 @@ import { NavLink, Outlet, useNavigate, useParams } from "react-router-dom";
 import {
   BrainCircuit,
   LayoutDashboard,
+  Sparkles,
   Workflow,
   PlugZap,
   MessageSquare,
@@ -14,6 +15,7 @@ import { slugify } from "../../utils/slugify";
 
 const NAV_ITEMS = [
   { to: "", label: "Overview", icon: LayoutDashboard, end: true },
+  { to: "workspace", label: "AI Workspace", icon: Sparkles },
   { to: "automations", label: "Automations", icon: Workflow },
   { to: "integrations", label: "Integrations", icon: PlugZap },
   { to: "communications", label: "Communications", icon: MessageSquare },

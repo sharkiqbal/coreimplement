@@ -93,6 +93,13 @@
       ]
     },
     {
+      "id": "src/routes/platformPreview/PersonaWorkspace.jsx",
+      "label": "PersonaWorkspace",
+      "routes": [
+        "workspace"
+      ]
+    },
+    {
       "id": "src/routes/platformPreview/PersonaAutomations.jsx",
       "label": "PersonaAutomations",
       "routes": [
@@ -1330,15 +1337,15 @@
       }
     },
     {
-      "id": "src/routes/platformPreview/PlatformPreviewLayout.jsx:81:27-to-src/routes/platformPreview/PersonaPicker.jsx",
+      "id": "src/routes/platformPreview/PlatformPreviewLayout.jsx:83:27-to-src/routes/platformPreview/PersonaPicker.jsx",
       "source": "src/routes/platformPreview/PlatformPreviewLayout.jsx",
       "target": "src/routes/platformPreview/PersonaPicker.jsx",
       "data": {
         "viaRoute": "/platform-preview",
         "trigger": {
           "element": "navigate(\"/platform-preview\")",
-          "line": 81,
-          "endLine": 81,
+          "line": 83,
+          "endLine": 83,
           "column": 27,
           "endColumn": 56,
           "sourceFile": "src/routes/platformPreview/PlatformPreviewLayout.jsx"
@@ -1346,15 +1353,15 @@
       }
     },
     {
-      "id": "src/routes/platformPreview/PlatformPreviewLayout.jsx:131:27-to-src/routes/platformPreview/PersonaPicker.jsx",
+      "id": "src/routes/platformPreview/PlatformPreviewLayout.jsx:133:27-to-src/routes/platformPreview/PersonaPicker.jsx",
       "source": "src/routes/platformPreview/PlatformPreviewLayout.jsx",
       "target": "src/routes/platformPreview/PersonaPicker.jsx",
       "data": {
         "viaRoute": "/platform-preview",
         "trigger": {
           "element": "navigate(\"/platform-preview\")",
-          "line": 131,
-          "endLine": 131,
+          "line": 133,
+          "endLine": 133,
           "column": 27,
           "endColumn": 56,
           "sourceFile": "src/routes/platformPreview/PlatformPreviewLayout.jsx"
