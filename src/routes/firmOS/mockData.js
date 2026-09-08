@@ -511,6 +511,116 @@ export const markReminderSent = (invoiceId) => {
   return invoice;
 };
 
+// ---------------------------------------------------------------------------
+// Bookkeeping / GL Bridge — business clients only. Every suggestion needs a
+// human decision; nothing here posts itself, unlike the tax-side automations.
+// ---------------------------------------------------------------------------
+
+export const isBusinessEntity = (entityType) =>
+  entityType !== "Individual" && entityType !== "Trust";
+
+export const BOOKKEEPING_SUGGESTIONS = {
+  "whitfield-design": [
+    {
+      id: "b1",
+      date: "Sep 3",
+      desc: "ADOBE CREATIVE CLOUD",
+      amount: 54.99,
+      suggested: "Software & Subscriptions",
+      alternatives: ["Office Supplies", "Professional Development"],
+    },
+    {
+      id: "b2",
+      date: "Sep 2",
+      desc: "STAPLES #204",
+      amount: 112.4,
+      suggested: "Office Supplies",
+      alternatives: ["Software & Subscriptions", "Client Gifts"],
+    },
+  ],
+  "ferro-construction": [
+    {
+      id: "b3",
+      date: "Sep 4",
+      desc: "HOME DEPOT PRO",
+      amount: 1840.22,
+      suggested: "Materials & Supplies",
+      alternatives: ["Fixed Assets", "Repairs & Maintenance"],
+    },
+    {
+      id: "b4",
+      date: "Sep 3",
+      desc: "SHELL FLEET FUEL",
+      amount: 612.1,
+      suggested: "Vehicle & Fuel",
+      alternatives: ["Travel", "Repairs & Maintenance"],
+    },
+  ],
+  "lonestar-vet": [
+    {
+      id: "b5",
+      date: "Sep 2",
+      desc: "COVETRUS ANIMAL HEALTH",
+      amount: 2140.0,
+      suggested: "Cost of Goods Sold",
+      alternatives: ["Medical Supplies"],
+    },
+  ],
+  "nguyen-dental": [
+    {
+      id: "b6",
+      date: "Sep 4",
+      desc: "PATTERSON DENTAL SUPPLY",
+      amount: 890.75,
+      suggested: "Medical Supplies",
+      alternatives: ["Cost of Goods Sold", "Fixed Assets"],
+    },
+    {
+      id: "b7",
+      date: "Sep 1",
+      desc: "ADP PAYROLL FEES",
+      amount: 145.0,
+      suggested: "Payroll Processing Fees",
+      alternatives: ["Software & Subscriptions"],
+    },
+  ],
+  "coleman-associates": [
+    {
+      id: "b8",
+      date: "Sep 3",
+      desc: "WEWORK MEMBERSHIP",
+      amount: 380.0,
+      suggested: "Rent & Occupancy",
+      alternatives: ["Software & Subscriptions"],
+    },
+  ],
+};
+
+export const RECONCILIATION_EXCEPTIONS = {
+  "whitfield-design": [
+    {
+      id: "e1",
+      description:
+        'Bank shows a $340.00 charge from "SQ *UNKNOWN" on Sep 2 with no matching bill in QuickBooks.',
+      possibleCause: "Possible duplicate charge or an unrecorded bill",
+    },
+  ],
+  "ferro-construction": [
+    {
+      id: "e2",
+      description:
+        "A $4,200.00 deposit on Sep 1 doesn't match any open invoice.",
+      possibleCause: "Client overpayment, or an invoice that was never entered",
+    },
+  ],
+};
+
+export const getBookkeepingSuggestions = (clientId) =>
+  BOOKKEEPING_SUGGESTIONS[clientId] || [];
+
+export const getReconciliationExceptions = (clientId) =>
+  RECONCILIATION_EXCEPTIONS[clientId] || [];
+
 export const addClient = ({
   name,
   entityType,

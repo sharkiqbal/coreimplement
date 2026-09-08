@@ -163,6 +163,13 @@
       ]
     },
     {
+      "id": "src/routes/firmOS/BookkeepingQueue.jsx",
+      "label": "BookkeepingQueue",
+      "routes": [
+        "bookkeeping"
+      ]
+    },
+    {
       "id": "src/routes/firmOS/FirmBilling.jsx",
       "label": "FirmBilling",
       "routes": [

@@ -30,6 +30,7 @@ import FirmCommunications from "./routes/firmOS/FirmCommunications";
 import NewEngagement from "./routes/firmOS/NewEngagement";
 import PipelineBoard from "./routes/firmOS/PipelineBoard";
 import FirmBilling from "./routes/firmOS/FirmBilling";
+import BookkeepingQueue from "./routes/firmOS/BookkeepingQueue";
 import ScrollToTop from "./component/ScrollToTop";
 import CookieConsentBanner from "./component/CookieConsentBanner";
 import { AuthProvider } from "./context/AuthContext";
@@ -94,6 +95,7 @@ createRoot(document.getElementById("app")).render(
                 <Route path="pipeline" element={<PipelineBoard />} />
                 <Route path="clients/:clientId" element={<ClientDetail />} />
                 <Route path="documents" element={<DocumentsQueue />} />
+                <Route path="bookkeeping" element={<BookkeepingQueue />} />
                 <Route path="communications" element={<FirmCommunications />} />
                 <Route path="billing" element={<FirmBilling />} />
               </Route>

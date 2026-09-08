@@ -17,10 +17,12 @@ import {
   STATUS_STAGES,
   getCommunicationsForClient,
   getInvoicesForClient,
+  isBusinessEntity,
 } from "./mockData";
+import BookkeepingPanel from "./BookkeepingPanel";
 import SEO from "../../component/SEO";
 
-const TABS = ["Profile & Documents", "Communications", "Billing"];
+const BASE_TABS = ["Profile & Documents", "Communications", "Billing"];
 
 const DocumentRow = ({ doc, clientName, onResolve }) => {
   const [stage, setStage] = useState(
@@ -101,7 +103,7 @@ const ClientDetail = () => {
   const { clientId } = useParams();
   const client = getClientById(clientId);
   const [status, setStatus] = useState(client?.status);
-  const [tab, setTab] = useState(TABS[0]);
+  const [tab, setTab] = useState(BASE_TABS[0]);
   const [resolvedIds, setResolvedIds] = useState([]);
 
   if (!client) {
@@ -118,6 +120,9 @@ const ClientDetail = () => {
     );
   }
 
+  const tabs = isBusinessEntity(client.entityType)
+    ? [...BASE_TABS, "Bookkeeping"]
+    : BASE_TABS;
   const style = getStageStyle(status);
   const missingCount = client.documents.filter(
     (d) => d.status === "missing" && !resolvedIds.includes(d.id)
@@ -167,7 +172,7 @@ const ClientDetail = () => {
       </div>
 
       <div className="flex gap-1 border-b border-slate-200">
-        {TABS.map((t) => (
+        {tabs.map((t) => (
           <button
             key={t}
             onClick={() => setTab(t)}
@@ -324,6 +329,8 @@ const ClientDetail = () => {
           })()}
         </div>
       )}
+
+      {tab === "Bookkeeping" && <BookkeepingPanel clientId={client.id} />}
     </div>
   );
 };
