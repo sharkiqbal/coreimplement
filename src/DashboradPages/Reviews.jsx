@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { X, Plus, Edit, Trash2, Star, Save } from "lucide-react";
+import { useToast } from "../context/ToastContext";
 import {
   getAllReviews,
   addReview,
@@ -8,6 +9,7 @@ import {
 } from "../service/reviewService";
 
 const ReviewsTab = () => {
+  const toast = useToast();
   const [reviews, setReviews] = useState([]);
   const [showReviewModal, setShowReviewModal] = useState(false);
   const [editingReview, setEditingReview] = useState(null);
@@ -32,7 +34,7 @@ const ReviewsTab = () => {
       setReviews(reviewsData);
     } catch (error) {
       console.error("Error loading reviews:", error);
-      alert("Failed to load reviews. Please refresh the page.");
+      toast.error("Failed to load reviews. Please refresh the page.");
     } finally {
       setLoading(false);
     }
@@ -71,7 +73,7 @@ const ReviewsTab = () => {
         !reviewForm.designation.trim() ||
         !reviewForm.description.trim()
       ) {
-        alert("Please fill in all required fields");
+        toast.error("Please fill in all required fields");
         setIsSubmitting(false);
         return;
       }
@@ -79,11 +81,11 @@ const ReviewsTab = () => {
       if (editingReview) {
         // Update existing review in Firebase
         await updateReview(editingReview, reviewForm);
-        alert("Review updated successfully!");
+        toast.success("Review updated successfully!");
       } else {
         // Add new review to Firebase
         await addReview(reviewForm);
-        alert("Review added successfully!");
+        toast.success("Review added successfully!");
       }
 
       // Reload reviews from Firebase
@@ -91,7 +93,7 @@ const ReviewsTab = () => {
       setShowReviewModal(false);
     } catch (error) {
       console.error("Error saving review:", error);
-      alert("Failed to save review. Please try again.");
+      toast.error("Failed to save review. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -101,12 +103,12 @@ const ReviewsTab = () => {
     if (window.confirm("Are you sure you want to delete this review?")) {
       try {
         await deleteReview(id);
-        alert("Review deleted successfully!");
+        toast.success("Review deleted successfully!");
         // Reload reviews from Firebase
         await loadReviews();
       } catch (error) {
         console.error("Error deleting review:", error);
-        alert("Failed to delete review. Please try again.");
+        toast.error("Failed to delete review. Please try again.");
       }
     }
   };

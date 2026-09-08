@@ -19,8 +19,10 @@ import {
   updateService,
   deleteService,
 } from "../service/serviceService";
+import { useToast } from "../context/ToastContext";
 
 const ServicesTab = () => {
+  const toast = useToast();
   const [services, setServices] = useState([]);
   const [showServiceModal, setShowServiceModal] = useState(false);
   const [editingService, setEditingService] = useState(null);
@@ -55,7 +57,7 @@ const ServicesTab = () => {
       setServices(servicesData);
     } catch (error) {
       console.error("Error loading services:", error);
-      alert("Failed to load services. Please refresh the page.");
+      toast.error("Failed to load services. Please refresh the page.");
     } finally {
       setLoading(false);
     }
@@ -144,7 +146,7 @@ const ServicesTab = () => {
         validPoints.length === 0 ||
         !selectedLogo
       ) {
-        alert("Please fill in all required fields");
+        toast.error("Please fill in all required fields");
         setIsSubmitting(false);
         return;
       }
@@ -165,11 +167,11 @@ const ServicesTab = () => {
           null,
           editingService.imagePath
         );
-        alert("Service updated successfully!");
+        toast.success("Service updated successfully!");
       } else {
         // Add new service to Firebase
         await addService(serviceData, null);
-        alert("Service added successfully!");
+        toast.success("Service added successfully!");
       }
 
       // Reload services from Firebase
@@ -177,7 +179,7 @@ const ServicesTab = () => {
       setShowServiceModal(false);
     } catch (error) {
       console.error("Error saving service:", error);
-      alert("Failed to save service. Please try again.");
+      toast.error("Failed to save service. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -187,12 +189,12 @@ const ServicesTab = () => {
     if (window.confirm("Are you sure you want to delete this service?")) {
       try {
         await deleteService(service.id, service.imagePath);
-        alert("Service deleted successfully!");
+        toast.success("Service deleted successfully!");
         // Reload services from Firebase
         await loadServices();
       } catch (error) {
         console.error("Error deleting service:", error);
-        alert("Failed to delete service. Please try again.");
+        toast.error("Failed to delete service. Please try again.");
       }
     }
   };

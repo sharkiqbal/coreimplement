@@ -5,13 +5,14 @@ import { db } from "../firebase/firebase";
 export const getDashboardStats = async () => {
   try {
     // Get counts from all collections
-    const [blogPosts, reviews, services, caseStudies, contacts] =
+    const [blogPosts, reviews, services, caseStudies, contacts, rfps] =
       await Promise.all([
         getDocs(collection(db, "blogPosts")),
         getDocs(collection(db, "reviews")),
         getDocs(collection(db, "services")),
         getDocs(collection(db, "caseStudies")),
         getDocs(collection(db, "contactSubmissions")),
+        getDocs(collection(db, "rfpSubmissions")),
       ]);
 
     return {
@@ -20,6 +21,7 @@ export const getDashboardStats = async () => {
       services: services.size,
       caseStudies: caseStudies.size,
       contacts: contacts.size,
+      rfps: rfps.size,
     };
   } catch (error) {
     console.error("Error getting dashboard stats:", error);

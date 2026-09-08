@@ -2,26 +2,27 @@ import React, { useState, useEffect } from "react";
 import {
   Mail,
   Calendar,
-  TrendingUp,
   MessageSquare,
   FileText,
-  Eye,
-  MoreVertical,
   Star,
   Building2,
   Tag,
   Briefcase,
   BookOpen,
+  ChevronRight,
 } from "lucide-react";
 import {
   getDashboardStats,
   getRecentContacts,
 } from "../service/overviewService";
+import { useToast } from "../context/ToastContext";
 
-const OverviewTab = () => {
+const OverviewTab = ({ onNavigate }) => {
+  const toast = useToast();
   const [loading, setLoading] = useState(true);
   const [stats, setStats] = useState({
     contacts: 0,
+    rfps: 0,
     services: 0,
     caseStudies: 0,
     reviews: 0,
@@ -47,42 +48,44 @@ const OverviewTab = () => {
       setRecentContacts(contactsData);
     } catch (error) {
       console.error("Error loading dashboard data:", error);
-      alert("Failed to load dashboard data. Please refresh the page.");
+      toast.error("Failed to load dashboard data. Please refresh the page.");
     } finally {
       setLoading(false);
     }
   };
 
-  const StatCard = ({ icon: Icon, title, value, change, color, subtitle }) => (
-    <div className="group relative bg-white rounded-2xl p-6 shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-100 transform hover:-translate-y-1 cursor-pointer overflow-hidden">
+  const StatCard = ({ icon: Icon, title, value, subtitle, color, onClick }) => (
+    <button
+      onClick={onClick}
+      className="group relative bg-white rounded-2xl p-4 shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-100 transform hover:-translate-y-1 cursor-pointer overflow-hidden text-left w-full"
+    >
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
-      <div className="relative flex items-start justify-between">
-        <div className="flex-1">
-          <p className="text-sm font-semibold text-gray-600 mb-2">{title}</p>
-          <h3 className="text-4xl font-extrabold text-gray-900 mb-2">
-            {value}
-          </h3>
-          {subtitle && (
-            <p className="text-xs text-gray-500 font-medium">{subtitle}</p>
-          )}
-          {change && (
-            <p className="text-sm text-green-600 mt-3 flex items-center font-semibold">
-              <TrendingUp className="w-4 h-4 mr-1" />
-              {change}
-            </p>
-          )}
-        </div>
+      <div className="relative flex items-start justify-between mb-3">
         <div
-          className={`${color} bg-opacity-10 p-4 rounded-2xl group-hover:scale-110 transition-transform shadow-lg`}
+          className={`${color} bg-opacity-10 p-2.5 rounded-xl group-hover:scale-110 transition-transform shadow-md`}
         >
           <Icon
-            className={`w-7 h-7 ${color.replace("bg-", "text-")}`}
+            className={`w-5 h-5 ${color.replace("bg-", "text-")}`}
             strokeWidth={2}
           />
         </div>
+        <ChevronRight className="w-4 h-4 text-gray-300 group-hover:text-gray-500 group-hover:translate-x-0.5 transition-all flex-shrink-0" />
       </div>
-    </div>
+      <div className="relative">
+        <p className="text-xs font-semibold text-gray-600 mb-1 truncate">
+          {title}
+        </p>
+        <h3 className="text-2xl font-extrabold text-gray-900 mb-1">
+          {value}
+        </h3>
+        {subtitle && (
+          <p className="text-xs text-gray-500 font-medium truncate">
+            {subtitle}
+          </p>
+        )}
+      </div>
+    </button>
   );
 
   if (loading) {
@@ -99,13 +102,22 @@ const OverviewTab = () => {
   return (
     <div className="space-y-6">
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
         <StatCard
           icon={MessageSquare}
           title="Contact Forms"
           value={stats.contacts}
           subtitle="Total submissions"
           color="bg-blue-600"
+          onClick={() => onNavigate?.("leads", "contact")}
+        />
+        <StatCard
+          icon={FileText}
+          title="RFP Submissions"
+          value={stats.rfps}
+          subtitle="Detailed proposals"
+          color="bg-cyan-600"
+          onClick={() => onNavigate?.("leads", "rfp")}
         />
         <StatCard
           icon={Briefcase}
@@ -113,6 +125,7 @@ const OverviewTab = () => {
           value={stats.services}
           subtitle="Active offerings"
           color="bg-orange-600"
+          onClick={() => onNavigate?.("services")}
         />
         <StatCard
           icon={FileText}
@@ -120,6 +133,7 @@ const OverviewTab = () => {
           value={stats.caseStudies}
           subtitle="Success stories"
           color="bg-green-600"
+          onClick={() => onNavigate?.("case-studies")}
         />
         <StatCard
           icon={Star}
@@ -127,6 +141,7 @@ const OverviewTab = () => {
           value={stats.reviews}
           subtitle="Client testimonials"
           color="bg-purple-600"
+          onClick={() => onNavigate?.("reviews")}
         />
         <StatCard
           icon={BookOpen}
@@ -134,6 +149,7 @@ const OverviewTab = () => {
           value={stats.blogPosts}
           subtitle="Published articles"
           color="bg-indigo-600"
+          onClick={() => onNavigate?.("blog")}
         />
       </div>
 

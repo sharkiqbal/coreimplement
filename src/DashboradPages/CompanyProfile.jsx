@@ -4,8 +4,10 @@ import {
   getCompanyProfile,
   saveCompanyProfile,
 } from "../service/companyProfileService";
+import { useToast } from "../context/ToastContext";
 
 const CompanyProfileTab = () => {
+  const toast = useToast();
   const [companyData, setCompanyData] = useState({
     companyName: "",
     completeProjects: "",
@@ -34,7 +36,7 @@ const CompanyProfileTab = () => {
       setEditData(profileData);
     } catch (error) {
       console.error("Error loading company profile:", error);
-      alert("Failed to load company profile. Please refresh the page.");
+      toast.error("Failed to load company profile. Please refresh the page.");
     } finally {
       setLoading(false);
     }
@@ -46,10 +48,10 @@ const CompanyProfileTab = () => {
       await saveCompanyProfile(editData);
       setCompanyData(editData);
       setIsEditing(false);
-      alert("Company profile updated successfully!");
+      toast.success("Company profile updated successfully!");
     } catch (error) {
       console.error("Error saving company profile:", error);
-      alert("Failed to save company profile. Please try again.");
+      toast.error("Failed to save company profile. Please try again.");
     } finally {
       setSaving(false);
     }

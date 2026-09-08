@@ -21,8 +21,10 @@ import {
   deleteCaseStudy,
 } from "../service/caseStudyService";
 import { getAllServices } from "../service/serviceService";
+import { useToast } from "../context/ToastContext";
 
 const CaseStudiesTab = () => {
+  const toast = useToast();
   const [caseStudies, setCaseStudies] = useState([]);
   const [services, setServices] = useState([]);
   const [showCaseStudyModal, setShowCaseStudyModal] = useState(false);
@@ -77,7 +79,7 @@ const CaseStudiesTab = () => {
       setCaseStudies(data);
     } catch (error) {
       console.error("Error loading case studies:", error);
-      alert("Failed to load case studies. Please refresh the page.");
+      toast.error("Failed to load case studies. Please refresh the page.");
     } finally {
       setLoading(false);
     }
@@ -184,7 +186,7 @@ const CaseStudiesTab = () => {
         !caseStudyForm.solution.trim() ||
         validResults.length === 0
       ) {
-        alert("Please fill in all required fields");
+        toast.error("Please fill in all required fields");
         setIsSubmitting(false);
         return;
       }
@@ -204,11 +206,11 @@ const CaseStudiesTab = () => {
       if (editingCaseStudy) {
         // Update existing case study in Firebase
         await updateCaseStudy(editingCaseStudy, caseStudyData);
-        alert("Case study updated successfully!");
+        toast.success("Case study updated successfully!");
       } else {
         // Add new case study to Firebase
         await addCaseStudy(caseStudyData);
-        alert("Case study published successfully!");
+        toast.success("Case study published successfully!");
       }
 
       // Reload case studies from Firebase
@@ -216,7 +218,7 @@ const CaseStudiesTab = () => {
       setShowCaseStudyModal(false);
     } catch (error) {
       console.error("Error saving case study:", error);
-      alert("Failed to save case study. Please try again.");
+      toast.error("Failed to save case study. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -226,12 +228,12 @@ const CaseStudiesTab = () => {
     if (window.confirm("Are you sure you want to delete this case study?")) {
       try {
         await deleteCaseStudy(id);
-        alert("Case study deleted successfully!");
+        toast.success("Case study deleted successfully!");
         // Reload case studies from Firebase
         await loadCaseStudies();
       } catch (error) {
         console.error("Error deleting case study:", error);
-        alert("Failed to delete case study. Please try again.");
+        toast.error("Failed to delete case study. Please try again.");
       }
     }
   };

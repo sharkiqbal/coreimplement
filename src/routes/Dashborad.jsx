@@ -3,9 +3,8 @@ import {
   BrainCircuit,
   BookOpen,
   BarChart3,
-  MessageSquare,
+  Inbox,
   FileText,
-  LogOut,
   Menu,
   Star,
   MapPin,
@@ -13,20 +12,30 @@ import {
   Briefcase,
 } from "lucide-react";
 import { getCompanyProfile } from "../service/companyProfileService";
+import { getAllContactSubmissions } from "../service/contactService";
+import { getAllRFPSubmissions } from "../service/rfpService";
+import { ToastProvider } from "../context/ToastContext";
+import LogoutButton from "../component/LogoutButton";
 
 import OverviewTab from "../DashboradPages/Overview";
 import CompanyProfileTab from "../DashboradPages/CompanyProfile";
-import ContactsTab from "../DashboradPages/Contacts";
+import LeadsTab from "../DashboradPages/Leads";
 import ServicesTab from "../DashboradPages/Services";
 import BlogTab from "../DashboradPages/Blog";
 import CaseStudiesTab from "../DashboradPages/CaseStudies";
 import ReviewsTab from "../DashboradPages/Reviews";
-import RFPTab from "../DashboradPages/RFP";
 
-const AdminDashboard = () => {
+const AdminDashboardInner = () => {
   const [companyName, setCompanyName] = useState("Core Implementations");
   const [activeTab, setActiveTab] = useState("overview");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [newLeadsCount, setNewLeadsCount] = useState(0);
+  const [leadsSourceFilter, setLeadsSourceFilter] = useState("all");
+
+  const navigateToTab = (tabId, leadsFilter = "all") => {
+    if (tabId === "leads") setLeadsSourceFilter(leadsFilter);
+    setActiveTab(tabId);
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -55,6 +64,25 @@ const AdminDashboard = () => {
       }
     };
     loadCompanyName();
+  }, []);
+
+  const loadNewLeadsCount = async () => {
+    try {
+      const [contacts, rfps] = await Promise.all([
+        getAllContactSubmissions(),
+        getAllRFPSubmissions(),
+      ]);
+      const newCount =
+        contacts.filter((c) => c.status === "new").length +
+        rfps.filter((r) => r.status === "new").length;
+      setNewLeadsCount(newCount);
+    } catch (error) {
+      console.error("Error loading new leads count:", error);
+    }
+  };
+
+  useEffect(() => {
+    loadNewLeadsCount();
   }, []);
 
   const Sidebar = () => (
@@ -110,14 +138,10 @@ const AdminDashboard = () => {
             label: "Company Profile",
           },
           {
-            id: "contacts",
-            icon: MessageSquare,
-            label: "Contact Forms",
-          },
-          {
-            id: "rfps",
-            icon: FileText,
-            label: "RFP Submissions",
+            id: "leads",
+            icon: Inbox,
+            label: "Leads",
+            badge: newLeadsCount > 0 ? newLeadsCount : null,
           },
           { id: "services", icon: Briefcase, label: "Services" },
           { id: "blog", icon: BookOpen, label: "Blog Posts" },
@@ -131,14 +155,19 @@ const AdminDashboard = () => {
           <button
             key={item.id}
             onClick={() => setActiveTab(item.id)}
-            className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-200 ${
+            className={`relative w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-200 ${
               activeTab === item.id
                 ? "bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-lg transform scale-105"
                 : "text-gray-600 hover:bg-gray-100 hover:scale-102"
             }`}
           >
             <div className="flex items-center space-x-3">
-              <item.icon className="w-5 h-5 flex-shrink-0" strokeWidth={2} />
+              <div className="relative flex-shrink-0">
+                <item.icon className="w-5 h-5" strokeWidth={2} />
+                {!isSidebarOpen && item.badge && (
+                  <span className="absolute -top-1.5 -right-1.5 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white"></span>
+                )}
+              </div>
               {isSidebarOpen && (
                 <span className="font-semibold">{item.label}</span>
               )}
@@ -154,16 +183,7 @@ const AdminDashboard = () => {
 
       {/* Bottom Actions */}
       <div className="p-4 border-t border-gray-200 space-y-2">
-        <button
-          onClick={() => {
-            localStorage.clear();
-            window.location.href = "/admin-core-0004";
-          }}
-          className="w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-600 hover:bg-red-50 hover:text-red-600 transition-all hover:scale-102"
-        >
-          <LogOut className="w-5 h-5 flex-shrink-0" strokeWidth={2} />
-          {isSidebarOpen && <span className="font-semibold">Logout</span>}
-        </button>
+        <LogoutButton isSidebarOpen={isSidebarOpen} />
       </div>
     </div>
   );
@@ -209,9 +229,15 @@ const AdminDashboard = () => {
 
         {/* Content */}
         <main className="p-8">
-          {activeTab === "overview" && <OverviewTab />}
-          {activeTab === "contacts" && <ContactsTab />}
-          {activeTab === "rfps" && <RFPTab />}
+          {activeTab === "overview" && (
+            <OverviewTab onNavigate={navigateToTab} />
+          )}
+          {activeTab === "leads" && (
+            <LeadsTab
+              onLeadsChanged={loadNewLeadsCount}
+              initialSourceFilter={leadsSourceFilter}
+            />
+          )}
           {activeTab === "services" && <ServicesTab />}
           {activeTab === "blog" && <BlogTab />}
           {activeTab === "case-studies" && <CaseStudiesTab />}
@@ -222,5 +248,11 @@ const AdminDashboard = () => {
     </div>
   );
 };
+
+const AdminDashboard = () => (
+  <ToastProvider>
+    <AdminDashboardInner />
+  </ToastProvider>
+);
 
 export default AdminDashboard;

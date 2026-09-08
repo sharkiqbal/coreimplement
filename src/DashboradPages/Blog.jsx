@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Calendar, X, Clock, Plus, Edit, Trash2, Save } from "lucide-react";
+import { useToast } from "../context/ToastContext";
 import {
   getAllBlogs,
   addBlog,
@@ -8,6 +9,7 @@ import {
 } from "../service/blogService";
 
 const BlogTab = () => {
+  const toast = useToast();
   const [showBlogModal, setShowBlogModal] = useState(false);
   const [editingBlog, setEditingBlog] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -45,7 +47,7 @@ const BlogTab = () => {
       setBlogPosts(blogs);
     } catch (error) {
       console.error("Error loading blogs:", error);
-      alert("Failed to load blog posts. Please refresh the page.");
+      toast.error("Failed to load blog posts. Please refresh the page.");
     } finally {
       setLoading(false);
     }
@@ -94,7 +96,7 @@ const BlogTab = () => {
         !blogForm.description.trim() ||
         !blogForm.content.trim()
       ) {
-        alert("Please fill in all required fields");
+        toast.error("Please fill in all required fields");
         setIsSubmitting(false);
         return;
       }
@@ -102,11 +104,11 @@ const BlogTab = () => {
       if (editingBlog) {
         // Update existing blog in Firebase
         await updateBlog(editingBlog, blogForm);
-        alert("Blog post updated successfully!");
+        toast.success("Blog post updated successfully!");
       } else {
         // Add new blog to Firebase
         await addBlog(blogForm);
-        alert("Blog post published successfully!");
+        toast.success("Blog post published successfully!");
       }
 
       // Reload blogs from Firebase
@@ -114,7 +116,7 @@ const BlogTab = () => {
       setShowBlogModal(false);
     } catch (error) {
       console.error("Error saving blog:", error);
-      alert("Failed to save blog post. Please try again.");
+      toast.error("Failed to save blog post. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -124,12 +126,12 @@ const BlogTab = () => {
     if (window.confirm("Are you sure you want to delete this blog post?")) {
       try {
         await deleteBlog(id);
-        alert("Blog post deleted successfully!");
+        toast.success("Blog post deleted successfully!");
         // Reload blogs from Firebase
         await loadBlogs();
       } catch (error) {
         console.error("Error deleting blog:", error);
-        alert("Failed to delete blog post. Please try again.");
+        toast.error("Failed to delete blog post. Please try again.");
       }
     }
   };
