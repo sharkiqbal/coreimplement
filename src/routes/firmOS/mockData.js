@@ -452,6 +452,65 @@ export const updateClientStatus = (clientId, newStatus) => {
   return client;
 };
 
+// ---------------------------------------------------------------------------
+// Billing — invoices generated when a return is filed, reconciled against
+// payment, and nudged when overdue.
+// ---------------------------------------------------------------------------
+
+export const INVOICES = [
+  {
+    id: "inv1",
+    clientId: "coleman-associates",
+    invoiceNumber: "INV-1042",
+    description: "2025 Partnership Tax Return",
+    issuedDate: "2026-08-24",
+    dueDate: "2026-09-07",
+    amount: 2200,
+    status: "paid",
+    paidDate: "2026-09-03",
+  },
+  {
+    id: "inv2",
+    clientId: "ferro-construction",
+    invoiceNumber: "INV-1038",
+    description: "Q2 Bookkeeping Retainer",
+    issuedDate: "2026-08-05",
+    dueDate: "2026-08-19",
+    amount: 450,
+    status: "overdue",
+    reminderSent: false,
+  },
+];
+
+let invoiceCounter = 1043;
+
+export const getInvoicesForClient = (clientId) =>
+  INVOICES.filter((i) => i.clientId === clientId);
+
+export const hasInvoice = (clientId) =>
+  INVOICES.some((i) => i.clientId === clientId);
+
+export const generateInvoice = (client) => {
+  const invoice = {
+    id: `inv-${client.id}-${Date.now().toString(36)}`,
+    clientId: client.id,
+    invoiceNumber: `INV-${invoiceCounter++}`,
+    description: `${new Date().getFullYear() - 1} Tax Return`,
+    issuedDate: new Date().toISOString().slice(0, 10),
+    dueDate: new Date(Date.now() + 14 * 86400000).toISOString().slice(0, 10),
+    amount: client.fee,
+    status: "sent",
+  };
+  INVOICES.push(invoice);
+  return invoice;
+};
+
+export const markReminderSent = (invoiceId) => {
+  const invoice = INVOICES.find((i) => i.id === invoiceId);
+  if (invoice) invoice.reminderSent = true;
+  return invoice;
+};
+
 export const addClient = ({
   name,
   entityType,

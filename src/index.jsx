@@ -29,7 +29,7 @@ import DocumentsQueue from "./routes/firmOS/DocumentsQueue";
 import FirmCommunications from "./routes/firmOS/FirmCommunications";
 import NewEngagement from "./routes/firmOS/NewEngagement";
 import PipelineBoard from "./routes/firmOS/PipelineBoard";
-import FirmOSPlaceholder from "./routes/firmOS/PlaceholderPage";
+import FirmBilling from "./routes/firmOS/FirmBilling";
 import ScrollToTop from "./component/ScrollToTop";
 import CookieConsentBanner from "./component/CookieConsentBanner";
 import { AuthProvider } from "./context/AuthContext";
@@ -95,16 +95,7 @@ createRoot(document.getElementById("app")).render(
                 <Route path="clients/:clientId" element={<ClientDetail />} />
                 <Route path="documents" element={<DocumentsQueue />} />
                 <Route path="communications" element={<FirmCommunications />} />
-                <Route
-                  path="billing"
-                  element={
-                    <FirmOSPlaceholder
-                      title="Billing"
-                      phase="Phase 5"
-                      description="Auto-generated invoices, payment reconciliation, and collections nudges will land here."
-                    />
-                  }
-                />
+                <Route path="billing" element={<FirmBilling />} />
               </Route>
 
               <Route path="*" element={<NotFoundPage />} />

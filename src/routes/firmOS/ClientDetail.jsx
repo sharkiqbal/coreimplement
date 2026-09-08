@@ -16,8 +16,8 @@ import {
   getStageStyle,
   STATUS_STAGES,
   getCommunicationsForClient,
+  getInvoicesForClient,
 } from "./mockData";
-import PlaceholderPage from "./PlaceholderPage";
 import SEO from "../../component/SEO";
 
 const TABS = ["Profile & Documents", "Communications", "Billing"];
@@ -264,11 +264,65 @@ const ClientDetail = () => {
       )}
 
       {tab === "Billing" && (
-        <PlaceholderPage
-          title="Billing"
-          phase="Phase 5"
-          description="Invoicing, payment status, and collections nudges for this client will land here."
-        />
+        <div className="bg-white border border-slate-200 rounded-xl overflow-hidden">
+          <div className="px-5 py-4 border-b border-slate-200">
+            <h2 className="font-bold text-slate-900">Invoices</h2>
+          </div>
+          {(() => {
+            const invoices = getInvoicesForClient(client.id);
+            if (invoices.length === 0) {
+              return (
+                <p className="px-5 py-8 text-sm text-slate-500 text-center">
+                  No invoices yet — one will be generated automatically once
+                  this return is filed.
+                </p>
+              );
+            }
+            return (
+              <div className="divide-y divide-slate-100">
+                {invoices.map((inv) => (
+                  <div
+                    key={inv.id}
+                    className="px-5 py-4 flex items-center justify-between gap-4"
+                  >
+                    <div>
+                      <p className="text-sm font-semibold text-slate-900">
+                        {inv.invoiceNumber} · {inv.description}
+                      </p>
+                      <p className="text-xs text-slate-500 mt-0.5">
+                        Due{" "}
+                        {new Date(inv.dueDate).toLocaleDateString(undefined, {
+                          month: "short",
+                          day: "numeric",
+                        })}
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-3 flex-shrink-0">
+                      <span className="text-sm font-bold text-slate-800 tabular-nums">
+                        ${inv.amount.toLocaleString()}
+                      </span>
+                      <span
+                        className={`text-xs font-semibold px-2 py-1 rounded-full ${
+                          inv.status === "paid"
+                            ? "bg-emerald-50 text-emerald-700"
+                            : inv.status === "overdue"
+                            ? "bg-amber-50 text-amber-700"
+                            : "bg-blue-50 text-blue-700"
+                        }`}
+                      >
+                        {inv.status === "paid"
+                          ? "Paid"
+                          : inv.status === "overdue"
+                          ? "Overdue"
+                          : "Sent"}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            );
+          })()}
+        </div>
       )}
     </div>
   );

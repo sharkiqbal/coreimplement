@@ -163,8 +163,8 @@
       ]
     },
     {
-      "id": "src/routes/firmOS/PlaceholderPage.jsx",
-      "label": "PlaceholderPage",
+      "id": "src/routes/firmOS/FirmBilling.jsx",
+      "label": "FirmBilling",
       "routes": [
         "billing"
       ]
