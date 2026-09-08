@@ -8,14 +8,16 @@ import {
   PlugZap,
   MessageSquare,
   FileBarChart,
+  FileStack,
   ChevronDown,
 } from "lucide-react";
 import { listClients } from "@dataconnect/generated";
 import { slugify } from "../../utils/slugify";
+import AIAssistantPanel from "./AIAssistantPanel";
 
 const NAV_ITEMS = [
   { to: "", label: "Overview", icon: LayoutDashboard, end: true },
-  { to: "workspace", label: "AI Workspace", icon: Sparkles },
+  { to: "documents", label: "Documents", icon: FileStack },
   { to: "automations", label: "Automations", icon: Workflow },
   { to: "integrations", label: "Integrations", icon: PlugZap },
   { to: "communications", label: "Communications", icon: MessageSquare },
@@ -30,6 +32,7 @@ const PlatformPreviewLayout = () => {
   const [persona, setPersona] = useState(null);
   const [allPersonas, setAllPersonas] = useState([]);
   const [switcherOpen, setSwitcherOpen] = useState(false);
+  const [assistantOpen, setAssistantOpen] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -144,36 +147,45 @@ const PlatformPreviewLayout = () => {
           <h1 className="text-lg font-bold text-slate-900 truncate">
             {persona.name}
           </h1>
-          <div className="relative flex-shrink-0">
+          <div className="flex items-center gap-2 flex-shrink-0">
             <button
-              onClick={() => setSwitcherOpen((v) => !v)}
-              className="flex items-center gap-1.5 px-3 py-2 text-sm font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-colors"
+              onClick={() => setAssistantOpen((v) => !v)}
+              className="flex items-center gap-1.5 px-3 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg text-sm font-bold hover:from-blue-700 hover:to-indigo-700 transition-all shadow-sm"
             >
-              Switch
-              <ChevronDown className="w-4 h-4" />
+              <Sparkles className="w-4 h-4" />
+              Ask AI
             </button>
-            {switcherOpen && (
-              <>
-                <div
-                  className="fixed inset-0 z-10"
-                  onClick={() => setSwitcherOpen(false)}
-                ></div>
-                <div className="absolute right-0 mt-2 w-56 bg-white border border-slate-200 rounded-xl shadow-xl z-20 py-1.5 overflow-hidden">
-                  {otherPersonas.map((p) => (
-                    <button
-                      key={p.id}
-                      onClick={() => {
-                        setSwitcherOpen(false);
-                        navigate(`/platform-preview/${slugify(p.industry)}`);
-                      }}
-                      className="w-full text-left px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors"
-                    >
-                      {p.name}
-                    </button>
-                  ))}
-                </div>
-              </>
-            )}
+            <div className="relative flex-shrink-0">
+              <button
+                onClick={() => setSwitcherOpen((v) => !v)}
+                className="flex items-center gap-1.5 px-3 py-2 text-sm font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-colors"
+              >
+                Switch
+                <ChevronDown className="w-4 h-4" />
+              </button>
+              {switcherOpen && (
+                <>
+                  <div
+                    className="fixed inset-0 z-10"
+                    onClick={() => setSwitcherOpen(false)}
+                  ></div>
+                  <div className="absolute right-0 mt-2 w-56 bg-white border border-slate-200 rounded-xl shadow-xl z-20 py-1.5 overflow-hidden">
+                    {otherPersonas.map((p) => (
+                      <button
+                        key={p.id}
+                        onClick={() => {
+                          setSwitcherOpen(false);
+                          navigate(`/platform-preview/${slugify(p.industry)}`);
+                        }}
+                        className="w-full text-left px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors"
+                      >
+                        {p.name}
+                      </button>
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
           </div>
         </header>
 
@@ -183,6 +195,14 @@ const PlatformPreviewLayout = () => {
           />
         </main>
       </div>
+
+      <AIAssistantPanel
+        key={industrySlug}
+        open={assistantOpen}
+        onClose={() => setAssistantOpen(false)}
+        industry={persona.industry}
+        personaName={persona.name}
+      />
     </div>
   );
 };

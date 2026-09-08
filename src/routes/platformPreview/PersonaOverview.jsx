@@ -3,6 +3,7 @@ import { useOutletContext } from "react-router-dom";
 import { Clock, TrendingUp, Zap } from "lucide-react";
 import { getPersonaOverview } from "@dataconnect/generated";
 import { getStatusStyle, formatStatusLabel } from "./statusColors";
+import { ConnectedToolsStrip, WorkflowManagerDemo } from "./aiDemos";
 import SEO from "../../component/SEO";
 
 const StatCard = ({ icon: Icon, label, value }) => (
@@ -61,6 +62,13 @@ const PersonaOverview = () => {
         path={`/platform-preview/${industrySlug}`}
         noindex
       />
+
+      {industry === "Accounting" && (
+        <>
+          <ConnectedToolsStrip />
+          <WorkflowManagerDemo />
+        </>
+      )}
 
       <div className="grid sm:grid-cols-3 gap-4">
         <StatCard
