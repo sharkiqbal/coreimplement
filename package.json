@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@animaapp/vite-plugin-screen-graph": "^0.1.11",
+    "@dataconnect/admin-generated": "file:src/dataconnect-admin-generated",
+    "@dataconnect/generated": "file:src/dataconnect-generated",
     "clsx": "2.1.1",
     "firebase": "^12.3.0",
     "lucide-react": "^0.453.0",
@@ -25,6 +27,7 @@
     "@vitejs/plugin-react": "4.3.4",
     "esbuild": "0.24.0",
     "firebase-admin": "^14.3.0",
+    "firebase-tools": "^15.29.0",
     "globals": "15.12.0",
     "tailwindcss": "3.4.16",
     "vite": "6.0.4"

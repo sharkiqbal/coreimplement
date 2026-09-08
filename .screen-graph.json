@@ -79,6 +79,48 @@
       ]
     },
     {
+      "id": "src/routes/platformPreview/PersonaPicker.jsx",
+      "label": "PersonaPicker",
+      "routes": [
+        "/platform-preview"
+      ]
+    },
+    {
+      "id": "src/routes/platformPreview/PlatformPreviewLayout.jsx",
+      "label": "PlatformPreviewLayout",
+      "routes": [
+        "/platform-preview/:industrySlug"
+      ]
+    },
+    {
+      "id": "src/routes/platformPreview/PersonaAutomations.jsx",
+      "label": "PersonaAutomations",
+      "routes": [
+        "automations"
+      ]
+    },
+    {
+      "id": "src/routes/platformPreview/PersonaIntegrations.jsx",
+      "label": "PersonaIntegrations",
+      "routes": [
+        "integrations"
+      ]
+    },
+    {
+      "id": "src/routes/platformPreview/PersonaCommunications.jsx",
+      "label": "PersonaCommunications",
+      "routes": [
+        "communications"
+      ]
+    },
+    {
+      "id": "src/routes/platformPreview/PersonaReports.jsx",
+      "label": "PersonaReports",
+      "routes": [
+        "reports"
+      ]
+    },
+    {
       "id": "src/routes/NotFoundPage.jsx",
       "label": "NotFoundPage",
       "routes": [
@@ -1268,6 +1310,54 @@
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/routes/platformPreview/PersonaPicker.jsx:29:6-to-src/routes/platformPreview/PersonaPicker.jsx",
+      "source": "src/routes/platformPreview/PersonaPicker.jsx",
+      "target": "src/routes/platformPreview/PersonaPicker.jsx",
+      "data": {
+        "viaRoute": "/platform-preview",
+        "trigger": {
+          "element": "<SEO\n        title=\"Platform Preview\"\n        description=\"Sample product dashboard preview.\"\n        path=\"/platform-preview\"\n        noindex\n      />",
+          "line": 29,
+          "endLine": 34,
+          "column": 6,
+          "endColumn": 8,
+          "sourceFile": "src/routes/platformPreview/PersonaPicker.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/routes/platformPreview/PlatformPreviewLayout.jsx:81:27-to-src/routes/platformPreview/PersonaPicker.jsx",
+      "source": "src/routes/platformPreview/PlatformPreviewLayout.jsx",
+      "target": "src/routes/platformPreview/PersonaPicker.jsx",
+      "data": {
+        "viaRoute": "/platform-preview",
+        "trigger": {
+          "element": "navigate(\"/platform-preview\")",
+          "line": 81,
+          "endLine": 81,
+          "column": 27,
+          "endColumn": 56,
+          "sourceFile": "src/routes/platformPreview/PlatformPreviewLayout.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/routes/platformPreview/PlatformPreviewLayout.jsx:131:27-to-src/routes/platformPreview/PersonaPicker.jsx",
+      "source": "src/routes/platformPreview/PlatformPreviewLayout.jsx",
+      "target": "src/routes/platformPreview/PersonaPicker.jsx",
+      "data": {
+        "viaRoute": "/platform-preview",
+        "trigger": {
+          "element": "navigate(\"/platform-preview\")",
+          "line": 131,
+          "endLine": 131,
+          "column": 27,
+          "endColumn": 56,
+          "sourceFile": "src/routes/platformPreview/PlatformPreviewLayout.jsx"
         }
       }
     },

@@ -1,0 +1,75 @@
+import { CreateClientData, CreateClientVariables, UpdateClientStatusData, UpdateClientStatusVariables, DeleteClientData, DeleteClientVariables, CreateIntegrationData, CreateIntegrationVariables, DeleteIntegrationData, DeleteIntegrationVariables, CreateClientIntegrationData, CreateClientIntegrationVariables, UpdateClientIntegrationStatusData, UpdateClientIntegrationStatusVariables, DeleteClientIntegrationData, DeleteClientIntegrationVariables, CreateAutomationData, CreateAutomationVariables, UpdateAutomationStatusData, UpdateAutomationStatusVariables, DeleteAutomationData, DeleteAutomationVariables, CreateAutomationRunData, CreateAutomationRunVariables, DeleteAutomationRunData, DeleteAutomationRunVariables, CreateCommunicationData, CreateCommunicationVariables, DeleteCommunicationData, DeleteCommunicationVariables, CreateMetricsSnapshotData, CreateMetricsSnapshotVariables, DeleteMetricsSnapshotData, DeleteMetricsSnapshotVariables, ListClientsData, GetPersonaOverviewData, GetPersonaOverviewVariables, GetPersonaAutomationsData, GetPersonaAutomationsVariables, GetPersonaIntegrationsData, GetPersonaIntegrationsVariables, GetPersonaCommunicationsData, GetPersonaCommunicationsVariables, GetPersonaReportsData, GetPersonaReportsVariables } from '../';
+import { UseDataConnectQueryResult, useDataConnectQueryOptions, UseDataConnectMutationResult, useDataConnectMutationOptions} from '@tanstack-query-firebase/react/data-connect';
+import { UseQueryResult, UseMutationResult} from '@tanstack/react-query';
+import { DataConnect } from 'firebase/data-connect';
+import { FirebaseError } from 'firebase/app';
+
+
+export function useCreateClient(options?: useDataConnectMutationOptions<CreateClientData, FirebaseError, CreateClientVariables>): UseDataConnectMutationResult<CreateClientData, CreateClientVariables>;
+export function useCreateClient(dc: DataConnect, options?: useDataConnectMutationOptions<CreateClientData, FirebaseError, CreateClientVariables>): UseDataConnectMutationResult<CreateClientData, CreateClientVariables>;
+
+export function useUpdateClientStatus(options?: useDataConnectMutationOptions<UpdateClientStatusData, FirebaseError, UpdateClientStatusVariables>): UseDataConnectMutationResult<UpdateClientStatusData, UpdateClientStatusVariables>;
+export function useUpdateClientStatus(dc: DataConnect, options?: useDataConnectMutationOptions<UpdateClientStatusData, FirebaseError, UpdateClientStatusVariables>): UseDataConnectMutationResult<UpdateClientStatusData, UpdateClientStatusVariables>;
+
+export function useDeleteClient(options?: useDataConnectMutationOptions<DeleteClientData, FirebaseError, DeleteClientVariables>): UseDataConnectMutationResult<DeleteClientData, DeleteClientVariables>;
+export function useDeleteClient(dc: DataConnect, options?: useDataConnectMutationOptions<DeleteClientData, FirebaseError, DeleteClientVariables>): UseDataConnectMutationResult<DeleteClientData, DeleteClientVariables>;
+
+export function useCreateIntegration(options?: useDataConnectMutationOptions<CreateIntegrationData, FirebaseError, CreateIntegrationVariables>): UseDataConnectMutationResult<CreateIntegrationData, CreateIntegrationVariables>;
+export function useCreateIntegration(dc: DataConnect, options?: useDataConnectMutationOptions<CreateIntegrationData, FirebaseError, CreateIntegrationVariables>): UseDataConnectMutationResult<CreateIntegrationData, CreateIntegrationVariables>;
+
+export function useDeleteIntegration(options?: useDataConnectMutationOptions<DeleteIntegrationData, FirebaseError, DeleteIntegrationVariables>): UseDataConnectMutationResult<DeleteIntegrationData, DeleteIntegrationVariables>;
+export function useDeleteIntegration(dc: DataConnect, options?: useDataConnectMutationOptions<DeleteIntegrationData, FirebaseError, DeleteIntegrationVariables>): UseDataConnectMutationResult<DeleteIntegrationData, DeleteIntegrationVariables>;
+
+export function useCreateClientIntegration(options?: useDataConnectMutationOptions<CreateClientIntegrationData, FirebaseError, CreateClientIntegrationVariables>): UseDataConnectMutationResult<CreateClientIntegrationData, CreateClientIntegrationVariables>;
+export function useCreateClientIntegration(dc: DataConnect, options?: useDataConnectMutationOptions<CreateClientIntegrationData, FirebaseError, CreateClientIntegrationVariables>): UseDataConnectMutationResult<CreateClientIntegrationData, CreateClientIntegrationVariables>;
+
+export function useUpdateClientIntegrationStatus(options?: useDataConnectMutationOptions<UpdateClientIntegrationStatusData, FirebaseError, UpdateClientIntegrationStatusVariables>): UseDataConnectMutationResult<UpdateClientIntegrationStatusData, UpdateClientIntegrationStatusVariables>;
+export function useUpdateClientIntegrationStatus(dc: DataConnect, options?: useDataConnectMutationOptions<UpdateClientIntegrationStatusData, FirebaseError, UpdateClientIntegrationStatusVariables>): UseDataConnectMutationResult<UpdateClientIntegrationStatusData, UpdateClientIntegrationStatusVariables>;
+
+export function useDeleteClientIntegration(options?: useDataConnectMutationOptions<DeleteClientIntegrationData, FirebaseError, DeleteClientIntegrationVariables>): UseDataConnectMutationResult<DeleteClientIntegrationData, DeleteClientIntegrationVariables>;
+export function useDeleteClientIntegration(dc: DataConnect, options?: useDataConnectMutationOptions<DeleteClientIntegrationData, FirebaseError, DeleteClientIntegrationVariables>): UseDataConnectMutationResult<DeleteClientIntegrationData, DeleteClientIntegrationVariables>;
+
+export function useCreateAutomation(options?: useDataConnectMutationOptions<CreateAutomationData, FirebaseError, CreateAutomationVariables>): UseDataConnectMutationResult<CreateAutomationData, CreateAutomationVariables>;
+export function useCreateAutomation(dc: DataConnect, options?: useDataConnectMutationOptions<CreateAutomationData, FirebaseError, CreateAutomationVariables>): UseDataConnectMutationResult<CreateAutomationData, CreateAutomationVariables>;
+
+export function useUpdateAutomationStatus(options?: useDataConnectMutationOptions<UpdateAutomationStatusData, FirebaseError, UpdateAutomationStatusVariables>): UseDataConnectMutationResult<UpdateAutomationStatusData, UpdateAutomationStatusVariables>;
+export function useUpdateAutomationStatus(dc: DataConnect, options?: useDataConnectMutationOptions<UpdateAutomationStatusData, FirebaseError, UpdateAutomationStatusVariables>): UseDataConnectMutationResult<UpdateAutomationStatusData, UpdateAutomationStatusVariables>;
+
+export function useDeleteAutomation(options?: useDataConnectMutationOptions<DeleteAutomationData, FirebaseError, DeleteAutomationVariables>): UseDataConnectMutationResult<DeleteAutomationData, DeleteAutomationVariables>;
+export function useDeleteAutomation(dc: DataConnect, options?: useDataConnectMutationOptions<DeleteAutomationData, FirebaseError, DeleteAutomationVariables>): UseDataConnectMutationResult<DeleteAutomationData, DeleteAutomationVariables>;
+
+export function useCreateAutomationRun(options?: useDataConnectMutationOptions<CreateAutomationRunData, FirebaseError, CreateAutomationRunVariables>): UseDataConnectMutationResult<CreateAutomationRunData, CreateAutomationRunVariables>;
+export function useCreateAutomationRun(dc: DataConnect, options?: useDataConnectMutationOptions<CreateAutomationRunData, FirebaseError, CreateAutomationRunVariables>): UseDataConnectMutationResult<CreateAutomationRunData, CreateAutomationRunVariables>;
+
+export function useDeleteAutomationRun(options?: useDataConnectMutationOptions<DeleteAutomationRunData, FirebaseError, DeleteAutomationRunVariables>): UseDataConnectMutationResult<DeleteAutomationRunData, DeleteAutomationRunVariables>;
+export function useDeleteAutomationRun(dc: DataConnect, options?: useDataConnectMutationOptions<DeleteAutomationRunData, FirebaseError, DeleteAutomationRunVariables>): UseDataConnectMutationResult<DeleteAutomationRunData, DeleteAutomationRunVariables>;
+
+export function useCreateCommunication(options?: useDataConnectMutationOptions<CreateCommunicationData, FirebaseError, CreateCommunicationVariables>): UseDataConnectMutationResult<CreateCommunicationData, CreateCommunicationVariables>;
+export function useCreateCommunication(dc: DataConnect, options?: useDataConnectMutationOptions<CreateCommunicationData, FirebaseError, CreateCommunicationVariables>): UseDataConnectMutationResult<CreateCommunicationData, CreateCommunicationVariables>;
+
+export function useDeleteCommunication(options?: useDataConnectMutationOptions<DeleteCommunicationData, FirebaseError, DeleteCommunicationVariables>): UseDataConnectMutationResult<DeleteCommunicationData, DeleteCommunicationVariables>;
+export function useDeleteCommunication(dc: DataConnect, options?: useDataConnectMutationOptions<DeleteCommunicationData, FirebaseError, DeleteCommunicationVariables>): UseDataConnectMutationResult<DeleteCommunicationData, DeleteCommunicationVariables>;
+
+export function useCreateMetricsSnapshot(options?: useDataConnectMutationOptions<CreateMetricsSnapshotData, FirebaseError, CreateMetricsSnapshotVariables>): UseDataConnectMutationResult<CreateMetricsSnapshotData, CreateMetricsSnapshotVariables>;
+export function useCreateMetricsSnapshot(dc: DataConnect, options?: useDataConnectMutationOptions<CreateMetricsSnapshotData, FirebaseError, CreateMetricsSnapshotVariables>): UseDataConnectMutationResult<CreateMetricsSnapshotData, CreateMetricsSnapshotVariables>;
+
+export function useDeleteMetricsSnapshot(options?: useDataConnectMutationOptions<DeleteMetricsSnapshotData, FirebaseError, DeleteMetricsSnapshotVariables>): UseDataConnectMutationResult<DeleteMetricsSnapshotData, DeleteMetricsSnapshotVariables>;
+export function useDeleteMetricsSnapshot(dc: DataConnect, options?: useDataConnectMutationOptions<DeleteMetricsSnapshotData, FirebaseError, DeleteMetricsSnapshotVariables>): UseDataConnectMutationResult<DeleteMetricsSnapshotData, DeleteMetricsSnapshotVariables>;
+
+export function useListClients(options?: useDataConnectQueryOptions<ListClientsData>): UseDataConnectQueryResult<ListClientsData, undefined>;
+export function useListClients(dc: DataConnect, options?: useDataConnectQueryOptions<ListClientsData>): UseDataConnectQueryResult<ListClientsData, undefined>;
+
+export function useGetPersonaOverview(vars: GetPersonaOverviewVariables, options?: useDataConnectQueryOptions<GetPersonaOverviewData>): UseDataConnectQueryResult<GetPersonaOverviewData, GetPersonaOverviewVariables>;
+export function useGetPersonaOverview(dc: DataConnect, vars: GetPersonaOverviewVariables, options?: useDataConnectQueryOptions<GetPersonaOverviewData>): UseDataConnectQueryResult<GetPersonaOverviewData, GetPersonaOverviewVariables>;
+
+export function useGetPersonaAutomations(vars: GetPersonaAutomationsVariables, options?: useDataConnectQueryOptions<GetPersonaAutomationsData>): UseDataConnectQueryResult<GetPersonaAutomationsData, GetPersonaAutomationsVariables>;
+export function useGetPersonaAutomations(dc: DataConnect, vars: GetPersonaAutomationsVariables, options?: useDataConnectQueryOptions<GetPersonaAutomationsData>): UseDataConnectQueryResult<GetPersonaAutomationsData, GetPersonaAutomationsVariables>;
+
+export function useGetPersonaIntegrations(vars: GetPersonaIntegrationsVariables, options?: useDataConnectQueryOptions<GetPersonaIntegrationsData>): UseDataConnectQueryResult<GetPersonaIntegrationsData, GetPersonaIntegrationsVariables>;
+export function useGetPersonaIntegrations(dc: DataConnect, vars: GetPersonaIntegrationsVariables, options?: useDataConnectQueryOptions<GetPersonaIntegrationsData>): UseDataConnectQueryResult<GetPersonaIntegrationsData, GetPersonaIntegrationsVariables>;
+
+export function useGetPersonaCommunications(vars: GetPersonaCommunicationsVariables, options?: useDataConnectQueryOptions<GetPersonaCommunicationsData>): UseDataConnectQueryResult<GetPersonaCommunicationsData, GetPersonaCommunicationsVariables>;
+export function useGetPersonaCommunications(dc: DataConnect, vars: GetPersonaCommunicationsVariables, options?: useDataConnectQueryOptions<GetPersonaCommunicationsData>): UseDataConnectQueryResult<GetPersonaCommunicationsData, GetPersonaCommunicationsVariables>;
+
+export function useGetPersonaReports(vars: GetPersonaReportsVariables, options?: useDataConnectQueryOptions<GetPersonaReportsData>): UseDataConnectQueryResult<GetPersonaReportsData, GetPersonaReportsVariables>;
+export function useGetPersonaReports(dc: DataConnect, vars: GetPersonaReportsVariables, options?: useDataConnectQueryOptions<GetPersonaReportsData>): UseDataConnectQueryResult<GetPersonaReportsData, GetPersonaReportsVariables>;

@@ -1,0 +1,73 @@
+# Schema for the hidden /platform-preview demo (dummy clients, integrations,
+# automations) - see platform-demo-build-spec.md in the repo root for the full spec.
+#
+# `id: UUID!` primary keys are implicit in Data Connect (auto-added unless a
+# type defines its own @default(expr: "uuidV4()") key), so they're omitted here.
+# Auth (@auth) is applied per-operation in the connector files, not on these
+# table definitions.
+
+# Master list of dummy clients
+type Client @table {
+  name: String!
+  industry: String!
+  contactName: String
+  contactEmail: String
+  status: String! @default(value: "active")
+  createdAt: Timestamp! @default(expr: "request.time")
+}
+
+# Master list of tools a client can "integrate" with
+type Integration @table {
+  name: String!
+  category: String!
+  logoUrl: String
+}
+
+# Join table: which client has which integration connected. Composite key on
+# (client, integration) instead of a synthetic id - a pure join table shouldn't
+# allow the same client+integration pair to be inserted twice.
+type ClientIntegration @table(key: ["client", "integration"]) {
+  client: Client!
+  integration: Integration!
+  status: String! @default(value: "pending")
+  connectedAt: Timestamp
+}
+
+# Automations built for a client
+type Automation @table {
+  client: Client!
+  name: String!
+  description: String
+  triggerType: String!
+  status: String! @default(value: "active")
+  createdAt: Timestamp! @default(expr: "request.time")
+}
+
+# Execution log - what makes the demo feel "alive"
+type AutomationRun @table {
+  automation: Automation!
+  runAt: Timestamp! @default(expr: "request.time")
+  status: String!
+  summary: String
+  recordsProcessed: Int
+}
+
+# Simulated AI communications (voice + email)
+type Communication @table {
+  client: Client!
+  channel: String!
+  direction: String!
+  summary: String
+  transcriptUrl: String
+  occurredAt: Timestamp! @default(expr: "request.time")
+  handledBy: String! @default(value: "ai")
+}
+
+# Rollup metrics that power dashboard charts
+type MetricsSnapshot @table {
+  client: Client!
+  snapshotDate: Date!
+  hoursSaved: Float!
+  tasksAutomated: Int!
+  avgResponseSeconds: Int
+}

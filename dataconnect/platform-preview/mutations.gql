@@ -1,0 +1,190 @@
+# Write mutations for the /platform-preview demo data. All USER-level - there is
+# exactly one real signed-in user in this project (the admin, no public sign-up
+# flow exists), so "signed in at all" is an accurate stand-in for "is the admin,"
+# the same reasoning already used in firestore.rules. Used by scripts/seed-demo-data.mjs
+# and the optional admin "Demo Data" tab.
+
+# --- Client ---
+
+mutation CreateClient(
+  $name: String!
+  $industry: String!
+  $contactName: String
+  $contactEmail: String
+  $status: String
+) @auth(level: USER, insecureReason: "Only the single admin account can ever sign in - no public sign-up flow exists - so any signed-in user is the admin, same reasoning as firestore.rules.") {
+  client_insert(
+    data: {
+      name: $name
+      industry: $industry
+      contactName: $contactName
+      contactEmail: $contactEmail
+      status: $status
+    }
+  )
+}
+
+mutation UpdateClientStatus($id: UUID!, $status: String!) @auth(level: USER, insecureReason: "Only the single admin account can ever sign in - no public sign-up flow exists - so any signed-in user is the admin, same reasoning as firestore.rules.") {
+  client_update(id: $id, data: { status: $status })
+}
+
+mutation DeleteClient($id: UUID!) @auth(level: USER, insecureReason: "Only the single admin account can ever sign in - no public sign-up flow exists - so any signed-in user is the admin, same reasoning as firestore.rules.") {
+  client_delete(id: $id)
+}
+
+# --- Integration ---
+
+mutation CreateIntegration(
+  $name: String!
+  $category: String!
+  $logoUrl: String
+) @auth(level: USER, insecureReason: "Only the single admin account can ever sign in - no public sign-up flow exists - so any signed-in user is the admin, same reasoning as firestore.rules.") {
+  integration_insert(
+    data: { name: $name, category: $category, logoUrl: $logoUrl }
+  )
+}
+
+mutation DeleteIntegration($id: UUID!) @auth(level: USER, insecureReason: "Only the single admin account can ever sign in - no public sign-up flow exists - so any signed-in user is the admin, same reasoning as firestore.rules.") {
+  integration_delete(id: $id)
+}
+
+# --- ClientIntegration (join) ---
+
+mutation CreateClientIntegration(
+  $clientId: UUID!
+  $integrationId: UUID!
+  $status: String
+  $connectedAt: Timestamp
+) @auth(level: USER, insecureReason: "Only the single admin account can ever sign in - no public sign-up flow exists - so any signed-in user is the admin, same reasoning as firestore.rules.") {
+  clientIntegration_insert(
+    data: {
+      clientId: $clientId
+      integrationId: $integrationId
+      status: $status
+      connectedAt: $connectedAt
+    }
+  )
+}
+
+mutation UpdateClientIntegrationStatus(
+  $clientId: UUID!
+  $integrationId: UUID!
+  $status: String!
+) @auth(level: USER, insecureReason: "Only the single admin account can ever sign in - no public sign-up flow exists - so any signed-in user is the admin, same reasoning as firestore.rules.") {
+  clientIntegration_update(
+    key: { clientId: $clientId, integrationId: $integrationId }
+    data: { status: $status }
+  )
+}
+
+mutation DeleteClientIntegration($clientId: UUID!, $integrationId: UUID!)
+@auth(level: USER, insecureReason: "Only the single admin account can ever sign in - no public sign-up flow exists - so any signed-in user is the admin, same reasoning as firestore.rules.") {
+  clientIntegration_delete(
+    key: { clientId: $clientId, integrationId: $integrationId }
+  )
+}
+
+# --- Automation ---
+
+mutation CreateAutomation(
+  $clientId: UUID!
+  $name: String!
+  $description: String
+  $triggerType: String!
+  $status: String
+) @auth(level: USER, insecureReason: "Only the single admin account can ever sign in - no public sign-up flow exists - so any signed-in user is the admin, same reasoning as firestore.rules.") {
+  automation_insert(
+    data: {
+      clientId: $clientId
+      name: $name
+      description: $description
+      triggerType: $triggerType
+      status: $status
+    }
+  )
+}
+
+mutation UpdateAutomationStatus($id: UUID!, $status: String!)
+@auth(level: USER, insecureReason: "Only the single admin account can ever sign in - no public sign-up flow exists - so any signed-in user is the admin, same reasoning as firestore.rules.") {
+  automation_update(id: $id, data: { status: $status })
+}
+
+mutation DeleteAutomation($id: UUID!) @auth(level: USER, insecureReason: "Only the single admin account can ever sign in - no public sign-up flow exists - so any signed-in user is the admin, same reasoning as firestore.rules.") {
+  automation_delete(id: $id)
+}
+
+# --- AutomationRun ---
+
+mutation CreateAutomationRun(
+  $automationId: UUID!
+  $runAt: Timestamp
+  $status: String!
+  $summary: String
+  $recordsProcessed: Int
+) @auth(level: USER, insecureReason: "Only the single admin account can ever sign in - no public sign-up flow exists - so any signed-in user is the admin, same reasoning as firestore.rules.") {
+  automationRun_insert(
+    data: {
+      automationId: $automationId
+      runAt: $runAt
+      status: $status
+      summary: $summary
+      recordsProcessed: $recordsProcessed
+    }
+  )
+}
+
+mutation DeleteAutomationRun($id: UUID!) @auth(level: USER, insecureReason: "Only the single admin account can ever sign in - no public sign-up flow exists - so any signed-in user is the admin, same reasoning as firestore.rules.") {
+  automationRun_delete(id: $id)
+}
+
+# --- Communication ---
+
+mutation CreateCommunication(
+  $clientId: UUID!
+  $channel: String!
+  $direction: String!
+  $summary: String
+  $transcriptUrl: String
+  $occurredAt: Timestamp
+  $handledBy: String
+) @auth(level: USER, insecureReason: "Only the single admin account can ever sign in - no public sign-up flow exists - so any signed-in user is the admin, same reasoning as firestore.rules.") {
+  communication_insert(
+    data: {
+      clientId: $clientId
+      channel: $channel
+      direction: $direction
+      summary: $summary
+      transcriptUrl: $transcriptUrl
+      occurredAt: $occurredAt
+      handledBy: $handledBy
+    }
+  )
+}
+
+mutation DeleteCommunication($id: UUID!) @auth(level: USER, insecureReason: "Only the single admin account can ever sign in - no public sign-up flow exists - so any signed-in user is the admin, same reasoning as firestore.rules.") {
+  communication_delete(id: $id)
+}
+
+# --- MetricsSnapshot ---
+
+mutation CreateMetricsSnapshot(
+  $clientId: UUID!
+  $snapshotDate: Date!
+  $hoursSaved: Float!
+  $tasksAutomated: Int!
+  $avgResponseSeconds: Int
+) @auth(level: USER, insecureReason: "Only the single admin account can ever sign in - no public sign-up flow exists - so any signed-in user is the admin, same reasoning as firestore.rules.") {
+  metricsSnapshot_insert(
+    data: {
+      clientId: $clientId
+      snapshotDate: $snapshotDate
+      hoursSaved: $hoursSaved
+      tasksAutomated: $tasksAutomated
+      avgResponseSeconds: $avgResponseSeconds
+    }
+  )
+}
+
+mutation DeleteMetricsSnapshot($id: UUID!) @auth(level: USER, insecureReason: "Only the single admin account can ever sign in - no public sign-up flow exists - so any signed-in user is the admin, same reasoning as firestore.rules.") {
+  metricsSnapshot_delete(id: $id)
+}

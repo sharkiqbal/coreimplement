@@ -1,0 +1,15 @@
+specVersion: "v1"
+serviceId: "core-implement-service"
+location: "us-south1"
+schemas:
+  - source: "./schema"
+    datasource:
+      postgresql:
+        database: "core-implement-database"
+        cloudSql:
+          instanceId: "core-implement-instance"
+          # STRICT would require the Postgres schema to match Data Connect's exactly;
+          # COMPATIBLE just requires every Data Connect field to have a matching column.
+          # Schema currently matches exactly either way.
+          schemaValidation: "COMPATIBLE"
+connectorDirs: ["./platform-preview"]

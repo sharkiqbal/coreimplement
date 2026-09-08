@@ -13,6 +13,13 @@ import ServicesPage from "./routes/ServicesPage";
 import PrivacyPage from "./routes/PrivacyPage";
 import TermsPage from "./routes/TermsPage";
 import NotFoundPage from "./routes/NotFoundPage";
+import PersonaPicker from "./routes/platformPreview/PersonaPicker";
+import PlatformPreviewLayout from "./routes/platformPreview/PlatformPreviewLayout";
+import PersonaOverview from "./routes/platformPreview/PersonaOverview";
+import PersonaAutomations from "./routes/platformPreview/PersonaAutomations";
+import PersonaIntegrations from "./routes/platformPreview/PersonaIntegrations";
+import PersonaCommunications from "./routes/platformPreview/PersonaCommunications";
+import PersonaReports from "./routes/platformPreview/PersonaReports";
 import ScrollToTop from "./component/ScrollToTop";
 import CookieConsentBanner from "./component/CookieConsentBanner";
 import { AuthProvider } from "./context/AuthContext";
@@ -51,6 +58,23 @@ createRoot(document.getElementById("app")).render(
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/terms" element={<TermsPage />} />
+
+              {/* Hidden platform demo - unlisted, no nav link, excluded from sitemap/robots */}
+              <Route path="/platform-preview" element={<PersonaPicker />} />
+              <Route
+                path="/platform-preview/:industrySlug"
+                element={<PlatformPreviewLayout />}
+              >
+                <Route index element={<PersonaOverview />} />
+                <Route path="automations" element={<PersonaAutomations />} />
+                <Route path="integrations" element={<PersonaIntegrations />} />
+                <Route
+                  path="communications"
+                  element={<PersonaCommunications />}
+                />
+                <Route path="reports" element={<PersonaReports />} />
+              </Route>
+
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
             <CookieConsentBanner />

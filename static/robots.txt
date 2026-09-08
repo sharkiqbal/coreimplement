@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /admin-core-0004
 Disallow: /admindashboard
+Disallow: /platform-preview
 
 Sitemap: https://coreimplement.com/sitemap.xml

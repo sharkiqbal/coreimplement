@@ -1,0 +1,149 @@
+# Read queries for the /platform-preview persona demo (v2: one industry = one persona's
+# own dashboard, not a multi-client console - see platform-demo-build-spec-v2.md).
+# Every route below /platform-preview/:industrySlug filters to that one persona's data by
+# matching Client.industry; nothing queries across personas except the entry picker.
+#
+# Filters only ever go one relation hop deep (e.g. `automations(where: { client: {...} })`),
+# proven to work in the v1 queries this replaces. Multi-hop filtering (e.g. filtering
+# AutomationRun by its automation's client) isn't something Data Connect is confirmed to
+# support, so instead each persona's automations are fetched with their runs nested inside
+# (a standard one-to-many reverse relation), then flattened/sorted client-side where needed.
+
+# /platform-preview - persona picker
+query ListClients @auth(level: PUBLIC, insecureReason: "Read-only demo data for prospects browsing the unlisted sales preview; nothing sensitive.") {
+  clients(orderBy: { createdAt: DESC }) {
+    id
+    name
+    industry
+    status
+  }
+}
+
+# /platform-preview/:industrySlug - dashboard overview (KPIs + recent activity)
+query GetPersonaOverview($industry: String!) @auth(level: PUBLIC, insecureReason: "Read-only demo data for prospects browsing the unlisted sales preview; nothing sensitive.") {
+  clients(where: { industry: { eq: $industry } }, limit: 1) {
+    id
+    name
+    industry
+    contactName
+    contactEmail
+    status
+    createdAt
+  }
+  automations(
+    where: { client: { industry: { eq: $industry } } }
+    orderBy: { createdAt: DESC }
+  ) {
+    id
+    name
+    status
+  }
+  automationRuns(
+    where: { automation: { client: { industry: { eq: $industry } } } }
+    orderBy: { runAt: DESC }
+    limit: 10
+  ) {
+    id
+    runAt
+    status
+    summary
+    recordsProcessed
+    automation {
+      id
+      name
+    }
+  }
+  metricsSnapshots(
+    where: { client: { industry: { eq: $industry } } }
+    orderBy: { snapshotDate: DESC }
+    limit: 1
+  ) {
+    hoursSaved
+    tasksAutomated
+    avgResponseSeconds
+    snapshotDate
+  }
+}
+
+# /platform-preview/:industrySlug/automations - this persona's automations + run history.
+# Runs are fetched separately (Data Connect doesn't support nesting a reverse relation
+# inside its parent) and grouped by automationId client-side.
+query GetPersonaAutomations($industry: String!) @auth(level: PUBLIC, insecureReason: "Read-only demo data for prospects browsing the unlisted sales preview; nothing sensitive.") {
+  automations(
+    where: { client: { industry: { eq: $industry } } }
+    orderBy: { createdAt: DESC }
+  ) {
+    id
+    name
+    description
+    triggerType
+    status
+    createdAt
+  }
+  automationRuns(
+    where: { automation: { client: { industry: { eq: $industry } } } }
+    orderBy: { runAt: DESC }
+    limit: 100
+  ) {
+    id
+    runAt
+    status
+    summary
+    recordsProcessed
+    automation {
+      id
+    }
+  }
+}
+
+# /platform-preview/:industrySlug/integrations - this persona's connected tools
+query GetPersonaIntegrations($industry: String!) @auth(level: PUBLIC, insecureReason: "Read-only demo data for prospects browsing the unlisted sales preview; nothing sensitive.") {
+  clientIntegrations(where: { client: { industry: { eq: $industry } } }) {
+    status
+    connectedAt
+    integration {
+      id
+      name
+      category
+      logoUrl
+    }
+  }
+  # Master catalog, so the UI can show "available to connect" alongside connected ones
+  integrations(orderBy: { name: ASC }) {
+    id
+    name
+    category
+    logoUrl
+  }
+}
+
+# /platform-preview/:industrySlug/communications - this persona's AI voice/email log
+query GetPersonaCommunications($industry: String!) @auth(level: PUBLIC, insecureReason: "Read-only demo data for prospects browsing the unlisted sales preview; nothing sensitive.") {
+  communications(
+    where: { client: { industry: { eq: $industry } } }
+    orderBy: { occurredAt: DESC }
+    limit: 50
+  ) {
+    id
+    channel
+    direction
+    summary
+    transcriptUrl
+    occurredAt
+    handledBy
+  }
+}
+
+# /platform-preview/:industrySlug/reports - this persona's report mockups over time
+query GetPersonaReports($industry: String!) @auth(level: PUBLIC, insecureReason: "Read-only demo data for prospects browsing the unlisted sales preview; nothing sensitive.") {
+  metricsSnapshots(
+    where: { client: { industry: { eq: $industry } } }
+    orderBy: { snapshotDate: DESC }
+  ) {
+    id
+    snapshotDate
+    hoursSaved
+    tasksAutomated
+    avgResponseSeconds
+  }
+}
