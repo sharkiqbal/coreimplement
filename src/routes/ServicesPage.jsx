@@ -341,18 +341,18 @@ const ServicesPage = () => {
       {/* Quick Jump Nav - sticks below main nav for orientation while scrolling */}
       {!loading && services.length > 0 && (
         <div className="sticky top-16 sm:top-20 z-30 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-nowrap justify-start sm:justify-center gap-2 overflow-x-auto no-scrollbar py-2 sm:py-2.5">
               {services.map((service) => {
                 const IconComponent = getIconComponent(service.logoId);
                 return (
                   <a
                     key={service.id}
                     href={`#${slugifyServiceName(service.name)}`}
-                    className="flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2.5 bg-gray-50 hover:bg-indigo-50 border border-gray-200 hover:border-indigo-200 rounded-full transition-colors group"
+                    className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-gray-50 hover:bg-indigo-50 border border-gray-200 hover:border-indigo-200 rounded-full transition-colors group flex-shrink-0"
                   >
-                    <IconComponent className="w-4 h-4 text-gray-500 group-hover:text-indigo-600 transition-colors flex-shrink-0" />
-                    <span className="text-xs sm:text-sm font-semibold text-gray-700 group-hover:text-indigo-600 transition-colors">
+                    <IconComponent className="w-3.5 h-3.5 text-gray-500 group-hover:text-indigo-600 transition-colors flex-shrink-0" />
+                    <span className="text-xs sm:text-sm font-semibold text-gray-700 group-hover:text-indigo-600 transition-colors whitespace-nowrap">
                       {service.name}
                     </span>
                   </a>

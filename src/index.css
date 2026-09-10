@@ -45,3 +45,13 @@ body {
     scroll-behavior: auto;
   }
 }
+
+/* Hides the scrollbar on horizontally-scrollable strips (e.g. the services
+   quick-jump nav) while keeping the element scrollable via touch/drag/wheel. */
+.no-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge legacy */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Edge */
+}
