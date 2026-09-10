@@ -4,15 +4,11 @@
 // submission lands in Firestore. Uses Resend (https://resend.com) since it
 // doesn't require SMTP setup and has a generous free tier.
 //
-// One-time setup before this can send anything:
-//   1. Create a Resend account and get an API key.
-//   2. firebase functions:secrets:set RESEND_API_KEY
-//   3. (optional but recommended) Verify a sending domain in Resend and
-//      update FROM_EMAIL below to use it - until then this sends from
-//      Resend's shared onboarding@resend.dev address, which works but is
-//      less deliverable and can only send to the Resend account's own
-//      verified email while the domain is unverified.
-//   4. firebase deploy --only functions
+// Setup:
+//   1. Resend API key is stored as a secret: firebase functions:secrets:set RESEND_API_KEY
+//   2. coreimplement.com is verified in Resend, so FROM_EMAIL below sends
+//      from notifications@coreimplement.com to any recipient.
+//   3. firebase deploy --only functions
 
 const { setGlobalOptions } = require("firebase-functions/v2");
 const { onDocumentCreated } = require("firebase-functions/v2/firestore");
@@ -25,9 +21,8 @@ setGlobalOptions({ maxInstances: 5 });
 
 const RESEND_API_KEY = defineSecret("RESEND_API_KEY");
 
-// TODO: switch to hello@coreimplement.com once that inbox is set up.
 const ADMIN_EMAIL = "sharkiqbal@outlook.com";
-const FROM_EMAIL = "Core Implementations <onboarding@resend.dev>";
+const FROM_EMAIL = "Core Implementations <notifications@coreimplement.com>";
 
 const escapeHtml = (value = "") =>
   String(value)
