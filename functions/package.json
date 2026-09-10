@@ -2,7 +2,7 @@
   "name": "functions",
   "description": "Cloud Functions for Core Implementations",
   "engines": {
-    "node": "20"
+    "node": "22"
   },
   "main": "index.js",
   "type": "commonjs",
@@ -10,8 +10,8 @@
     "deploy": "firebase deploy --only functions"
   },
   "dependencies": {
-    "firebase-admin": "^12.6.0",
-    "firebase-functions": "^5.1.0"
+    "firebase-admin": "^14.3.0",
+    "firebase-functions": "^7.3.2"
   },
   "private": true
 }

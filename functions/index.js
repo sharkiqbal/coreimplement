@@ -25,7 +25,8 @@ setGlobalOptions({ maxInstances: 5 });
 
 const RESEND_API_KEY = defineSecret("RESEND_API_KEY");
 
-const ADMIN_EMAIL = "hello@coreimplement.com";
+// TODO: switch to hello@coreimplement.com once that inbox is set up.
+const ADMIN_EMAIL = "sharkiqbal@outlook.com";
 const FROM_EMAIL = "Core Implementations <onboarding@resend.dev>";
 
 const escapeHtml = (value = "") =>
