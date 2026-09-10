@@ -1,7 +1,7 @@
 ---
 name: lead-finder
 description: Autonomously researches and scores SMB leads matching Core Implementations' ICP, then writes qualified candidates to Airtable. Use PROACTIVELY on a schedule or when asked to "find leads" for a given vertical/geography. Does NOT contact leads or send anything externally.
-tools: web_search, web_fetch, mcp__airtable__*
+tools: WebSearch, WebFetch, mcp__Airtable__*
 model: sonnet
 ---
 
