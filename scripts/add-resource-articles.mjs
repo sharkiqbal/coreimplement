@@ -1,4 +1,6 @@
+// Run with: node scripts/add-resource-articles.mjs <admin-email> <admin-password>
 import { initializeApp } from "firebase/app";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import {
   getFirestore,
   collection,
@@ -9,17 +11,26 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC7metrkgJw9WJo9RWUF_XsY5nnaZn5qvk",
-  authDomain: "website-44684.firebaseapp.com",
-  projectId: "website-44684",
-  storageBucket: "website-44684.firebasestorage.app",
-  messagingSenderId: "819313129901",
-  appId: "1:819313129901:web:f37497a346e0b1385f4924",
-  measurementId: "G-HG4P7XWR0L",
+  apiKey: "AIzaSyCM1vB1cIMFDiHGE0fsYMlbynd-AQSx5Kg",
+  authDomain: "core-implement.firebaseapp.com",
+  projectId: "core-implement",
+  storageBucket: "core-implement.firebasestorage.app",
+  messagingSenderId: "412198618668",
+  appId: "1:412198618668:web:6b150c9ddd5affd8eff389",
 };
+
+const [adminEmail, adminPassword] = process.argv.slice(2);
+if (!adminEmail || !adminPassword) {
+  console.error("Usage: node scripts/add-resource-articles.mjs <admin-email> <admin-password>");
+  process.exit(1);
+}
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth(app);
+await signInWithEmailAndPassword(auth, adminEmail, adminPassword);
+console.log("Signed in as:", auth.currentUser.email);
+
 const COLLECTION_NAME = "blogPosts";
 
 const ARTICLES = [

@@ -15,7 +15,7 @@ const DEFAULT_COMPANY_DATA = {
     {
       id: 1,
       name: "Shar Iqbal",
-      role: "Co-Founder",
+      role: "Head of Client Strategy",
       location: "Houston, Texas",
       description:
         "Three years consulting on major enterprise implementations for Fortune 500 companies at a Big Four firm, plus firsthand experience building and running his own business — a combination he channels into helping clients find automation that actually delivers.",
@@ -24,7 +24,7 @@ const DEFAULT_COMPANY_DATA = {
     {
       id: 2,
       name: "Saif Iqbal",
-      role: "Co-Founder",
+      role: "Head of Operations",
       location: "Houston, Texas",
       description:
         "Five years leading digital transformation at one of the world's largest energy companies — experience he channels into helping growing businesses adopt AI with that same enterprise-grade rigor.",
@@ -33,10 +33,18 @@ const DEFAULT_COMPANY_DATA = {
     {
       id: 3,
       name: "Faisal Khan",
-      role: "Technical Co-Founder",
+      role: "Head of Engineering",
       location: "Pakistan",
       description:
         "Extensive hands-on experience in AI and automation, leading the engineering behind every solution we build.",
+    },
+    {
+      id: 4,
+      name: "Alber Sultan",
+      role: "Head of Data Science",
+      location: "Chicago, Illinois",
+      description:
+        "Many years of experience in data science and analytics at a Fortune 500 technology leader — expertise he channels into building the data-driven backbone behind every automation we deliver.",
     },
   ],
 };

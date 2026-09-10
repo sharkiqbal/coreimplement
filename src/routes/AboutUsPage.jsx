@@ -169,9 +169,8 @@ const AboutPage = () => {
               The experts dedicated to your AI transformation
             </p>
             <p className="text-sm sm:text-base text-gray-500 mt-3 max-w-2xl mx-auto">
-              Founded by two business co-founders based in Houston, Texas,
-              alongside a technical co-founder based in Pakistan who leads
-              our AI and automation engineering.
+              A small team spanning client strategy, operations, engineering,
+              and data science — based in Houston, Pakistan, and Chicago.
             </p>
           </div>
 
@@ -185,7 +184,7 @@ const AboutPage = () => {
               <p className="text-gray-500 text-lg">No team members found.</p>
             </div>
           ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {teamMembers.map((member, index) => {
                 const avatarColor = avatarColors[index % avatarColors.length];
                 const roleColor = roleColors[index % roleColors.length];
@@ -193,18 +192,18 @@ const AboutPage = () => {
                 return (
                   <div
                     key={member.id}
-                    className="bg-white rounded-xl p-5 sm:p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100 group"
+                    className="bg-white rounded-xl p-5 sm:p-6 shadow-lg hover:shadow-2xl transition-all border border-gray-100 group"
                   >
-                    <div className="flex items-center gap-4 mb-4 sm:mb-6">
+                    <div className="flex items-center gap-3 mb-4 sm:mb-6">
                       <div
-                        className={`w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br ${avatarColor} rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform flex-shrink-0`}
+                        className={`w-16 h-16 bg-gradient-to-br ${avatarColor} rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform flex-shrink-0`}
                       >
-                        <span className="text-white text-lg sm:text-2xl font-bold">
+                        <span className="text-white text-lg font-bold">
                           {getInitials(member.name)}
                         </span>
                       </div>
                       <div className="min-w-0">
-                        <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-1 truncate">
+                        <h3 className="text-lg font-semibold text-gray-900 mb-1">
                           {member.name}
                         </h3>
                         <p className={`${roleColor} font-medium text-sm sm:text-base`}>

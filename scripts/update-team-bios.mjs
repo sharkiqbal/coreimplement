@@ -1,26 +1,35 @@
 // One-time script to update the live team member bios in Firestore.
-// Run with: node scripts/update-team-bios.mjs
+// Run with: node scripts/update-team-bios.mjs <admin-email> <admin-password>
 import { initializeApp } from "firebase/app";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { doc, getFirestore, setDoc, serverTimestamp } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC7metrkgJw9WJo9RWUF_XsY5nnaZn5qvk",
-  authDomain: "website-44684.firebaseapp.com",
-  projectId: "website-44684",
-  storageBucket: "website-44684.firebasestorage.app",
-  messagingSenderId: "819313129901",
-  appId: "1:819313129901:web:f37497a346e0b1385f4924",
-  measurementId: "G-HG4P7XWR0L",
+  apiKey: "AIzaSyCM1vB1cIMFDiHGE0fsYMlbynd-AQSx5Kg",
+  authDomain: "core-implement.firebaseapp.com",
+  projectId: "core-implement",
+  storageBucket: "core-implement.firebasestorage.app",
+  messagingSenderId: "412198618668",
+  appId: "1:412198618668:web:6b150c9ddd5affd8eff389",
 };
+
+const [adminEmail, adminPassword] = process.argv.slice(2);
+if (!adminEmail || !adminPassword) {
+  console.error("Usage: node scripts/update-team-bios.mjs <admin-email> <admin-password>");
+  process.exit(1);
+}
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth(app);
+await signInWithEmailAndPassword(auth, adminEmail, adminPassword);
+console.log("Signed in as:", auth.currentUser.email);
 
 const teamMembers = [
   {
     id: 1759811304476,
     name: "Shar Iqbal",
-    role: "Co-Founder",
+    role: "Head of Client Strategy",
     location: "Houston, Texas",
     description:
       "Three years consulting on major enterprise implementations for Fortune 500 companies at a Big Four firm, plus firsthand experience building and running his own business — a combination he channels into helping clients find automation that actually delivers.",
@@ -29,7 +38,7 @@ const teamMembers = [
   {
     id: 1761245692400,
     name: "Saif Iqbal",
-    role: "Co-Founder",
+    role: "Head of Operations",
     location: "Houston, Texas",
     description:
       "Five years leading digital transformation at one of the world's largest energy companies — experience he channels into helping growing businesses adopt AI with that same enterprise-grade rigor.",
@@ -38,10 +47,18 @@ const teamMembers = [
   {
     id: 1761245661440,
     name: "Faisal Khan",
-    role: "Technical Co-Founder",
+    role: "Head of Engineering",
     location: "Pakistan",
     description:
       "Extensive hands-on experience in AI and automation, leading the engineering behind every solution we build.",
+  },
+  {
+    id: 1762000000000,
+    name: "Alber Sultan",
+    role: "Head of Data Science",
+    location: "Chicago, Illinois",
+    description:
+      "Many years of experience in data science and analytics at a Fortune 500 technology leader — expertise he channels into building the data-driven backbone behind every automation we deliver.",
   },
 ];
 
