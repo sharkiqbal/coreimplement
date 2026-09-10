@@ -573,6 +573,15 @@ const Homepage = () => {
                       </li>
                     ))}
                   </ul>
+                  {index === 0 && (
+                    <Link
+                      to="/contact"
+                      className="inline-flex items-center gap-1 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors mt-4 sm:mt-5"
+                    >
+                      Schedule now
+                      <ChevronRight className="w-4 h-4" />
+                    </Link>
+                  )}
                 </div>
               );
             })}
