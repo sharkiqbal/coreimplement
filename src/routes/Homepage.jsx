@@ -482,7 +482,7 @@ const Homepage = () => {
                 return (
                   <div
                     key={service.id}
-                    className="bg-white border border-gray-200 rounded-xl p-5 sm:p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group"
+                    className="flex flex-col h-full bg-white border border-gray-200 rounded-xl p-5 sm:p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group"
                   >
                     <div className="flex items-center gap-3 sm:block mb-3 sm:mb-6">
                       <div
@@ -490,7 +490,7 @@ const Homepage = () => {
                       >
                         <IconComponent className={`w-6 h-6 sm:w-8 sm:h-8 ${colors.icon}`} />
                       </div>
-                      <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
+                      <h3 className="text-lg sm:text-xl font-semibold text-gray-900 sm:min-h-[5.25rem]">
                         {service.name}
                       </h3>
                     </div>
@@ -499,7 +499,7 @@ const Homepage = () => {
                     </p>
                     <Link
                       to={`/services#${slugifyServiceName(service.name)}`}
-                      className="text-blue-600 font-medium flex items-center hover:text-blue-700 transition-colors"
+                      className="text-blue-600 font-medium flex items-center hover:text-blue-700 transition-colors mt-auto"
                     >
                       Learn More
                       <span className="sr-only"> about {service.name}</span>
