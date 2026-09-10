@@ -18,7 +18,7 @@ const DEFAULT_COMPANY_DATA = {
       role: "Head of Client Strategy",
       location: "Houston, Texas",
       description:
-        "Three years consulting on major enterprise implementations for Fortune 500 companies at a Big Four firm, plus firsthand experience building and running his own business — a combination he channels into helping clients find automation that actually delivers.",
+        "Three years consulting on major enterprise implementations for Fortune 500 companies at a Big Four firm, plus firsthand experience building and running his own business. That combination shapes how he helps clients find automation that actually delivers.",
       linkedin: "https://www.linkedin.com/in/shar-iqbal/",
     },
     {
@@ -27,7 +27,7 @@ const DEFAULT_COMPANY_DATA = {
       role: "Head of Operations",
       location: "Houston, Texas",
       description:
-        "Five years leading digital transformation at one of the world's largest energy companies — experience he channels into helping growing businesses adopt AI with that same enterprise-grade rigor.",
+        "Five years leading digital transformation at one of the world's largest energy companies. He channels that experience into helping growing businesses adopt AI with the same enterprise-grade rigor.",
       linkedin: "https://www.linkedin.com/in/saif-mohammad-iqbal-303117175/",
     },
     {
@@ -44,7 +44,7 @@ const DEFAULT_COMPANY_DATA = {
       role: "Head of Data Science",
       location: "Chicago, Illinois",
       description:
-        "Many years of experience in data science and analytics at a Fortune 500 technology leader — expertise he channels into building the data-driven backbone behind every automation we deliver.",
+        "Many years of experience in data science and analytics at a Fortune 500 technology leader. He channels that expertise into building the data-driven backbone behind every automation we deliver.",
     },
   ],
 };

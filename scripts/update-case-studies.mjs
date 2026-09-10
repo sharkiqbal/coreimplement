@@ -39,7 +39,6 @@ const COLLECTION_NAME = "caseStudies";
 // not last as intended.
 const UPDATES = [
   {
-    matchProjectName: "Game Activation Automation",
     data: {
       createdAt: new Date("2026-01-25"),
       industryType: "E-Commerce",
@@ -50,7 +49,7 @@ const UPDATES = [
       challenge:
         "This online retailer sells game activation codes around the clock, but activations were processed manually during business hours only. International customers ordering overnight faced long delays, and the support team was overwhelmed by activation-related tickets.",
       solution:
-        "We built an automated activation pipeline that verifies each purchase, retrieves the activation code, and delivers it to the customer within a minute — running continuously with no manual steps, and logging every transaction for support visibility.",
+        "We built an automated activation pipeline that verifies each purchase, retrieves the activation code, and delivers it to the customer within a minute, running continuously with no manual steps, and logging every transaction for support visibility.",
       results: [
         "24/7 automated activation with 99.8% uptime",
         "76% reduction in activation-related support tickets",
@@ -62,7 +61,6 @@ const UPDATES = [
     },
   },
   {
-    matchProjectName: "Custom AI Software",
     data: {
       createdAt: new Date("2026-01-10"),
       industryType: "Retail",
@@ -85,7 +83,6 @@ const UPDATES = [
     },
   },
   {
-    matchProjectName: "AI Calling Agent",
     data: {
       createdAt: new Date("2026-01-20"),
       industryType: "Professional Services",
@@ -94,9 +91,9 @@ const UPDATES = [
       projectName: "24/7 AI Phone Agent",
       companyName: "Home Services Contracting Company",
       challenge:
-        "This contractor missed a significant share of inbound calls after 5 PM and on weekends — exactly when many homeowners call about urgent repairs. Missed calls meant missed jobs, and office staff were stretched thin during the day.",
+        "This contractor missed a significant share of inbound calls after 5 PM and on weekends, exactly when many homeowners call about urgent repairs. Missed calls meant missed jobs, and office staff were stretched thin during the day.",
       solution:
-        "We deployed an AI phone agent that answers every call, collects job details, checks availability, and books appointments directly onto the team's calendar — with the same professionalism whether it's 2 PM or 2 AM.",
+        "We deployed an AI phone agent that answers every call, collects job details, checks availability, and books appointments directly onto the team's calendar, with the same professionalism whether it's 2 PM or 2 AM.",
       results: [
         "100% call answer rate, including nights and weekends",
         "34% increase in booked appointments per month",
@@ -108,7 +105,6 @@ const UPDATES = [
     },
   },
   {
-    matchProjectName: "Automated Email Processing",
     data: {
       createdAt: new Date("2026-01-15"),
       industryType: "Technology",
@@ -117,9 +113,9 @@ const UPDATES = [
       projectName: "AI-Powered Email Triage & Response",
       companyName: "SaaS Company Support Team",
       challenge:
-        "This support team received hundreds of emails daily — account questions, billing issues, and access requests — and manually reading and routing every message created a backlog that delayed response times.",
+        "This support team received hundreds of emails daily (account questions, billing issues, and access requests), and manually reading and routing every message created a backlog that delayed response times.",
       solution:
-        "We built an AI system that reads every incoming email, determines intent and urgency, drafts an accurate response, and routes anything sensitive to the right team member — with routine requests handled end-to-end automatically.",
+        "We built an AI system that reads every incoming email, determines intent and urgency, drafts an accurate response, and routes anything sensitive to the right team member, with routine requests handled end-to-end automatically.",
       results: [
         "71% faster average email response time",
         "Consistent, accurate replies across the team",
@@ -141,7 +137,7 @@ const NEW_CASE_STUDY = {
   projectName: "AI-Powered Marketing & Lead Follow-Up",
   companyName: "Boutique Fitness Studio Chain",
   challenge:
-    "Running 3 locations, this studio relied on the owner personally writing social posts and following up with trial leads whenever time allowed — which meant inconsistent posting and leads going cold within days.",
+    "Running 3 locations, this studio relied on the owner personally writing social posts and following up with trial leads whenever time allowed, which meant inconsistent posting and leads going cold within days.",
   solution:
     "We set up AI-generated social content and ad copy tailored to each location, paired with automated lead follow-up that reaches out within minutes of a trial sign-up instead of days later.",
   results: [
@@ -160,11 +156,11 @@ async function run() {
   snap.forEach((d) => existing.push({ id: d.id, ...d.data() }));
 
   for (const update of UPDATES) {
-    const match = existing.find((cs) =>
-      cs.projectName?.includes(update.matchProjectName)
+    const match = existing.find(
+      (cs) => cs.projectName === update.data.projectName
     );
     if (!match) {
-      console.warn("No match found for:", update.matchProjectName);
+      console.warn("No match found for:", update.data.projectName);
       continue;
     }
     await updateDoc(doc(db, COLLECTION_NAME, match.id), {
@@ -174,11 +170,22 @@ async function run() {
     console.log("Updated:", update.data.projectName);
   }
 
-  const ref = await addDoc(collection(db, COLLECTION_NAME), {
-    ...NEW_CASE_STUDY,
-    updatedAt: serverTimestamp(),
-  });
-  console.log("Added new case study:", NEW_CASE_STUDY.projectName, ref.id);
+  const existingCaseStudy = existing.find(
+    (cs) => cs.projectName === NEW_CASE_STUDY.projectName
+  );
+  if (existingCaseStudy) {
+    await updateDoc(doc(db, COLLECTION_NAME, existingCaseStudy.id), {
+      ...NEW_CASE_STUDY,
+      updatedAt: serverTimestamp(),
+    });
+    console.log("Updated existing case study:", NEW_CASE_STUDY.projectName);
+  } else {
+    const ref = await addDoc(collection(db, COLLECTION_NAME), {
+      ...NEW_CASE_STUDY,
+      updatedAt: serverTimestamp(),
+    });
+    console.log("Added new case study:", NEW_CASE_STUDY.projectName, ref.id);
+  }
 
   console.log("Done.");
   process.exit(0);

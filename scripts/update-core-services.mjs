@@ -41,9 +41,9 @@ const NEW_SERVICES = [
     name: "AI-Powered Marketing & Growth",
     logoId: "rocket",
     problem:
-      "Modern businesses don't need more tools — they need more clients, higher conversion rates, and scalable growth. Generic marketing tactics waste budget without a system behind them.",
+      "Modern businesses don't need more tools. They need more clients, higher conversion rates, and scalable growth. Generic marketing tactics waste budget without a system behind them.",
     solution:
-      "We use AI to automate social media, optimize ad targeting, generate high-converting content, and capture leads — creating always-on marketing workflows that turn attention into revenue.",
+      "We use AI to automate social media, optimize ad targeting, generate high-converting content, and capture leads, creating always-on marketing workflows that turn attention into revenue.",
     points: [
       "Increase client acquisition without increasing headcount",
       "Reduce marketing costs through automation and optimization",
@@ -58,7 +58,7 @@ const NEW_SERVICES = [
     problem:
       "Off-the-shelf tools rarely fit the way your business actually works. Many small businesses get stuck with outdated systems, manual workarounds, and disconnected software that wastes time and money.",
     solution:
-      "We build custom AI-powered tools designed around your exact operations — dashboards, portals, and internal systems that automate, track, and scale as your business grows.",
+      "We build custom AI-powered tools designed around your exact operations: dashboards, portals, and internal systems that automate, track, and scale as your business grows.",
     points: [
       "Fully custom AI-driven applications and internal tools",
       "Dashboards, portals, and lightweight CRMs built for your workflow",
@@ -71,9 +71,9 @@ const NEW_SERVICES = [
     name: "AI-Powered Customer Communication",
     logoId: "zap",
     problem:
-      "Businesses lose leads and burn hours every week on manual phone calls and emails — missed calls, delayed replies, and inconsistent responses that frustrate customers and overwhelm staff.",
+      "Businesses lose leads and burn hours every week on manual phone calls and emails: missed calls, delayed replies, and inconsistent responses that frustrate customers and overwhelm staff.",
     solution:
-      "We deploy AI voice agents and AI-managed email systems that answer calls, respond to messages, qualify leads, and book appointments around the clock — with the same consistency every time.",
+      "We deploy AI voice agents and AI-managed email systems that answer calls, respond to messages, qualify leads, and book appointments around the clock, with the same consistency every time.",
     points: [
       "24/7 AI phone agents for inbound and outbound calls",
       "AI that reads, drafts, and routes email like your best team member",
@@ -88,7 +88,7 @@ const NEW_SERVICES = [
     problem:
       "Teams lose hours to manual data entry, repetitive workflows, spreadsheets, approvals, and reporting. These bottlenecks slow growth, increase errors, and keep employees away from higher-value work.",
     solution:
-      "We automate end-to-end workflows using AI, integrations, and custom logic — connecting your existing tools and eliminating repetitive tasks so your team can focus on higher-value work.",
+      "We automate end-to-end workflows using AI, integrations, and custom logic, connecting your existing tools and eliminating repetitive tasks so your team can focus on higher-value work.",
     points: [
       "Automation of repetitive tasks across day-to-day operations",
       "Integrations with the tools you already use (CRM, ERP, QuickBooks, and more)",

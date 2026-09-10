@@ -277,7 +277,7 @@ const ServicesPage = () => {
     <div className="pt-16 sm:pt-20">
       <SEO
         title="AI Automation Services"
-        description="Business process automation, AI customer communication, custom AI software, and AI-powered marketing — built around the tools your business already uses."
+        description="Business process automation, AI customer communication, custom AI software, and AI-powered marketing, built around the tools your business already uses."
         path="/services"
       />
       <Navigation />

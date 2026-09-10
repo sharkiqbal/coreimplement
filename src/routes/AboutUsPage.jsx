@@ -83,7 +83,7 @@ const AboutPage = () => {
     <div className="pt-16 sm:pt-20">
       <SEO
         title="About Us"
-        description="Meet the team behind Core Implementations — two business co-founders in Houston and a technical co-founder in Pakistan, bringing enterprise-grade AI experience to growing businesses."
+        description="Meet the team behind Core Implementations, spanning client strategy, operations, engineering, and data science across Houston, Pakistan, and Chicago."
         path="/about"
       />
       <Navigation />
@@ -170,7 +170,7 @@ const AboutPage = () => {
             </p>
             <p className="text-sm sm:text-base text-gray-500 mt-3 max-w-2xl mx-auto">
               A small team spanning client strategy, operations, engineering,
-              and data science — based in Houston, Pakistan, and Chicago.
+              and data science, based in Houston, Pakistan, and Chicago.
             </p>
           </div>
 
@@ -254,7 +254,7 @@ const AboutPage = () => {
               </div>
               <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
                 To take the manual, repetitive work slowing businesses down
-                — data entry, quoting, reporting, customer follow-ups — and
+                (data entry, quoting, reporting, customer follow-ups) and
                 automate it with the same caliber of AI enterprises rely on.
                 We believe every business deserves that advantage, not just
                 the ones with in-house engineering teams.

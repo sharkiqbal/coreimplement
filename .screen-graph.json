@@ -338,7 +338,7 @@
       "data": {
         "viaRoute": "/about",
         "trigger": {
-          "element": "<SEO\n        title=\"About Us\"\n        description=\"Meet the team behind Core Implementations — two business co-founders in Houston and a technical co-founder in Pakistan, bringing enterprise-grade AI experience to growing businesses.\"\n        path=\"/about\"\n      />",
+          "element": "<SEO\n        title=\"About Us\"\n        description=\"Meet the team behind Core Implementations, spanning client strategy, operations, engineering, and data science across Houston, Pakistan, and Chicago.\"\n        path=\"/about\"\n      />",
           "line": 84,
           "endLine": 88,
           "column": 6,
@@ -450,7 +450,7 @@
       "data": {
         "viaRoute": "/services",
         "trigger": {
-          "element": "<SEO\n        title=\"AI Automation Services\"\n        description=\"Business process automation, AI customer communication, custom AI software, and AI-powered marketing — built around the tools your business already uses.\"\n        path=\"/services\"\n      />",
+          "element": "<SEO\n        title=\"AI Automation Services\"\n        description=\"Business process automation, AI customer communication, custom AI software, and AI-powered marketing, built around the tools your business already uses.\"\n        path=\"/services\"\n      />",
           "line": 278,
           "endLine": 282,
           "column": 6,
@@ -594,7 +594,7 @@
       "data": {
         "viaRoute": "/case-studies",
         "trigger": {
-          "element": "<SEO\n        title=\"Case Studies\"\n        description=\"Real automation and AI implementation results for growing businesses — from call handling and email triage to inventory management and marketing.\"\n        path=\"/case-studies\"\n      />",
+          "element": "<SEO\n        title=\"Case Studies\"\n        description=\"Real automation and AI implementation results for growing businesses, from call handling and email triage to inventory management and marketing.\"\n        path=\"/case-studies\"\n      />",
           "line": 76,
           "endLine": 80,
           "column": 6,

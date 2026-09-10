@@ -75,7 +75,7 @@ const CaseStudiesPage = () => {
     <div className="pt-16 sm:pt-20">
       <SEO
         title="Case Studies"
-        description="Real automation and AI implementation results for growing businesses — from call handling and email triage to inventory management and marketing."
+        description="Real automation and AI implementation results for growing businesses, from call handling and email triage to inventory management and marketing."
         path="/case-studies"
       />
       <Navigation />

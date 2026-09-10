@@ -1,6 +1,6 @@
 # Core Implementations
 
-> Core Implementations helps growing businesses automate manual, repetitive work — data entry, quoting, reporting, and customer communication — using Claude, ChatGPT, and custom AI built around the tools businesses already use (QuickBooks, HubSpot, Salesforce, Slack, and more). Based in Houston, Texas, serving businesses of any size or industry.
+> Core Implementations helps growing businesses automate manual, repetitive work (data entry, quoting, reporting, and customer communication) using Claude, ChatGPT, and custom AI built around the tools businesses already use (QuickBooks, HubSpot, Salesforce, Slack, and more). Based in Houston, Texas, serving businesses of any size or industry.
 
 ## Company
 

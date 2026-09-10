@@ -29,11 +29,11 @@ const COLLECTION_NAME = "services";
 // Doc IDs from the current live "services" collection (created by update-core-services.mjs)
 const UPDATES = [
   {
-    id: "PuY5cy35gt2RJzHo57Go", // Business Process Automation
+    id: "9KSSZexFgg9SRkdGmNsN", // Business Process Automation
     problem:
       "Teams lose hours to manual data entry, repetitive workflows, spreadsheets, approvals, and reporting. These bottlenecks slow growth, increase errors, and keep employees away from higher-value work.",
     solution:
-      "We connect the tools you already use — like QuickBooks, HubSpot, and Salesforce — and layer in AI models like Claude and ChatGPT to read documents, extract data, and route it automatically, turning multi-step manual processes into one smooth, hands-off workflow.",
+      "We connect the tools you already use (like QuickBooks, HubSpot, and Salesforce) and layer in AI models like Claude and ChatGPT to read documents, extract data, and route it automatically, turning multi-step manual processes into one smooth, hands-off workflow.",
     points: [
       "Automation of repetitive tasks across day-to-day operations",
       "Integrations with the tools you already use (QuickBooks, HubSpot, Salesforce, and more)",
@@ -43,11 +43,11 @@ const UPDATES = [
     ],
   },
   {
-    id: "xQjjSk2iNwOvC982pOe7", // AI-Powered Customer Communication
+    id: "hYe0jF0icibzcCOYboRP", // AI-Powered Customer Communication
     problem:
-      "Businesses lose leads and burn hours every week on manual phone calls and emails — missed calls, delayed replies, and inconsistent responses that frustrate customers and overwhelm staff.",
+      "Businesses lose leads and burn hours every week on manual phone calls and emails: missed calls, delayed replies, and inconsistent responses that frustrate customers and overwhelm staff.",
     solution:
-      "We deploy AI voice agents and AI-managed email — built on the same technology behind Claude and ChatGPT — to answer calls, respond to messages, qualify leads, and book appointments directly on your calendar, with the same consistency every time.",
+      "We deploy AI voice agents and AI-managed email (built on the same technology behind Claude and ChatGPT) to answer calls, respond to messages, qualify leads, and book appointments directly on your calendar, with the same consistency every time.",
     points: [
       "24/7 AI phone agents for inbound and outbound calls",
       "AI that reads, drafts, and routes email like your best team member",
@@ -57,11 +57,11 @@ const UPDATES = [
     ],
   },
   {
-    id: "46K5zHISQT8N9JTzEYWZ", // Custom AI Software & Integrations
+    id: "ddouYCaYFsJOeHNZCDLx", // Custom AI Software & Integrations
     problem:
       "Off-the-shelf tools rarely fit the way your business actually works. Many small businesses get stuck with outdated systems, manual workarounds, and disconnected software that wastes time and money.",
     solution:
-      "We build custom AI-powered tools — dashboards, portals, and internal systems — using the same underlying models that power Claude and ChatGPT, wired directly into the software you already run, like QuickBooks, Salesforce, Slack, and Google Sheets.",
+      "We build custom AI-powered tools (dashboards, portals, and internal systems) using the same underlying models that power Claude and ChatGPT, wired directly into the software you already run, like QuickBooks, Salesforce, Slack, and Google Sheets.",
     points: [
       "Fully custom AI-driven applications and internal tools",
       "Dashboards, portals, and lightweight CRMs built for your workflow",
@@ -71,11 +71,11 @@ const UPDATES = [
     ],
   },
   {
-    id: "snGHjRAMmjzDm4sCST2V", // AI-Powered Marketing & Growth
+    id: "odLZpe2koewOuFt9idfr", // AI-Powered Marketing & Growth
     problem:
-      "Modern businesses don't need more tools — they need more clients, higher conversion rates, and scalable growth. Generic marketing tactics waste budget without a system behind them.",
+      "Modern businesses don't need more tools. They need more clients, higher conversion rates, and scalable growth. Generic marketing tactics waste budget without a system behind them.",
     solution:
-      "We use AI tools like Claude and ChatGPT to generate high-converting content and ad copy, automate social posting, and optimize targeting across platforms like Meta and Google — creating always-on marketing workflows that turn attention into revenue.",
+      "We use AI tools like Claude and ChatGPT to generate high-converting content and ad copy, automate social posting, and optimize targeting across platforms like Meta and Google, creating always-on marketing workflows that turn attention into revenue.",
     points: [
       "Increase client acquisition without increasing headcount",
       "Reduce marketing costs through automation and optimization",

@@ -292,7 +292,7 @@ const ResourcesPage = () => {
                 onClick={() => setActiveFilter(null)}
                 className="mt-4 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors"
               >
-                Clear filter — show all articles
+                Clear filter to show all articles
               </button>
             )}
           </div>
