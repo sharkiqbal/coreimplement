@@ -220,15 +220,31 @@
       }
     },
     {
-      "id": "src/routes/Homepage.jsx:583:29-to-src/routes/ContactPage.jsx",
+      "id": "src/routes/Homepage.jsx:577:20-to-src/routes/ContactPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/ContactPage.jsx",
+      "data": {
+        "viaRoute": "/contact",
+        "trigger": {
+          "element": "<Link\n                      to=\"/contact\"\n                      className=\"inline-flex items-center gap-1 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors mt-4 sm:mt-5\"\n                    >\n                      Schedule now\n                      <ChevronRight className=\"w-4 h-4\" />\n                    </Link>",
+          "line": 577,
+          "endLine": 583,
+          "column": 20,
+          "endColumn": 27,
+          "sourceFile": "src/routes/Homepage.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/routes/Homepage.jsx:592:29-to-src/routes/ContactPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "navigate(\"/contact\")",
-          "line": 583,
-          "endLine": 583,
+          "line": 592,
+          "endLine": 592,
           "column": 29,
           "endColumn": 49,
           "sourceFile": "src/routes/Homepage.jsx"
@@ -1084,15 +1100,15 @@
       }
     },
     {
-      "id": "src/routes/ContactPage.jsx:316:6-to-src/routes/ContactPage.jsx",
+      "id": "src/routes/ContactPage.jsx:359:6-to-src/routes/ContactPage.jsx",
       "source": "src/routes/ContactPage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<SEO\n        title=\"Contact Us\"\n        description=\"Book a free consultation with Core Implementations. Tell us about your business and we'll show you what AI automation can do for you.\"\n        path=\"/contact\"\n      />",
-          "line": 316,
-          "endLine": 320,
+          "line": 359,
+          "endLine": 363,
           "column": 6,
           "endColumn": 8,
           "sourceFile": "src/routes/ContactPage.jsx"
@@ -1112,38 +1128,6 @@
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/component/Navigation.jsx"
-        }
-      }
-    },
-    {
-      "id": "src/component/Action.jsx:45:29-to-src/routes/ContactPage.jsx",
-      "source": "src/routes/Homepage.jsx",
-      "target": "src/routes/ContactPage.jsx",
-      "data": {
-        "viaRoute": "/contact",
-        "trigger": {
-          "element": "navigate(\"/contact\")",
-          "line": 45,
-          "endLine": 45,
-          "column": 29,
-          "endColumn": 49,
-          "sourceFile": "src/component/Action.jsx"
-        }
-      }
-    },
-    {
-      "id": "src/component/Action.jsx:69:29-to-src/routes/ServicesPage.jsx",
-      "source": "src/routes/Homepage.jsx",
-      "target": "src/routes/ServicesPage.jsx",
-      "data": {
-        "viaRoute": "/services",
-        "trigger": {
-          "element": "navigate(\"/services\")",
-          "line": 69,
-          "endLine": 69,
-          "column": 29,
-          "endColumn": 50,
-          "sourceFile": "src/component/Action.jsx"
         }
       }
     },

@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import {
   MapPin,
   Phone,
@@ -8,14 +9,15 @@ import {
   Calendar,
   FileText,
   MessageSquare,
+  Paperclip,
+  X,
 } from "lucide-react";
 
 import { addContactSubmission } from "../service/contactService";
-import { addRFPSubmission } from "../service/rfpService";
+import { addRFPSubmission, uploadRFPAttachment } from "../service/rfpService";
 import { HONEYPOT_FIELD, isLikelySpam } from "../utils/spamGuard";
 import Footer from "../component/Footer";
 import Navigation from "../component/Navigation";
-import Action from "../component/Action";
 import SEO from "../component/SEO";
 import { useCookieConsent } from "../context/CookieConsentContext";
 
@@ -173,8 +175,13 @@ function CalendlyWidget20min() {
   );
 }
 
+const VALID_TABS = ["contact", "appointment", "rfp"];
+
 const EnhancedContactPage = () => {
-  const [activeTab, setActiveTab] = useState("contact");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const requestedTab = searchParams.get("tab");
+  const activeTab = VALID_TABS.includes(requestedTab) ? requestedTab : "contact";
+  const setActiveTab = (tab) => setSearchParams({ tab });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [selectedMeetingType, setSelectedMeetingType] = useState(null);
@@ -201,6 +208,10 @@ const EnhancedContactPage = () => {
     additionalDetails: "",
   });
 
+  const [rfpAttachment, setRfpAttachment] = useState(null);
+  const [attachmentError, setAttachmentError] = useState("");
+  const [isUploadingAttachment, setIsUploadingAttachment] = useState(false);
+
   const contactFormRef = useRef(null);
 
   // Track when each form was rendered, and a honeypot field only bots fill in
@@ -212,6 +223,16 @@ const EnhancedContactPage = () => {
   const scrollToContactForm = () => {
     contactFormRef.current?.scrollIntoView({ behavior: "smooth" });
   };
+
+  // Jump straight to the tab section when a specific tab was requested
+  // (e.g. via the nav dropdown), rather than leaving the visitor at the
+  // hero with no indication their tab was selected.
+  useEffect(() => {
+    if (requestedTab) {
+      scrollToContactForm();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [requestedTab]);
 
   const handleContactSubmit = async (e) => {
     e.preventDefault();
@@ -265,6 +286,7 @@ const EnhancedContactPage = () => {
     e.preventDefault();
     if (isSubmitting) return;
     setIsSubmitting(true);
+    setAttachmentError("");
 
     try {
       if (
@@ -283,7 +305,27 @@ const EnhancedContactPage = () => {
           formLoadedAt: rfpFormLoadedAt.current,
         })
       ) {
-        await addRFPSubmission(rfpForm);
+        let attachment = null;
+        if (rfpAttachment) {
+          setIsUploadingAttachment(true);
+          try {
+            attachment = await uploadRFPAttachment(rfpAttachment);
+          } catch (uploadError) {
+            setAttachmentError(uploadError.message);
+            setIsSubmitting(false);
+            setIsUploadingAttachment(false);
+            return;
+          }
+          setIsUploadingAttachment(false);
+        }
+
+        await addRFPSubmission({
+          ...rfpForm,
+          ...(attachment && {
+            attachmentPath: attachment.path,
+            attachmentName: attachment.name,
+          }),
+        });
       }
 
       setSubmitSuccess(true);
@@ -299,6 +341,7 @@ const EnhancedContactPage = () => {
         budgetBand: "",
         additionalDetails: "",
       });
+      setRfpAttachment(null);
       setRfpHoneypot("");
       rfpFormLoadedAt.current = Date.now();
 
@@ -320,17 +363,17 @@ const EnhancedContactPage = () => {
       />
       <Navigation />
       {/* Hero Section */}
-      <section className="relative min-h-[100vh] bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-50 py-12 sm:py-16 lg:py-24 overflow-hidden flex items-center justify-center">
+      <section className="relative bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-50 pt-28 pb-10 sm:pt-32 sm:pb-14 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-10 left-10 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-pulse"></div>
+          <div className="absolute top-10 left-10 w-48 h-48 sm:w-72 sm:h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-pulse"></div>
           <div
-            className="absolute bottom-10 right-10 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-pulse"
+            className="absolute bottom-10 right-10 w-48 h-48 sm:w-72 sm:h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-pulse"
             style={{ animationDelay: "1s" }}
           ></div>
         </div>
 
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-8 sm:py-12 lg:py-16 flex flex-col items-center justify-center w-full">
-          <div className="inline-flex items-center px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-emerald-200 mb-4 sm:mb-8">
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center w-full">
+          <div className="inline-flex items-center px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-emerald-200 mb-4 sm:mb-6">
             <svg
               className="w-4 h-4 text-emerald-600 mr-2"
               fill="currentColor"
@@ -347,37 +390,17 @@ const EnhancedContactPage = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 sm:mb-6 leading-tight">
-            Get Started{" "}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-3 sm:mb-4 leading-tight">
+            Tell Us What's{" "}
             <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
-              Today
+              Slowing You Down
             </span>
           </h1>
 
-          <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto font-normal mb-5 sm:mb-8 px-4">
-            Choose the best way to connect: quick contact, schedule a meeting,
-            or submit a detailed RFP
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto font-normal px-4">
+            Send a quick message, grab time on our calendar, or submit a full
+            project brief. Whatever fits how you like to work.
           </p>
-
-          <button
-            onClick={scrollToContactForm}
-            className="group px-8 py-3.5 sm:px-10 sm:py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-bold text-base sm:text-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 flex items-center justify-center mx-auto"
-          >
-            Choose Your Path
-            <svg
-              className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </button>
         </div>
       </section>
 
@@ -617,6 +640,37 @@ const EnhancedContactPage = () => {
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
+                        What Can We Help With?
+                      </label>
+                      <select
+                        value={contactForm.projectType}
+                        onChange={(e) =>
+                          setContactForm({
+                            ...contactForm,
+                            projectType: e.target.value,
+                          })
+                        }
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      >
+                        <option value="">Select a topic...</option>
+                        <option value="Business Process Automation">
+                          Business Process Automation
+                        </option>
+                        <option value="AI-Powered Customer Communication">
+                          AI-Powered Customer Communication
+                        </option>
+                        <option value="Custom AI Software & Integrations">
+                          Custom AI Software & Integrations
+                        </option>
+                        <option value="AI-Powered Marketing & Growth">
+                          AI-Powered Marketing & Growth
+                        </option>
+                        <option value="Not sure yet">Not sure yet</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
                         Message *
                       </label>
                       <textarea
@@ -689,7 +743,7 @@ const EnhancedContactPage = () => {
                       {selectedMeetingType === "20min" && (
                         <div className="mt-4 p-3 bg-green-100 rounded-lg">
                           <p className="text-sm text-green-800 font-semibold">
-                            ✓ Selected - Click to schedule
+                            ✓ Selected. Pick a time below.
                           </p>
                         </div>
                       )}
@@ -728,7 +782,7 @@ const EnhancedContactPage = () => {
                       {selectedMeetingType === "45min" && (
                         <div className="mt-4 p-3 bg-green-100 rounded-lg">
                           <p className="text-sm text-green-800 font-semibold">
-                            ✓ Selected - Click to schedule
+                            ✓ Selected. Pick a time below.
                           </p>
                         </div>
                       )}
@@ -738,14 +792,6 @@ const EnhancedContactPage = () => {
                   {/* Calendly Widget Component */}
                   {selectedMeetingType === "20min" && <CalendlyWidget20min />}
                   {selectedMeetingType === "45min" && <CalendlyWidget45min />}
-                  {selectedMeetingType && (
-                    <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
-                      <p className="text-sm text-blue-800 text-center">
-                        <strong>Ready to schedule?</strong> Select your
-                        preferred time slot above to book your meeting.
-                      </p>
-                    </div>
-                  )}
                 </div>
               )}
 
@@ -983,12 +1029,62 @@ const EnhancedContactPage = () => {
                       />
                     </div>
 
+                    {/* Attachment */}
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Attach Your RFP Document (optional)
+                      </label>
+                      {rfpAttachment ? (
+                        <div className="flex items-center justify-between px-4 py-3 border border-gray-300 rounded-lg bg-gray-50">
+                          <span className="flex items-center gap-2 text-sm text-gray-800 truncate">
+                            <Paperclip className="w-4 h-4 text-gray-500 flex-shrink-0" />
+                            <span className="truncate">{rfpAttachment.name}</span>
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setRfpAttachment(null);
+                              setAttachmentError("");
+                            }}
+                            className="flex-shrink-0 text-gray-400 hover:text-gray-700 transition-colors"
+                            aria-label="Remove attachment"
+                          >
+                            <X className="w-4 h-4" />
+                          </button>
+                        </div>
+                      ) : (
+                        <label className="flex items-center justify-center gap-2 px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg text-sm text-gray-600 hover:border-blue-400 hover:text-blue-600 cursor-pointer transition-colors">
+                          <Paperclip className="w-4 h-4" />
+                          Choose a file (PDF, Word, Excel, or image, up to 10MB)
+                          <input
+                            type="file"
+                            className="hidden"
+                            accept=".pdf,.doc,.docx,.xls,.xlsx,.txt,image/*"
+                            onChange={(e) => {
+                              const file = e.target.files?.[0];
+                              setAttachmentError("");
+                              if (file) setRfpAttachment(file);
+                            }}
+                          />
+                        </label>
+                      )}
+                      {attachmentError && (
+                        <p className="mt-2 text-sm text-red-600">
+                          {attachmentError}
+                        </p>
+                      )}
+                    </div>
+
                     <button
                       type="submit"
                       disabled={isSubmitting}
                       className="w-full bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      {isSubmitting ? "Submitting..." : "Submit RFP"}
+                      {isUploadingAttachment
+                        ? "Uploading attachment..."
+                        : isSubmitting
+                        ? "Submitting..."
+                        : "Submit RFP"}
                     </button>
 
                     <div className="mt-6 p-4 bg-blue-50 rounded-lg">
@@ -1006,7 +1102,6 @@ const EnhancedContactPage = () => {
           </div>
         </div>
       </section>
-      <Action />
       <Footer />
     </div>
   );

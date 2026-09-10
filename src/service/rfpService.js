@@ -11,8 +11,58 @@ import {
      orderBy,
      Timestamp,
    } from "firebase/firestore";
-   import { db } from "../firebase/firebase";
-     
+   import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+   import { db, storage } from "../firebase/firebase";
+
+   const MAX_ATTACHMENT_SIZE = 10 * 1024 * 1024; // 10MB
+   const ALLOWED_ATTACHMENT_TYPES = [
+     "application/pdf",
+     "application/msword",
+     "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+     "application/vnd.ms-excel",
+     "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+     "text/plain",
+   ];
+
+   /**
+    * Upload an RFP attachment to Storage ahead of the Firestore submission,
+    * so the storage path can be included in the same document. Returns just
+    * the path (not a download URL) - the visitor submitting this form is
+    * never authenticated, and Storage read access requires the admin, so
+    * the download URL has to be resolved later from the admin dashboard,
+    * not here.
+    */
+   export const uploadRFPAttachment = async (file) => {
+     if (file.size > MAX_ATTACHMENT_SIZE) {
+       throw new Error("File is too large. Please attach something under 10MB.");
+     }
+     if (
+       !ALLOWED_ATTACHMENT_TYPES.includes(file.type) &&
+       !file.type.startsWith("image/")
+     ) {
+       throw new Error(
+         "That file type isn't supported. Please attach a PDF, Word, Excel, text, or image file."
+       );
+     }
+
+     const safeName = file.name.replace(/[^a-zA-Z0-9.\-_]/g, "_");
+     const path = `rfpAttachments/${Date.now()}-${Math.random()
+       .toString(36)
+       .slice(2, 8)}-${safeName}`;
+     const storageRef = ref(storage, path);
+     await uploadBytes(storageRef, file, { contentType: file.type });
+     return { path, name: file.name };
+   };
+
+   /**
+    * Resolve a stored attachment path to a downloadable URL. Only works for
+    * an authenticated caller (the admin dashboard) since Storage read access
+    * is admin-only.
+    */
+   export const getRFPAttachmentUrl = async (path) => {
+     return getDownloadURL(ref(storage, path));
+   };
+
    const RFP_COLLECTION = "rfpSubmissions";
    
    /**

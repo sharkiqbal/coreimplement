@@ -26,6 +26,7 @@ import {
   updateRFPPriority,
   addRFPNotes,
   deleteRFPSubmission,
+  getRFPAttachmentUrl,
 } from "../service/rfpService";
 import { useToast } from "../context/ToastContext";
 import { downloadCSV } from "../utils/csvExport";
@@ -90,6 +91,20 @@ const LeadsTab = ({ onLeadsChanged, initialSourceFilter = "all" }) => {
   const [sourceFilter, setSourceFilter] = useState(initialSourceFilter);
   const [statusFilter, setStatusFilter] = useState("all");
   const [internalNotes, setInternalNotes] = useState("");
+  const [isFetchingAttachment, setIsFetchingAttachment] = useState(false);
+
+  const handleDownloadAttachment = async (path) => {
+    setIsFetchingAttachment(true);
+    try {
+      const url = await getRFPAttachmentUrl(path);
+      window.open(url, "_blank", "noopener,noreferrer");
+    } catch (error) {
+      console.error("Error fetching attachment:", error);
+      alert("Failed to load the attachment. Please try again.");
+    } finally {
+      setIsFetchingAttachment(false);
+    }
+  };
 
   useEffect(() => {
     loadLeads();
@@ -769,6 +784,26 @@ const LeadsTab = ({ onLeadsChanged, initialSourceFilter = "all" }) => {
                       </div>
                     </div>
                   </div>
+                  {selectedLead.attachmentPath && (
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-2">
+                        Attachment
+                      </label>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          handleDownloadAttachment(selectedLead.attachmentPath)
+                        }
+                        disabled={isFetchingAttachment}
+                        className="w-full flex items-center gap-2 px-4 py-3 bg-blue-50 border border-blue-200 rounded-xl text-blue-700 font-semibold hover:bg-blue-100 transition-colors disabled:opacity-50"
+                      >
+                        <Download className="w-4 h-4" />
+                        {isFetchingAttachment
+                          ? "Loading..."
+                          : selectedLead.attachmentName || "Download attachment"}
+                      </button>
+                    </div>
+                  )}
                   <div>
                     <label className="block text-sm font-bold text-gray-700 mb-2">
                       Internal Notes

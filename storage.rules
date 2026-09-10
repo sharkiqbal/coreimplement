@@ -1,0 +1,23 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // RFP attachments: anyone can upload one alongside a public RFP
+    // submission (no sign-up flow exists), capped at 10MB and limited to
+    // common document/image types. Only the signed-in admin can read them
+    // back or manage them - same reasoning as the rfpSubmissions Firestore
+    // collection this pairs with.
+    match /rfpAttachments/{fileName} {
+      allow read: if request.auth != null;
+      allow create: if request.resource.size < 10 * 1024 * 1024
+        && request.resource.contentType.matches(
+          'application/pdf|application/msword|application/vnd\\.openxmlformats-officedocument\\.wordprocessingml\\.document|application/vnd\\.ms-excel|application/vnd\\.openxmlformats-officedocument\\.spreadsheetml\\.sheet|image/.*|text/plain'
+        );
+      allow update, delete: if request.auth != null;
+    }
+
+    // Deny everything else by default.
+    match /{allPaths=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}
