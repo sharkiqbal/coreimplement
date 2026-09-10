@@ -1,7 +1,16 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const Action = () => {
+const Action = ({
+  headingBefore = "Ready to ",
+  headingHighlight = "Transform",
+  headingAfter = " Your Business?",
+  subtext = "Join the businesses already streamlining their operations with AI. Book your free consultation today and discover what's possible for your business.",
+  primaryLabel = "Book Free Consultation",
+  primaryTo = "/contact",
+  secondaryLabel = "View Our Services",
+  secondaryTo = "/services",
+}) => {
   const navigate = useNavigate();
 
   return (
@@ -26,27 +35,25 @@ const Action = () => {
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 sm:mb-6 leading-tight">
-            Ready to{" "}
+            {headingBefore}
             <span className="relative inline-block">
-              <span className="relative z-10">Transform</span>
+              <span className="relative z-10">{headingHighlight}</span>
               <span className="absolute bottom-[-5px] left-0 w-full h-3 bg-yellow-400/40 -rotate-1"></span>
-            </span>{" "}
-            Your Business?
+            </span>
+            {headingAfter}
           </h2>
 
           <p className="text-base sm:text-xl md:text-2xl mb-6 sm:mb-10 opacity-95 max-w-3xl mx-auto leading-relaxed font-medium">
-            Join the businesses already streamlining their operations with
-            AI. Book your free consultation today and discover what's
-            possible for your business.
+            {subtext}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 sm:mb-10">
             <button
-              onClick={() => navigate("/contact")}
+              onClick={() => navigate(primaryTo)}
               className="group relative overflow-hidden bg-white text-blue-600 px-6 py-3.5 sm:px-10 sm:py-5 rounded-xl text-base sm:text-lg font-bold hover:bg-gray-50 transition-all duration-300 shadow-2xl hover:shadow-3xl transform hover:-translate-y-1"
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
-                Book Free Consultation
+                {primaryLabel}
                 <svg
                   className="w-5 h-5 group-hover:translate-x-1 transition-transform"
                   fill="none"
@@ -66,10 +73,10 @@ const Action = () => {
             </button>
 
             <button
-              onClick={() => navigate("/services")}
+              onClick={() => navigate(secondaryTo)}
               className="group border-2 border-white/80 text-white px-6 py-3.5 sm:px-10 sm:py-5 rounded-xl text-base sm:text-lg font-bold hover:bg-white/10 hover:border-white backdrop-blur-sm transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2"
             >
-              View Our Services
+              {secondaryLabel}
               <svg
                 className="w-5 h-5 group-hover:translate-x-1 transition-transform"
                 fill="none"

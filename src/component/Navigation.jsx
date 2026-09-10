@@ -160,7 +160,10 @@ const Navigation = () => {
                 onMouseEnter={handleDropdownMouseEnter}
                 onMouseLeave={handleDropdownMouseLeave}
               >
-                <button className="relative px-4 py-2 text-sm font-semibold text-gray-600 hover:text-blue-600 transition-all duration-200 rounded-lg group flex items-center gap-1">
+                <button
+                  onClick={() => handleContactClick("/contact")}
+                  className="relative px-4 py-2 text-sm font-semibold text-gray-600 hover:text-blue-600 transition-all duration-200 rounded-lg group flex items-center gap-1"
+                >
                   <span className="relative z-10">Contact</span>
                   <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${showContactDropdown ? 'rotate-180' : ''}`} />
                   <span className="absolute inset-0 bg-blue-50 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>

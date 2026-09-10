@@ -365,7 +365,12 @@ const ResourcesPage = () => {
         </div>
       </section>
 
-      <Action />
+      <Action
+        headingBefore="Ready to Put This Into "
+        headingHighlight="Practice"
+        headingAfter="?"
+        subtext="Reading about automation is one thing. Let's talk about what it could look like inside your business."
+      />
       <Footer />
     </div>
   );

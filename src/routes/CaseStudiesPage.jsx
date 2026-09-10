@@ -291,7 +291,14 @@ const CaseStudiesPage = () => {
         </div>
       </section>
 
-      <Action />
+      <Action
+        headingBefore="Ready for "
+        headingHighlight="Results"
+        headingAfter=" Like These?"
+        subtext="These are real businesses that automated their busywork and got hours back every week. Yours could be next."
+        secondaryLabel="View Our Services"
+        secondaryTo="/services"
+      />
       <Footer />
     </div>
   );

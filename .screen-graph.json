@@ -268,38 +268,6 @@
       }
     },
     {
-      "id": "src/component/Action.jsx:45:29-to-src/routes/ContactPage.jsx",
-      "source": "src/routes/Homepage.jsx",
-      "target": "src/routes/ContactPage.jsx",
-      "data": {
-        "viaRoute": "/contact",
-        "trigger": {
-          "element": "navigate(\"/contact\")",
-          "line": 45,
-          "endLine": 45,
-          "column": 29,
-          "endColumn": 49,
-          "sourceFile": "src/component/Action.jsx"
-        }
-      }
-    },
-    {
-      "id": "src/component/Action.jsx:69:29-to-src/routes/ServicesPage.jsx",
-      "source": "src/routes/Homepage.jsx",
-      "target": "src/routes/ServicesPage.jsx",
-      "data": {
-        "viaRoute": "/services",
-        "trigger": {
-          "element": "navigate(\"/services\")",
-          "line": 69,
-          "endLine": 69,
-          "column": 29,
-          "endColumn": 50,
-          "sourceFile": "src/component/Action.jsx"
-        }
-      }
-    },
-    {
       "id": "src/component/Footer.jsx:162:16-to-src/routes/PrivacyPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/PrivacyPage.jsx",
@@ -364,6 +332,22 @@
       }
     },
     {
+      "id": "src/routes/AboutUsPage.jsx:356:6-to-src/routes/CaseStudiesPage.jsx",
+      "source": "src/routes/AboutUsPage.jsx",
+      "target": "src/routes/CaseStudiesPage.jsx",
+      "data": {
+        "viaRoute": "/case-studies",
+        "trigger": {
+          "element": "<Action\n        headingBefore=\"Ready to Work \"\n        headingHighlight=\"Together\"\n        headingAfter=\"?\"\n        subtext=\"You've met the team behind Core Implementations. Let's talk about what AI automation could look like inside your business.\"\n        secondaryLabel=\"See Case Studies\"\n        secondaryTo=\"/case-studies\"\n      />",
+          "line": 356,
+          "endLine": 363,
+          "column": 6,
+          "endColumn": 8,
+          "sourceFile": "src/routes/AboutUsPage.jsx"
+        }
+      }
+    },
+    {
       "id": "src/component/Navigation.jsx:105:10-to-src/routes/Homepage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/Homepage.jsx",
@@ -376,38 +360,6 @@
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/component/Navigation.jsx"
-        }
-      }
-    },
-    {
-      "id": "src/component/Action.jsx:45:29-to-src/routes/ContactPage.jsx",
-      "source": "src/routes/Homepage.jsx",
-      "target": "src/routes/ContactPage.jsx",
-      "data": {
-        "viaRoute": "/contact",
-        "trigger": {
-          "element": "navigate(\"/contact\")",
-          "line": 45,
-          "endLine": 45,
-          "column": 29,
-          "endColumn": 49,
-          "sourceFile": "src/component/Action.jsx"
-        }
-      }
-    },
-    {
-      "id": "src/component/Action.jsx:69:29-to-src/routes/ServicesPage.jsx",
-      "source": "src/routes/Homepage.jsx",
-      "target": "src/routes/ServicesPage.jsx",
-      "data": {
-        "viaRoute": "/services",
-        "trigger": {
-          "element": "navigate(\"/services\")",
-          "line": 69,
-          "endLine": 69,
-          "column": 29,
-          "endColumn": 50,
-          "sourceFile": "src/component/Action.jsx"
         }
       }
     },
@@ -508,6 +460,22 @@
       }
     },
     {
+      "id": "src/routes/ServicesPage.jsx:497:6-to-src/routes/CaseStudiesPage.jsx",
+      "source": "src/routes/ServicesPage.jsx",
+      "target": "src/routes/CaseStudiesPage.jsx",
+      "data": {
+        "viaRoute": "/case-studies",
+        "trigger": {
+          "element": "<Action\n        headingBefore=\"Ready to \"\n        headingHighlight=\"Automate\"\n        headingAfter=\" Your Business?\"\n        subtext=\"Tell us what's slowing your team down, and we'll show you exactly how automation could help.\"\n        secondaryLabel=\"See Case Studies\"\n        secondaryTo=\"/case-studies\"\n      />",
+          "line": 497,
+          "endLine": 504,
+          "column": 6,
+          "endColumn": 8,
+          "sourceFile": "src/routes/ServicesPage.jsx"
+        }
+      }
+    },
+    {
       "id": "src/component/Navigation.jsx:105:10-to-src/routes/Homepage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/Homepage.jsx",
@@ -520,38 +488,6 @@
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/component/Navigation.jsx"
-        }
-      }
-    },
-    {
-      "id": "src/component/Action.jsx:45:29-to-src/routes/ContactPage.jsx",
-      "source": "src/routes/Homepage.jsx",
-      "target": "src/routes/ContactPage.jsx",
-      "data": {
-        "viaRoute": "/contact",
-        "trigger": {
-          "element": "navigate(\"/contact\")",
-          "line": 45,
-          "endLine": 45,
-          "column": 29,
-          "endColumn": 49,
-          "sourceFile": "src/component/Action.jsx"
-        }
-      }
-    },
-    {
-      "id": "src/component/Action.jsx:69:29-to-src/routes/ServicesPage.jsx",
-      "source": "src/routes/Homepage.jsx",
-      "target": "src/routes/ServicesPage.jsx",
-      "data": {
-        "viaRoute": "/services",
-        "trigger": {
-          "element": "navigate(\"/services\")",
-          "line": 69,
-          "endLine": 69,
-          "column": 29,
-          "endColumn": 50,
-          "sourceFile": "src/component/Action.jsx"
         }
       }
     },
@@ -620,6 +556,22 @@
       }
     },
     {
+      "id": "src/routes/CaseStudiesPage.jsx:294:6-to-src/routes/ServicesPage.jsx",
+      "source": "src/routes/CaseStudiesPage.jsx",
+      "target": "src/routes/ServicesPage.jsx",
+      "data": {
+        "viaRoute": "/services",
+        "trigger": {
+          "element": "<Action\n        headingBefore=\"Ready for \"\n        headingHighlight=\"Results\"\n        headingAfter=\" Like These?\"\n        subtext=\"These are real businesses that automated their busywork and got hours back every week. Yours could be next.\"\n        secondaryLabel=\"View Our Services\"\n        secondaryTo=\"/services\"\n      />",
+          "line": 294,
+          "endLine": 301,
+          "column": 6,
+          "endColumn": 8,
+          "sourceFile": "src/routes/CaseStudiesPage.jsx"
+        }
+      }
+    },
+    {
       "id": "src/component/Navigation.jsx:105:10-to-src/routes/Homepage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/Homepage.jsx",
@@ -632,38 +584,6 @@
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/component/Navigation.jsx"
-        }
-      }
-    },
-    {
-      "id": "src/component/Action.jsx:45:29-to-src/routes/ContactPage.jsx",
-      "source": "src/routes/Homepage.jsx",
-      "target": "src/routes/ContactPage.jsx",
-      "data": {
-        "viaRoute": "/contact",
-        "trigger": {
-          "element": "navigate(\"/contact\")",
-          "line": 45,
-          "endLine": 45,
-          "column": 29,
-          "endColumn": 49,
-          "sourceFile": "src/component/Action.jsx"
-        }
-      }
-    },
-    {
-      "id": "src/component/Action.jsx:69:29-to-src/routes/ServicesPage.jsx",
-      "source": "src/routes/Homepage.jsx",
-      "target": "src/routes/ServicesPage.jsx",
-      "data": {
-        "viaRoute": "/services",
-        "trigger": {
-          "element": "navigate(\"/services\")",
-          "line": 69,
-          "endLine": 69,
-          "column": 29,
-          "endColumn": 50,
-          "sourceFile": "src/component/Action.jsx"
         }
       }
     },
@@ -764,38 +684,6 @@
       }
     },
     {
-      "id": "src/component/Action.jsx:45:29-to-src/routes/ContactPage.jsx",
-      "source": "src/routes/Homepage.jsx",
-      "target": "src/routes/ContactPage.jsx",
-      "data": {
-        "viaRoute": "/contact",
-        "trigger": {
-          "element": "navigate(\"/contact\")",
-          "line": 45,
-          "endLine": 45,
-          "column": 29,
-          "endColumn": 49,
-          "sourceFile": "src/component/Action.jsx"
-        }
-      }
-    },
-    {
-      "id": "src/component/Action.jsx:69:29-to-src/routes/ServicesPage.jsx",
-      "source": "src/routes/Homepage.jsx",
-      "target": "src/routes/ServicesPage.jsx",
-      "data": {
-        "viaRoute": "/services",
-        "trigger": {
-          "element": "navigate(\"/services\")",
-          "line": 69,
-          "endLine": 69,
-          "column": 29,
-          "endColumn": 50,
-          "sourceFile": "src/component/Action.jsx"
-        }
-      }
-    },
-    {
       "id": "src/component/Footer.jsx:162:16-to-src/routes/PrivacyPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/PrivacyPage.jsx",
@@ -876,6 +764,86 @@
       }
     },
     {
+      "id": "src/routes/ResourceArticlePage.jsx:210:6-to-src/routes/ResourcesPage.jsx",
+      "source": "src/routes/ResourceArticlePage.jsx",
+      "target": "src/routes/ResourcesPage.jsx",
+      "data": {
+        "viaRoute": "/resources",
+        "trigger": {
+          "element": "<Action\n        headingBefore=\"Enjoyed This \"\n        headingHighlight=\"Article\"\n        headingAfter=\"?\"\n        subtext=\"Let's talk about how this applies to your business, and what automation could realistically save you.\"\n        secondaryLabel=\"Read More Articles\"\n        secondaryTo=\"/resources\"\n      />",
+          "line": 210,
+          "endLine": 217,
+          "column": 6,
+          "endColumn": 8,
+          "sourceFile": "src/routes/ResourceArticlePage.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Navigation.jsx:105:10-to-src/routes/Homepage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/Homepage.jsx",
+      "data": {
+        "viaRoute": "/",
+        "trigger": {
+          "element": "<Link\n            to=\"/\"\n            className=\"flex-shrink-0 cursor-pointer flex items-center gap-2 sm:gap-3 group min-w-0\"\n          >\n            <div className=\"relative flex-shrink-0\">\n              {/* Animated gradient background */}\n              <div className=\"absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity\"></div>\n              <div className=\"relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-1.5 sm:p-2 transform group-hover:scale-110 transition-transform duration-300\">\n                <BrainCircuit\n                  className=\"w-6 h-6 sm:w-8 sm:h-8 text-white\"\n                  strokeWidth={1.5}\n                />\n              </div>\n            </div>\n            <div className=\"min-w-0\">\n              <h1 className=\"text-base sm:text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent truncate\">\n                {companyName}\n              </h1>\n              <p className=\"hidden sm:block text-xs text-gray-500 font-medium\">\n                AI Solutions for SMBs\n              </p>\n            </div>\n          </Link>",
+          "line": 105,
+          "endLine": 127,
+          "column": 10,
+          "endColumn": 17,
+          "sourceFile": "src/component/Navigation.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Footer.jsx:162:16-to-src/routes/PrivacyPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/PrivacyPage.jsx",
+      "data": {
+        "viaRoute": "/privacy",
+        "trigger": {
+          "element": "<Link\n                  to=\"/privacy\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Privacy\n                </Link>",
+          "line": 162,
+          "endLine": 167,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Footer.jsx:169:16-to-src/routes/TermsPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/TermsPage.jsx",
+      "data": {
+        "viaRoute": "/terms",
+        "trigger": {
+          "element": "<Link\n                  to=\"/terms\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Terms\n                </Link>",
+          "line": 169,
+          "endLine": 174,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
+      "id": "src/component/Footer.jsx:176:16-to-src/routes/ContactPage.jsx",
+      "source": "src/routes/Homepage.jsx",
+      "target": "src/routes/ContactPage.jsx",
+      "data": {
+        "viaRoute": "/contact",
+        "trigger": {
+          "element": "<Link\n                  to=\"/contact\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Contact\n                </Link>",
+          "line": 176,
+          "endLine": 181,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/component/Footer.jsx"
+        }
+      }
+    },
+    {
       "id": "src/component/Navigation.jsx:105:10-to-src/routes/Homepage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/Homepage.jsx",
@@ -1004,111 +972,15 @@
       }
     },
     {
-      "id": "src/component/Navigation.jsx:105:10-to-src/routes/Homepage.jsx",
-      "source": "src/routes/Homepage.jsx",
-      "target": "src/routes/Homepage.jsx",
-      "data": {
-        "viaRoute": "/",
-        "trigger": {
-          "element": "<Link\n            to=\"/\"\n            className=\"flex-shrink-0 cursor-pointer flex items-center gap-2 sm:gap-3 group min-w-0\"\n          >\n            <div className=\"relative flex-shrink-0\">\n              {/* Animated gradient background */}\n              <div className=\"absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity\"></div>\n              <div className=\"relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-1.5 sm:p-2 transform group-hover:scale-110 transition-transform duration-300\">\n                <BrainCircuit\n                  className=\"w-6 h-6 sm:w-8 sm:h-8 text-white\"\n                  strokeWidth={1.5}\n                />\n              </div>\n            </div>\n            <div className=\"min-w-0\">\n              <h1 className=\"text-base sm:text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent truncate\">\n                {companyName}\n              </h1>\n              <p className=\"hidden sm:block text-xs text-gray-500 font-medium\">\n                AI Solutions for SMBs\n              </p>\n            </div>\n          </Link>",
-          "line": 105,
-          "endLine": 127,
-          "column": 10,
-          "endColumn": 17,
-          "sourceFile": "src/component/Navigation.jsx"
-        }
-      }
-    },
-    {
-      "id": "src/component/Action.jsx:45:29-to-src/routes/ContactPage.jsx",
-      "source": "src/routes/Homepage.jsx",
-      "target": "src/routes/ContactPage.jsx",
-      "data": {
-        "viaRoute": "/contact",
-        "trigger": {
-          "element": "navigate(\"/contact\")",
-          "line": 45,
-          "endLine": 45,
-          "column": 29,
-          "endColumn": 49,
-          "sourceFile": "src/component/Action.jsx"
-        }
-      }
-    },
-    {
-      "id": "src/component/Action.jsx:69:29-to-src/routes/ServicesPage.jsx",
-      "source": "src/routes/Homepage.jsx",
-      "target": "src/routes/ServicesPage.jsx",
-      "data": {
-        "viaRoute": "/services",
-        "trigger": {
-          "element": "navigate(\"/services\")",
-          "line": 69,
-          "endLine": 69,
-          "column": 29,
-          "endColumn": 50,
-          "sourceFile": "src/component/Action.jsx"
-        }
-      }
-    },
-    {
-      "id": "src/component/Footer.jsx:162:16-to-src/routes/PrivacyPage.jsx",
-      "source": "src/routes/Homepage.jsx",
-      "target": "src/routes/PrivacyPage.jsx",
-      "data": {
-        "viaRoute": "/privacy",
-        "trigger": {
-          "element": "<Link\n                  to=\"/privacy\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Privacy\n                </Link>",
-          "line": 162,
-          "endLine": 167,
-          "column": 16,
-          "endColumn": 23,
-          "sourceFile": "src/component/Footer.jsx"
-        }
-      }
-    },
-    {
-      "id": "src/component/Footer.jsx:169:16-to-src/routes/TermsPage.jsx",
-      "source": "src/routes/Homepage.jsx",
-      "target": "src/routes/TermsPage.jsx",
-      "data": {
-        "viaRoute": "/terms",
-        "trigger": {
-          "element": "<Link\n                  to=\"/terms\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Terms\n                </Link>",
-          "line": 169,
-          "endLine": 174,
-          "column": 16,
-          "endColumn": 23,
-          "sourceFile": "src/component/Footer.jsx"
-        }
-      }
-    },
-    {
-      "id": "src/component/Footer.jsx:176:16-to-src/routes/ContactPage.jsx",
-      "source": "src/routes/Homepage.jsx",
-      "target": "src/routes/ContactPage.jsx",
-      "data": {
-        "viaRoute": "/contact",
-        "trigger": {
-          "element": "<Link\n                  to=\"/contact\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Contact\n                </Link>",
-          "line": 176,
-          "endLine": 181,
-          "column": 16,
-          "endColumn": 23,
-          "sourceFile": "src/component/Footer.jsx"
-        }
-      }
-    },
-    {
-      "id": "src/routes/ContactPage.jsx:359:6-to-src/routes/ContactPage.jsx",
+      "id": "src/routes/ContactPage.jsx:380:6-to-src/routes/ContactPage.jsx",
       "source": "src/routes/ContactPage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<SEO\n        title=\"Contact Us\"\n        description=\"Book a free consultation with Core Implementations. Tell us about your business and we'll show you what AI automation can do for you.\"\n        path=\"/contact\"\n      />",
-          "line": 359,
-          "endLine": 363,
+          "line": 380,
+          "endLine": 384,
           "column": 6,
           "endColumn": 8,
           "sourceFile": "src/routes/ContactPage.jsx"

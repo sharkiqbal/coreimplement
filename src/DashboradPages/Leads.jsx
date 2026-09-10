@@ -37,6 +37,15 @@ const formatStatus = (status) =>
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
 
+// RFP submissions after the pain-point-list update store `painPoints` (an
+// array); older ones only have `topPain1`/`topPain2`. Normalize both shapes.
+const getPainPoints = (lead) => {
+  if (Array.isArray(lead.painPoints) && lead.painPoints.length > 0) {
+    return lead.painPoints;
+  }
+  return [lead.topPain1, lead.topPain2].filter(Boolean);
+};
+
 const getStatusColor = (status) => {
   switch (status) {
     case "new":
@@ -234,7 +243,7 @@ const LeadsTab = ({ onLeadsChanged, initialSourceFilter = "all" }) => {
       details:
         lead._source === "contact"
           ? lead.message || ""
-          : [lead.topPain1, lead.topPain2].filter(Boolean).join(" | "),
+          : getPainPoints(lead).join(" | "),
       submitted: lead.createdAt?.toDate
         ? new Date(lead.createdAt.toDate()).toLocaleString()
         : "",
@@ -500,22 +509,20 @@ const LeadsTab = ({ onLeadsChanged, initialSourceFilter = "all" }) => {
                   </>
                 ) : (
                   <div className="space-y-2">
-                    {lead.topPain1 && (
-                      <div className="flex items-start gap-2">
-                        <AlertCircle className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
-                        <p className="text-sm text-gray-700 line-clamp-2">
-                          {lead.topPain1}
-                        </p>
-                      </div>
-                    )}
-                    {lead.topPain2 && (
-                      <div className="flex items-start gap-2">
-                        <AlertCircle className="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0" />
-                        <p className="text-sm text-gray-700 line-clamp-2">
-                          {lead.topPain2}
-                        </p>
-                      </div>
-                    )}
+                    {getPainPoints(lead)
+                      .slice(0, 2)
+                      .map((point, i) => (
+                        <div key={i} className="flex items-start gap-2">
+                          <AlertCircle
+                            className={`w-4 h-4 mt-0.5 flex-shrink-0 ${
+                              i === 0 ? "text-red-500" : "text-orange-500"
+                            }`}
+                          />
+                          <p className="text-sm text-gray-700 line-clamp-2">
+                            {point}
+                          </p>
+                        </div>
+                      ))}
                   </div>
                 )}
               </div>
@@ -738,24 +745,22 @@ const LeadsTab = ({ onLeadsChanged, initialSourceFilter = "all" }) => {
                       {selectedLead.systemsInUse || "Not specified"}
                     </div>
                   </div>
-                  <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-2">
-                      Top Pain Point #1
-                    </label>
-                    <div className="px-4 py-3 bg-red-50 rounded-xl text-gray-900 border border-red-200">
-                      {selectedLead.topPain1}
-                    </div>
-                  </div>
-                  {selectedLead.topPain2 && (
-                    <div>
+                  {getPainPoints(selectedLead).map((point, i) => (
+                    <div key={i}>
                       <label className="block text-sm font-bold text-gray-700 mb-2">
-                        Top Pain Point #2
+                        Pain Point #{i + 1}
                       </label>
-                      <div className="px-4 py-3 bg-orange-50 rounded-xl text-gray-900 border border-orange-200">
-                        {selectedLead.topPain2}
+                      <div
+                        className={`px-4 py-3 rounded-xl text-gray-900 border ${
+                          i === 0
+                            ? "bg-red-50 border-red-200"
+                            : "bg-orange-50 border-orange-200"
+                        }`}
+                      >
+                        {point}
                       </div>
                     </div>
-                  )}
+                  ))}
                   {selectedLead.additionalDetails && (
                     <div>
                       <label className="block text-sm font-bold text-gray-700 mb-2">

@@ -11,6 +11,7 @@ import {
   MessageSquare,
   Paperclip,
   X,
+  Plus,
 } from "lucide-react";
 
 import { addContactSubmission } from "../service/contactService";
@@ -201,8 +202,7 @@ const EnhancedContactPage = () => {
     company: "",
     companySize: "",
     systemsInUse: "",
-    topPain1: "",
-    topPain2: "",
+    painPoints: [""],
     timeline: "",
     budgetBand: "",
     additionalDetails: "",
@@ -211,6 +211,23 @@ const EnhancedContactPage = () => {
   const [rfpAttachment, setRfpAttachment] = useState(null);
   const [attachmentError, setAttachmentError] = useState("");
   const [isUploadingAttachment, setIsUploadingAttachment] = useState(false);
+
+  const updatePainPoint = (index, value) => {
+    const next = [...rfpForm.painPoints];
+    next[index] = value;
+    setRFPForm({ ...rfpForm, painPoints: next });
+  };
+
+  const addPainPoint = () => {
+    setRFPForm({ ...rfpForm, painPoints: [...rfpForm.painPoints, ""] });
+  };
+
+  const removePainPoint = (index) => {
+    setRFPForm({
+      ...rfpForm,
+      painPoints: rfpForm.painPoints.filter((_, i) => i !== index),
+    });
+  };
 
   const contactFormRef = useRef(null);
 
@@ -289,10 +306,14 @@ const EnhancedContactPage = () => {
     setAttachmentError("");
 
     try {
+      const cleanedPainPoints = rfpForm.painPoints
+        .map((p) => p.trim())
+        .filter(Boolean);
+
       if (
         !rfpForm.name.trim() ||
         !rfpForm.email.trim() ||
-        !rfpForm.topPain1.trim()
+        cleanedPainPoints.length === 0
       ) {
         alert("Please fill in all required fields");
         setIsSubmitting(false);
@@ -321,6 +342,7 @@ const EnhancedContactPage = () => {
 
         await addRFPSubmission({
           ...rfpForm,
+          painPoints: cleanedPainPoints,
           ...(attachment && {
             attachmentPath: attachment.path,
             attachmentName: attachment.name,
@@ -335,8 +357,7 @@ const EnhancedContactPage = () => {
         company: "",
         companySize: "",
         systemsInUse: "",
-        topPain1: "",
-        topPain2: "",
+        painPoints: [""],
         timeline: "",
         budgetBand: "",
         additionalDetails: "",
@@ -705,8 +726,14 @@ const EnhancedContactPage = () => {
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">
                     Choose Your Meeting Type
                   </h3>
+                  <p className="text-gray-600 mb-2">
+                    Both options are completely free, no commitment required.
+                  </p>
                   <p className="text-gray-600 mb-6">
-                    Select the consultation that best fits your needs
+                    Not sure which one? If you're just exploring what's
+                    possible, start with the Discovery Call. If you already
+                    have specific systems or technical questions in mind, go
+                    straight to the Technical Deep Dive.
                   </p>
 
                   <div className="grid md:grid-cols-2 gap-6 mb-8">
@@ -722,9 +749,14 @@ const EnhancedContactPage = () => {
                         <h4 className="text-lg font-bold text-gray-900">
                           Discovery Call
                         </h4>
-                        <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">
-                          20 min
-                        </span>
+                        <div className="flex items-center gap-2">
+                          <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">
+                            Free
+                          </span>
+                          <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">
+                            20 min
+                          </span>
+                        </div>
                       </div>
                       <ul className="space-y-2 text-sm text-gray-600">
                         <li className="flex items-start">
@@ -761,9 +793,14 @@ const EnhancedContactPage = () => {
                         <h4 className="text-lg font-bold text-gray-900">
                           Technical Deep Dive
                         </h4>
-                        <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold">
-                          45 min
-                        </span>
+                        <div className="flex items-center gap-2">
+                          <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">
+                            Free
+                          </span>
+                          <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold">
+                            45 min
+                          </span>
+                        </div>
                       </div>
                       <ul className="space-y-2 text-sm text-gray-600">
                         <li className="flex items-start">
@@ -933,35 +970,47 @@ const EnhancedContactPage = () => {
                     </div>
 
                     {/* Pain Points */}
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Top Pain Point #1 *
-                      </label>
-                      <textarea
-                        required
-                        rows={3}
-                        value={rfpForm.topPain1}
-                        onChange={(e) =>
-                          setRFPForm({ ...rfpForm, topPain1: e.target.value })
-                        }
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                        placeholder="Describe your biggest challenge..."
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Top Pain Point #2
-                      </label>
-                      <textarea
-                        rows={3}
-                        value={rfpForm.topPain2}
-                        onChange={(e) =>
-                          setRFPForm({ ...rfpForm, topPain2: e.target.value })
-                        }
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                        placeholder="Another key challenge (optional)..."
-                      />
+                    <div className="space-y-4">
+                      {rfpForm.painPoints.map((point, index) => (
+                        <div key={index}>
+                          <div className="flex items-center justify-between mb-2">
+                            <label className="block text-sm font-medium text-gray-700">
+                              Pain Point #{index + 1}
+                              {index === 0 ? " *" : ""}
+                            </label>
+                            {index > 0 && (
+                              <button
+                                type="button"
+                                onClick={() => removePainPoint(index)}
+                                className="text-gray-400 hover:text-red-600 transition-colors"
+                                aria-label={`Remove pain point ${index + 1}`}
+                              >
+                                <X className="w-4 h-4" />
+                              </button>
+                            )}
+                          </div>
+                          <textarea
+                            required={index === 0}
+                            rows={3}
+                            value={point}
+                            onChange={(e) => updatePainPoint(index, e.target.value)}
+                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            placeholder={
+                              index === 0
+                                ? "Describe your biggest challenge..."
+                                : "Another key challenge..."
+                            }
+                          />
+                        </div>
+                      ))}
+                      <button
+                        type="button"
+                        onClick={addPainPoint}
+                        className="flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors"
+                      >
+                        <Plus className="w-4 h-4" />
+                        Add another pain point
+                      </button>
                     </div>
 
                     {/* Timeline & Budget */}
@@ -978,11 +1027,11 @@ const EnhancedContactPage = () => {
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         >
                           <option value="">Select timeline...</option>
-                          <option value="asap">ASAP (1-2 months)</option>
-                          <option value="quarter">This Quarter</option>
-                          <option value="6months">Next 6 months</option>
-                          <option value="year">Within a year</option>
-                          <option value="flexible">Flexible</option>
+                          <option value="30days">Within 30 days</option>
+                          <option value="1-3months">1-3 months</option>
+                          <option value="3-6months">3-6 months</option>
+                          <option value="6-12months">6-12 months</option>
+                          <option value="no-timeline">No specific timeline</option>
                         </select>
                       </div>
                       <div>
@@ -1000,12 +1049,12 @@ const EnhancedContactPage = () => {
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         >
                           <option value="">Select budget...</option>
-                          <option value="under25k">Under $25,000</option>
-                          <option value="25k-50k">$25,000 - $50,000</option>
-                          <option value="50k-100k">$50,000 - $100,000</option>
-                          <option value="100k-250k">$100,000 - $250,000</option>
-                          <option value="250k+">$250,000+</option>
-                          <option value="tbd">To Be Determined</option>
+                          <option value="under5k">Under $5,000</option>
+                          <option value="5k-15k">$5,000 - $15,000</option>
+                          <option value="15k-30k">$15,000 - $30,000</option>
+                          <option value="30k-50k">$30,000 - $50,000</option>
+                          <option value="50k+">$50,000+</option>
+                          <option value="tbd">Not sure yet</option>
                         </select>
                       </div>
                     </div>

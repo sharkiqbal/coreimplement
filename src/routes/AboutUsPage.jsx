@@ -353,7 +353,14 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <Action />
+      <Action
+        headingBefore="Ready to Work "
+        headingHighlight="Together"
+        headingAfter="?"
+        subtext="You've met the team behind Core Implementations. Let's talk about what AI automation could look like inside your business."
+        secondaryLabel="See Case Studies"
+        secondaryTo="/case-studies"
+      />
       <Footer />
     </div>
   );

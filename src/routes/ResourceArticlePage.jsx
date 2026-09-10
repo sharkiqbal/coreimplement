@@ -207,7 +207,14 @@ const ResourceArticlePage = () => {
         </div>
       </section>
 
-      <Action />
+      <Action
+        headingBefore="Enjoyed This "
+        headingHighlight="Article"
+        headingAfter="?"
+        subtext="Let's talk about how this applies to your business, and what automation could realistically save you."
+        secondaryLabel="Read More Articles"
+        secondaryTo="/resources"
+      />
       <Footer />
     </div>
   );

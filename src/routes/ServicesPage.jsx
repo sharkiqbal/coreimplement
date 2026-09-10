@@ -494,7 +494,14 @@ const ServicesPage = () => {
         })
       )}
 
-      <Action />
+      <Action
+        headingBefore="Ready to "
+        headingHighlight="Automate"
+        headingAfter=" Your Business?"
+        subtext="Tell us what's slowing your team down, and we'll show you exactly how automation could help."
+        secondaryLabel="See Case Studies"
+        secondaryTo="/case-studies"
+      />
       <Footer />
     </div>
   );
