@@ -17,6 +17,7 @@ import {
 import { addContactSubmission } from "../service/contactService";
 import { addRFPSubmission, uploadRFPAttachment } from "../service/rfpService";
 import { HONEYPOT_FIELD, isLikelySpam } from "../utils/spamGuard";
+import { isValidEmail } from "../utils/validation";
 import Footer from "../component/Footer";
 import Navigation from "../component/Navigation";
 import SEO from "../component/SEO";
@@ -185,6 +186,7 @@ const EnhancedContactPage = () => {
   const setActiveTab = (tab) => setSearchParams({ tab });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [rfpSubmitSuccess, setRfpSubmitSuccess] = useState(false);
   const [selectedMeetingType, setSelectedMeetingType] = useState(null);
   const [contactForm, setContactForm] = useState({
     name: "",
@@ -194,6 +196,8 @@ const EnhancedContactPage = () => {
     projectType: "",
     message: "",
   });
+  const [contactEmailError, setContactEmailError] = useState("");
+  const [rfpEmailError, setRfpEmailError] = useState("");
 
   // RFP Form State
   const [rfpForm, setRFPForm] = useState({
@@ -254,19 +258,25 @@ const EnhancedContactPage = () => {
   const handleContactSubmit = async (e) => {
     e.preventDefault();
     if (isSubmitting) return;
+    setContactEmailError("");
+
+    if (
+      !contactForm.name.trim() ||
+      !contactForm.email.trim() ||
+      !contactForm.message.trim()
+    ) {
+      alert("Please fill in all required fields");
+      return;
+    }
+
+    if (!isValidEmail(contactForm.email)) {
+      setContactEmailError("Please enter a valid email address.");
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
-      if (
-        !contactForm.name.trim() ||
-        !contactForm.email.trim() ||
-        !contactForm.message.trim()
-      ) {
-        alert("Please fill in all required fields");
-        setIsSubmitting(false);
-        return;
-      }
-
       // Bots trip the honeypot or submit faster than a human could; fake a
       // normal success so they don't retry with a different approach.
       if (
@@ -289,8 +299,6 @@ const EnhancedContactPage = () => {
       });
       setContactHoneypot("");
       contactFormLoadedAt.current = Date.now();
-
-      setTimeout(() => setSubmitSuccess(false), 5000);
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("Failed to submit form. Please try again.");
@@ -302,24 +310,30 @@ const EnhancedContactPage = () => {
   const handleRFPSubmit = async (e) => {
     e.preventDefault();
     if (isSubmitting) return;
-    setIsSubmitting(true);
     setAttachmentError("");
+    setRfpEmailError("");
+
+    const cleanedPainPoints = rfpForm.painPoints
+      .map((p) => p.trim())
+      .filter(Boolean);
+
+    if (
+      !rfpForm.name.trim() ||
+      !rfpForm.email.trim() ||
+      cleanedPainPoints.length === 0
+    ) {
+      alert("Please fill in all required fields");
+      return;
+    }
+
+    if (!isValidEmail(rfpForm.email)) {
+      setRfpEmailError("Please enter a valid email address.");
+      return;
+    }
+
+    setIsSubmitting(true);
 
     try {
-      const cleanedPainPoints = rfpForm.painPoints
-        .map((p) => p.trim())
-        .filter(Boolean);
-
-      if (
-        !rfpForm.name.trim() ||
-        !rfpForm.email.trim() ||
-        cleanedPainPoints.length === 0
-      ) {
-        alert("Please fill in all required fields");
-        setIsSubmitting(false);
-        return;
-      }
-
       if (
         !isLikelySpam({
           honeypotValue: rfpHoneypot,
@@ -350,7 +364,7 @@ const EnhancedContactPage = () => {
         });
       }
 
-      setSubmitSuccess(true);
+      setRfpSubmitSuccess(true);
       setRFPForm({
         name: "",
         email: "",
@@ -365,8 +379,6 @@ const EnhancedContactPage = () => {
       setRfpAttachment(null);
       setRfpHoneypot("");
       rfpFormLoadedAt.current = Date.now();
-
-      setTimeout(() => setSubmitSuccess(false), 5000);
     } catch (error) {
       console.error("Error submitting RFP:", error);
       alert("Failed to submit RFP. Please try again.");
@@ -524,7 +536,7 @@ const EnhancedContactPage = () => {
                       Business Hours
                     </div>
                     <div className="text-gray-600 text-sm sm:text-base">
-                      Monday - Friday: 9AM - 6PM CST
+                      Monday - Friday: 8AM - 6PM CST
                     </div>
                   </div>
                 </div>
@@ -550,20 +562,28 @@ const EnhancedContactPage = () => {
                     Send Us a Message
                   </h3>
 
-                  {submitSuccess && (
-                    <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-                      <div className="flex items-center text-green-800">
-                        <CheckCircle className="w-5 h-5 mr-2" />
-                        <p className="font-semibold">
-                          Message sent successfully!
-                        </p>
+                  {submitSuccess ? (
+                    <div className="text-center py-8 sm:py-12">
+                      <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <CheckCircle className="w-8 h-8 text-green-600" />
                       </div>
-                      <p className="text-sm text-green-700 mt-1">
-                        We'll get back to you within 24 hours.
+                      <p className="text-xl font-bold text-gray-900 mb-2">
+                        Message sent successfully!
                       </p>
+                      <p className="text-gray-600 mb-6">
+                        Thanks for reaching out. We've emailed you a
+                        confirmation and will get back to you within 24
+                        hours.
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() => setSubmitSuccess(false)}
+                        className="inline-flex items-center justify-center px-6 py-3 rounded-lg text-sm font-semibold text-blue-600 border-2 border-blue-600 hover:bg-blue-50 transition-colors"
+                      >
+                        Send Another Message
+                      </button>
                     </div>
-                  )}
-
+                  ) : (
                   <form onSubmit={handleContactSubmit} className="space-y-6">
                     {/* Honeypot - hidden from real users, bots that auto-fill every field will trip it */}
                     <div
@@ -630,15 +650,25 @@ const EnhancedContactPage = () => {
                           type="email"
                           required
                           value={contactForm.email}
-                          onChange={(e) =>
+                          onChange={(e) => {
                             setContactForm({
                               ...contactForm,
                               email: e.target.value,
-                            })
-                          }
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            });
+                            if (contactEmailError) setContactEmailError("");
+                          }}
+                          className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 ${
+                            contactEmailError
+                              ? "border-red-400"
+                              : "border-gray-300 focus:border-blue-500"
+                          }`}
                           placeholder="john@company.com"
                         />
+                        {contactEmailError && (
+                          <p className="mt-1.5 text-sm text-red-600">
+                            {contactEmailError}
+                          </p>
+                        )}
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -717,6 +747,7 @@ const EnhancedContactPage = () => {
                       {isSubmitting ? "Sending..." : "Send Message"}
                     </button>
                   </form>
+                  )}
                 </div>
               )}
 
@@ -843,21 +874,28 @@ const EnhancedContactPage = () => {
                     and we'll respond with a comprehensive proposal.
                   </p>
 
-                  {submitSuccess && (
-                    <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-                      <div className="flex items-center text-green-800">
-                        <CheckCircle className="w-5 h-5 mr-2" />
-                        <p className="font-semibold">
-                          RFP submitted successfully!
-                        </p>
+                  {rfpSubmitSuccess ? (
+                    <div className="text-center py-8 sm:py-12">
+                      <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <CheckCircle className="w-8 h-8 text-green-600" />
                       </div>
-                      <p className="text-sm text-green-700 mt-1">
-                        We'll review your requirements and respond within 48
-                        hours.
+                      <p className="text-xl font-bold text-gray-900 mb-2">
+                        RFP submitted successfully!
                       </p>
+                      <p className="text-gray-600 mb-6">
+                        Thanks for the detailed brief. We've emailed you a
+                        confirmation and will respond with a proposal within
+                        48 hours.
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() => setRfpSubmitSuccess(false)}
+                        className="inline-flex items-center justify-center px-6 py-3 rounded-lg text-sm font-semibold text-blue-600 border-2 border-blue-600 hover:bg-blue-50 transition-colors"
+                      >
+                        Submit Another RFP
+                      </button>
                     </div>
-                  )}
-
+                  ) : (
                   <form onSubmit={handleRFPSubmit} className="space-y-6">
                     {/* Honeypot - hidden from real users, bots that auto-fill every field will trip it */}
                     <div
@@ -902,12 +940,22 @@ const EnhancedContactPage = () => {
                           type="email"
                           required
                           value={rfpForm.email}
-                          onChange={(e) =>
-                            setRFPForm({ ...rfpForm, email: e.target.value })
-                          }
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                          onChange={(e) => {
+                            setRFPForm({ ...rfpForm, email: e.target.value });
+                            if (rfpEmailError) setRfpEmailError("");
+                          }}
+                          className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 ${
+                            rfpEmailError
+                              ? "border-red-400"
+                              : "border-gray-300 focus:border-blue-500"
+                          }`}
                           placeholder="john@company.com"
                         />
+                        {rfpEmailError && (
+                          <p className="mt-1.5 text-sm text-red-600">
+                            {rfpEmailError}
+                          </p>
+                        )}
                       </div>
                     </div>
 
@@ -1145,6 +1193,7 @@ const EnhancedContactPage = () => {
                       </p>
                     </div>
                   </form>
+                  )}
                 </div>
               )}
             </div>

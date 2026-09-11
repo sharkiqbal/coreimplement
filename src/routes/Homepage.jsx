@@ -18,7 +18,8 @@ import {
   FileText,
   Mail,
   BarChart3,
-  PlugZap,
+  Cloud,
+  FileSpreadsheet,
   AlertTriangle,
   Bell,
 } from "lucide-react";
@@ -29,6 +30,13 @@ import Footer from "../component/Footer";
 import Navigation from "../component/Navigation";
 import Action from "../component/Action";
 import SEO from "../component/SEO";
+import {
+  QuickBooksIcon,
+  HubSpotIcon,
+  GmailIcon,
+  GoogleSheetsIcon,
+  CalendlyIcon,
+} from "../component/icons/BrandIcons";
 
 // Homepage Component
 const Homepage = () => {
@@ -79,7 +87,7 @@ const Homepage = () => {
       description:
         "We start with a no-cost conversation to learn how your business actually runs day to day, your workflows, your tools, and where things slow you down.",
       bullets: [
-        "30-minute call at a time that works for you",
+        "20-minute call at a time that works for you",
         "We ask about your current processes and pain points",
         "No sales pitch, just listening",
       ],
@@ -154,12 +162,14 @@ const Homepage = () => {
 
   // Tools we commonly integrate with
   const integrationTools = [
-    "QuickBooks",
-    "HubSpot",
-    "Salesforce",
-    "Gmail & Outlook",
-    "Google Sheets & Excel",
-    "Calendly",
+    { name: "QuickBooks", Icon: QuickBooksIcon, color: "#2CA01C" },
+    { name: "HubSpot", Icon: HubSpotIcon, color: "#FF7A59" },
+    { name: "Salesforce", Icon: Cloud, color: "#00A1E0" },
+    { name: "Gmail", Icon: GmailIcon, color: "#EA4335" },
+    { name: "Outlook", Icon: Mail, color: "#0078D4" },
+    { name: "Google Sheets", Icon: GoogleSheetsIcon, color: "#34A853" },
+    { name: "Excel", Icon: FileSpreadsheet, color: "#217346" },
+    { name: "Calendly", Icon: CalendlyIcon, color: "#006BFF" },
   ];
 
   useEffect(() => {
@@ -696,14 +706,17 @@ const Homepage = () => {
                 industry-leading AI models under the hood.
               </p>
               <div className="flex flex-wrap gap-2 sm:gap-3 mb-5 sm:mb-6">
-                {integrationTools.map((tool, index) => (
+                {integrationTools.map((tool) => (
                   <div
-                    key={index}
+                    key={tool.name}
                     className="flex items-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-4 sm:py-2.5 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md hover:border-indigo-200 transition-all"
                   >
-                    <PlugZap className="w-4 h-4 text-indigo-500" />
+                    <tool.Icon
+                      className="w-4 h-4 flex-shrink-0"
+                      style={{ color: tool.color }}
+                    />
                     <span className="text-xs sm:text-sm font-semibold text-gray-700">
-                      {tool}
+                      {tool.name}
                     </span>
                   </div>
                 ))}

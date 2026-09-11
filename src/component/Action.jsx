@@ -109,7 +109,7 @@ const Action = ({
                   />
                 </svg>
               </div>
-              <span className="font-semibold">Free 30-min Consultation</span>
+              <span className="font-semibold">Free 20-min Consultation</span>
             </div>
             <div className="flex items-center gap-1.5 sm:gap-2">
               <div className="w-7 h-7 sm:w-10 sm:h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/30 flex-shrink-0">

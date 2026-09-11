@@ -38,7 +38,7 @@ const row = (label, value) =>
       </tr>`
     : "";
 
-async function sendEmail({ apiKey, subject, html }) {
+async function sendEmail({ apiKey, to, subject, html }) {
   const response = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
@@ -47,7 +47,7 @@ async function sendEmail({ apiKey, subject, html }) {
     },
     body: JSON.stringify({
       from: FROM_EMAIL,
-      to: [ADMIN_EMAIL],
+      to: Array.isArray(to) ? to : [to],
       subject,
       html,
     }),
@@ -57,6 +57,24 @@ async function sendEmail({ apiKey, subject, html }) {
     const text = await response.text();
     throw new Error(`Resend API error (${response.status}): ${text}`);
   }
+}
+
+// Very loose shape check - just enough to avoid firing a confirmation email
+// at an obviously malformed address that slipped past client-side validation.
+const looksLikeEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value || "");
+
+function confirmationWrapper(bodyHtml) {
+  return `
+    <div style="font-family:sans-serif;max-width:560px;margin:0 auto;">
+      <h2 style="color:#1d4ed8;margin-bottom:4px;">Core Implement</h2>
+      ${bodyHtml}
+      <p style="color:#9ca3af;font-size:12px;margin-top:24px;">
+        This is an automated confirmation, no need to reply. If you have
+        follow-up questions, reach us at
+        <a href="mailto:hello@coreimplement.com" style="color:#1d4ed8;">hello@coreimplement.com</a>.
+      </p>
+    </div>
+  `;
 }
 
 exports.onContactSubmissionCreated = onDocumentCreated(
@@ -84,11 +102,35 @@ exports.onContactSubmissionCreated = onDocumentCreated(
     try {
       await sendEmail({
         apiKey: RESEND_API_KEY.value(),
+        to: ADMIN_EMAIL,
         subject: `New contact message from ${data.name || "a visitor"}`,
         html,
       });
     } catch (error) {
       logger.error("Failed to send contact notification email:", error);
+    }
+
+    if (looksLikeEmail(data.email)) {
+      const confirmationHtml = confirmationWrapper(`
+        <p style="color:#111827;font-size:15px;">Hi ${escapeHtml(data.name || "there")},</p>
+        <p style="color:#111827;font-size:15px;">
+          Thanks for reaching out! We've received your message and someone
+          from our team will get back to you within 24 hours.
+        </p>
+        <p style="color:#6b7280;font-size:13px;margin-top:20px;margin-bottom:6px;">Your message</p>
+        <div style="background:#f9fafb;padding:12px;border-radius:8px;white-space:pre-wrap;color:#111827;font-size:14px;">${escapeHtml(data.message)}</div>
+      `);
+
+      try {
+        await sendEmail({
+          apiKey: RESEND_API_KEY.value(),
+          to: data.email,
+          subject: "We received your message - Core Implement",
+          html: confirmationHtml,
+        });
+      } catch (error) {
+        logger.error("Failed to send contact confirmation email:", error);
+      }
     }
   }
 );
@@ -151,11 +193,35 @@ exports.onRFPSubmissionCreated = onDocumentCreated(
     try {
       await sendEmail({
         apiKey: RESEND_API_KEY.value(),
+        to: ADMIN_EMAIL,
         subject: `New RFP from ${data.name || "a visitor"}${data.company ? ` (${data.company})` : ""}`,
         html,
       });
     } catch (error) {
       logger.error("Failed to send RFP notification email:", error);
+    }
+
+    if (looksLikeEmail(data.email)) {
+      const confirmationHtml = confirmationWrapper(`
+        <p style="color:#111827;font-size:15px;">Hi ${escapeHtml(data.name || "there")},</p>
+        <p style="color:#111827;font-size:15px;">
+          Thanks for submitting your RFP${data.company ? ` for ${escapeHtml(data.company)}` : ""}!
+          We're reviewing your requirements now and will follow up with a
+          detailed proposal, including timelines, pricing, and our
+          recommended approach, within 48 hours.
+        </p>
+      `);
+
+      try {
+        await sendEmail({
+          apiKey: RESEND_API_KEY.value(),
+          to: data.email,
+          subject: "We received your RFP - Core Implement",
+          html: confirmationHtml,
+        });
+      } catch (error) {
+        logger.error("Failed to send RFP confirmation email:", error);
+      }
     }
   }
 );

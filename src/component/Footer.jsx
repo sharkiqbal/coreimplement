@@ -137,7 +137,7 @@ const Footer = () => {
                     Business hours
                   </p>
                   <span className="text-gray-300 font-medium text-sm sm:text-base">
-                    Mon-Fri 9AM-6PM CST
+                    Mon-Fri 8AM-6PM CST
                   </span>
                 </div>
               </div>
