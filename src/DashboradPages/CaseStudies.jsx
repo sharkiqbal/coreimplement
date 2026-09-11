@@ -242,7 +242,7 @@ const CaseStudiesTab = () => {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-600 mx-auto"></div>
           <p className="mt-4 text-gray-600">Loading case studies...</p>
         </div>
       </div>
@@ -264,7 +264,7 @@ const CaseStudiesTab = () => {
           </div>
           <button
             onClick={openAddModal}
-            className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-bold hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            className="flex items-center gap-2 bg-gradient-to-r from-brand-600 to-brand-700 text-white px-6 py-3 rounded-xl font-bold hover:from-brand-700 hover:to-brand-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
           >
             <Plus className="w-5 h-5" />
             Add Case Study
@@ -298,7 +298,7 @@ const CaseStudiesTab = () => {
                           </div>
                         );
                       })()}
-                    <span className="px-3 py-1 text-xs font-bold rounded-full bg-blue-100 text-blue-700">
+                    <span className="px-3 py-1 text-xs font-bold rounded-full bg-brand-100 text-brand-700">
                       {caseStudy.industryType}
                     </span>
                   </div>
@@ -359,7 +359,7 @@ const CaseStudiesTab = () => {
                         </li>
                       ))}
                       {caseStudy.results.length > 3 && (
-                        <li className="text-xs text-blue-600 font-medium">
+                        <li className="text-xs text-brand-600 font-medium">
                           +{caseStudy.results.length - 3} more results
                         </li>
                       )}
@@ -405,7 +405,7 @@ const CaseStudiesTab = () => {
                   Industry Type *
                 </label>
                 <select
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all"
                   value={caseStudyForm.industryType}
                   onChange={(e) =>
                     handleInputChange("industryType", e.target.value)
@@ -435,7 +435,7 @@ const CaseStudiesTab = () => {
                         onClick={() => handleInputChange("logoId", logo.id)}
                         className={`p-3 rounded-xl border-2 flex items-center justify-center transition-all ${
                           caseStudyForm.logoId === logo.id
-                            ? "border-blue-500 bg-blue-50"
+                            ? "border-brand-500 bg-brand-50"
                             : "border-gray-200 hover:border-gray-300"
                         }`}
                         title={logo.name}
@@ -453,7 +453,7 @@ const CaseStudiesTab = () => {
                   Related Service
                 </label>
                 <select
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all"
                   value={caseStudyForm.relatedService}
                   onChange={(e) =>
                     handleInputChange("relatedService", e.target.value)
@@ -476,7 +476,7 @@ const CaseStudiesTab = () => {
                 <input
                   type="text"
                   placeholder="e.g., Invoice Processing Automation"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all"
                   value={caseStudyForm.projectName}
                   onChange={(e) =>
                     handleInputChange("projectName", e.target.value)
@@ -492,7 +492,7 @@ const CaseStudiesTab = () => {
                 <input
                   type="text"
                   placeholder="e.g., Local Manufacturing Company"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all"
                   value={caseStudyForm.companyName}
                   onChange={(e) =>
                     handleInputChange("companyName", e.target.value)
@@ -508,7 +508,7 @@ const CaseStudiesTab = () => {
                 <textarea
                   placeholder="Describe the challenge the client was facing..."
                   rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all"
                   value={caseStudyForm.challenge}
                   onChange={(e) =>
                     handleInputChange("challenge", e.target.value)
@@ -524,7 +524,7 @@ const CaseStudiesTab = () => {
                 <textarea
                   placeholder="Describe the solution you implemented..."
                   rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all"
                   value={caseStudyForm.solution}
                   onChange={(e) =>
                     handleInputChange("solution", e.target.value)
@@ -544,7 +544,7 @@ const CaseStudiesTab = () => {
                       <input
                         type="text"
                         placeholder={`Result ${index + 1}`}
-                        className="flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                        className="flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all"
                         value={result}
                         onChange={(e) =>
                           handleResultChange(index, e.target.value)
@@ -564,7 +564,7 @@ const CaseStudiesTab = () => {
                   <button
                     type="button"
                     onClick={handleAddResult}
-                    className="mt-2 text-sm text-blue-600 hover:text-blue-800 font-medium flex items-center gap-1"
+                    className="mt-2 text-sm text-brand-600 hover:text-brand-800 font-medium flex items-center gap-1"
                   >
                     <Plus className="w-4 h-4" /> Add Another Result
                   </button>
@@ -579,7 +579,7 @@ const CaseStudiesTab = () => {
                 <input
                   type="text"
                   placeholder="e.g., 8-12 weeks"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all"
                   value={caseStudyForm.timeline}
                   onChange={(e) =>
                     handleInputChange("timeline", e.target.value)
@@ -600,7 +600,7 @@ const CaseStudiesTab = () => {
                   type="button"
                   onClick={handleSaveCaseStudy}
                   disabled={isSubmitting}
-                  className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-bold hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-brand-600 to-brand-700 text-white px-6 py-3 rounded-xl font-bold hover:from-brand-700 hover:to-brand-800 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Save className="w-5 h-5" />
                   {isSubmitting

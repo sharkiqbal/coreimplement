@@ -140,7 +140,7 @@ const BlogTab = () => {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-600 mx-auto"></div>
           <p className="mt-4 text-gray-600">Loading blog posts...</p>
         </div>
       </div>
@@ -162,7 +162,7 @@ const BlogTab = () => {
           </div>
           <button
             onClick={openAddModal}
-            className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-bold hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            className="flex items-center gap-2 bg-gradient-to-r from-brand-600 to-brand-700 text-white px-6 py-3 rounded-xl font-bold hover:from-brand-700 hover:to-brand-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
           >
             <Plus className="w-5 h-5" />
             Add Blog Post
@@ -186,7 +186,7 @@ const BlogTab = () => {
             >
               <div className="p-6">
                 <div className="flex items-start justify-between mb-4">
-                  <span className="px-3 py-1 text-xs font-bold rounded-full bg-blue-100 text-blue-700">
+                  <span className="px-3 py-1 text-xs font-bold rounded-full bg-brand-100 text-brand-700">
                     {blog.blogType}
                   </span>
                   <div className="flex gap-2">
@@ -254,7 +254,7 @@ const BlogTab = () => {
                   Blog Type *
                 </label>
                 <select
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all"
                   value={blogForm.blogType}
                   onChange={(e) =>
                     handleInputChange("blogType", e.target.value)
@@ -277,7 +277,7 @@ const BlogTab = () => {
                 <input
                   type="text"
                   placeholder="e.g., 5 Ways AI Saves Time in Your Business"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all"
                   value={blogForm.blogName}
                   onChange={(e) =>
                     handleInputChange("blogName", e.target.value)
@@ -293,7 +293,7 @@ const BlogTab = () => {
                 <textarea
                   placeholder="Brief summary of the blog post (shown in preview)"
                   rows={3}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all"
                   value={blogForm.description}
                   onChange={(e) =>
                     handleInputChange("description", e.target.value)
@@ -309,7 +309,7 @@ const BlogTab = () => {
                 <input
                   type="text"
                   placeholder="e.g., 5 min read"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all"
                   value={blogForm.readTime}
                   onChange={(e) =>
                     handleInputChange("readTime", e.target.value)
@@ -325,7 +325,7 @@ const BlogTab = () => {
                 <textarea
                   placeholder="Write your blog post content here..."
                   rows={12}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all font-mono text-sm"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all font-mono text-sm"
                   value={blogForm.content}
                   onChange={(e) => handleInputChange("content", e.target.value)}
                 />
@@ -347,7 +347,7 @@ const BlogTab = () => {
                   type="button"
                   onClick={handleSaveBlog}
                   disabled={isSubmitting}
-                  className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-bold hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-brand-600 to-brand-700 text-white px-6 py-3 rounded-xl font-bold hover:from-brand-700 hover:to-brand-800 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Save className="w-5 h-5" />
                   {isSubmitting

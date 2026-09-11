@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import {
-  BrainCircuit,
   BookOpen,
   BarChart3,
   Inbox,
@@ -16,6 +15,7 @@ import { getAllContactSubmissions } from "../service/contactService";
 import { getAllRFPSubmissions } from "../service/rfpService";
 import { ToastProvider } from "../context/ToastContext";
 import LogoutButton from "../component/LogoutButton";
+import { LogoMark } from "../component/Logo";
 
 import OverviewTab from "../DashboradPages/Overview";
 import CompanyProfileTab from "../DashboradPages/CompanyProfile";
@@ -26,7 +26,7 @@ import CaseStudiesTab from "../DashboradPages/CaseStudies";
 import ReviewsTab from "../DashboradPages/Reviews";
 
 const AdminDashboardInner = () => {
-  const [companyName, setCompanyName] = useState("Core Implementations");
+  const [companyName, setCompanyName] = useState("Core Implement");
   const [activeTab, setActiveTab] = useState("overview");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [newLeadsCount, setNewLeadsCount] = useState(0);
@@ -96,14 +96,8 @@ const AdminDashboardInner = () => {
         <div className="flex items-center justify-between">
           {isSidebarOpen ? (
             <div className="flex items-center space-x-3 group cursor-pointer">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity"></div>
-                <div className="relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-2 transform group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <BrainCircuit
-                    className="w-8 h-8 text-white"
-                    strokeWidth={1.5}
-                  />
-                </div>
+              <div className="relative p-2 transform group-hover:scale-110 transition-transform duration-300">
+                <LogoMark className="w-8 h-8" />
               </div>
               <div>
                 <h2 className="font-bold text-gray-900 text-lg">
@@ -115,14 +109,8 @@ const AdminDashboardInner = () => {
               </div>
             </div>
           ) : (
-            <div className="relative group cursor-pointer mx-auto">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity"></div>
-              <div className="relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-2 transform group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                <BrainCircuit
-                  className="w-8 h-8 text-white"
-                  strokeWidth={1.5}
-                />
-              </div>
+            <div className="relative group cursor-pointer mx-auto p-2 transform group-hover:scale-110 transition-transform duration-300">
+              <LogoMark className="w-8 h-8" />
             </div>
           )}
         </div>
@@ -157,7 +145,7 @@ const AdminDashboardInner = () => {
             onClick={() => setActiveTab(item.id)}
             className={`relative w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-200 ${
               activeTab === item.id
-                ? "bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-lg transform scale-105"
+                ? "bg-gradient-to-r from-brand-500 to-brand-600 text-white shadow-lg transform scale-105"
                 : "text-gray-600 hover:bg-gray-100 hover:scale-102"
             }`}
           >

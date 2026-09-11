@@ -4,14 +4,14 @@ import {
   Phone,
   Mail,
   Clock,
-  BrainCircuit,
   ArrowRight,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { getCompanyProfile } from "../service/companyProfileService";
+import { LogoMark } from "./Logo";
 
 const Footer = () => {
-  const [companyName, setCompanyName] = useState("Core Implementations");
+  const [companyName, setCompanyName] = useState("Core Implement");
 
   // Load company name from Firebase
   useEffect(() => {
@@ -34,9 +34,9 @@ const Footer = () => {
     <footer className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-20">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-blue-600 rounded-full mix-blend-overlay filter blur-3xl opacity-30 animate-pulse"></div>
+        <div className="absolute top-20 left-10 w-96 h-96 bg-brand-600 rounded-full mix-blend-overlay filter blur-3xl opacity-30 animate-pulse"></div>
         <div
-          className="absolute bottom-20 right-10 w-96 h-96 bg-indigo-600 rounded-full mix-blend-overlay filter blur-3xl opacity-30 animate-pulse"
+          className="absolute bottom-20 right-10 w-96 h-96 bg-brand-700 rounded-full mix-blend-overlay filter blur-3xl opacity-30 animate-pulse"
           style={{ animationDelay: "1s" }}
         ></div>
       </div>
@@ -46,14 +46,8 @@ const Footer = () => {
           {/* Company Info */}
           <div className="sm:col-span-2 md:col-span-1">
             <div className="flex items-center gap-3 mb-3 sm:mb-4">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-75"></div>
-                <div className="relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-2">
-                  <BrainCircuit
-                    className="w-7 h-7 sm:w-8 sm:h-8 text-white"
-                    strokeWidth={1.5}
-                  />
-                </div>
+              <div className="relative p-2">
+                <LogoMark className="w-7 h-7 sm:w-8 sm:h-8" dark />
               </div>
               <h3 className="text-lg sm:text-xl font-bold">{companyName}</h3>
             </div>
@@ -104,10 +98,10 @@ const Footer = () => {
             <div className="space-y-3 sm:space-y-4">
               <a
                 href="tel:+12484534597"
-                className="group flex items-center gap-3 hover:text-blue-400 transition-colors"
+                className="group flex items-center gap-3 hover:text-brand-400 transition-colors"
               >
-                <div className="w-9 h-9 sm:w-10 sm:h-10 bg-white/5 rounded-lg flex items-center justify-center group-hover:bg-blue-600/20 transition-colors flex-shrink-0">
-                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-blue-400 transition-colors" />
+                <div className="w-9 h-9 sm:w-10 sm:h-10 bg-white/5 rounded-lg flex items-center justify-center group-hover:bg-brand-600/20 transition-colors flex-shrink-0">
+                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-brand-400 transition-colors" />
                 </div>
                 <div>
                   <p className="hidden sm:block text-xs text-gray-500 mb-1">
@@ -120,10 +114,10 @@ const Footer = () => {
               </a>
               <a
                 href="mailto:hello@coreimplement.com"
-                className="group flex items-center gap-3 hover:text-blue-400 transition-colors"
+                className="group flex items-center gap-3 hover:text-brand-400 transition-colors"
               >
-                <div className="w-9 h-9 sm:w-10 sm:h-10 bg-white/5 rounded-lg flex items-center justify-center group-hover:bg-blue-600/20 transition-colors flex-shrink-0">
-                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-blue-400 transition-colors" />
+                <div className="w-9 h-9 sm:w-10 sm:h-10 bg-white/5 rounded-lg flex items-center justify-center group-hover:bg-brand-600/20 transition-colors flex-shrink-0">
+                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-brand-400 transition-colors" />
                 </div>
                 <div>
                   <p className="hidden sm:block text-xs text-gray-500 mb-1">

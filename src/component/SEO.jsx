@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 
-const SITE_NAME = "Core Implementations";
+const SITE_NAME = "Core Implement";
 const SITE_URL = "https://coreimplement.com";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
 

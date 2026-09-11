@@ -203,7 +203,7 @@ const ServicesTab = () => {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-600 mx-auto"></div>
           <p className="mt-4 text-gray-600">Loading services...</p>
         </div>
       </div>
@@ -225,7 +225,7 @@ const ServicesTab = () => {
           </div>
           <button
             onClick={openAddModal}
-            className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-bold hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            className="flex items-center gap-2 bg-gradient-to-r from-brand-600 to-brand-700 text-white px-6 py-3 rounded-xl font-bold hover:from-brand-700 hover:to-brand-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
           >
             <Plus className="w-5 h-5" />
             Add Service
@@ -250,7 +250,7 @@ const ServicesTab = () => {
                 className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-all"
               >
                 <div className="flex items-start justify-between mb-4">
-                  <div className="bg-gradient-to-br from-blue-500 to-indigo-600 p-3 rounded-xl shadow-lg">
+                  <div className="bg-gradient-to-br from-brand-500 to-brand-700 p-3 rounded-xl shadow-lg">
                     <IconComponent className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex gap-2">
@@ -297,7 +297,7 @@ const ServicesTab = () => {
                         key={idx}
                         className="text-xs text-gray-600 flex items-start"
                       >
-                        <span className="text-blue-600 mr-2">•</span>
+                        <span className="text-brand-600 mr-2">•</span>
                         <span>{point}</span>
                       </li>
                     ))}
@@ -334,7 +334,7 @@ const ServicesTab = () => {
                 <input
                   type="text"
                   placeholder="e.g., AI Strategy Consultation"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all"
                   value={serviceForm.name}
                   onChange={(e) => handleInputChange("name", e.target.value)}
                 />
@@ -355,14 +355,14 @@ const ServicesTab = () => {
                         onClick={() => setSelectedLogo(logo.id)}
                         className={`p-4 rounded-xl border-2 transition-all ${
                           selectedLogo === logo.id
-                            ? "border-blue-600 bg-blue-50"
+                            ? "border-brand-600 bg-brand-50"
                             : "border-gray-200 hover:border-gray-300 hover:bg-gray-50"
                         }`}
                       >
                         <IconComponent
                           className={`w-6 h-6 mx-auto ${
                             selectedLogo === logo.id
-                              ? "text-blue-600"
+                              ? "text-brand-600"
                               : "text-gray-600"
                           }`}
                         />
@@ -383,7 +383,7 @@ const ServicesTab = () => {
                 <textarea
                   placeholder="What problem does this service solve?"
                   rows={3}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all"
                   value={serviceForm.problem}
                   onChange={(e) => handleInputChange("problem", e.target.value)}
                 />
@@ -397,7 +397,7 @@ const ServicesTab = () => {
                 <textarea
                   placeholder="How does your service solve this problem?"
                   rows={3}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all"
                   value={serviceForm.solution}
                   onChange={(e) =>
                     handleInputChange("solution", e.target.value)
@@ -413,13 +413,13 @@ const ServicesTab = () => {
                 <div className="space-y-3">
                   {serviceForm.points.map((point, index) => (
                     <div key={index} className="flex items-center gap-3">
-                      <span className="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold">
+                      <span className="flex-shrink-0 w-8 h-8 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center font-bold">
                         {index + 1}
                       </span>
                       <input
                         type="text"
                         placeholder={`Key point ${index + 1}`}
-                        className="flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                        className="flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all"
                         value={point}
                         onChange={(e) =>
                           handlePointChange(index, e.target.value)
@@ -439,7 +439,7 @@ const ServicesTab = () => {
                   <button
                     type="button"
                     onClick={handleAddPoint}
-                    className="mt-2 text-sm text-blue-600 hover:text-blue-800 font-medium flex items-center gap-1"
+                    className="mt-2 text-sm text-brand-600 hover:text-brand-800 font-medium flex items-center gap-1"
                   >
                     <Plus className="w-4 h-4" /> Add Another Point
                   </button>
@@ -459,7 +459,7 @@ const ServicesTab = () => {
                   type="button"
                   onClick={handleSaveService}
                   disabled={isSubmitting}
-                  className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-bold hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-brand-600 to-brand-700 text-white px-6 py-3 rounded-xl font-bold hover:from-brand-700 hover:to-brand-800 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Save className="w-5 h-5" />
                   {isSubmitting

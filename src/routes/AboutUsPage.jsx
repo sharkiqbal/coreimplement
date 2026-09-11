@@ -37,22 +37,22 @@ const AboutPage = () => {
 
   // Gradient colors for team avatars
   const avatarColors = [
-    "from-blue-400 to-blue-600",
+    "from-brand-400 to-brand-600",
     "from-green-400 to-green-600",
     "from-purple-400 to-purple-600",
     "from-orange-400 to-orange-600",
     "from-pink-400 to-pink-600",
-    "from-indigo-400 to-indigo-600",
+    "from-brand-500 to-brand-700",
   ];
 
   // Role colors
   const roleColors = [
-    "text-blue-600",
+    "text-brand-600",
     "text-green-600",
     "text-purple-600",
     "text-orange-600",
     "text-pink-600",
-    "text-indigo-600",
+    "text-brand-700",
   ];
 
   useEffect(() => {
@@ -83,17 +83,17 @@ const AboutPage = () => {
     <div className="pt-16 sm:pt-20">
       <SEO
         title="About Us"
-        description="Meet the team behind Core Implementations, spanning client strategy, operations, engineering, and data science across Houston, Pakistan, and Chicago."
+        description="Meet the team behind Core Implement, spanning client strategy, operations, engineering, and data science across Houston, Pakistan, and Chicago."
         path="/about"
       />
       <Navigation />
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-50 flex items-center overflow-hidden">
+      <section className="relative min-h-[70vh] bg-gradient-to-br from-brand-100 via-brand-200 to-purple-50 flex items-center overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-10 left-10 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-pulse"></div>
+          <div className="absolute top-10 left-10 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-brand-400 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-pulse"></div>
           <div
-            className="absolute top-40 right-10 sm:right-20 w-40 h-40 sm:w-60 sm:h-60 lg:w-80 lg:h-80 bg-indigo-400 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-pulse"
+            className="absolute top-40 right-10 sm:right-20 w-40 h-40 sm:w-60 sm:h-60 lg:w-80 lg:h-80 bg-brand-500 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-pulse"
             style={{ animationDelay: "0.5s" }}
           ></div>
           <div
@@ -111,8 +111,8 @@ const AboutPage = () => {
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-blue-200 mb-4 sm:mb-8">
-            <span className="w-2 h-2 bg-blue-600 rounded-full mr-2 animate-pulse"></span>
+          <div className="inline-flex items-center px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-brand-200 mb-4 sm:mb-8">
+            <span className="w-2 h-2 bg-brand-600 rounded-full mr-2 animate-pulse"></span>
             <span className="text-sm font-medium text-gray-800">
               Empowering Small Businesses
             </span>
@@ -120,8 +120,8 @@ const AboutPage = () => {
 
           {/* Main Heading */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 sm:mb-6 leading-tight drop-shadow-sm">
-            Why Core Implementations{" "}
-            <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+            Why Core Implement{" "}
+            <span className="bg-gradient-to-r from-brand-600 via-brand-700 to-purple-600 bg-clip-text text-transparent">
               Exists
             </span>
           </h1>
@@ -137,7 +137,7 @@ const AboutPage = () => {
           <div className="flex flex-col sm:flex-row gap-2 justify-center items-center px-4">
             <button
               onClick={scrollToTeam}
-              className="group w-full sm:w-auto px-8 py-3.5 sm:px-10 sm:py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-bold text-base sm:text-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 flex items-center justify-center mx-auto"
+              className="group w-full sm:w-auto px-8 py-3.5 sm:px-10 sm:py-4 bg-gradient-to-r from-brand-600 to-brand-700 text-white rounded-xl font-bold text-base sm:text-lg hover:from-brand-700 hover:to-brand-800 transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 flex items-center justify-center mx-auto"
             >
               Learn More
               <svg
@@ -176,7 +176,7 @@ const AboutPage = () => {
 
           {loading ? (
             <div className="text-center py-12">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-600 mx-auto"></div>
               <p className="mt-4 text-gray-600">Loading team members...</p>
             </div>
           ) : teamMembers.length === 0 ? (
@@ -228,7 +228,7 @@ const AboutPage = () => {
                         aria-label={`${member.name} on LinkedIn`}
                         className="inline-block"
                       >
-                        <LinkedinIcon className="w-5 h-5 text-gray-400 hover:text-blue-600 cursor-pointer transition-colors" />
+                        <LinkedinIcon className="w-5 h-5 text-gray-400 hover:text-brand-600 cursor-pointer transition-colors" />
                       </a>
                     )}
                   </div>
@@ -245,8 +245,8 @@ const AboutPage = () => {
           <div className="grid md:grid-cols-2 gap-6 sm:gap-12">
             <div className="bg-white rounded-xl p-5 sm:p-8 shadow-lg hover:shadow-2xl transition-shadow">
               <div className="flex items-center gap-3 sm:block mb-3 sm:mb-6">
-                <div className="bg-blue-100 w-12 h-12 sm:w-16 sm:h-16 rounded-lg flex items-center justify-center sm:mb-6 shadow-md flex-shrink-0">
-                  <Target className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
+                <div className="bg-brand-100 w-12 h-12 sm:w-16 sm:h-16 rounded-lg flex items-center justify-center sm:mb-6 shadow-md flex-shrink-0">
+                  <Target className="w-6 h-6 sm:w-8 sm:h-8 text-brand-600" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
                   Our Mission
@@ -294,8 +294,8 @@ const AboutPage = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8">
             <div className="group">
               <div className="flex items-center gap-3 sm:block mb-2 sm:mb-4">
-                <div className="bg-blue-100 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center sm:mx-auto shadow-lg group-hover:scale-110 transition-transform flex-shrink-0">
-                  <Shield className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
+                <div className="bg-brand-100 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center sm:mx-auto shadow-lg group-hover:scale-110 transition-transform flex-shrink-0">
+                  <Shield className="w-6 h-6 sm:w-8 sm:h-8 text-brand-600" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-900 sm:text-center sm:mt-4 sm:mb-3">
                   Transparency
@@ -357,7 +357,7 @@ const AboutPage = () => {
         headingBefore="Ready to Work "
         headingHighlight="Together"
         headingAfter="?"
-        subtext="You've met the team behind Core Implementations. Let's talk about what AI automation could look like inside your business."
+        subtext="You've met the team behind Core Implement. Let's talk about what AI automation could look like inside your business."
         secondaryLabel="See Case Studies"
         secondaryTo="/case-studies"
       />

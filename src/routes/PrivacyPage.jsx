@@ -19,13 +19,13 @@ const PrivacyPage = () => {
     <div className="pt-16 sm:pt-20">
       <SEO
         title="Privacy Policy"
-        description="How Core Implementations collects, uses, and protects your information."
+        description="How Core Implement collects, uses, and protects your information."
         path="/privacy"
       />
       <Navigation />
 
       {/* Header */}
-      <section className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-12 sm:py-16">
+      <section className="bg-gradient-to-br from-brand-50 via-brand-100 to-purple-50 py-12 sm:py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-3">
             Privacy Policy
@@ -41,7 +41,7 @@ const PrivacyPage = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Section title="Introduction">
             <p>
-              Core Implementations ("we," "us," or "our") operates
+              Core Implement ("we," "us," or "our") operates
               coreimplement.com (the "Site"). This Privacy Policy explains
               what information we collect, how we use it, and the choices
               you have. By using the Site, you agree to the practices
@@ -141,14 +141,14 @@ const PrivacyPage = () => {
 
           <Section title="Contact Us">
             <p>
-              Core Implementations
+              Core Implement
               <br />
               Houston, Texas
               <br />
               Email:{" "}
               <a
                 href="mailto:hello@coreimplement.com"
-                className="text-blue-600 hover:text-blue-700"
+                className="text-brand-600 hover:text-brand-700"
               >
                 hello@coreimplement.com
               </a>
@@ -156,7 +156,7 @@ const PrivacyPage = () => {
               Phone:{" "}
               <a
                 href="tel:+12484534597"
-                className="text-blue-600 hover:text-blue-700"
+                className="text-brand-600 hover:text-brand-700"
               >
                 (248) 453-4597
               </a>

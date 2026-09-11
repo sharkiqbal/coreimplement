@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import {
-  BrainCircuit,
   LayoutDashboard,
   Users,
   FileStack,
@@ -9,6 +8,7 @@ import {
   Receipt,
 } from "lucide-react";
 import { FIRM_NAME } from "./mockData";
+import { LogoMark } from "../../component/Logo";
 
 const NAV_ITEMS = [
   { to: "", label: "Home", icon: LayoutDashboard, end: true },
@@ -26,14 +26,11 @@ const FirmOSLayout = () => {
     >
       <aside className="w-64 flex-shrink-0 bg-slate-900 flex flex-col fixed h-full z-20">
         <div className="p-5 flex items-center gap-2.5 border-b border-slate-800">
-          <div className="relative flex-shrink-0">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl blur opacity-75"></div>
-            <div className="relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl p-1.5">
-              <BrainCircuit className="w-5 h-5 text-white" strokeWidth={1.5} />
-            </div>
+          <div className="relative flex-shrink-0 p-1.5">
+            <LogoMark className="w-5 h-5" dark />
           </div>
           <span className="text-white font-bold text-sm truncate">
-            Core Implementations
+            Core Implement
           </span>
         </div>
 

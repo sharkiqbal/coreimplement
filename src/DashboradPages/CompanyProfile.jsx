@@ -97,7 +97,7 @@ const CompanyProfileTab = () => {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-600 mx-auto"></div>
           <p className="mt-4 text-gray-600">Loading company profile...</p>
         </div>
       </div>
@@ -123,7 +123,7 @@ const CompanyProfileTab = () => {
                 setEditData({ ...companyData });
                 setIsEditing(true);
               }}
-              className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-bold hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              className="flex items-center gap-2 bg-gradient-to-r from-brand-600 to-brand-700 text-white px-6 py-3 rounded-xl font-bold hover:from-brand-700 hover:to-brand-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             >
               <Edit className="w-5 h-5" />
               Edit Profile
@@ -168,7 +168,7 @@ const CompanyProfileTab = () => {
                 onChange={(e) =>
                   setEditData({ ...editData, companyName: e.target.value })
                 }
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all"
                 placeholder="Enter company name"
               />
             ) : (
@@ -190,7 +190,7 @@ const CompanyProfileTab = () => {
                 onChange={(e) =>
                   setEditData({ ...editData, completeProjects: e.target.value })
                 }
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all"
                 placeholder="e.g., 5+"
               />
             ) : (
@@ -212,7 +212,7 @@ const CompanyProfileTab = () => {
                 onChange={(e) =>
                   setEditData({ ...editData, headline: e.target.value })
                 }
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all"
                 placeholder="Enter website headline"
               />
             ) : (
@@ -234,7 +234,7 @@ const CompanyProfileTab = () => {
                 onChange={(e) =>
                   setEditData({ ...editData, description: e.target.value })
                 }
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all"
                 placeholder="Enter company description"
               />
             ) : (
@@ -285,7 +285,7 @@ const CompanyProfileTab = () => {
                 )}
 
                 {/* Avatar */}
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4 shadow-lg">
+                <div className="w-20 h-20 bg-gradient-to-br from-brand-500 to-brand-700 rounded-full flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4 shadow-lg">
                   {member.name
                     ? member.name
                         .split(" ")
@@ -303,7 +303,7 @@ const CompanyProfileTab = () => {
                     onChange={(e) =>
                       updateTeamMember(member.id, "name", e.target.value)
                     }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg mb-3 text-center font-bold focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg mb-3 text-center font-bold focus:ring-2 focus:ring-brand-500"
                     placeholder="Name"
                   />
                 ) : (
@@ -320,11 +320,11 @@ const CompanyProfileTab = () => {
                     onChange={(e) =>
                       updateTeamMember(member.id, "role", e.target.value)
                     }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg mb-3 text-center text-sm focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg mb-3 text-center text-sm focus:ring-2 focus:ring-brand-500"
                     placeholder="Role"
                   />
                 ) : (
-                  <p className="text-sm text-blue-600 font-semibold text-center mb-3">
+                  <p className="text-sm text-brand-600 font-semibold text-center mb-3">
                     {member.role}
                   </p>
                 )}
@@ -337,7 +337,7 @@ const CompanyProfileTab = () => {
                     onChange={(e) =>
                       updateTeamMember(member.id, "location", e.target.value)
                     }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg mb-3 text-center text-sm focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg mb-3 text-center text-sm focus:ring-2 focus:ring-brand-500"
                     placeholder="Location (e.g. Houston, Texas)"
                   />
                 ) : (
@@ -356,7 +356,7 @@ const CompanyProfileTab = () => {
                     onChange={(e) =>
                       updateTeamMember(member.id, "description", e.target.value)
                     }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-brand-500"
                     placeholder="Description"
                   />
                 ) : (
@@ -373,7 +373,7 @@ const CompanyProfileTab = () => {
                     onChange={(e) =>
                       updateTeamMember(member.id, "linkedin", e.target.value)
                     }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg mt-3 text-sm focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg mt-3 text-sm focus:ring-2 focus:ring-brand-500"
                     placeholder="LinkedIn URL (optional)"
                   />
                 ) : (
@@ -382,7 +382,7 @@ const CompanyProfileTab = () => {
                       href={member.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block text-center text-sm text-blue-600 hover:text-blue-700 mt-3"
+                      className="block text-center text-sm text-brand-600 hover:text-brand-700 mt-3"
                     >
                       LinkedIn ↗
                     </a>

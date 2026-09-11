@@ -59,7 +59,7 @@ const OverviewTab = ({ onNavigate }) => {
       onClick={onClick}
       className="group relative bg-white rounded-2xl p-4 shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-100 transform hover:-translate-y-1 cursor-pointer overflow-hidden text-left w-full"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
       <div className="relative flex items-start justify-between mb-3">
         <div
@@ -92,7 +92,7 @@ const OverviewTab = ({ onNavigate }) => {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-600 mx-auto"></div>
           <p className="mt-4 text-gray-600">Loading dashboard...</p>
         </div>
       </div>
@@ -108,7 +108,7 @@ const OverviewTab = ({ onNavigate }) => {
           title="Contact Forms"
           value={stats.contacts}
           subtitle="Total submissions"
-          color="bg-blue-600"
+          color="bg-brand-600"
           onClick={() => onNavigate?.("leads", "contact")}
         />
         <StatCard
@@ -148,7 +148,7 @@ const OverviewTab = ({ onNavigate }) => {
           title="Blog Posts"
           value={stats.blogPosts}
           subtitle="Published articles"
-          color="bg-indigo-600"
+          color="bg-brand-700"
           onClick={() => onNavigate?.("blog")}
         />
       </div>
@@ -220,7 +220,7 @@ const OverviewTab = ({ onNavigate }) => {
                         <span
                           className={`px-3 py-1 text-xs font-bold rounded-full ${
                             contact.status === "new"
-                              ? "bg-blue-100 text-blue-700"
+                              ? "bg-brand-100 text-brand-700"
                               : contact.status === "contacted"
                               ? "bg-yellow-100 text-yellow-700"
                               : "bg-green-100 text-green-700"
@@ -293,7 +293,7 @@ const OverviewTab = ({ onNavigate }) => {
                       <span
                         className={`px-3 py-1 text-xs font-bold rounded-full ${
                           contact.status === "new"
-                            ? "bg-blue-100 text-blue-700"
+                            ? "bg-brand-100 text-brand-700"
                             : contact.status === "contacted"
                             ? "bg-yellow-100 text-yellow-700"
                             : "bg-green-100 text-green-700"

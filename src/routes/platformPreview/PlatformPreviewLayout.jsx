@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, Outlet, useNavigate, useParams } from "react-router-dom";
 import {
-  BrainCircuit,
   LayoutDashboard,
   Sparkles,
   Workflow,
@@ -13,6 +12,7 @@ import {
 } from "lucide-react";
 import { listClients } from "@dataconnect/generated";
 import { slugify } from "../../utils/slugify";
+import { LogoMark } from "../../component/Logo";
 import AIAssistantPanel from "./AIAssistantPanel";
 
 const NAV_ITEMS = [
@@ -67,7 +67,7 @@ const PlatformPreviewLayout = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-slate-50">
-        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-brand-600"></div>
       </div>
     );
   }
@@ -84,7 +84,7 @@ const PlatformPreviewLayout = () => {
           </p>
           <button
             onClick={() => navigate("/platform-preview")}
-            className="px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl text-sm font-bold hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg"
+            className="px-5 py-2.5 bg-gradient-to-r from-brand-600 to-brand-700 text-white rounded-xl text-sm font-bold hover:from-brand-700 hover:to-brand-800 transition-all shadow-lg"
           >
             Choose a persona
           </button>
@@ -100,14 +100,11 @@ const PlatformPreviewLayout = () => {
       {/* Sidebar */}
       <aside className="w-64 flex-shrink-0 bg-slate-900 flex flex-col fixed h-full z-20">
         <div className="p-5 flex items-center gap-2.5 border-b border-slate-800">
-          <div className="relative flex-shrink-0">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl blur opacity-75"></div>
-            <div className="relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl p-1.5">
-              <BrainCircuit className="w-5 h-5 text-white" strokeWidth={1.5} />
-            </div>
+          <div className="relative flex-shrink-0 p-1.5">
+            <LogoMark className="w-5 h-5" dark />
           </div>
           <span className="text-white font-bold text-sm truncate">
-            Core Implementations
+            Core Implement
           </span>
         </div>
 
@@ -150,7 +147,7 @@ const PlatformPreviewLayout = () => {
           <div className="flex items-center gap-2 flex-shrink-0">
             <button
               onClick={() => setAssistantOpen((v) => !v)}
-              className="flex items-center gap-1.5 px-3 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg text-sm font-bold hover:from-blue-700 hover:to-indigo-700 transition-all shadow-sm"
+              className="flex items-center gap-1.5 px-3 py-2 bg-gradient-to-r from-brand-600 to-brand-700 text-white rounded-lg text-sm font-bold hover:from-brand-700 hover:to-brand-800 transition-all shadow-sm"
             >
               <Sparkles className="w-4 h-4" />
               Ask AI

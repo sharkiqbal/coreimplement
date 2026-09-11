@@ -49,7 +49,7 @@ const getPainPoints = (lead) => {
 const getStatusColor = (status) => {
   switch (status) {
     case "new":
-      return "bg-blue-100 text-blue-700 border-blue-200";
+      return "bg-brand-100 text-brand-700 border-brand-200";
     case "contacted":
     case "reviewed":
       return "bg-yellow-100 text-yellow-700 border-yellow-200";
@@ -268,7 +268,7 @@ const LeadsTab = ({ onLeadsChanged, initialSourceFilter = "all" }) => {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-600 mx-auto"></div>
           <p className="mt-4 text-gray-600">Loading leads...</p>
         </div>
       </div>
@@ -289,7 +289,7 @@ const LeadsTab = ({ onLeadsChanged, initialSourceFilter = "all" }) => {
           <button
             onClick={handleExportCSV}
             disabled={filteredLeads.length === 0}
-            className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-5 py-2.5 rounded-xl font-bold hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex items-center gap-2 bg-gradient-to-r from-brand-600 to-brand-700 text-white px-5 py-2.5 rounded-xl font-bold hover:from-brand-700 hover:to-brand-800 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <Download className="w-4 h-4" />
             Export CSV
@@ -314,16 +314,16 @@ const LeadsTab = ({ onLeadsChanged, initialSourceFilter = "all" }) => {
           </button>
           <button
             onClick={() => setStatusFilter("new")}
-            className={`text-left bg-blue-50 rounded-xl p-4 border-2 transition-all hover:shadow-md ${
+            className={`text-left bg-brand-50 rounded-xl p-4 border-2 transition-all hover:shadow-md ${
               statusFilter === "new"
-                ? "border-blue-400 ring-2 ring-blue-200"
-                : "border-blue-100"
+                ? "border-brand-400 ring-2 ring-brand-200"
+                : "border-brand-100"
             }`}
           >
-            <div className="text-2xl font-bold text-blue-700">
+            <div className="text-2xl font-bold text-brand-700">
               {counts.new}
             </div>
-            <div className="text-xs text-blue-600 font-medium">New</div>
+            <div className="text-xs text-brand-600 font-medium">New</div>
           </button>
           <button
             onClick={() => setStatusFilter("in-progress")}
@@ -366,7 +366,7 @@ const LeadsTab = ({ onLeadsChanged, initialSourceFilter = "all" }) => {
           <select
             value={sourceFilter}
             onChange={(e) => setSourceFilter(e.target.value)}
-            className="flex-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="flex-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
           >
             <option value="all">All Sources</option>
             <option value="contact">Contact Forms</option>
@@ -375,7 +375,7 @@ const LeadsTab = ({ onLeadsChanged, initialSourceFilter = "all" }) => {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="flex-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="flex-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
           >
             <option value="all">All Statuses</option>
             <option value="new">New</option>
@@ -417,7 +417,7 @@ const LeadsTab = ({ onLeadsChanged, initialSourceFilter = "all" }) => {
                       className={`px-2.5 py-1 text-xs font-bold rounded-full ${
                         lead._source === "contact"
                           ? "bg-cyan-100 text-cyan-700"
-                          : "bg-indigo-100 text-indigo-700"
+                          : "bg-brand-200 text-brand-800"
                       }`}
                     >
                       {lead._source === "contact" ? "Contact Form" : "RFP"}
@@ -480,10 +480,10 @@ const LeadsTab = ({ onLeadsChanged, initialSourceFilter = "all" }) => {
                 <div className="flex gap-2">
                   <button
                     onClick={() => openModal(lead)}
-                    className="p-2 hover:bg-blue-50 rounded-lg transition-colors"
+                    className="p-2 hover:bg-brand-50 rounded-lg transition-colors"
                     title="View Details"
                   >
-                    <Eye className="w-5 h-5 text-blue-600" />
+                    <Eye className="w-5 h-5 text-brand-600" />
                   </button>
                   <button
                     onClick={() => handleDelete(lead)}
@@ -560,7 +560,7 @@ const LeadsTab = ({ onLeadsChanged, initialSourceFilter = "all" }) => {
                       {lead.status === "completed" && (
                         <button
                           onClick={() => handleStatusChange(lead, "new")}
-                          className="px-4 py-2 bg-blue-100 text-blue-700 text-sm font-medium rounded-lg hover:bg-blue-200 transition-colors"
+                          className="px-4 py-2 bg-brand-100 text-brand-700 text-sm font-medium rounded-lg hover:bg-brand-200 transition-colors"
                         >
                           Reopen
                         </button>
@@ -683,7 +683,7 @@ const LeadsTab = ({ onLeadsChanged, initialSourceFilter = "all" }) => {
                   <div className="px-4 py-3 bg-gray-50 rounded-xl text-gray-900">
                     <a
                       href={`mailto:${selectedLead.email}`}
-                      className="text-blue-600 hover:underline"
+                      className="text-brand-600 hover:underline"
                     >
                       {selectedLead.email}
                     </a>
@@ -700,7 +700,7 @@ const LeadsTab = ({ onLeadsChanged, initialSourceFilter = "all" }) => {
                       selectedLead.phone ? (
                         <a
                           href={`tel:${selectedLead.phone}`}
-                          className="text-blue-600 hover:underline"
+                          className="text-brand-600 hover:underline"
                         >
                           {selectedLead.phone}
                         </a>
@@ -800,7 +800,7 @@ const LeadsTab = ({ onLeadsChanged, initialSourceFilter = "all" }) => {
                           handleDownloadAttachment(selectedLead.attachmentPath)
                         }
                         disabled={isFetchingAttachment}
-                        className="w-full flex items-center gap-2 px-4 py-3 bg-blue-50 border border-blue-200 rounded-xl text-blue-700 font-semibold hover:bg-blue-100 transition-colors disabled:opacity-50"
+                        className="w-full flex items-center gap-2 px-4 py-3 bg-brand-50 border border-brand-200 rounded-xl text-brand-700 font-semibold hover:bg-brand-100 transition-colors disabled:opacity-50"
                       >
                         <Download className="w-4 h-4" />
                         {isFetchingAttachment
@@ -817,12 +817,12 @@ const LeadsTab = ({ onLeadsChanged, initialSourceFilter = "all" }) => {
                       rows={4}
                       value={internalNotes}
                       onChange={(e) => setInternalNotes(e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
                       placeholder="Add internal notes about this RFP..."
                     />
                     <button
                       onClick={handleSaveNotes}
-                      className="mt-2 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
+                      className="mt-2 px-4 py-2 bg-brand-600 text-white rounded-lg font-medium hover:bg-brand-700 transition-colors"
                     >
                       Save Notes
                     </button>

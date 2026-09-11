@@ -82,7 +82,7 @@ const DocumentRow = ({ doc, clientName, onResolve }) => {
           <p className="text-sm font-semibold text-slate-900">{doc.label}</p>
         </div>
         {stage === "scanning" ? (
-          <span className="flex-shrink-0 flex items-center gap-1.5 text-xs font-semibold text-blue-600 whitespace-nowrap">
+          <span className="flex-shrink-0 flex items-center gap-1.5 text-xs font-semibold text-brand-600 whitespace-nowrap">
             <Loader2 className="w-3.5 h-3.5 animate-spin" />
             Extracting...
           </span>
@@ -312,7 +312,7 @@ const ClientDetail = () => {
                             ? "bg-emerald-50 text-emerald-700"
                             : inv.status === "overdue"
                             ? "bg-amber-50 text-amber-700"
-                            : "bg-blue-50 text-blue-700"
+                            : "bg-brand-50 text-brand-700"
                         }`}
                       >
                         {inv.status === "paid"

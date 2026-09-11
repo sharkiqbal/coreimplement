@@ -7,6 +7,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        brand: {
+          50: "#faf9ff",
+          100: "#f5f4ff",
+          200: "#e7e5fe",
+          300: "#d2cefd",
+          400: "#b5abfc",
+          500: "#968ae0",
+          600: "#796cbf",
+          700: "#5d5294",
+          800: "#423a6a",
+          900: "#2b2741",
+          950: "#1c1930",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -48,7 +61,7 @@ module.exports = {
       },
       fontFamily: {
         sans: [
-          "Montserrat",
+          "Inter",
           "ui-sans-serif",
           "system-ui",
           "sans-serif",
@@ -57,7 +70,7 @@ module.exports = {
           '"Segoe UI Symbol"',
           '"Noto Color Emoji"',
         ],
-        montserrat: ["Montserrat", "sans-serif"],
+        montserrat: ["Inter", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {

@@ -14,8 +14,8 @@ export const STATUS_STAGES = [
 const STAGE_STYLES = {
   "Not Started": { text: "text-slate-600", bg: "bg-slate-100" },
   "Awaiting Docs": { text: "text-amber-700", bg: "bg-amber-50" },
-  "In Prep": { text: "text-blue-700", bg: "bg-blue-50" },
-  "In Review": { text: "text-indigo-700", bg: "bg-indigo-50" },
+  "In Prep": { text: "text-brand-700", bg: "bg-brand-50" },
+  "In Review": { text: "text-brand-800", bg: "bg-brand-100" },
   "Sent to Client": { text: "text-violet-700", bg: "bg-violet-50" },
   Signed: { text: "text-teal-700", bg: "bg-teal-50" },
   Filed: { text: "text-emerald-700", bg: "bg-emerald-50" },

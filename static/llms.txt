@@ -1,13 +1,13 @@
-# Core Implementations
+# Core Implement
 
-> Core Implementations helps growing businesses automate manual, repetitive work (data entry, quoting, reporting, and customer communication) using Claude, ChatGPT, and custom AI built around the tools businesses already use (QuickBooks, HubSpot, Salesforce, Slack, and more). Based in Houston, Texas, serving businesses of any size or industry.
+> Core Implement helps growing businesses automate manual, repetitive work (data entry, quoting, reporting, and customer communication) using Claude, ChatGPT, and custom AI built around the tools businesses already use (QuickBooks, HubSpot, Salesforce, Slack, and more). Based in Houston, Texas, serving businesses of any size or industry.
 
 ## Company
 
-- [About Us](https://coreimplement.com/about): Founders and background of Core Implementations.
+- [About Us](https://coreimplement.com/about): Founders and background of Core Implement.
 - [Contact](https://coreimplement.com/contact): Book a free consultation or send a message.
-- [Privacy Policy](https://coreimplement.com/privacy): How Core Implementations collects, uses, and protects information.
-- [Terms of Service](https://coreimplement.com/terms): Terms governing use of the Core Implementations website.
+- [Privacy Policy](https://coreimplement.com/privacy): How Core Implement collects, uses, and protects information.
+- [Terms of Service](https://coreimplement.com/terms): Terms governing use of the Core Implement website.
 
 ## Services
 

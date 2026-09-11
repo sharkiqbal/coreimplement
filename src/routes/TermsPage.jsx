@@ -19,13 +19,13 @@ const TermsPage = () => {
     <div className="pt-16 sm:pt-20">
       <SEO
         title="Terms of Service"
-        description="The terms governing your use of the Core Implementations website."
+        description="The terms governing your use of the Core Implement website."
         path="/terms"
       />
       <Navigation />
 
       {/* Header */}
-      <section className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-12 sm:py-16">
+      <section className="bg-gradient-to-br from-brand-50 via-brand-100 to-purple-50 py-12 sm:py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-3">
             Terms of Service
@@ -57,7 +57,7 @@ const TermsPage = () => {
 
           <Section title="Our Services">
             <p>
-              Core Implementations provides AI automation consulting and
+              Core Implement provides AI automation consulting and
               implementation services. Information on this Site, including
               service descriptions, case studies, and any pricing
               indications, is provided for general informational purposes
@@ -70,7 +70,7 @@ const TermsPage = () => {
           <Section title="Intellectual Property">
             <p>
               All content on this Site, including text, graphics, logos,
-              and design, is the property of Core Implementations unless
+              and design, is the property of Core Implement unless
               otherwise noted, and may not be copied, reproduced, or
               distributed without our written permission.
             </p>
@@ -96,7 +96,7 @@ const TermsPage = () => {
 
           <Section title="Limitation of Liability">
             <p>
-              To the fullest extent permitted by law, Core Implementations
+              To the fullest extent permitted by law, Core Implement
               shall not be liable for any indirect, incidental, or
               consequential damages arising from your use of the Site.
             </p>
@@ -119,14 +119,14 @@ const TermsPage = () => {
 
           <Section title="Contact Us">
             <p>
-              Core Implementations
+              Core Implement
               <br />
               Houston, Texas
               <br />
               Email:{" "}
               <a
                 href="mailto:hello@coreimplement.com"
-                className="text-blue-600 hover:text-blue-700"
+                className="text-brand-600 hover:text-brand-700"
               >
                 hello@coreimplement.com
               </a>
@@ -134,7 +134,7 @@ const TermsPage = () => {
               Phone:{" "}
               <a
                 href="tel:+12484534597"
-                className="text-blue-600 hover:text-blue-700"
+                className="text-brand-600 hover:text-brand-700"
               >
                 (248) 453-4597
               </a>

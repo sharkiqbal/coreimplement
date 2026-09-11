@@ -143,7 +143,7 @@ const ReviewsTab = () => {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-600 mx-auto"></div>
           <p className="mt-4 text-gray-600">Loading reviews...</p>
         </div>
       </div>
@@ -165,7 +165,7 @@ const ReviewsTab = () => {
           </div>
           <button
             onClick={openAddModal}
-            className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-bold hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            className="flex items-center gap-2 bg-gradient-to-r from-brand-600 to-brand-700 text-white px-6 py-3 rounded-xl font-bold hover:from-brand-700 hover:to-brand-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
           >
             <Plus className="w-5 h-5" />
             Add Review
@@ -210,7 +210,7 @@ const ReviewsTab = () => {
               </p>
 
               <div className="flex items-center pt-4 border-t border-gray-100">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold mr-3 shadow-lg">
+                <div className="w-12 h-12 bg-gradient-to-br from-brand-500 to-brand-700 rounded-full flex items-center justify-center text-white font-bold mr-3 shadow-lg">
                   {review.name
                     .split(" ")
                     .map((n) => n[0])
@@ -252,7 +252,7 @@ const ReviewsTab = () => {
                 <input
                   type="text"
                   placeholder="e.g., Maria Johnson"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all"
                   value={reviewForm.name}
                   onChange={(e) =>
                     setReviewForm({ ...reviewForm, name: e.target.value })
@@ -268,7 +268,7 @@ const ReviewsTab = () => {
                 <input
                   type="text"
                   placeholder="e.g., Operations Manager, Company Name"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all"
                   value={reviewForm.designation}
                   onChange={(e) =>
                     setReviewForm({
@@ -301,7 +301,7 @@ const ReviewsTab = () => {
                 <textarea
                   rows={5}
                   placeholder="Enter the customer's review..."
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all"
                   value={reviewForm.description}
                   onChange={(e) =>
                     setReviewForm({
@@ -323,7 +323,7 @@ const ReviewsTab = () => {
                 <button
                   onClick={handleSaveReview}
                   disabled={isSubmitting}
-                  className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-bold hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-brand-600 to-brand-700 text-white px-6 py-3 rounded-xl font-bold hover:from-brand-700 hover:to-brand-800 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Save className="w-5 h-5" />
                   {isSubmitting
