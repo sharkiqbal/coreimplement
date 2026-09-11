@@ -52,8 +52,8 @@ const Navigation = () => {
       description: "Send us a message",
       icon: MessageSquare,
       to: "/contact?tab=contact",
-      color: "text-brand-600",
-      bgColor: "bg-brand-50",
+      color: "text-blue-600",
+      bgColor: "bg-blue-50",
     },
     {
       id: "appointment",
@@ -131,8 +131,8 @@ const Navigation = () => {
                   className={({ isActive }) =>
                     `relative px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg group ${
                       isActive
-                        ? "text-brand-600"
-                        : "text-gray-600 hover:text-brand-600"
+                        ? "text-blue-600"
+                        : "text-gray-600 hover:text-blue-600"
                     }`
                   }
                 >
@@ -140,9 +140,9 @@ const Navigation = () => {
                     <>
                       <span className="relative z-10">{item.label}</span>
                       {isActive && (
-                        <span className="absolute inset-0 bg-brand-50 rounded-lg"></span>
+                        <span className="absolute inset-0 bg-blue-50 rounded-lg"></span>
                       )}
-                      <span className="absolute inset-0 bg-brand-50 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
+                      <span className="absolute inset-0 bg-blue-50 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
                     </>
                   )}
                 </NavLink>
@@ -156,11 +156,11 @@ const Navigation = () => {
               >
                 <button
                   onClick={() => handleContactClick("/contact")}
-                  className="relative px-4 py-2 text-sm font-semibold text-gray-600 hover:text-brand-600 transition-all duration-200 rounded-lg group flex items-center gap-1"
+                  className="relative px-4 py-2 text-sm font-semibold text-gray-600 hover:text-blue-600 transition-all duration-200 rounded-lg group flex items-center gap-1"
                 >
                   <span className="relative z-10">Contact</span>
                   <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${showContactDropdown ? 'rotate-180' : ''}`} />
-                  <span className="absolute inset-0 bg-brand-50 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
+                  <span className="absolute inset-0 bg-blue-50 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
                 </button>
 
                 {/* Dropdown Menu */}
@@ -196,7 +196,7 @@ const Navigation = () => {
             {/* Desktop CTA Button */}
             <button
               onClick={() => handleContactClick("/contact?tab=appointment")}
-              className="ml-4 relative group overflow-hidden bg-gradient-to-r from-brand-600 to-brand-700 text-white px-6 py-2.5 rounded-xl text-sm font-bold hover:shadow-lg hover:shadow-brand-500/50 transition-all duration-300 transform hover:-translate-y-0.5"
+              className="ml-4 relative group overflow-hidden bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-2.5 rounded-xl text-sm font-bold hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 transform hover:-translate-y-0.5"
             >
               <span className="relative z-10 flex items-center gap-2">
                 Book Consultation
@@ -246,8 +246,8 @@ const Navigation = () => {
                   className={({ isActive }) =>
                     `block px-4 py-3 text-base font-semibold transition-all duration-200 w-full text-left rounded-xl ${
                       isActive
-                        ? "text-brand-600 bg-gradient-to-r from-brand-50 to-brand-100 shadow-sm"
-                        : "text-gray-600 hover:text-brand-600 hover:bg-gray-50"
+                        ? "text-blue-600 bg-gradient-to-r from-blue-50 to-indigo-50 shadow-sm"
+                        : "text-gray-600 hover:text-blue-600 hover:bg-gray-50"
                     }`
                   }
                   style={{
@@ -294,7 +294,7 @@ const Navigation = () => {
               <div className="pt-2">
                 <button
                   onClick={() => handleContactClick("/contact?tab=appointment")}
-                  className="block w-full bg-gradient-to-r from-brand-600 to-brand-700 text-white px-4 py-4 rounded-xl text-center font-bold hover:shadow-lg hover:shadow-brand-500/50 transition-all duration-300 transform active:scale-95"
+                  className="block w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-4 rounded-xl text-center font-bold hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 transform active:scale-95"
                 >
                   <span className="flex items-center justify-center gap-2">
                     Book Consultation

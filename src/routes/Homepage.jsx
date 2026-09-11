@@ -53,7 +53,7 @@ const Homepage = () => {
 
   // Color schemes for services
   const colorSchemes = [
-    { bg: "bg-brand-100", hoverBg: "bg-brand-200", icon: "text-brand-600" },
+    { bg: "bg-blue-100", hoverBg: "bg-blue-200", icon: "text-blue-600" },
     { bg: "bg-green-100", hoverBg: "bg-green-200", icon: "text-green-600" },
     { bg: "bg-purple-100", hoverBg: "bg-purple-200", icon: "text-purple-600" },
     { bg: "bg-orange-100", hoverBg: "bg-orange-200", icon: "text-orange-600" },
@@ -61,7 +61,7 @@ const Homepage = () => {
 
   // Avatar colors for reviews
   const avatarColors = [
-    "from-brand-500 to-brand-600",
+    "from-blue-500 to-blue-600",
     "from-green-500 to-green-600",
     "from-purple-500 to-purple-600",
     "from-orange-500 to-orange-600",
@@ -71,8 +71,8 @@ const Homepage = () => {
   const howItWorksSteps = [
     {
       icon: Calendar,
-      bg: "bg-brand-100",
-      iconColor: "text-brand-600",
+      bg: "bg-blue-100",
+      iconColor: "text-blue-600",
       title: "Schedule a Free Discovery Call",
       description:
         "We start with a no-cost conversation to learn how your business actually runs day to day, your workflows, your tools, and where things slow you down.",
@@ -114,8 +114,8 @@ const Homepage = () => {
   const manualWorkCategories = [
     {
       icon: Database,
-      bg: "bg-brand-100",
-      iconColor: "text-brand-600",
+      bg: "bg-blue-100",
+      iconColor: "text-blue-600",
       title: "Manual Data Entry & Reconciliation",
       description:
         "Copying numbers between spreadsheets, systems, and software eats hours every week.",
@@ -204,16 +204,16 @@ const Homepage = () => {
       />
       <Navigation />
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] bg-gradient-to-br from-brand-100 via-brand-200 to-brand-200 flex items-center overflow-hidden">
+      <section className="relative min-h-[70vh] bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-50 flex items-center overflow-hidden">
         {/* Decorative Background Elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-brand-400 rounded-full mix-blend-multiply filter blur-2xl sm:blur-3xl opacity-15 sm:opacity-30 animate-pulse"></div>
+          <div className="absolute top-20 left-10 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-2xl sm:blur-3xl opacity-15 sm:opacity-30 animate-pulse"></div>
           <div
             className="absolute bottom-20 right-10 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-2xl sm:blur-3xl opacity-15 sm:opacity-30 animate-pulse"
             style={{ animationDelay: "1s" }}
           ></div>
           <div
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-96 sm:h-96 lg:w-[600px] lg:h-[600px] bg-brand-400 rounded-full mix-blend-multiply filter blur-2xl sm:blur-3xl opacity-10 sm:opacity-20 animate-pulse"
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-96 sm:h-96 lg:w-[600px] lg:h-[600px] bg-indigo-300 rounded-full mix-blend-multiply filter blur-2xl sm:blur-3xl opacity-10 sm:opacity-20 animate-pulse"
             style={{ animationDelay: "0.5s" }}
           ></div>
         </div>
@@ -236,7 +236,7 @@ const Homepage = () => {
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <button
                   onClick={() => navigate("/contact")}
-                  className="group bg-gradient-to-r from-brand-600 to-brand-700 text-white px-6 py-3.5 sm:px-10 sm:py-5 rounded-xl text-base sm:text-lg font-bold hover:from-brand-700 hover:to-brand-800 transition-all transform hover:scale-105 hover:-translate-y-1 shadow-xl hover:shadow-2xl flex items-center justify-center"
+                  className="group bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3.5 sm:px-10 sm:py-5 rounded-xl text-base sm:text-lg font-bold hover:from-blue-700 hover:to-indigo-700 transition-all transform hover:scale-105 hover:-translate-y-1 shadow-xl hover:shadow-2xl flex items-center justify-center"
                 >
                   Book a Free Consultation
                   <svg
@@ -255,7 +255,7 @@ const Homepage = () => {
                 </button>
                 <button
                   onClick={scrollToServices}
-                  className="bg-white/90 backdrop-blur-sm border-2 border-gray-300 text-gray-700 px-6 py-3.5 sm:px-10 sm:py-5 rounded-xl text-base sm:text-lg font-bold hover:border-brand-700 hover:text-brand-700 hover:bg-white transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  className="bg-white/90 backdrop-blur-sm border-2 border-gray-300 text-gray-700 px-6 py-3.5 sm:px-10 sm:py-5 rounded-xl text-base sm:text-lg font-bold hover:border-indigo-600 hover:text-indigo-600 hover:bg-white transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 >
                   Learn More
                 </button>
@@ -322,7 +322,7 @@ const Homepage = () => {
                 style={{ animationDelay: "0.7s" }}
               ></div>
 
-              <div className="relative bg-gradient-to-br from-brand-500 via-brand-700 to-brand-800 rounded-3xl p-5 sm:p-8 shadow-2xl transform hover:scale-105 transition-transform duration-300">
+              <div className="relative bg-gradient-to-br from-blue-500 via-indigo-600 to-purple-600 rounded-3xl p-5 sm:p-8 shadow-2xl transform hover:scale-105 transition-transform duration-300">
                 <div className="space-y-3 sm:space-y-6">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-2 sm:space-x-3">
@@ -395,12 +395,12 @@ const Homepage = () => {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Left: Copy */}
             <div>
-              <span className="text-sm font-bold text-brand-700 uppercase tracking-wide">
+              <span className="text-sm font-bold text-indigo-600 uppercase tracking-wide">
                 Built For Every Industry
               </span>
               <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-2 mb-3 sm:mb-4 leading-tight">
                 If It's{" "}
-                <span className="bg-gradient-to-r from-brand-600 via-brand-700 to-brand-800 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
                   Repetitive
                 </span>
                 , We Can Probably Automate It
@@ -457,7 +457,7 @@ const Homepage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
-              <span className="bg-gradient-to-r from-brand-600 via-brand-700 to-brand-800 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
                 Our Core{" "}
               </span>{" "}
               Services
@@ -470,7 +470,7 @@ const Homepage = () => {
 
           {loading ? (
             <div className="text-center py-12">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-600 mx-auto"></div>
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
               <p className="mt-4 text-gray-600">Loading services...</p>
             </div>
           ) : (
@@ -499,7 +499,7 @@ const Homepage = () => {
                     </p>
                     <Link
                       to={`/services#${slugifyServiceName(service.name)}`}
-                      className="text-brand-600 font-medium flex items-center hover:text-brand-700 transition-colors mt-auto"
+                      className="text-blue-600 font-medium flex items-center hover:text-blue-700 transition-colors mt-auto"
                     >
                       Learn More
                       <span className="sr-only"> about {service.name}</span>
@@ -517,14 +517,14 @@ const Homepage = () => {
       <section className="py-10 sm:py-16 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <div className="inline-flex items-center px-4 py-2 bg-brand-50 rounded-full shadow-sm border border-brand-100 mb-3">
-              <span className="text-sm font-semibold text-brand-600">
+            <div className="inline-flex items-center px-4 py-2 bg-blue-50 rounded-full shadow-sm border border-blue-100 mb-3">
+              <span className="text-sm font-semibold text-blue-600">
                 Simple, Transparent Process
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
               How It{" "}
-              <span className="bg-gradient-to-r from-brand-600 via-brand-700 to-brand-800 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
                 Works
               </span>
             </h2>
@@ -537,7 +537,7 @@ const Homepage = () => {
 
           <div className="relative grid md:grid-cols-3 gap-5 sm:gap-8 lg:gap-10">
             {/* Connecting line for desktop */}
-            <div className="hidden md:block absolute top-20 left-[16.5%] right-[16.5%] h-0.5 bg-gradient-to-r from-brand-200 via-brand-400 to-brand-400"></div>
+            <div className="hidden md:block absolute top-20 left-[16.5%] right-[16.5%] h-0.5 bg-gradient-to-r from-blue-200 via-indigo-300 to-purple-200"></div>
 
             {howItWorksSteps.map((step, index) => {
               const StepIcon = step.icon;
@@ -576,7 +576,7 @@ const Homepage = () => {
                   {index === 0 && (
                     <Link
                       to="/contact"
-                      className="inline-flex items-center gap-1 text-sm font-semibold text-brand-600 hover:text-brand-700 transition-colors mt-4 sm:mt-5"
+                      className="inline-flex items-center gap-1 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors mt-4 sm:mt-5"
                     >
                       Schedule now
                       <ChevronRight className="w-4 h-4" />
@@ -590,7 +590,7 @@ const Homepage = () => {
           <div className="text-center mt-10 sm:mt-14">
             <button
               onClick={() => navigate("/contact")}
-              className="group bg-gradient-to-r from-brand-600 to-brand-700 text-white px-6 py-3.5 sm:px-10 sm:py-5 rounded-xl text-base sm:text-lg font-bold hover:from-brand-700 hover:to-brand-800 transition-all transform hover:scale-105 hover:-translate-y-1 shadow-xl hover:shadow-2xl inline-flex items-center justify-center"
+              className="group bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3.5 sm:px-10 sm:py-5 rounded-xl text-base sm:text-lg font-bold hover:from-blue-700 hover:to-indigo-700 transition-all transform hover:scale-105 hover:-translate-y-1 shadow-xl hover:shadow-2xl inline-flex items-center justify-center"
             >
               Start With a Free Discovery Call
               <svg
@@ -612,18 +612,18 @@ const Homepage = () => {
       </section>
 
       {/* Trust Builders Section - Dynamic */}
-      <section className="relative py-12 sm:py-20 bg-gradient-to-br from-gray-50 via-brand-50 to-brand-100 overflow-hidden">
+      <section className="relative py-12 sm:py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-20 right-10 w-96 h-96 bg-brand-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+          <div className="absolute top-20 right-10 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
           <div
-            className="absolute bottom-20 left-10 w-96 h-96 bg-brand-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"
+            className="absolute bottom-20 left-10 w-96 h-96 bg-indigo-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"
             style={{ animationDelay: "1s" }}
           ></div>
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <div className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-md border border-brand-100 mb-3">
+            <div className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-md border border-blue-100 mb-3">
               <span className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
               <span className="text-sm font-semibold text-gray-700">
                 Proven Track Record
@@ -631,7 +631,7 @@ const Homepage = () => {
             </div>
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
               Trusted by{" "}
-              <span className="bg-gradient-to-r from-brand-600 via-brand-700 to-brand-800 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
                 Growing Businesses
               </span>
             </h2>
@@ -645,8 +645,8 @@ const Homepage = () => {
           {/* Stats */}
           <div className="grid grid-cols-3 gap-2 sm:gap-8 mb-8 sm:mb-12">
             <div className="text-center">
-              <div className="bg-brand-100 w-10 h-10 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-4 shadow-lg">
-                <Users className="w-5 h-5 sm:w-8 sm:h-8 text-brand-600" />
+              <div className="bg-blue-100 w-10 h-10 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-4 shadow-lg">
+                <Users className="w-5 h-5 sm:w-8 sm:h-8 text-blue-600" />
               </div>
               <div className="text-lg sm:text-3xl font-bold text-gray-900 mb-0.5 sm:mb-2">
                 {companyProfile?.completeProjects || "5+"}
@@ -695,16 +695,16 @@ const Homepage = () => {
                 {integrationTools.map((tool, index) => (
                   <div
                     key={index}
-                    className="flex items-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-4 sm:py-2.5 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md hover:border-brand-300 transition-all"
+                    className="flex items-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-4 sm:py-2.5 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md hover:border-indigo-200 transition-all"
                   >
-                    <PlugZap className="w-4 h-4 text-brand-600" />
+                    <PlugZap className="w-4 h-4 text-indigo-500" />
                     <span className="text-xs sm:text-sm font-semibold text-gray-700">
                       {tool}
                     </span>
                   </div>
                 ))}
               </div>
-              <div className="bg-gradient-to-br from-brand-50 via-brand-100 to-brand-200 border border-brand-200 rounded-xl p-4 sm:p-6">
+              <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 border border-indigo-100 rounded-xl p-4 sm:p-6">
                 <p className="text-sm font-semibold text-gray-500 mb-2">
                   Powered By Leading AI
                 </p>
@@ -722,7 +722,7 @@ const Homepage = () => {
             <div className="space-y-5 sm:space-y-8">
               {loading ? (
                 <div className="text-center py-12">
-                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-600 mx-auto"></div>
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
                   <p className="mt-4 text-gray-600">
                     Loading testimonials...
                   </p>
@@ -737,7 +737,7 @@ const Homepage = () => {
                       key={review.id}
                       className="group relative bg-white rounded-2xl p-5 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100"
                     >
-                      <div className="absolute top-4 right-4 sm:top-6 sm:right-6 text-brand-100 text-4xl sm:text-6xl font-serif opacity-50">
+                      <div className="absolute top-4 right-4 sm:top-6 sm:right-6 text-blue-100 text-4xl sm:text-6xl font-serif opacity-50">
                         "
                       </div>
 

@@ -30,7 +30,7 @@ const PersonaReports = () => {
   if (loading || !data) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-brand-600"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
       </div>
     );
   }
@@ -65,7 +65,7 @@ const PersonaReports = () => {
               {snapshots.map((s) => (
                 <div key={s.id} className="flex-1 h-full flex items-end">
                   <div
-                    className="w-full bg-gradient-to-t from-brand-600 to-brand-600 rounded-t-md"
+                    className="w-full bg-gradient-to-t from-blue-600 to-indigo-500 rounded-t-md"
                     style={{ height: `${(s.hoursSaved / maxHours) * 100}%` }}
                     title={`${s.hoursSaved} hours`}
                   ></div>

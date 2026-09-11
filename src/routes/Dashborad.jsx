@@ -145,7 +145,7 @@ const AdminDashboardInner = () => {
             onClick={() => setActiveTab(item.id)}
             className={`relative w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-200 ${
               activeTab === item.id
-                ? "bg-gradient-to-r from-brand-500 to-brand-600 text-white shadow-lg transform scale-105"
+                ? "bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-lg transform scale-105"
                 : "text-gray-600 hover:bg-gray-100 hover:scale-102"
             }`}
           >

@@ -16,16 +16,16 @@ const Action = ({
   return (
     <div>
       {/* Bottom CTA */}
-      <section className="relative py-12 sm:py-20 bg-gradient-to-br from-brand-600 via-brand-700 to-brand-900 text-white overflow-hidden">
+      <section className="relative py-12 sm:py-20 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 text-white overflow-hidden">
         {/* Decorative Background Elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-10 left-10 w-96 h-96 bg-brand-400 rounded-full mix-blend-overlay filter blur-3xl opacity-30 animate-pulse"></div>
+          <div className="absolute top-10 left-10 w-96 h-96 bg-blue-400 rounded-full mix-blend-overlay filter blur-3xl opacity-30 animate-pulse"></div>
           <div
             className="absolute bottom-10 right-10 w-96 h-96 bg-purple-400 rounded-full mix-blend-overlay filter blur-3xl opacity-30 animate-pulse"
             style={{ animationDelay: "1s" }}
           ></div>
           <div
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-500 rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-pulse"
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-400 rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-pulse"
             style={{ animationDelay: "0.5s" }}
           ></div>
         </div>
@@ -50,7 +50,7 @@ const Action = ({
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 sm:mb-10">
             <button
               onClick={() => navigate(primaryTo)}
-              className="group relative overflow-hidden bg-white text-brand-600 px-6 py-3.5 sm:px-10 sm:py-5 rounded-xl text-base sm:text-lg font-bold hover:bg-gray-50 transition-all duration-300 shadow-2xl hover:shadow-3xl transform hover:-translate-y-1"
+              className="group relative overflow-hidden bg-white text-blue-600 px-6 py-3.5 sm:px-10 sm:py-5 rounded-xl text-base sm:text-lg font-bold hover:bg-gray-50 transition-all duration-300 shadow-2xl hover:shadow-3xl transform hover:-translate-y-1"
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
                 {primaryLabel}
@@ -69,7 +69,7 @@ const Action = ({
                 </svg>
               </span>
               {/* Shine effect */}
-              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-100/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-100/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
             </button>
 
             <button

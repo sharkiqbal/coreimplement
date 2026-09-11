@@ -88,16 +88,16 @@ const SignInPage = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-brand-100 via-brand-100 to-brand-300 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <div className="relative min-h-screen bg-gradient-to-br from-blue-100 via-indigo-50 to-purple-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-brand-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
+        <div className="absolute top-20 left-10 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
         <div
           className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"
           style={{ animationDelay: "1s" }}
         ></div>
         <div
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"
           style={{ animationDelay: "0.5s" }}
         ></div>
       </div>
@@ -142,7 +142,7 @@ const SignInPage = () => {
               </label>
               <div className="relative group">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <Mail className="h-5 w-5 text-gray-400 group-focus-within:text-brand-600 transition-colors" />
+                  <Mail className="h-5 w-5 text-gray-400 group-focus-within:text-blue-600 transition-colors" />
                 </div>
                 <input
                   id="email"
@@ -154,7 +154,7 @@ const SignInPage = () => {
                   className={`block w-full pl-12 pr-4 py-3.5 border ${
                     errors.email
                       ? "border-red-300 focus:ring-red-500 focus:border-red-500"
-                      : "border-gray-300 focus:ring-brand-500 focus:border-brand-500"
+                      : "border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                   } rounded-xl focus:ring-2 transition-all shadow-sm hover:shadow-md`}
                   placeholder="admin@coreimplement.com"
                 />
@@ -177,7 +177,7 @@ const SignInPage = () => {
               </label>
               <div className="relative group">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <Lock className="h-5 w-5 text-gray-400 group-focus-within:text-brand-600 transition-colors" />
+                  <Lock className="h-5 w-5 text-gray-400 group-focus-within:text-blue-600 transition-colors" />
                 </div>
                 <input
                   id="password"
@@ -189,7 +189,7 @@ const SignInPage = () => {
                   className={`block w-full pl-12 pr-12 py-3.5 border ${
                     errors.password
                       ? "border-red-300 focus:ring-red-500 focus:border-red-500"
-                      : "border-gray-300 focus:ring-brand-500 focus:border-brand-500"
+                      : "border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                   } rounded-xl focus:ring-2 transition-all shadow-sm hover:shadow-md`}
                   placeholder="Enter your password"
                 />
@@ -219,8 +219,8 @@ const SignInPage = () => {
               disabled={isLoading}
               className={`w-full flex justify-center items-center py-4 px-4 border border-transparent rounded-xl shadow-lg text-base font-bold text-white transition-all ${
                 isLoading
-                  ? "bg-gradient-to-r from-brand-400 to-brand-500 cursor-not-allowed"
-                  : "bg-gradient-to-r from-brand-600 to-brand-700 hover:from-brand-700 hover:to-brand-800 hover:shadow-2xl transform hover:-translate-y-0.5 active:translate-y-0"
+                  ? "bg-gradient-to-r from-blue-400 to-indigo-400 cursor-not-allowed"
+                  : "bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 hover:shadow-2xl transform hover:-translate-y-0.5 active:translate-y-0"
               }`}
             >
               {isLoading ? (

@@ -36,7 +36,7 @@ export const INTEGRATIONS = {
   },
   Karbon: {
     icon: KanbanSquare,
-    color: "text-brand-800 bg-brand-100 border-brand-300",
+    color: "text-indigo-700 bg-indigo-50 border-indigo-200",
     role: "Practice management — engagement status and workflow",
   },
   Tax1099: {
@@ -51,7 +51,7 @@ export const INTEGRATIONS = {
   },
   "Google Drive": {
     icon: HardDrive,
-    color: "text-brand-700 bg-brand-50 border-brand-200",
+    color: "text-blue-700 bg-blue-50 border-blue-200",
     role: "Where firm SOPs and past client files live",
   },
   Slack: {
@@ -214,7 +214,7 @@ export const DocumentProcessingDemo = () => {
                 <button
                   key={doc.id}
                   onClick={() => runDemo(doc)}
-                  className="flex items-center gap-3 p-4 border border-slate-200 rounded-lg hover:border-brand-300 hover:shadow-sm transition-all text-left"
+                  className="flex items-center gap-3 p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all text-left"
                 >
                   <doc.icon className="w-5 h-5 text-slate-400 flex-shrink-0" />
                   <span className="text-sm font-semibold text-slate-800">
@@ -240,7 +240,7 @@ export const DocumentProcessingDemo = () => {
                       className={`h-2.5 rounded transition-colors duration-500 ${
                         stage !== "scanning" &&
                         selected.highlightLines.includes(i)
-                          ? "bg-brand-200"
+                          ? "bg-blue-200"
                           : "bg-slate-150 bg-slate-200"
                       }`}
                       style={{ width: `${60 + ((i * 13) % 35)}%` }}
@@ -249,7 +249,7 @@ export const DocumentProcessingDemo = () => {
                   ))}
                 </div>
                 {stage === "scanning" && (
-                  <div className="flex items-center gap-2 mt-3 text-xs font-medium text-brand-600">
+                  <div className="flex items-center gap-2 mt-3 text-xs font-medium text-blue-600">
                     <Loader2 className="w-3.5 h-3.5 animate-spin" />
                     Reading document...
                   </div>
@@ -318,7 +318,7 @@ export const DocumentProcessingDemo = () => {
             {stage === "done" && (
               <button
                 onClick={reset}
-                className="mt-5 text-sm font-semibold text-brand-600 hover:text-brand-700"
+                className="mt-5 text-sm font-semibold text-blue-600 hover:text-blue-700"
               >
                 Try another document →
               </button>
@@ -414,14 +414,14 @@ export const KnowledgeAssistantChat = () => {
               className={`flex gap-2.5 ${m.role === "user" ? "justify-end" : ""}`}
             >
               {m.role === "ai" && (
-                <div className="w-7 h-7 rounded-full bg-brand-100 flex items-center justify-center flex-shrink-0">
-                  <Bot className="w-3.5 h-3.5 text-brand-600" />
+                <div className="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                  <Bot className="w-3.5 h-3.5 text-blue-600" />
                 </div>
               )}
               <div
                 className={`max-w-[85%] rounded-xl px-3.5 py-2.5 text-sm ${
                   m.role === "user"
-                    ? "bg-brand-600 text-white"
+                    ? "bg-blue-600 text-white"
                     : "bg-slate-50 text-slate-700 border border-slate-200"
                 }`}
               >
@@ -444,8 +444,8 @@ export const KnowledgeAssistantChat = () => {
         )}
         {thinking && (
           <div className="flex gap-2.5">
-            <div className="w-7 h-7 rounded-full bg-brand-100 flex items-center justify-center flex-shrink-0">
-              <Bot className="w-3.5 h-3.5 text-brand-600" />
+            <div className="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+              <Bot className="w-3.5 h-3.5 text-blue-600" />
             </div>
             <div className="bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm text-slate-400 flex items-center gap-2">
               <Loader2 className="w-3.5 h-3.5 animate-spin" />
@@ -461,7 +461,7 @@ export const KnowledgeAssistantChat = () => {
             key={qa.question}
             onClick={() => ask(qa)}
             disabled={thinking}
-            className="text-xs font-medium px-2.5 py-1.5 bg-slate-50 hover:bg-brand-50 hover:text-brand-700 border border-slate-200 hover:border-brand-200 rounded-full transition-colors disabled:opacity-50 text-left"
+            className="text-xs font-medium px-2.5 py-1.5 bg-slate-50 hover:bg-blue-50 hover:text-blue-700 border border-slate-200 hover:border-blue-200 rounded-full transition-colors disabled:opacity-50 text-left"
           >
             {qa.question}
           </button>
@@ -480,12 +480,12 @@ export const KnowledgeAssistantChat = () => {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Ask a question..."
-          className="flex-1 min-w-0 px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
+          className="flex-1 min-w-0 px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
         />
         <button
           type="submit"
           disabled={thinking || !input.trim()}
-          className="flex-shrink-0 px-3 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 disabled:opacity-50 transition-colors"
+          className="flex-shrink-0 px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-colors"
         >
           <Send className="w-4 h-4" />
         </button>
@@ -504,7 +504,7 @@ const RunPanelHeader = ({ description, buttonLabel, onRun, running }) => (
     {!running && (
       <button
         onClick={onRun}
-        className="flex-shrink-0 px-4 py-2.5 bg-gradient-to-r from-brand-600 to-brand-700 text-white rounded-lg text-sm font-bold hover:from-brand-700 hover:to-brand-800 transition-all shadow-md whitespace-nowrap"
+        className="flex-shrink-0 px-4 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg text-sm font-bold hover:from-blue-700 hover:to-indigo-700 transition-all shadow-md whitespace-nowrap"
       >
         {buttonLabel}
       </button>
@@ -513,7 +513,7 @@ const RunPanelHeader = ({ description, buttonLabel, onRun, running }) => (
 );
 
 const ScanningRow = ({ text }) => (
-  <div className="flex items-center gap-2 text-sm font-medium text-brand-600 py-6 justify-center">
+  <div className="flex items-center gap-2 text-sm font-medium text-blue-600 py-6 justify-center">
     <Loader2 className="w-4 h-4 animate-spin" />
     {text}
   </div>
@@ -861,7 +861,7 @@ const ComplianceWatchPanel = () => {
                       exceeded
                         ? "bg-amber-500"
                         : watch
-                        ? "bg-brand-500"
+                        ? "bg-blue-500"
                         : "bg-emerald-500"
                     }`}
                     style={{ width: `${pct}%` }}
@@ -921,7 +921,7 @@ export const AIBriefingWidget = () => {
               onClick={() => setTab(t.id)}
               className={`px-3 py-2 text-sm font-semibold border-b-2 -mb-px transition-colors ${
                 tab === t.id
-                  ? "border-brand-600 text-brand-600"
+                  ? "border-blue-600 text-blue-600"
                   : "border-transparent text-slate-500 hover:text-slate-700"
               }`}
             >
@@ -1017,7 +1017,7 @@ export const TransactionCategorizationDemo = () => {
         {stage !== "running" && (
           <button
             onClick={run}
-            className="flex-shrink-0 px-4 py-2.5 bg-gradient-to-r from-brand-600 to-brand-700 text-white rounded-lg text-sm font-bold hover:from-brand-700 hover:to-brand-800 transition-all shadow-md whitespace-nowrap"
+            className="flex-shrink-0 px-4 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg text-sm font-bold hover:from-blue-700 hover:to-indigo-700 transition-all shadow-md whitespace-nowrap"
           >
             Categorize New Transactions
           </button>
@@ -1083,7 +1083,7 @@ export const TransactionCategorizationDemo = () => {
                               <button
                                 key={opt}
                                 onClick={() => setResolvedCategory(opt)}
-                                className="text-xs font-medium px-2 py-1 border border-slate-200 rounded-full hover:border-brand-300 hover:text-brand-700 transition-colors whitespace-nowrap"
+                                className="text-xs font-medium px-2 py-1 border border-slate-200 rounded-full hover:border-blue-300 hover:text-blue-700 transition-colors whitespace-nowrap"
                               >
                                 {opt}
                               </button>
@@ -1136,7 +1136,7 @@ export const AdvisoryLetterDemo = () => {
         {stage === "idle" && (
           <button
             onClick={generate}
-            className="flex-shrink-0 px-4 py-2.5 bg-gradient-to-r from-brand-600 to-brand-700 text-white rounded-lg text-sm font-bold hover:from-brand-700 hover:to-brand-800 transition-all shadow-md whitespace-nowrap"
+            className="flex-shrink-0 px-4 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg text-sm font-bold hover:from-blue-700 hover:to-indigo-700 transition-all shadow-md whitespace-nowrap"
           >
             Generate August Letter
           </button>
@@ -1144,7 +1144,7 @@ export const AdvisoryLetterDemo = () => {
         {(stage === "ready" || stage === "sent") && (
           <button
             onClick={generate}
-            className="flex-shrink-0 flex items-center gap-1.5 text-sm font-semibold text-brand-600 hover:text-brand-700"
+            className="flex-shrink-0 flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-700"
           >
             <RefreshCw className="w-3.5 h-3.5" />
             Regenerate
@@ -1201,7 +1201,7 @@ export const AdvisoryLetterDemo = () => {
               ) : (
                 <button
                   onClick={() => setStage("sent")}
-                  className="px-4 py-2 bg-gradient-to-r from-brand-600 to-brand-700 text-white rounded-lg text-sm font-bold hover:from-brand-700 hover:to-brand-800 transition-all shadow-sm"
+                  className="px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg text-sm font-bold hover:from-blue-700 hover:to-indigo-700 transition-all shadow-sm"
                 >
                   Send to Client
                 </button>

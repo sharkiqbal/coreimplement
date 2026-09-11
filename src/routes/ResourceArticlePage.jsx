@@ -10,12 +10,12 @@ import SEO from "../component/SEO";
 
 const getCategoryColor = (category) => {
   const colors = {
-    "Getting Started": "bg-brand-100 text-brand-800",
+    "Getting Started": "bg-blue-100 text-blue-800",
     Strategy: "bg-green-100 text-green-800",
     Implementation: "bg-purple-100 text-purple-800",
     "Case Study": "bg-orange-100 text-orange-800",
     "Industry Insights": "bg-pink-100 text-pink-800",
-    "Best Practices": "bg-brand-200 text-brand-900",
+    "Best Practices": "bg-indigo-100 text-indigo-800",
     Technology: "bg-cyan-100 text-cyan-800",
     Automation: "bg-yellow-100 text-yellow-800",
   };
@@ -61,7 +61,7 @@ const ResourceArticlePage = () => {
       <div className="pt-16 sm:pt-20">
         <Navigation />
         <div className="min-h-[60vh] flex items-center justify-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-600"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
         </div>
         <Footer />
       </div>
@@ -78,7 +78,7 @@ const ResourceArticlePage = () => {
           noindex
         />
         <Navigation />
-        <section className="min-h-[50vh] flex items-center justify-center bg-gradient-to-br from-brand-50 via-brand-100 to-brand-200 py-16">
+        <section className="min-h-[50vh] flex items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-16">
           <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
               Article Not Found
@@ -88,7 +88,7 @@ const ResourceArticlePage = () => {
             </p>
             <button
               onClick={() => navigate("/resources")}
-              className="bg-gradient-to-r from-brand-600 to-brand-700 text-white px-6 py-3 rounded-xl font-bold hover:from-brand-700 hover:to-brand-800 transition-all shadow-lg"
+              className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-bold hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg"
             >
               Back to Resources
             </button>
@@ -135,11 +135,11 @@ const ResourceArticlePage = () => {
       />
       <Navigation />
 
-      <section className="bg-gradient-to-br from-brand-50 via-brand-100 to-brand-200 py-10 sm:py-16">
+      <section className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-10 sm:py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             to="/resources"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-gray-600 hover:text-brand-700 transition-colors mb-6"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-gray-600 hover:text-indigo-600 transition-colors mb-6"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Resources
@@ -188,7 +188,7 @@ const ResourceArticlePage = () => {
           )}
 
           {blog.relatedService && (
-            <div className="mt-10 bg-gradient-to-br from-brand-50 via-brand-100 to-brand-200 border border-brand-200 rounded-2xl p-6 sm:p-8">
+            <div className="mt-10 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 border border-indigo-100 rounded-2xl p-6 sm:p-8">
               <p className="text-sm font-semibold text-gray-500 mb-2">
                 Related Service
               </p>
@@ -197,7 +197,7 @@ const ResourceArticlePage = () => {
               </p>
               <Link
                 to={`/services#${slugify(blog.relatedService)}`}
-                className="inline-flex items-center gap-2 text-brand-700 font-semibold hover:gap-3 transition-all"
+                className="inline-flex items-center gap-2 text-indigo-600 font-semibold hover:gap-3 transition-all"
               >
                 See how it works
                 <ArrowRight className="w-4 h-4" />

@@ -67,7 +67,7 @@ exports.onContactSubmissionCreated = onDocumentCreated(
 
     const html = `
       <div style="font-family:sans-serif;max-width:560px;margin:0 auto;">
-        <h2 style="color:#5d5294;margin-bottom:4px;">New Contact Message</h2>
+        <h2 style="color:#1d4ed8;margin-bottom:4px;">New Contact Message</h2>
         <p style="color:#6b7280;font-size:13px;margin-top:0;">via coreimplement.com</p>
         <table style="border-collapse:collapse;width:100%;">
           ${row("Name", data.name)}
@@ -111,7 +111,7 @@ exports.onRFPSubmissionCreated = onDocumentCreated(
           action: "read",
           expires: Date.now() + 7 * 24 * 60 * 60 * 1000, // 7 days
         });
-        attachmentSection = `<p style="margin-top:16px;"><a href="${url}" style="color:#5d5294;">Download attachment: ${escapeHtml(data.attachmentName || "file")}</a></p>`;
+        attachmentSection = `<p style="margin-top:16px;"><a href="${url}" style="color:#1d4ed8;">Download attachment: ${escapeHtml(data.attachmentName || "file")}</a></p>`;
       } catch (error) {
         logger.error("Failed to sign attachment URL:", error);
       }
@@ -119,7 +119,7 @@ exports.onRFPSubmissionCreated = onDocumentCreated(
 
     const html = `
       <div style="font-family:sans-serif;max-width:560px;margin:0 auto;">
-        <h2 style="color:#5d5294;margin-bottom:4px;">New RFP Submission</h2>
+        <h2 style="color:#7c3aed;margin-bottom:4px;">New RFP Submission</h2>
         <p style="color:#6b7280;font-size:13px;margin-top:0;">via coreimplement.com</p>
         <table style="border-collapse:collapse;width:100%;">
           ${row("Name", data.name)}

@@ -152,7 +152,7 @@ export const RoutineReplyDemo = () => {
               "{r.inboundQuestion}"
             </p>
             <div className="bg-slate-50 border border-slate-200 rounded-lg p-3 flex gap-2.5">
-              <Bot className="w-4 h-4 text-brand-600 flex-shrink-0 mt-0.5" />
+              <Bot className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
               <p className="text-sm text-slate-700">{r.body}</p>
             </div>
             <div className="flex items-center justify-between mt-3">
@@ -200,8 +200,8 @@ export const AfterHoursCallDemo = () => {
             key={c.id}
             className="flex items-start gap-3 border border-slate-200 rounded-lg p-4"
           >
-            <div className="w-9 h-9 rounded-full bg-brand-50 flex items-center justify-center flex-shrink-0">
-              <Phone className="w-4 h-4 text-brand-600" />
+            <div className="w-9 h-9 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
+              <Phone className="w-4 h-4 text-blue-600" />
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center justify-between gap-3 flex-wrap">

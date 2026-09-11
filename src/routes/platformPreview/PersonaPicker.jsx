@@ -52,7 +52,7 @@ const PersonaPicker = () => {
 
         {loading ? (
           <div className="flex justify-center py-12">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-brand-600"></div>
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
           </div>
         ) : (
           <div className="grid sm:grid-cols-2 gap-3">
@@ -62,7 +62,7 @@ const PersonaPicker = () => {
                 onClick={() =>
                   navigate(`/platform-preview/${slugify(client.industry)}`)
                 }
-                className="group flex items-center justify-between px-5 py-4 bg-white border border-slate-200 rounded-xl hover:border-brand-300 hover:shadow-md transition-all text-left"
+                className="group flex items-center justify-between px-5 py-4 bg-white border border-slate-200 rounded-xl hover:border-blue-300 hover:shadow-md transition-all text-left"
               >
                 <div>
                   <p className="font-bold text-slate-900">
@@ -72,7 +72,7 @@ const PersonaPicker = () => {
                     {client.name}
                   </p>
                 </div>
-                <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-brand-600 group-hover:translate-x-0.5 transition-all flex-shrink-0" />
+                <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-blue-600 group-hover:translate-x-0.5 transition-all flex-shrink-0" />
               </button>
             ))}
           </div>

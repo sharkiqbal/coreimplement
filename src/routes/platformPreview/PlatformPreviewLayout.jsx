@@ -67,7 +67,7 @@ const PlatformPreviewLayout = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-slate-50">
-        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-brand-600"></div>
+        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-600"></div>
       </div>
     );
   }
@@ -84,7 +84,7 @@ const PlatformPreviewLayout = () => {
           </p>
           <button
             onClick={() => navigate("/platform-preview")}
-            className="px-5 py-2.5 bg-gradient-to-r from-brand-600 to-brand-700 text-white rounded-xl text-sm font-bold hover:from-brand-700 hover:to-brand-800 transition-all shadow-lg"
+            className="px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl text-sm font-bold hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg"
           >
             Choose a persona
           </button>
@@ -147,7 +147,7 @@ const PlatformPreviewLayout = () => {
           <div className="flex items-center gap-2 flex-shrink-0">
             <button
               onClick={() => setAssistantOpen((v) => !v)}
-              className="flex items-center gap-1.5 px-3 py-2 bg-gradient-to-r from-brand-600 to-brand-700 text-white rounded-lg text-sm font-bold hover:from-brand-700 hover:to-brand-800 transition-all shadow-sm"
+              className="flex items-center gap-1.5 px-3 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg text-sm font-bold hover:from-blue-700 hover:to-indigo-700 transition-all shadow-sm"
             >
               <Sparkles className="w-4 h-4" />
               Ask AI

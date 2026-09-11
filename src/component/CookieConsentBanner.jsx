@@ -13,8 +13,8 @@ const CookieConsentBanner = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-5">
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
           <div className="flex items-start gap-3 flex-1">
-            <div className="w-9 h-9 bg-brand-100 rounded-full flex items-center justify-center flex-shrink-0">
-              <Cookie className="w-4.5 h-4.5 text-brand-600" />
+            <div className="w-9 h-9 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <Cookie className="w-4.5 h-4.5 text-blue-600" />
             </div>
             <p className="text-sm text-gray-600 leading-relaxed">
               We use cookies from third-party tools, like our scheduling
@@ -23,7 +23,7 @@ const CookieConsentBanner = () => {
               See our{" "}
               <Link
                 to="/privacy"
-                className="text-brand-600 font-semibold hover:text-brand-700 underline"
+                className="text-blue-600 font-semibold hover:text-blue-700 underline"
               >
                 Privacy Policy
               </Link>{" "}
@@ -39,7 +39,7 @@ const CookieConsentBanner = () => {
             </button>
             <button
               onClick={acceptAll}
-              className="flex-1 sm:flex-none px-5 py-2.5 bg-gradient-to-r from-brand-600 to-brand-700 text-white rounded-xl text-sm font-bold hover:from-brand-700 hover:to-brand-800 transition-all shadow-lg whitespace-nowrap"
+              className="flex-1 sm:flex-none px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl text-sm font-bold hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg whitespace-nowrap"
             >
               Accept All
             </button>

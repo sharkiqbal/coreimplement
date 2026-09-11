@@ -18,7 +18,7 @@ const AIAssistantPanel = ({ open, onClose, industry, personaName }) => {
       >
         <div className="flex items-center justify-between gap-3 px-4 py-4 border-b border-slate-200 flex-shrink-0">
           <div className="flex items-center gap-2.5 min-w-0">
-            <div className="bg-gradient-to-r from-brand-600 to-brand-700 rounded-lg p-1.5 flex-shrink-0">
+            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg p-1.5 flex-shrink-0">
               <Sparkles className="w-4 h-4 text-white" />
             </div>
             <div className="min-w-0">

@@ -31,7 +31,7 @@ function CalendlyConsentGate({ children }) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-brand-50 to-brand-200 p-4 md:p-8 flex items-center justify-center">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4 md:p-8 flex items-center justify-center">
       <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center">
         <p className="text-gray-900 font-bold text-lg mb-2">
           Scheduling Widget Requires Cookies
@@ -41,19 +41,19 @@ function CalendlyConsentGate({ children }) {
           Accept cookies to book a time directly, or reach us at{" "}
           <a
             href="mailto:hello@coreimplement.com"
-            className="text-brand-600 font-semibold"
+            className="text-blue-600 font-semibold"
           >
             hello@coreimplement.com
           </a>{" "}
           or{" "}
-          <a href="tel:+12484534597" className="text-brand-600 font-semibold">
+          <a href="tel:+12484534597" className="text-blue-600 font-semibold">
             (248) 453-4597
           </a>
           .
         </p>
         <button
           onClick={acceptAll}
-          className="w-full px-5 py-3 bg-gradient-to-r from-brand-600 to-brand-700 text-white rounded-xl text-sm font-bold hover:from-brand-700 hover:to-brand-800 transition-all shadow-lg"
+          className="w-full px-5 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl text-sm font-bold hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg"
         >
           Accept Cookies to Continue
         </button>
@@ -83,15 +83,15 @@ function CalendlyWidget45min() {
 
   return (
     <CalendlyConsentGate>
-      <div className="min-h-screen bg-gradient-to-br from-brand-50 to-brand-200 p-4 md:p-8">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4 md:p-8">
         <div className="max-w-5xl mx-auto">
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
             {/* Header */}
-            <div className="bg-gradient-to-r from-brand-600 to-brand-700 p-6 text-center">
+            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-6 text-center">
               <h1 className="text-3xl font-bold text-white mb-2">
                 Schedule a Meeting
               </h1>
-              <p className="text-brand-100">
+              <p className="text-blue-100">
                 Choose a time that works best for you
               </p>
             </div>
@@ -109,7 +109,7 @@ function CalendlyWidget45min() {
             <div className="bg-gray-50 p-4 text-center border-t border-gray-200">
               <p className="text-sm text-gray-600">
                 Powered by{" "}
-                <span className="font-semibold text-brand-600">Calendly</span>
+                <span className="font-semibold text-blue-600">Calendly</span>
               </p>
             </div>
           </div>
@@ -140,15 +140,15 @@ function CalendlyWidget20min() {
 
   return (
     <CalendlyConsentGate>
-      <div className="min-h-screen bg-gradient-to-br from-brand-50 to-brand-200 p-4 md:p-8">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4 md:p-8">
         <div className="max-w-5xl mx-auto">
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
             {/* Header */}
-            <div className="bg-gradient-to-r from-brand-600 to-brand-700 p-6 text-center">
+            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-6 text-center">
               <h1 className="text-3xl font-bold text-white mb-2">
                 Schedule a Meeting
               </h1>
-              <p className="text-brand-100">
+              <p className="text-blue-100">
                 Choose a time that works best for you
               </p>
             </div>
@@ -166,7 +166,7 @@ function CalendlyWidget20min() {
             <div className="bg-gray-50 p-4 text-center border-t border-gray-200">
               <p className="text-sm text-gray-600">
                 Powered by{" "}
-                <span className="font-semibold text-brand-600">Calendly</span>
+                <span className="font-semibold text-blue-600">Calendly</span>
               </p>
             </div>
           </div>
@@ -384,9 +384,9 @@ const EnhancedContactPage = () => {
       />
       <Navigation />
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-brand-100 via-brand-200 to-brand-200 pt-28 pb-10 sm:pt-32 sm:pb-14 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-50 pt-28 pb-10 sm:pt-32 sm:pb-14 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-10 left-10 w-48 h-48 sm:w-72 sm:h-72 bg-brand-400 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-pulse"></div>
+          <div className="absolute top-10 left-10 w-48 h-48 sm:w-72 sm:h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-pulse"></div>
           <div
             className="absolute bottom-10 right-10 w-48 h-48 sm:w-72 sm:h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-pulse"
             style={{ animationDelay: "1s" }}
@@ -413,7 +413,7 @@ const EnhancedContactPage = () => {
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-3 sm:mb-4 leading-tight">
             Tell Us What's{" "}
-            <span className="bg-gradient-to-r from-brand-600 via-brand-700 to-brand-800 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
               Slowing You Down
             </span>
           </h1>
@@ -435,7 +435,7 @@ const EnhancedContactPage = () => {
                 onClick={() => setActiveTab("contact")}
                 className={`flex items-center justify-center gap-2 px-3 py-3 sm:px-6 sm:py-4 rounded-xl font-bold transition-all ${
                   activeTab === "contact"
-                    ? "bg-gradient-to-r from-brand-600 to-brand-700 text-white shadow-lg"
+                    ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg"
                     : "text-gray-600 hover:bg-gray-100"
                 }`}
               >
@@ -448,7 +448,7 @@ const EnhancedContactPage = () => {
                 onClick={() => setActiveTab("appointment")}
                 className={`flex items-center justify-center gap-2 px-3 py-3 sm:px-6 sm:py-4 rounded-xl font-bold transition-all ${
                   activeTab === "appointment"
-                    ? "bg-gradient-to-r from-brand-600 to-brand-700 text-white shadow-lg"
+                    ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg"
                     : "text-gray-600 hover:bg-gray-100"
                 }`}
               >
@@ -461,7 +461,7 @@ const EnhancedContactPage = () => {
                 onClick={() => setActiveTab("rfp")}
                 className={`flex items-center justify-center gap-2 px-3 py-3 sm:px-6 sm:py-4 rounded-xl font-bold transition-all ${
                   activeTab === "rfp"
-                    ? "bg-gradient-to-r from-brand-600 to-brand-700 text-white shadow-lg"
+                    ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg"
                     : "text-gray-600 hover:bg-gray-100"
                 }`}
               >
@@ -494,8 +494,8 @@ const EnhancedContactPage = () => {
 
               <div className="space-y-4 sm:space-y-6">
                 <div className="flex items-center space-x-3 sm:space-x-4">
-                  <div className="bg-brand-100 w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-brand-600" />
+                  <div className="bg-blue-100 w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
                   </div>
                   <div>
                     <div className="font-semibold text-gray-900 text-sm sm:text-base">Phone</div>
@@ -598,7 +598,7 @@ const EnhancedContactPage = () => {
                               name: e.target.value,
                             })
                           }
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                           placeholder="John Smith"
                         />
                       </div>
@@ -615,7 +615,7 @@ const EnhancedContactPage = () => {
                               company: e.target.value,
                             })
                           }
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                           placeholder="Your Company"
                         />
                       </div>
@@ -636,7 +636,7 @@ const EnhancedContactPage = () => {
                               email: e.target.value,
                             })
                           }
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                           placeholder="john@company.com"
                         />
                       </div>
@@ -653,7 +653,7 @@ const EnhancedContactPage = () => {
                               phone: e.target.value,
                             })
                           }
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                           placeholder="(248) 453-4597"
                         />
                       </div>
@@ -671,7 +671,7 @@ const EnhancedContactPage = () => {
                             projectType: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                       >
                         <option value="">Select a topic...</option>
                         <option value="Business Process Automation">
@@ -704,7 +704,7 @@ const EnhancedContactPage = () => {
                             message: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         placeholder="Tell us about your needs..."
                       />
                     </div>
@@ -712,7 +712,7 @@ const EnhancedContactPage = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-brand-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-brand-700 transition-all transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? "Sending..." : "Send Message"}
                     </button>
@@ -740,8 +740,8 @@ const EnhancedContactPage = () => {
                     <div
                       className={`border-2 rounded-xl p-6 transition-all cursor-pointer hover:scale-105 ${
                         selectedMeetingType === "20min"
-                          ? "border-brand-500 bg-brand-50"
-                          : "border-brand-200 hover:border-brand-400"
+                          ? "border-blue-500 bg-blue-50"
+                          : "border-blue-200 hover:border-blue-400"
                       }`}
                       onClick={() => setSelectedMeetingType("20min")}
                     >
@@ -753,7 +753,7 @@ const EnhancedContactPage = () => {
                           <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">
                             Free
                           </span>
-                          <span className="bg-brand-100 text-brand-700 px-3 py-1 rounded-full text-sm font-semibold">
+                          <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">
                             20 min
                           </span>
                         </div>
@@ -890,7 +890,7 @@ const EnhancedContactPage = () => {
                           onChange={(e) =>
                             setRFPForm({ ...rfpForm, name: e.target.value })
                           }
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                           placeholder="John Smith"
                         />
                       </div>
@@ -905,7 +905,7 @@ const EnhancedContactPage = () => {
                           onChange={(e) =>
                             setRFPForm({ ...rfpForm, email: e.target.value })
                           }
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                           placeholder="john@company.com"
                         />
                       </div>
@@ -922,7 +922,7 @@ const EnhancedContactPage = () => {
                           onChange={(e) =>
                             setRFPForm({ ...rfpForm, company: e.target.value })
                           }
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                           placeholder="Your Company"
                         />
                       </div>
@@ -938,7 +938,7 @@ const EnhancedContactPage = () => {
                               companySize: e.target.value,
                             })
                           }
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         >
                           <option value="">Select size...</option>
                           <option value="1-10">1-10 employees</option>
@@ -964,7 +964,7 @@ const EnhancedContactPage = () => {
                             systemsInUse: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         placeholder="e.g., Salesforce, SAP, custom CRM..."
                       />
                     </div>
@@ -994,7 +994,7 @@ const EnhancedContactPage = () => {
                             rows={3}
                             value={point}
                             onChange={(e) => updatePainPoint(index, e.target.value)}
-                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                             placeholder={
                               index === 0
                                 ? "Describe your biggest challenge..."
@@ -1006,7 +1006,7 @@ const EnhancedContactPage = () => {
                       <button
                         type="button"
                         onClick={addPainPoint}
-                        className="flex items-center gap-1.5 text-sm font-semibold text-brand-600 hover:text-brand-700 transition-colors"
+                        className="flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors"
                       >
                         <Plus className="w-4 h-4" />
                         Add another pain point
@@ -1024,7 +1024,7 @@ const EnhancedContactPage = () => {
                           onChange={(e) =>
                             setRFPForm({ ...rfpForm, timeline: e.target.value })
                           }
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         >
                           <option value="">Select timeline...</option>
                           <option value="30days">Within 30 days</option>
@@ -1046,7 +1046,7 @@ const EnhancedContactPage = () => {
                               budgetBand: e.target.value,
                             })
                           }
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         >
                           <option value="">Select budget...</option>
                           <option value="under5k">Under $5,000</option>
@@ -1073,7 +1073,7 @@ const EnhancedContactPage = () => {
                             additionalDetails: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         placeholder="Any additional context, requirements, or specific questions..."
                       />
                     </div>
@@ -1102,7 +1102,7 @@ const EnhancedContactPage = () => {
                           </button>
                         </div>
                       ) : (
-                        <label className="flex items-center justify-center gap-2 px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg text-sm text-gray-600 hover:border-brand-400 hover:text-brand-600 cursor-pointer transition-colors">
+                        <label className="flex items-center justify-center gap-2 px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg text-sm text-gray-600 hover:border-blue-400 hover:text-blue-600 cursor-pointer transition-colors">
                           <Paperclip className="w-4 h-4" />
                           Choose a file (PDF, Word, Excel, or image, up to 10MB)
                           <input
@@ -1127,7 +1127,7 @@ const EnhancedContactPage = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-brand-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-brand-700 transition-all transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {isUploadingAttachment
                         ? "Uploading attachment..."
@@ -1136,8 +1136,8 @@ const EnhancedContactPage = () => {
                         : "Submit RFP"}
                     </button>
 
-                    <div className="mt-6 p-4 bg-brand-50 rounded-lg">
-                      <p className="text-sm text-brand-800">
+                    <div className="mt-6 p-4 bg-blue-50 rounded-lg">
+                      <p className="text-sm text-blue-800">
                         <strong>What happens next?</strong> We'll review your
                         RFP and respond with a detailed proposal within 48
                         hours, including timelines, pricing, and our recommended

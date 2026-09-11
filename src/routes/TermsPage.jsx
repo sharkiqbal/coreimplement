@@ -25,7 +25,7 @@ const TermsPage = () => {
       <Navigation />
 
       {/* Header */}
-      <section className="bg-gradient-to-br from-brand-50 via-brand-100 to-brand-200 py-12 sm:py-16">
+      <section className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-12 sm:py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-3">
             Terms of Service
@@ -126,7 +126,7 @@ const TermsPage = () => {
               Email:{" "}
               <a
                 href="mailto:hello@coreimplement.com"
-                className="text-brand-600 hover:text-brand-700"
+                className="text-blue-600 hover:text-blue-700"
               >
                 hello@coreimplement.com
               </a>
@@ -134,7 +134,7 @@ const TermsPage = () => {
               Phone:{" "}
               <a
                 href="tel:+12484534597"
-                className="text-brand-600 hover:text-brand-700"
+                className="text-blue-600 hover:text-blue-700"
               >
                 (248) 453-4597
               </a>

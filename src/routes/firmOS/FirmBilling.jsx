@@ -20,7 +20,7 @@ import SEO from "../../component/SEO";
 
 const STATUS_STYLE = {
   paid: { text: "text-emerald-700", bg: "bg-emerald-50", label: "Paid" },
-  sent: { text: "text-brand-700", bg: "bg-brand-50", label: "Sent" },
+  sent: { text: "text-blue-700", bg: "bg-blue-50", label: "Sent" },
   overdue: { text: "text-amber-700", bg: "bg-amber-50", label: "Overdue" },
 };
 

@@ -39,11 +39,11 @@ const ServicesPage = () => {
 
   // Color schemes for different services
   const colorSchemes = [
-    { bg: "bg-brand-100", text: "text-brand-600", section: "" },
+    { bg: "bg-blue-100", text: "text-blue-600", section: "" },
     { bg: "bg-green-100", text: "text-green-600", section: "bg-gray-50" },
     { bg: "bg-purple-100", text: "text-purple-600", section: "" },
     { bg: "bg-orange-100", text: "text-orange-600", section: "bg-gray-50" },
-    { bg: "bg-brand-200", text: "text-brand-700", section: "" },
+    { bg: "bg-indigo-100", text: "text-indigo-600", section: "" },
     { bg: "bg-pink-100", text: "text-pink-600", section: "bg-gray-50" },
   ];
 
@@ -106,14 +106,14 @@ const ServicesPage = () => {
                   key={i}
                   className={`flex items-center gap-3 p-3 rounded-xl border ${
                     step.done
-                      ? "bg-brand-50/60 border-brand-100"
+                      ? "bg-blue-50/60 border-blue-100"
                       : "bg-gray-50 border-gray-100"
                   }`}
                 >
                   {step.done ? (
-                    <CheckCircle className="w-5 h-5 text-brand-600 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0" />
                   ) : (
-                    <div className="w-5 h-5 rounded-full border-2 border-gray-300 border-t-brand-500 animate-spin flex-shrink-0"></div>
+                    <div className="w-5 h-5 rounded-full border-2 border-gray-300 border-t-blue-500 animate-spin flex-shrink-0"></div>
                   )}
                   <span className="text-sm font-medium text-gray-700">
                     {step.label}
@@ -121,11 +121,11 @@ const ServicesPage = () => {
                 </div>
               ))}
             </div>
-            <div className="bg-gradient-to-br from-brand-50 to-brand-100 rounded-xl p-4 border border-brand-100 flex items-center justify-between">
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-100 flex items-center justify-between">
               <span className="text-sm font-semibold text-gray-600">
                 Hours saved this week
               </span>
-              <span className="text-2xl font-bold text-brand-600">14</span>
+              <span className="text-2xl font-bold text-blue-600">14</span>
             </div>
           </div>
         );
@@ -160,8 +160,8 @@ const ServicesPage = () => {
             </div>
             <div className="bg-gray-50 border border-gray-100 rounded-xl p-4">
               <div className="flex items-center gap-3 mb-2">
-                <div className="w-9 h-9 bg-brand-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-4 h-4 text-brand-600" />
+                <div className="w-9 h-9 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-4 h-4 text-blue-600" />
                 </div>
                 <div className="min-w-0">
                   <p className="text-sm font-semibold text-gray-900 truncate">
@@ -283,12 +283,12 @@ const ServicesPage = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] bg-gradient-to-br from-brand-100 via-brand-200 to-brand-200 flex items-center overflow-hidden">
+      <section className="relative min-h-[60vh] bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-50 flex items-center overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-20 right-10 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-brand-400 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-pulse"></div>
+          <div className="absolute top-20 right-10 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-pulse"></div>
           <div
-            className="absolute bottom-10 left-10 w-40 h-40 sm:w-60 sm:h-60 lg:w-80 lg:h-80 bg-brand-500 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-pulse"
+            className="absolute bottom-10 left-10 w-40 h-40 sm:w-60 sm:h-60 lg:w-80 lg:h-80 bg-indigo-400 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-pulse"
             style={{ animationDelay: "1s" }}
           ></div>
           <div
@@ -302,8 +302,8 @@ const ServicesPage = () => {
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-8 sm:py-12 lg:py-16 flex flex-col items-center justify-center w-full">
           {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-brand-300 mb-4 sm:mb-8">
-            <span className="w-2 h-2 bg-brand-700 rounded-full mr-2 animate-pulse"></span>
+          <div className="inline-flex items-center px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-indigo-200 mb-4 sm:mb-8">
+            <span className="w-2 h-2 bg-indigo-600 rounded-full mr-2 animate-pulse"></span>
             <span className="text-sm font-medium text-gray-800">
               Tailored for Growing Businesses
             </span>
@@ -312,7 +312,7 @@ const ServicesPage = () => {
           {/* Main Heading */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 sm:mb-6 leading-tight drop-shadow-sm">
             Comprehensive{" "}
-            <span className="bg-gradient-to-r from-brand-600 via-brand-700 to-brand-800 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
               AI Solutions
             </span>{" "}
             for Every Business
@@ -329,7 +329,7 @@ const ServicesPage = () => {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <button
               onClick={() => navigate("/contact")}
-              className="group bg-gradient-to-r from-brand-600 to-brand-700 text-white px-6 py-3.5 sm:px-10 sm:py-5 rounded-xl text-base sm:text-lg font-bold hover:from-brand-700 hover:to-brand-800 transition-all transform hover:scale-105 hover:-translate-y-1 shadow-xl hover:shadow-2xl flex items-center justify-center"
+              className="group bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3.5 sm:px-10 sm:py-5 rounded-xl text-base sm:text-lg font-bold hover:from-blue-700 hover:to-indigo-700 transition-all transform hover:scale-105 hover:-translate-y-1 shadow-xl hover:shadow-2xl flex items-center justify-center"
             >
               Book a Free Consultation
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -349,10 +349,10 @@ const ServicesPage = () => {
                   <a
                     key={service.id}
                     href={`#${slugifyServiceName(service.name)}`}
-                    className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-gray-50 hover:bg-brand-100 border border-gray-200 hover:border-brand-300 rounded-full transition-colors group flex-shrink-0"
+                    className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-gray-50 hover:bg-indigo-50 border border-gray-200 hover:border-indigo-200 rounded-full transition-colors group flex-shrink-0"
                   >
-                    <IconComponent className="w-3.5 h-3.5 text-gray-500 group-hover:text-brand-700 transition-colors flex-shrink-0" />
-                    <span className="text-xs sm:text-sm font-semibold text-gray-700 group-hover:text-brand-700 transition-colors whitespace-nowrap">
+                    <IconComponent className="w-3.5 h-3.5 text-gray-500 group-hover:text-indigo-600 transition-colors flex-shrink-0" />
+                    <span className="text-xs sm:text-sm font-semibold text-gray-700 group-hover:text-indigo-600 transition-colors whitespace-nowrap">
                       {service.name}
                     </span>
                   </a>
@@ -367,7 +367,7 @@ const ServicesPage = () => {
       {loading ? (
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-600 mx-auto"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
             <p className="mt-4 text-gray-600">Loading services...</p>
           </div>
         </section>
@@ -432,7 +432,7 @@ const ServicesPage = () => {
                       </div>
                       <div className="bg-gradient-to-br from-white to-gray-50 p-4 sm:p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
                         <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center">
-                          <span className="w-2 h-2 bg-brand-500 rounded-full mr-2 flex-shrink-0"></span>
+                          <span className="w-2 h-2 bg-blue-500 rounded-full mr-2 flex-shrink-0"></span>
                           What You Get
                         </h3>
                         <ul className="space-y-2 sm:space-y-3 text-gray-600">
@@ -464,7 +464,7 @@ const ServicesPage = () => {
                   >
                     <div className="relative h-full min-h-[400px] lg:min-h-[520px]">
                       {/* Decorative Background */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-brand-50 via-brand-100 to-brand-200 rounded-3xl transform rotate-3"></div>
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-3xl transform rotate-3"></div>
 
                       {/* Main Card */}
                       <div className="relative bg-white rounded-3xl shadow-2xl p-6 sm:p-8 transform -rotate-2 hover:rotate-0 transition-transform duration-300">
