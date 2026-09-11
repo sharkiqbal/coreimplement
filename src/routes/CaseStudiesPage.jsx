@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import {
   CheckCircle,
   Clock,
-  Gamepad2,
-  Package,
-  Phone,
-  Mail,
-  Megaphone,
+  Shield,
+  Calculator,
+  Scale,
+  Compass,
+  ClipboardCheck,
   Cog,
   ArrowRight,
 } from "lucide-react";
@@ -36,15 +36,19 @@ const CaseStudiesPage = () => {
     Hospitality: { bg: "bg-yellow-100", text: "text-yellow-800" },
     Education: { bg: "bg-red-100", text: "text-red-800" },
     "E-Commerce": { bg: "bg-emerald-100", text: "text-emerald-800" },
+    Insurance: { bg: "bg-sky-100", text: "text-sky-800" },
+    Accounting: { bg: "bg-amber-100", text: "text-amber-800" },
+    Engineering: { bg: "bg-violet-100", text: "text-violet-800" },
+    Dental: { bg: "bg-rose-100", text: "text-rose-800" },
   };
 
   // Icon per case study, keyed by its logoId
   const iconMap = {
-    gamepad: Gamepad2,
-    package: Package,
-    phone: Phone,
-    mail: Mail,
-    megaphone: Megaphone,
+    shield: Shield,
+    calculator: Calculator,
+    scale: Scale,
+    compass: Compass,
+    clipboard: ClipboardCheck,
   };
 
   const getIconComponent = (logoId) => iconMap[logoId] || Cog;

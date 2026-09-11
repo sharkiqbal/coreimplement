@@ -7,11 +7,11 @@ import {
   Save,
   CheckCircle,
   Clock,
-  Gamepad2,
-  Package,
-  Phone,
-  Mail,
-  Megaphone,
+  Shield,
+  Calculator,
+  Scale,
+  Compass,
+  ClipboardCheck,
   Cog,
 } from "lucide-react";
 import {
@@ -55,14 +55,18 @@ const CaseStudiesTab = () => {
     "Hospitality",
     "Education",
     "E-Commerce",
+    "Insurance",
+    "Accounting",
+    "Engineering",
+    "Dental",
   ];
 
   const logoOptions = [
-    { id: "gamepad", name: "Gamepad", icon: Gamepad2 },
-    { id: "package", name: "Package", icon: Package },
-    { id: "phone", name: "Phone", icon: Phone },
-    { id: "mail", name: "Mail", icon: Mail },
-    { id: "megaphone", name: "Megaphone", icon: Megaphone },
+    { id: "shield", name: "Shield", icon: Shield },
+    { id: "calculator", name: "Calculator", icon: Calculator },
+    { id: "scale", name: "Scale", icon: Scale },
+    { id: "compass", name: "Compass", icon: Compass },
+    { id: "clipboard", name: "Clipboard", icon: ClipboardCheck },
     { id: "cog", name: "Cog", icon: Cog },
   ];
 
