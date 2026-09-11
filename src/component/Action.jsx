@@ -16,7 +16,7 @@ const Action = ({
   return (
     <div>
       {/* Bottom CTA */}
-      <section className="relative py-12 sm:py-20 bg-gradient-to-br from-brand-600 via-brand-700 to-purple-700 text-white overflow-hidden">
+      <section className="relative py-12 sm:py-20 bg-gradient-to-br from-brand-600 via-brand-700 to-brand-900 text-white overflow-hidden">
         {/* Decorative Background Elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
           <div className="absolute top-10 left-10 w-96 h-96 bg-brand-400 rounded-full mix-blend-overlay filter blur-3xl opacity-30 animate-pulse"></div>

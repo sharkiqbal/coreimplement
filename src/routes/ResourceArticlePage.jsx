@@ -78,7 +78,7 @@ const ResourceArticlePage = () => {
           noindex
         />
         <Navigation />
-        <section className="min-h-[50vh] flex items-center justify-center bg-gradient-to-br from-brand-50 via-brand-100 to-purple-50 py-16">
+        <section className="min-h-[50vh] flex items-center justify-center bg-gradient-to-br from-brand-50 via-brand-100 to-brand-200 py-16">
           <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
               Article Not Found
@@ -135,7 +135,7 @@ const ResourceArticlePage = () => {
       />
       <Navigation />
 
-      <section className="bg-gradient-to-br from-brand-50 via-brand-100 to-purple-50 py-10 sm:py-16">
+      <section className="bg-gradient-to-br from-brand-50 via-brand-100 to-brand-200 py-10 sm:py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             to="/resources"
@@ -188,7 +188,7 @@ const ResourceArticlePage = () => {
           )}
 
           {blog.relatedService && (
-            <div className="mt-10 bg-gradient-to-br from-brand-50 via-brand-100 to-purple-50 border border-brand-200 rounded-2xl p-6 sm:p-8">
+            <div className="mt-10 bg-gradient-to-br from-brand-50 via-brand-100 to-brand-200 border border-brand-200 rounded-2xl p-6 sm:p-8">
               <p className="text-sm font-semibold text-gray-500 mb-2">
                 Related Service
               </p>

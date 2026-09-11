@@ -204,7 +204,7 @@ const Homepage = () => {
       />
       <Navigation />
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] bg-gradient-to-br from-brand-100 via-brand-200 to-purple-50 flex items-center overflow-hidden">
+      <section className="relative min-h-[70vh] bg-gradient-to-br from-brand-100 via-brand-200 to-brand-200 flex items-center overflow-hidden">
         {/* Decorative Background Elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
           <div className="absolute top-20 left-10 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-brand-400 rounded-full mix-blend-multiply filter blur-2xl sm:blur-3xl opacity-15 sm:opacity-30 animate-pulse"></div>
@@ -322,7 +322,7 @@ const Homepage = () => {
                 style={{ animationDelay: "0.7s" }}
               ></div>
 
-              <div className="relative bg-gradient-to-br from-brand-500 via-brand-700 to-purple-600 rounded-3xl p-5 sm:p-8 shadow-2xl transform hover:scale-105 transition-transform duration-300">
+              <div className="relative bg-gradient-to-br from-brand-500 via-brand-700 to-brand-800 rounded-3xl p-5 sm:p-8 shadow-2xl transform hover:scale-105 transition-transform duration-300">
                 <div className="space-y-3 sm:space-y-6">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-2 sm:space-x-3">
@@ -400,7 +400,7 @@ const Homepage = () => {
               </span>
               <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-2 mb-3 sm:mb-4 leading-tight">
                 If It's{" "}
-                <span className="bg-gradient-to-r from-brand-600 via-brand-700 to-purple-600 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-brand-600 via-brand-700 to-brand-800 bg-clip-text text-transparent">
                   Repetitive
                 </span>
                 , We Can Probably Automate It
@@ -457,7 +457,7 @@ const Homepage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
-              <span className="bg-gradient-to-r from-brand-600 via-brand-700 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-brand-600 via-brand-700 to-brand-800 bg-clip-text text-transparent">
                 Our Core{" "}
               </span>{" "}
               Services
@@ -524,7 +524,7 @@ const Homepage = () => {
             </div>
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
               How It{" "}
-              <span className="bg-gradient-to-r from-brand-600 via-brand-700 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-brand-600 via-brand-700 to-brand-800 bg-clip-text text-transparent">
                 Works
               </span>
             </h2>
@@ -537,7 +537,7 @@ const Homepage = () => {
 
           <div className="relative grid md:grid-cols-3 gap-5 sm:gap-8 lg:gap-10">
             {/* Connecting line for desktop */}
-            <div className="hidden md:block absolute top-20 left-[16.5%] right-[16.5%] h-0.5 bg-gradient-to-r from-brand-200 via-brand-400 to-purple-200"></div>
+            <div className="hidden md:block absolute top-20 left-[16.5%] right-[16.5%] h-0.5 bg-gradient-to-r from-brand-200 via-brand-400 to-brand-400"></div>
 
             {howItWorksSteps.map((step, index) => {
               const StepIcon = step.icon;
@@ -631,7 +631,7 @@ const Homepage = () => {
             </div>
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
               Trusted by{" "}
-              <span className="bg-gradient-to-r from-brand-600 via-brand-700 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-brand-600 via-brand-700 to-brand-800 bg-clip-text text-transparent">
                 Growing Businesses
               </span>
             </h2>
@@ -704,7 +704,7 @@ const Homepage = () => {
                   </div>
                 ))}
               </div>
-              <div className="bg-gradient-to-br from-brand-50 via-brand-100 to-purple-50 border border-brand-200 rounded-xl p-4 sm:p-6">
+              <div className="bg-gradient-to-br from-brand-50 via-brand-100 to-brand-200 border border-brand-200 rounded-xl p-4 sm:p-6">
                 <p className="text-sm font-semibold text-gray-500 mb-2">
                   Powered By Leading AI
                 </p>

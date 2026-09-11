@@ -16,9 +16,9 @@ const NotFoundPage = () => {
         noindex
       />
       <Navigation />
-      <section className="min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-brand-50 via-brand-100 to-purple-50 py-16">
+      <section className="min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-brand-50 via-brand-100 to-brand-200 py-16">
         <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-6xl sm:text-7xl font-extrabold bg-gradient-to-r from-brand-600 via-brand-700 to-purple-600 bg-clip-text text-transparent mb-4">
+          <p className="text-6xl sm:text-7xl font-extrabold bg-gradient-to-r from-brand-600 via-brand-700 to-brand-800 bg-clip-text text-transparent mb-4">
             404
           </p>
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">

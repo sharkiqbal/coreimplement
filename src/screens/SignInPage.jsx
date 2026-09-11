@@ -88,7 +88,7 @@ const SignInPage = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-brand-100 via-brand-100 to-purple-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <div className="relative min-h-screen bg-gradient-to-br from-brand-100 via-brand-100 to-brand-300 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-96 h-96 bg-brand-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>

@@ -384,7 +384,7 @@ const EnhancedContactPage = () => {
       />
       <Navigation />
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-brand-100 via-brand-200 to-purple-50 pt-28 pb-10 sm:pt-32 sm:pb-14 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-brand-100 via-brand-200 to-brand-200 pt-28 pb-10 sm:pt-32 sm:pb-14 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
           <div className="absolute top-10 left-10 w-48 h-48 sm:w-72 sm:h-72 bg-brand-400 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-pulse"></div>
           <div
@@ -413,7 +413,7 @@ const EnhancedContactPage = () => {
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-3 sm:mb-4 leading-tight">
             Tell Us What's{" "}
-            <span className="bg-gradient-to-r from-brand-600 via-brand-700 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-brand-600 via-brand-700 to-brand-800 bg-clip-text text-transparent">
               Slowing You Down
             </span>
           </h1>
