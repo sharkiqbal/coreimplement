@@ -19,6 +19,8 @@ import {
   Mail,
   BarChart3,
   PlugZap,
+  AlertTriangle,
+  Bell,
 } from "lucide-react";
 import { getAllServices, slugifyServiceName } from "../service/serviceService";
 import { getAllReviews } from "../service/reviewService";
@@ -328,7 +330,7 @@ const Homepage = () => {
                     <div className="flex items-center space-x-2 sm:space-x-3">
                       <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse shadow-lg shadow-green-400/50"></div>
                       <span className="text-white font-bold text-base sm:text-lg">
-                        AI Systems Active
+                        AI-Powered Insights
                       </span>
                     </div>
                     <div className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full">
@@ -341,43 +343,45 @@ const Homepage = () => {
                   <div className="space-y-2.5 sm:space-y-4">
                     {[
                       {
-                        label: "Process Efficiency",
-                        value: "+73%",
-                        color: "green",
-                        width: "75%",
+                        icon: AlertTriangle,
+                        iconBg: "bg-amber-400/30",
+                        iconColor: "text-amber-200",
+                        text: "Vendor invoice 18% above average — flagged for review",
+                        tag: "Flagged automatically",
                       },
                       {
-                        label: "Cost Reduction",
-                        value: "+45%",
-                        color: "blue",
-                        width: "50%",
+                        icon: TrendingUp,
+                        iconBg: "bg-emerald-400/30",
+                        iconColor: "text-emerald-200",
+                        text: "Quote turnaround improved 40% since automating intake",
+                        tag: "This month",
                       },
                       {
-                        label: "Time Saved",
-                        value: "+62%",
-                        color: "purple",
-                        width: "66%",
+                        icon: Bell,
+                        iconBg: "bg-blue-300/30",
+                        iconColor: "text-blue-100",
+                        text: "3 leads went cold after 48 hrs — follow-up sent automatically",
+                        tag: "Just now",
                       },
-                    ].map((metric, idx) => (
+                    ].map((insight, idx) => (
                       <div
                         key={idx}
-                        className="bg-white/20 backdrop-blur-md rounded-xl p-3.5 sm:p-5 border border-white/30 shadow-lg hover:bg-white/25 transition-all"
+                        className="flex gap-3 sm:gap-4 bg-white/20 backdrop-blur-md rounded-xl p-3.5 sm:p-5 border border-white/30 shadow-lg hover:bg-white/25 transition-all"
                       >
-                        <div className="flex items-center justify-between mb-2 sm:mb-3">
-                          <span className="text-white font-semibold text-sm sm:text-base">
-                            {metric.label}
-                          </span>
-                          <span
-                            className={`text-${metric.color}-200 text-lg sm:text-xl font-bold`}
-                          >
-                            {metric.value}
-                          </span>
+                        <div
+                          className={`flex-shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-lg ${insight.iconBg} flex items-center justify-center`}
+                        >
+                          <insight.icon
+                            className={`w-5 h-5 ${insight.iconColor}`}
+                          />
                         </div>
-                        <div className="w-full bg-white/20 rounded-full h-2.5 sm:h-3">
-                          <div
-                            className={`bg-gradient-to-r from-${metric.color}-400 to-${metric.color}-300 h-2.5 sm:h-3 rounded-full shadow-lg`}
-                            style={{ width: metric.width }}
-                          ></div>
+                        <div className="min-w-0">
+                          <p className="text-white font-semibold text-sm sm:text-base leading-snug">
+                            {insight.text}
+                          </p>
+                          <p className="text-white/70 text-xs sm:text-sm mt-1">
+                            {insight.tag}
+                          </p>
                         </div>
                       </div>
                     ))}
