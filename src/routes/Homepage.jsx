@@ -18,10 +18,17 @@ import {
   FileText,
   Mail,
   BarChart3,
-  PlugZap,
   AlertTriangle,
   Bell,
 } from "lucide-react";
+import {
+  SiQuickbooks,
+  SiHubspot,
+  SiGmail,
+  SiGooglesheets,
+  SiCalendly,
+} from "react-icons/si";
+import { FaSalesforce } from "react-icons/fa6";
 import { getAllServices, slugifyServiceName } from "../service/serviceService";
 import { getAllReviews } from "../service/reviewService";
 import { getCompanyProfile } from "../service/companyProfileService";
@@ -154,12 +161,12 @@ const Homepage = () => {
 
   // Tools we commonly integrate with
   const integrationTools = [
-    "QuickBooks",
-    "HubSpot",
-    "Salesforce",
-    "Gmail & Outlook",
-    "Google Sheets & Excel",
-    "Calendly",
+    { name: "QuickBooks", icon: SiQuickbooks, color: "#2CA01C" },
+    { name: "HubSpot", icon: SiHubspot, color: "#FF7A59" },
+    { name: "Salesforce", icon: FaSalesforce, color: "#00A1E0" },
+    { name: "Gmail", icon: SiGmail, color: "#EA4335" },
+    { name: "Google Sheets", icon: SiGooglesheets, color: "#0F9D58" },
+    { name: "Calendly", icon: SiCalendly, color: "#006BFF" },
   ];
 
   useEffect(() => {
@@ -696,14 +703,17 @@ const Homepage = () => {
                 industry-leading AI models under the hood.
               </p>
               <div className="flex flex-wrap gap-2 sm:gap-3 mb-5 sm:mb-6">
-                {integrationTools.map((tool, index) => (
+                {integrationTools.map((tool) => (
                   <div
-                    key={index}
+                    key={tool.name}
                     className="flex items-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-4 sm:py-2.5 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md hover:border-indigo-200 transition-all"
                   >
-                    <PlugZap className="w-4 h-4 text-indigo-500" />
+                    <tool.icon
+                      className="w-4 h-4"
+                      style={{ color: tool.color }}
+                    />
                     <span className="text-xs sm:text-sm font-semibold text-gray-700">
-                      {tool}
+                      {tool.name}
                     </span>
                   </div>
                 ))}
