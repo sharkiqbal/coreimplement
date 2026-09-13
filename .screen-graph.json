@@ -194,7 +194,7 @@
       "data": {
         "viaRoute": "/",
         "trigger": {
-          "element": "<SEO\n        title=\"AI Automation for Growing Businesses\"\n        description=\"Core Implement helps growing businesses automate manual, repetitive work using Claude, ChatGPT, and custom AI built around the tools you already use. Book a free consultation.\"\n        path=\"/\"\n      />",
+          "element": "<SEO\n        title=\"AI Automation for Growing Businesses\"\n        description=\"Core Implement puts Claude, ChatGPT, and custom AI to work on the busywork slowing growing businesses down, built around the tools you already use. Book a free consultation.\"\n        path=\"/\"\n      />",
           "line": 209,
           "endLine": 213,
           "column": 6,
@@ -220,31 +220,15 @@
       }
     },
     {
-      "id": "src/routes/Homepage.jsx:597:20-to-src/routes/ContactPage.jsx",
-      "source": "src/routes/Homepage.jsx",
-      "target": "src/routes/ContactPage.jsx",
-      "data": {
-        "viaRoute": "/contact",
-        "trigger": {
-          "element": "<Link\n                      to=\"/contact\"\n                      className=\"inline-flex items-center gap-1 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors mt-4 sm:mt-5\"\n                    >\n                      Schedule now\n                      <ChevronRight className=\"w-4 h-4\" />\n                    </Link>",
-          "line": 597,
-          "endLine": 603,
-          "column": 20,
-          "endColumn": 27,
-          "sourceFile": "src/routes/Homepage.jsx"
-        }
-      }
-    },
-    {
-      "id": "src/routes/Homepage.jsx:612:29-to-src/routes/ContactPage.jsx",
+      "id": "src/routes/Homepage.jsx:603:29-to-src/routes/ContactPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "navigate(\"/contact\")",
-          "line": 612,
-          "endLine": 612,
+          "line": 603,
+          "endLine": 603,
           "column": 29,
           "endColumn": 49,
           "sourceFile": "src/routes/Homepage.jsx"
@@ -268,15 +252,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:156:16-to-src/routes/PrivacyPage.jsx",
+      "id": "src/component/Footer.jsx:157:16-to-src/routes/PrivacyPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/PrivacyPage.jsx",
       "data": {
         "viaRoute": "/privacy",
         "trigger": {
           "element": "<Link\n                  to=\"/privacy\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Privacy\n                </Link>",
-          "line": 156,
-          "endLine": 161,
+          "line": 157,
+          "endLine": 162,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -284,15 +268,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:163:16-to-src/routes/TermsPage.jsx",
+      "id": "src/component/Footer.jsx:164:16-to-src/routes/TermsPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/TermsPage.jsx",
       "data": {
         "viaRoute": "/terms",
         "trigger": {
           "element": "<Link\n                  to=\"/terms\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Terms\n                </Link>",
-          "line": 163,
-          "endLine": 168,
+          "line": 164,
+          "endLine": 169,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -300,15 +284,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:170:16-to-src/routes/ContactPage.jsx",
+      "id": "src/component/Footer.jsx:171:16-to-src/routes/ContactPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<Link\n                  to=\"/contact\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Contact\n                </Link>",
-          "line": 170,
-          "endLine": 175,
+          "line": 171,
+          "endLine": 176,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -364,15 +348,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:156:16-to-src/routes/PrivacyPage.jsx",
+      "id": "src/component/Footer.jsx:157:16-to-src/routes/PrivacyPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/PrivacyPage.jsx",
       "data": {
         "viaRoute": "/privacy",
         "trigger": {
           "element": "<Link\n                  to=\"/privacy\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Privacy\n                </Link>",
-          "line": 156,
-          "endLine": 161,
+          "line": 157,
+          "endLine": 162,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -380,15 +364,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:163:16-to-src/routes/TermsPage.jsx",
+      "id": "src/component/Footer.jsx:164:16-to-src/routes/TermsPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/TermsPage.jsx",
       "data": {
         "viaRoute": "/terms",
         "trigger": {
           "element": "<Link\n                  to=\"/terms\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Terms\n                </Link>",
-          "line": 163,
-          "endLine": 168,
+          "line": 164,
+          "endLine": 169,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -396,15 +380,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:170:16-to-src/routes/ContactPage.jsx",
+      "id": "src/component/Footer.jsx:171:16-to-src/routes/ContactPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<Link\n                  to=\"/contact\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Contact\n                </Link>",
-          "line": 170,
-          "endLine": 175,
+          "line": 171,
+          "endLine": 176,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -492,15 +476,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:156:16-to-src/routes/PrivacyPage.jsx",
+      "id": "src/component/Footer.jsx:157:16-to-src/routes/PrivacyPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/PrivacyPage.jsx",
       "data": {
         "viaRoute": "/privacy",
         "trigger": {
           "element": "<Link\n                  to=\"/privacy\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Privacy\n                </Link>",
-          "line": 156,
-          "endLine": 161,
+          "line": 157,
+          "endLine": 162,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -508,15 +492,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:163:16-to-src/routes/TermsPage.jsx",
+      "id": "src/component/Footer.jsx:164:16-to-src/routes/TermsPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/TermsPage.jsx",
       "data": {
         "viaRoute": "/terms",
         "trigger": {
           "element": "<Link\n                  to=\"/terms\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Terms\n                </Link>",
-          "line": 163,
-          "endLine": 168,
+          "line": 164,
+          "endLine": 169,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -524,15 +508,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:170:16-to-src/routes/ContactPage.jsx",
+      "id": "src/component/Footer.jsx:171:16-to-src/routes/ContactPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<Link\n                  to=\"/contact\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Contact\n                </Link>",
-          "line": 170,
-          "endLine": 175,
+          "line": 171,
+          "endLine": 176,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -588,15 +572,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:156:16-to-src/routes/PrivacyPage.jsx",
+      "id": "src/component/Footer.jsx:157:16-to-src/routes/PrivacyPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/PrivacyPage.jsx",
       "data": {
         "viaRoute": "/privacy",
         "trigger": {
           "element": "<Link\n                  to=\"/privacy\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Privacy\n                </Link>",
-          "line": 156,
-          "endLine": 161,
+          "line": 157,
+          "endLine": 162,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -604,15 +588,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:163:16-to-src/routes/TermsPage.jsx",
+      "id": "src/component/Footer.jsx:164:16-to-src/routes/TermsPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/TermsPage.jsx",
       "data": {
         "viaRoute": "/terms",
         "trigger": {
           "element": "<Link\n                  to=\"/terms\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Terms\n                </Link>",
-          "line": 163,
-          "endLine": 168,
+          "line": 164,
+          "endLine": 169,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -620,15 +604,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:170:16-to-src/routes/ContactPage.jsx",
+      "id": "src/component/Footer.jsx:171:16-to-src/routes/ContactPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<Link\n                  to=\"/contact\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Contact\n                </Link>",
-          "line": 170,
-          "endLine": 175,
+          "line": 171,
+          "endLine": 176,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -684,15 +668,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:156:16-to-src/routes/PrivacyPage.jsx",
+      "id": "src/component/Footer.jsx:157:16-to-src/routes/PrivacyPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/PrivacyPage.jsx",
       "data": {
         "viaRoute": "/privacy",
         "trigger": {
           "element": "<Link\n                  to=\"/privacy\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Privacy\n                </Link>",
-          "line": 156,
-          "endLine": 161,
+          "line": 157,
+          "endLine": 162,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -700,15 +684,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:163:16-to-src/routes/TermsPage.jsx",
+      "id": "src/component/Footer.jsx:164:16-to-src/routes/TermsPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/TermsPage.jsx",
       "data": {
         "viaRoute": "/terms",
         "trigger": {
           "element": "<Link\n                  to=\"/terms\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Terms\n                </Link>",
-          "line": 163,
-          "endLine": 168,
+          "line": 164,
+          "endLine": 169,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -716,15 +700,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:170:16-to-src/routes/ContactPage.jsx",
+      "id": "src/component/Footer.jsx:171:16-to-src/routes/ContactPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<Link\n                  to=\"/contact\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Contact\n                </Link>",
-          "line": 170,
-          "endLine": 175,
+          "line": 171,
+          "endLine": 176,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -796,15 +780,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:156:16-to-src/routes/PrivacyPage.jsx",
+      "id": "src/component/Footer.jsx:157:16-to-src/routes/PrivacyPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/PrivacyPage.jsx",
       "data": {
         "viaRoute": "/privacy",
         "trigger": {
           "element": "<Link\n                  to=\"/privacy\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Privacy\n                </Link>",
-          "line": 156,
-          "endLine": 161,
+          "line": 157,
+          "endLine": 162,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -812,15 +796,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:163:16-to-src/routes/TermsPage.jsx",
+      "id": "src/component/Footer.jsx:164:16-to-src/routes/TermsPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/TermsPage.jsx",
       "data": {
         "viaRoute": "/terms",
         "trigger": {
           "element": "<Link\n                  to=\"/terms\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Terms\n                </Link>",
-          "line": 163,
-          "endLine": 168,
+          "line": 164,
+          "endLine": 169,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -828,15 +812,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:170:16-to-src/routes/ContactPage.jsx",
+      "id": "src/component/Footer.jsx:171:16-to-src/routes/ContactPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<Link\n                  to=\"/contact\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Contact\n                </Link>",
-          "line": 170,
-          "endLine": 175,
+          "line": 171,
+          "endLine": 176,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -860,15 +844,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:156:16-to-src/routes/PrivacyPage.jsx",
+      "id": "src/component/Footer.jsx:157:16-to-src/routes/PrivacyPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/PrivacyPage.jsx",
       "data": {
         "viaRoute": "/privacy",
         "trigger": {
           "element": "<Link\n                  to=\"/privacy\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Privacy\n                </Link>",
-          "line": 156,
-          "endLine": 161,
+          "line": 157,
+          "endLine": 162,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -876,15 +860,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:163:16-to-src/routes/TermsPage.jsx",
+      "id": "src/component/Footer.jsx:164:16-to-src/routes/TermsPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/TermsPage.jsx",
       "data": {
         "viaRoute": "/terms",
         "trigger": {
           "element": "<Link\n                  to=\"/terms\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Terms\n                </Link>",
-          "line": 163,
-          "endLine": 168,
+          "line": 164,
+          "endLine": 169,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -892,15 +876,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:170:16-to-src/routes/ContactPage.jsx",
+      "id": "src/component/Footer.jsx:171:16-to-src/routes/ContactPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<Link\n                  to=\"/contact\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Contact\n                </Link>",
-          "line": 170,
-          "endLine": 175,
+          "line": 171,
+          "endLine": 176,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -924,15 +908,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:156:16-to-src/routes/PrivacyPage.jsx",
+      "id": "src/component/Footer.jsx:157:16-to-src/routes/PrivacyPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/PrivacyPage.jsx",
       "data": {
         "viaRoute": "/privacy",
         "trigger": {
           "element": "<Link\n                  to=\"/privacy\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Privacy\n                </Link>",
-          "line": 156,
-          "endLine": 161,
+          "line": 157,
+          "endLine": 162,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -940,15 +924,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:163:16-to-src/routes/TermsPage.jsx",
+      "id": "src/component/Footer.jsx:164:16-to-src/routes/TermsPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/TermsPage.jsx",
       "data": {
         "viaRoute": "/terms",
         "trigger": {
           "element": "<Link\n                  to=\"/terms\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Terms\n                </Link>",
-          "line": 163,
-          "endLine": 168,
+          "line": 164,
+          "endLine": 169,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -956,15 +940,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:170:16-to-src/routes/ContactPage.jsx",
+      "id": "src/component/Footer.jsx:171:16-to-src/routes/ContactPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<Link\n                  to=\"/contact\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Contact\n                </Link>",
-          "line": 170,
-          "endLine": 175,
+          "line": 171,
+          "endLine": 176,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -1004,15 +988,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:156:16-to-src/routes/PrivacyPage.jsx",
+      "id": "src/component/Footer.jsx:157:16-to-src/routes/PrivacyPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/PrivacyPage.jsx",
       "data": {
         "viaRoute": "/privacy",
         "trigger": {
           "element": "<Link\n                  to=\"/privacy\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Privacy\n                </Link>",
-          "line": 156,
-          "endLine": 161,
+          "line": 157,
+          "endLine": 162,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -1020,15 +1004,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:163:16-to-src/routes/TermsPage.jsx",
+      "id": "src/component/Footer.jsx:164:16-to-src/routes/TermsPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/TermsPage.jsx",
       "data": {
         "viaRoute": "/terms",
         "trigger": {
           "element": "<Link\n                  to=\"/terms\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Terms\n                </Link>",
-          "line": 163,
-          "endLine": 168,
+          "line": 164,
+          "endLine": 169,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -1036,15 +1020,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:170:16-to-src/routes/ContactPage.jsx",
+      "id": "src/component/Footer.jsx:171:16-to-src/routes/ContactPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<Link\n                  to=\"/contact\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Contact\n                </Link>",
-          "line": 170,
-          "endLine": 175,
+          "line": 171,
+          "endLine": 176,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -1084,15 +1068,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:156:16-to-src/routes/PrivacyPage.jsx",
+      "id": "src/component/Footer.jsx:157:16-to-src/routes/PrivacyPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/PrivacyPage.jsx",
       "data": {
         "viaRoute": "/privacy",
         "trigger": {
           "element": "<Link\n                  to=\"/privacy\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Privacy\n                </Link>",
-          "line": 156,
-          "endLine": 161,
+          "line": 157,
+          "endLine": 162,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -1100,15 +1084,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:163:16-to-src/routes/TermsPage.jsx",
+      "id": "src/component/Footer.jsx:164:16-to-src/routes/TermsPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/TermsPage.jsx",
       "data": {
         "viaRoute": "/terms",
         "trigger": {
           "element": "<Link\n                  to=\"/terms\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Terms\n                </Link>",
-          "line": 163,
-          "endLine": 168,
+          "line": 164,
+          "endLine": 169,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -1116,15 +1100,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:170:16-to-src/routes/ContactPage.jsx",
+      "id": "src/component/Footer.jsx:171:16-to-src/routes/ContactPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<Link\n                  to=\"/contact\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Contact\n                </Link>",
-          "line": 170,
-          "endLine": 175,
+          "line": 171,
+          "endLine": 176,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -1164,15 +1148,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:156:16-to-src/routes/PrivacyPage.jsx",
+      "id": "src/component/Footer.jsx:157:16-to-src/routes/PrivacyPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/PrivacyPage.jsx",
       "data": {
         "viaRoute": "/privacy",
         "trigger": {
           "element": "<Link\n                  to=\"/privacy\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Privacy\n                </Link>",
-          "line": 156,
-          "endLine": 161,
+          "line": 157,
+          "endLine": 162,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -1180,15 +1164,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:163:16-to-src/routes/TermsPage.jsx",
+      "id": "src/component/Footer.jsx:164:16-to-src/routes/TermsPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/TermsPage.jsx",
       "data": {
         "viaRoute": "/terms",
         "trigger": {
           "element": "<Link\n                  to=\"/terms\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Terms\n                </Link>",
-          "line": 163,
-          "endLine": 168,
+          "line": 164,
+          "endLine": 169,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -1196,15 +1180,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:170:16-to-src/routes/ContactPage.jsx",
+      "id": "src/component/Footer.jsx:171:16-to-src/routes/ContactPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<Link\n                  to=\"/contact\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Contact\n                </Link>",
-          "line": 170,
-          "endLine": 175,
+          "line": 171,
+          "endLine": 176,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -1292,15 +1276,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:156:16-to-src/routes/PrivacyPage.jsx",
+      "id": "src/component/Footer.jsx:157:16-to-src/routes/PrivacyPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/PrivacyPage.jsx",
       "data": {
         "viaRoute": "/privacy",
         "trigger": {
           "element": "<Link\n                  to=\"/privacy\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Privacy\n                </Link>",
-          "line": 156,
-          "endLine": 161,
+          "line": 157,
+          "endLine": 162,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -1308,15 +1292,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:163:16-to-src/routes/TermsPage.jsx",
+      "id": "src/component/Footer.jsx:164:16-to-src/routes/TermsPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/TermsPage.jsx",
       "data": {
         "viaRoute": "/terms",
         "trigger": {
           "element": "<Link\n                  to=\"/terms\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Terms\n                </Link>",
-          "line": 163,
-          "endLine": 168,
+          "line": 164,
+          "endLine": 169,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"
@@ -1324,15 +1308,15 @@
       }
     },
     {
-      "id": "src/component/Footer.jsx:170:16-to-src/routes/ContactPage.jsx",
+      "id": "src/component/Footer.jsx:171:16-to-src/routes/ContactPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<Link\n                  to=\"/contact\"\n                  className=\"text-gray-400 hover:text-white transition-colors\"\n                >\n                  Contact\n                </Link>",
-          "line": 170,
-          "endLine": 175,
+          "line": 171,
+          "endLine": 176,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/component/Footer.jsx"

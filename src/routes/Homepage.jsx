@@ -208,7 +208,7 @@ const Homepage = () => {
     <div className="pt-16 sm:pt-20">
       <SEO
         title="AI Automation for Growing Businesses"
-        description="Core Implement helps growing businesses automate manual, repetitive work using Claude, ChatGPT, and custom AI built around the tools you already use. Book a free consultation."
+        description="Core Implement puts Claude, ChatGPT, and custom AI to work on the busywork slowing growing businesses down, built around the tools you already use. Book a free consultation."
         path="/"
       />
       <Navigation />
@@ -238,7 +238,7 @@ const Homepage = () => {
                 </h1>
                 <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto font-normal">
                   {companyProfile?.description ||
-                    "We help growing businesses automate the manual, repetitive work slowing them down using AI, so teams spend less time on data entry, quotes, and reports, and more time on what matters."}
+                    "We help growing businesses put AI to work on the busywork slowing them down, so your team spends less time on data entry, quotes, and reports, and more time on what actually grows the business."}
                 </p>
               </div>
 
@@ -593,15 +593,6 @@ const Homepage = () => {
                       </li>
                     ))}
                   </ul>
-                  {index === 0 && (
-                    <Link
-                      to="/contact"
-                      className="inline-flex items-center gap-1 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors mt-4 sm:mt-5"
-                    >
-                      Schedule now
-                      <ChevronRight className="w-4 h-4" />
-                    </Link>
-                  )}
                 </div>
               );
             })}

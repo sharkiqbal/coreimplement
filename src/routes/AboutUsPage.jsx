@@ -129,9 +129,9 @@ const AboutPage = () => {
 
           {/* Subheading */}
           <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto font-normal mb-5 sm:mb-8 px-4">
-            We help growing businesses automate the manual, repetitive work
-            slowing them down, using the same caliber of AI and automation
-            that enterprises rely on.
+            We build enterprise-grade AI automation into the tasks slowing
+            your team down, without asking you to rip out the tools you
+            already run on.
           </p>
 
           {/* Optional CTA Buttons */}
@@ -271,11 +271,11 @@ const AboutPage = () => {
                 </h3>
               </div>
               <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
-                To take the manual, repetitive work slowing businesses down
-                (data entry, quoting, reporting, customer follow-ups) and
-                automate it with the same caliber of AI enterprises rely on.
-                We believe every business deserves that advantage, not just
-                the ones with in-house engineering teams.
+                To take the data entry, quoting, reporting, and customer
+                follow-ups that eat up a growing team's week and hand them off
+                to AI, so momentum doesn't stall out waiting on busywork. That
+                kind of leverage shouldn't be reserved for companies with
+                in-house engineering teams.
               </p>
             </div>
             <div className="bg-white rounded-xl p-5 sm:p-8 shadow-lg hover:shadow-2xl transition-shadow">

@@ -52,8 +52,9 @@ const Footer = () => {
               <h3 className="text-lg sm:text-xl font-bold">{companyName}</h3>
             </div>
             <p className="text-gray-400 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
-              AI made simple for SMBs. Automating the manual, repetitive work
-              that slows growing businesses down, wherever they're located.
+              AI automation for growing businesses, wherever they're located,
+              built around the tools you already use instead of replacing
+              them.
             </p>
             <div className="flex items-center gap-2 text-gray-300">
               <MapPin className="w-4 h-4 text-gray-500 flex-shrink-0" />
