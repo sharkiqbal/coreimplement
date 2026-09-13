@@ -227,6 +227,9 @@ const Homepage = () => {
           ></div>
         </div>
 
+        {/* Bottom fade so the hero dissolves into the next section instead of cutting off */}
+        <div className="absolute bottom-0 inset-x-0 h-24 sm:h-40 bg-gradient-to-b from-transparent to-white pointer-events-none"></div>
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-14 flex flex-col items-center justify-center w-full">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center w-full max-w-6xl">
             {/* Left Content */}
@@ -401,7 +404,7 @@ const Homepage = () => {
       </section>
 
       {/* Who We Help - Pain Points, Any Industry */}
-      <section className="py-10 sm:py-16 bg-gray-50">
+      <section className="py-10 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Left: Copy */}

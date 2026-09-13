@@ -204,15 +204,15 @@
       }
     },
     {
-      "id": "src/routes/Homepage.jsx:247:33-to-src/routes/ContactPage.jsx",
+      "id": "src/routes/Homepage.jsx:250:33-to-src/routes/ContactPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "navigate(\"/contact\")",
-          "line": 247,
-          "endLine": 247,
+          "line": 250,
+          "endLine": 250,
           "column": 33,
           "endColumn": 53,
           "sourceFile": "src/routes/Homepage.jsx"
@@ -220,15 +220,15 @@
       }
     },
     {
-      "id": "src/routes/Homepage.jsx:603:29-to-src/routes/ContactPage.jsx",
+      "id": "src/routes/Homepage.jsx:606:29-to-src/routes/ContactPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "navigate(\"/contact\")",
-          "line": 603,
-          "endLine": 603,
+          "line": 606,
+          "endLine": 606,
           "column": 29,
           "endColumn": 49,
           "sourceFile": "src/routes/Homepage.jsx"
@@ -316,15 +316,15 @@
       }
     },
     {
-      "id": "src/routes/AboutUsPage.jsx:375:6-to-src/routes/CaseStudiesPage.jsx",
+      "id": "src/routes/AboutUsPage.jsx:378:6-to-src/routes/CaseStudiesPage.jsx",
       "source": "src/routes/AboutUsPage.jsx",
       "target": "src/routes/CaseStudiesPage.jsx",
       "data": {
         "viaRoute": "/case-studies",
         "trigger": {
           "element": "<Action\n        headingBefore=\"Ready to Work \"\n        headingHighlight=\"Together\"\n        headingAfter=\"?\"\n        subtext=\"You've met the team behind Core Implement. Let's talk about what AI automation could look like inside your business.\"\n        secondaryLabel=\"See Case Studies\"\n        secondaryTo=\"/case-studies\"\n        markerColor=\"bg-green-400/40\"\n      />",
-          "line": 375,
-          "endLine": 383,
+          "line": 378,
+          "endLine": 386,
           "column": 6,
           "endColumn": 8,
           "sourceFile": "src/routes/AboutUsPage.jsx"

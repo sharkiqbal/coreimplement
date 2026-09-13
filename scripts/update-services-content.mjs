@@ -35,11 +35,10 @@ const UPDATES = [
     solution:
       "We connect the tools you already use (like QuickBooks, HubSpot, and Salesforce) and layer in AI to read documents, extract data, and route it automatically, turning multi-step manual processes into one smooth, hands-off workflow.",
     points: [
-      "Automation of repetitive tasks across day-to-day operations",
-      "Integrations with the tools you already use (QuickBooks, HubSpot, Salesforce, and more)",
-      "AI-powered document reading and data extraction for invoices, forms, and reports",
-      "Automated data syncing between apps and systems",
-      "Intelligent reminders, triggers, and follow-ups",
+      "Invoices, forms, and reports processed automatically, no manual re-entry",
+      "Approvals, reminders, and follow-ups that fire on their own",
+      "Data stays in sync across every connected system in real time",
+      "New integrations added as your stack grows, not locked to what you start with",
     ],
   },
   {
@@ -49,11 +48,10 @@ const UPDATES = [
     solution:
       "We deploy AI voice agents and AI-managed email to answer calls, respond to messages, qualify leads, and book appointments directly on your calendar, with the same consistency every time.",
     points: [
-      "24/7 AI phone agents for inbound and outbound calls",
-      "AI that reads, drafts, and routes email like your best team member",
-      "Lead qualification, appointment booking, and calendar/CRM updates",
-      "Auto-generated replies you review, edit, or send automatically",
-      "Natural, human-like voice and writing tailored to your business",
+      "24/7 phone coverage for inbound and outbound calls, no missed leads",
+      "Email triaged, drafted, and routed automatically, or queued for your review first",
+      "Leads qualified and booked straight onto your calendar and into your CRM",
+      "Sounds like your team, not a script, tuned to your business's voice",
     ],
   },
   {
@@ -63,11 +61,10 @@ const UPDATES = [
     solution:
       "We build custom AI-powered tools (dashboards, portals, and internal systems) wired directly into the software you already run, like QuickBooks, Salesforce, Slack, and Google Sheets.",
     points: [
-      "Fully custom AI-driven applications and internal tools",
-      "Dashboards, portals, and lightweight CRMs built for your workflow",
-      "Automated reporting and analytics",
-      "Integration with the tools you already use (QuickBooks, Salesforce, Slack, Google Sheets, and more)",
-      "Systems that scale with you, not against you",
+      "Custom dashboards and portals built around how your team actually works, not a generic template",
+      "Automated reporting and analytics instead of manual spreadsheet pulls",
+      "Wired directly into the software you already run, from QuickBooks to Slack",
+      "Built to grow with you, adding new tools and workflows as you scale",
     ],
   },
   {
@@ -77,11 +74,10 @@ const UPDATES = [
     solution:
       "We use AI to generate high-converting content and ad copy, automate social posting, and optimize targeting across platforms like Meta and Google, creating always-on marketing workflows that turn attention into revenue.",
     points: [
-      "Increase client acquisition without increasing headcount",
-      "Reduce marketing costs through automation and optimization",
-      "Make data-driven decisions instead of relying on guesswork",
-      "Scale campaigns faster while maintaining performance",
-      "Convert attention into measurable revenue growth",
+      "Content and ad copy generated and published on a consistent schedule",
+      "Ad targeting adjusted automatically based on what's actually converting",
+      "One system running content, social, and ads instead of three separate tools",
+      "More leads and campaigns without adding headcount to manage them",
     ],
   },
 ];
