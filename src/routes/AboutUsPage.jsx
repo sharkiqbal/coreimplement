@@ -111,8 +111,8 @@ const AboutPage = () => {
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-blue-200 mb-4 sm:mb-8">
-            <span className="w-2 h-2 bg-blue-600 rounded-full mr-2 animate-pulse"></span>
+          <div className="inline-flex items-center px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-green-200 mb-4 sm:mb-8">
+            <span className="w-2 h-2 bg-green-600 rounded-full mr-2 animate-pulse"></span>
             <span className="text-sm font-medium text-gray-800">
               Empowering Small Businesses
             </span>
@@ -121,8 +121,9 @@ const AboutPage = () => {
           {/* Main Heading */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 sm:mb-6 leading-tight drop-shadow-sm">
             Why Core Implement{" "}
-            <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
-              Exists
+            <span className="relative inline-block">
+              <span className="relative z-10">Exists</span>
+              <span className="absolute bottom-1 left-0 w-full h-3 sm:h-4 bg-green-300/70 -rotate-1"></span>
             </span>
           </h1>
 
@@ -175,9 +176,26 @@ const AboutPage = () => {
           </div>
 
           {loading ? (
-            <div className="text-center py-12">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-              <p className="mt-4 text-gray-600">Loading team members...</p>
+            <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
+              {Array.from({ length: 4 }).map((_, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-xl p-5 sm:p-8 shadow-lg border border-gray-100 animate-pulse"
+                >
+                  <div className="flex items-center gap-4 mb-4 sm:mb-6">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gray-200 flex-shrink-0" />
+                    <div className="space-y-2 flex-1">
+                      <div className="h-5 w-2/3 bg-gray-200 rounded" />
+                      <div className="h-4 w-1/2 bg-gray-100 rounded" />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="h-3 sm:h-4 bg-gray-100 rounded w-full" />
+                    <div className="h-3 sm:h-4 bg-gray-100 rounded w-full" />
+                    <div className="h-3 sm:h-4 bg-gray-100 rounded w-2/3" />
+                  </div>
+                </div>
+              ))}
             </div>
           ) : teamMembers.length === 0 ? (
             <div className="text-center py-12">
@@ -291,63 +309,64 @@ const AboutPage = () => {
               The principles that guide everything we do
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8">
-            <div className="group">
-              <div className="flex items-center gap-3 sm:block mb-2 sm:mb-4">
-                <div className="bg-blue-100 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center sm:mx-auto shadow-lg group-hover:scale-110 transition-transform flex-shrink-0">
-                  <Shield className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
-                </div>
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 sm:text-center sm:mt-4 sm:mb-3">
+          <div className="max-w-4xl mx-auto divide-y divide-gray-200 border-y border-gray-200">
+            <div className="flex items-start gap-4 sm:gap-6 py-6 sm:py-8">
+              <div className="bg-blue-100 w-11 h-11 sm:w-14 sm:h-14 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Shield className="w-5 h-5 sm:w-7 sm:h-7 text-blue-600" />
+              </div>
+              <div>
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-1 sm:mb-2">
                   Transparency
                 </h3>
+                <p className="text-gray-600 text-sm sm:text-base">
+                  Clear communication about costs, timelines, and realistic
+                  outcomes. No technical jargon, no overselling.
+                </p>
               </div>
-              <p className="text-gray-600 text-sm sm:text-base sm:text-center">
-                Clear communication about costs, timelines, and realistic
-                outcomes. No technical jargon, no overselling.
-              </p>
             </div>
-            <div className="group">
-              <div className="flex items-center gap-3 sm:block mb-2 sm:mb-4">
-                <div className="bg-green-100 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center sm:mx-auto shadow-lg group-hover:scale-110 transition-transform flex-shrink-0">
-                  <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-green-600" />
-                </div>
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 sm:text-center sm:mt-4 sm:mb-3">
+            <div className="flex items-start gap-4 sm:gap-6 py-6 sm:py-8">
+              <div className="bg-green-100 w-11 h-11 sm:w-14 sm:h-14 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Heart className="w-5 h-5 sm:w-7 sm:h-7 text-green-600" />
+              </div>
+              <div>
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-1 sm:mb-2">
                   Genuine Partnership
                 </h3>
+                <p className="text-gray-600 text-sm sm:text-base">
+                  We're proud of our Texas roots, but we bring that same
+                  neighbor-like partnership to every business we work with,
+                  wherever they're located.
+                </p>
               </div>
-              <p className="text-gray-600 text-sm sm:text-base sm:text-center">
-                We're proud of our Texas roots, but we bring that same
-                neighbor-like partnership to every business we work with,
-                wherever they're located.
-              </p>
             </div>
-            <div className="group">
-              <div className="flex items-center gap-3 sm:block mb-2 sm:mb-4">
-                <div className="bg-purple-100 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center sm:mx-auto shadow-lg group-hover:scale-110 transition-transform flex-shrink-0">
-                  <Award className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />
-                </div>
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 sm:text-center sm:mt-4 sm:mb-3">
+            <div className="flex items-start gap-4 sm:gap-6 py-6 sm:py-8">
+              <div className="bg-purple-100 w-11 h-11 sm:w-14 sm:h-14 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Award className="w-5 h-5 sm:w-7 sm:h-7 text-purple-600" />
+              </div>
+              <div>
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-1 sm:mb-2">
                   Excellence
                 </h3>
+                <p className="text-gray-600 text-sm sm:text-base">
+                  Delivering solutions that exceed expectations while
+                  maintaining the highest standards of quality and
+                  reliability.
+                </p>
               </div>
-              <p className="text-gray-600 text-sm sm:text-base sm:text-center">
-                Delivering solutions that exceed expectations while maintaining
-                the highest standards of quality and reliability.
-              </p>
             </div>
-            <div className="group">
-              <div className="flex items-center gap-3 sm:block mb-2 sm:mb-4">
-                <div className="bg-orange-100 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center sm:mx-auto shadow-lg group-hover:scale-110 transition-transform flex-shrink-0">
-                  <Users className="w-6 h-6 sm:w-8 sm:h-8 text-orange-600" />
-                </div>
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 sm:text-center sm:mt-4 sm:mb-3">
+            <div className="flex items-start gap-4 sm:gap-6 py-6 sm:py-8">
+              <div className="bg-orange-100 w-11 h-11 sm:w-14 sm:h-14 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Users className="w-5 h-5 sm:w-7 sm:h-7 text-orange-600" />
+              </div>
+              <div>
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-1 sm:mb-2">
                   Human-Centered
                 </h3>
+                <p className="text-gray-600 text-sm sm:text-base">
+                  AI should enhance human capabilities, not replace them. We
+                  design solutions that empower your team.
+                </p>
               </div>
-              <p className="text-gray-600 text-sm sm:text-base sm:text-center">
-                AI should enhance human capabilities, not replace them. We
-                design solutions that empower your team.
-              </p>
             </div>
           </div>
         </div>
@@ -360,6 +379,7 @@ const AboutPage = () => {
         subtext="You've met the team behind Core Implement. Let's talk about what AI automation could look like inside your business."
         secondaryLabel="See Case Studies"
         secondaryTo="/case-studies"
+        markerColor="bg-green-400/40"
       />
       <Footer />
     </div>

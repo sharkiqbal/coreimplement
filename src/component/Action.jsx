@@ -10,6 +10,7 @@ const Action = ({
   primaryTo = "/contact",
   secondaryLabel = "View Our Services",
   secondaryTo = "/services",
+  markerColor = "bg-yellow-400/40",
 }) => {
   const navigate = useNavigate();
 
@@ -38,7 +39,9 @@ const Action = ({
             {headingBefore}
             <span className="relative inline-block">
               <span className="relative z-10">{headingHighlight}</span>
-              <span className="absolute bottom-[-5px] left-0 w-full h-3 bg-yellow-400/40 -rotate-1"></span>
+              <span
+                className={`absolute bottom-[-5px] left-0 w-full h-3 -rotate-1 ${markerColor}`}
+              ></span>
             </span>
             {headingAfter}
           </h2>

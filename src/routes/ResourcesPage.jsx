@@ -146,10 +146,7 @@ const ResourcesPage = () => {
 
           {/* Main Heading */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 sm:mb-6 leading-tight drop-shadow-sm">
-            AI Resources &{" "}
-            <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
-              Insights
-            </span>
+            AI Resources & <span className="text-purple-600">Insights</span>
           </h1>
 
           {/* Subheading */}
@@ -370,6 +367,7 @@ const ResourcesPage = () => {
         headingHighlight="Practice"
         headingAfter="?"
         subtext="Reading about automation is one thing. Let's talk about what it could look like inside your business."
+        markerColor="bg-purple-400/40"
       />
       <Footer />
     </div>

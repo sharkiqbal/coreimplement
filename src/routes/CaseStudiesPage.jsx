@@ -124,8 +124,9 @@ const CaseStudiesPage = () => {
 
           {/* Main Heading */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 sm:mb-6 leading-tight drop-shadow-sm">
-            <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
-              Real Results
+            <span className="relative inline-block">
+              <span className="relative z-10">Real Results</span>
+              <span className="absolute bottom-1 left-0 w-full h-3 sm:h-4 bg-pink-300/70 -rotate-1"></span>
             </span>{" "}
             for Real Businesses
           </h1>
@@ -302,6 +303,7 @@ const CaseStudiesPage = () => {
         subtext="These are real businesses that automated their busywork and got hours back every week. Yours could be next."
         secondaryLabel="View Our Services"
         secondaryTo="/services"
+        markerColor="bg-pink-400/40"
       />
       <Footer />
     </div>

@@ -410,11 +410,8 @@ const Homepage = () => {
                 Built For Every Industry
               </span>
               <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-2 mb-3 sm:mb-4 leading-tight">
-                If It's{" "}
-                <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                  Repetitive
-                </span>
-                , We Can Probably Automate It
+                If It's <span className="text-purple-600">Repetitive</span>,
+                We Can Probably Automate It
               </h2>
               <p className="text-base sm:text-lg text-gray-600 mb-3 sm:mb-4 leading-relaxed">
                 We're not limited to one industry. If your team is buried in
@@ -467,11 +464,11 @@ const Homepage = () => {
       <section ref={servicesRef} className="py-10 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
-              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                Our Core{" "}
-              </span>{" "}
-              Services
+            <span className="text-sm font-bold text-blue-600 uppercase tracking-wide">
+              What We Do
+            </span>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-2 mb-3">
+              Our Core Services
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Comprehensive AI solutions tailored for small and medium
@@ -549,10 +546,7 @@ const Homepage = () => {
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
-              How It{" "}
-              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                Works
-              </span>
+              How It Works
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               From first conversation to fully implemented automation, here's
@@ -656,10 +650,7 @@ const Homepage = () => {
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
-              Trusted by{" "}
-              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                Growing Businesses
-              </span>
+              Trusted by Growing Businesses
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl text-center mx-auto">
               See why growing businesses choose{" "}

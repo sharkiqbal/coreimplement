@@ -214,6 +214,7 @@ const ResourceArticlePage = () => {
         subtext="Let's talk about how this applies to your business, and what automation could realistically save you."
         secondaryLabel="Read More Articles"
         secondaryTo="/resources"
+        markerColor="bg-blue-400/40"
       />
       <Footer />
     </div>
