@@ -220,15 +220,15 @@
       }
     },
     {
-      "id": "src/routes/Homepage.jsx:588:20-to-src/routes/ContactPage.jsx",
+      "id": "src/routes/Homepage.jsx:603:20-to-src/routes/ContactPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<Link\n                      to=\"/contact\"\n                      className=\"inline-flex items-center gap-1 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors mt-4 sm:mt-5\"\n                    >\n                      Schedule now\n                      <ChevronRight className=\"w-4 h-4\" />\n                    </Link>",
-          "line": 588,
-          "endLine": 594,
+          "line": 603,
+          "endLine": 609,
           "column": 20,
           "endColumn": 27,
           "sourceFile": "src/routes/Homepage.jsx"
@@ -236,15 +236,15 @@
       }
     },
     {
-      "id": "src/routes/Homepage.jsx:603:29-to-src/routes/ContactPage.jsx",
+      "id": "src/routes/Homepage.jsx:618:29-to-src/routes/ContactPage.jsx",
       "source": "src/routes/Homepage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "navigate(\"/contact\")",
-          "line": 603,
-          "endLine": 603,
+          "line": 618,
+          "endLine": 618,
           "column": 29,
           "endColumn": 49,
           "sourceFile": "src/routes/Homepage.jsx"

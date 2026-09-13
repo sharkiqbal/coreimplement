@@ -480,9 +480,24 @@ const Homepage = () => {
           </div>
 
           {loading ? (
-            <div className="text-center py-12">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-              <p className="mt-4 text-gray-600">Loading services...</p>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8">
+              {Array.from({ length: 4 }).map((_, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col h-full bg-white border border-gray-200 rounded-xl p-5 sm:p-8 animate-pulse"
+                >
+                  <div className="flex items-center gap-3 sm:block mb-3 sm:mb-6">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg bg-gray-200 sm:mb-6 flex-shrink-0" />
+                    <div className="h-5 sm:h-6 w-2/3 bg-gray-200 rounded" />
+                  </div>
+                  <div className="space-y-2 mb-4">
+                    <div className="h-3 sm:h-4 bg-gray-100 rounded w-full" />
+                    <div className="h-3 sm:h-4 bg-gray-100 rounded w-full" />
+                    <div className="h-3 sm:h-4 bg-gray-100 rounded w-2/3" />
+                  </div>
+                  <div className="h-4 w-24 bg-gray-200 rounded mt-auto" />
+                </div>
+              ))}
             </div>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8">
@@ -735,12 +750,33 @@ const Homepage = () => {
             {/* Right: Testimonials - Dynamic */}
             <div className="space-y-5 sm:space-y-8">
               {loading ? (
-                <div className="text-center py-12">
-                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-                  <p className="mt-4 text-gray-600">
-                    Loading testimonials...
-                  </p>
-                </div>
+                Array.from({ length: 2 }).map((_, index) => (
+                  <div
+                    key={index}
+                    className="bg-white rounded-2xl p-5 sm:p-8 shadow-lg border border-gray-100 animate-pulse"
+                  >
+                    <div className="flex gap-1 mb-4 sm:mb-6">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <div
+                          key={i}
+                          className="w-5 h-5 sm:w-6 sm:h-6 bg-gray-200 rounded"
+                        />
+                      ))}
+                    </div>
+                    <div className="space-y-2 mb-5 sm:mb-8">
+                      <div className="h-4 sm:h-5 bg-gray-100 rounded w-full" />
+                      <div className="h-4 sm:h-5 bg-gray-100 rounded w-full" />
+                      <div className="h-4 sm:h-5 bg-gray-100 rounded w-1/2" />
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gray-200 mr-3 sm:mr-4 flex-shrink-0" />
+                      <div className="space-y-2">
+                        <div className="h-4 w-32 bg-gray-200 rounded" />
+                        <div className="h-3 w-24 bg-gray-100 rounded" />
+                      </div>
+                    </div>
+                  </div>
+                ))
               ) : (
                 reviews.map((review, index) => {
                   const avatarColor =

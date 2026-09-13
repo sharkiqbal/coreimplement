@@ -1,15 +1,41 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Cookie } from "lucide-react";
 import { useCookieConsent } from "../context/CookieConsentContext";
 
 const CookieConsentBanner = () => {
   const { consent, acceptAll, essentialOnly } = useCookieConsent();
+  const bannerRef = useRef(null);
+
+  // Reserve space at the bottom of the page equal to the banner's actual
+  // height so it doesn't cover content underneath (height varies with
+  // viewport width since the text/buttons wrap differently).
+  useEffect(() => {
+    if (consent !== null) return;
+    const el = bannerRef.current;
+    if (!el) return;
+
+    const updatePadding = () => {
+      document.body.style.paddingBottom = `${el.offsetHeight}px`;
+    };
+    updatePadding();
+
+    const resizeObserver = new ResizeObserver(updatePadding);
+    resizeObserver.observe(el);
+
+    return () => {
+      resizeObserver.disconnect();
+      document.body.style.paddingBottom = "";
+    };
+  }, [consent]);
 
   if (consent !== null) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-[60] bg-white border-t border-gray-200 shadow-2xl">
+    <div
+      ref={bannerRef}
+      className="fixed bottom-0 left-0 right-0 z-[60] bg-white border-t border-gray-200 shadow-2xl"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-5">
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
           <div className="flex items-start gap-3 flex-1">
