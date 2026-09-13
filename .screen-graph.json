@@ -412,15 +412,15 @@
       }
     },
     {
-      "id": "src/routes/ServicesPage.jsx:328:29-to-src/routes/ContactPage.jsx",
+      "id": "src/routes/ServicesPage.jsx:331:29-to-src/routes/ContactPage.jsx",
       "source": "src/routes/ServicesPage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "navigate(\"/contact\")",
-          "line": 328,
-          "endLine": 328,
+          "line": 331,
+          "endLine": 331,
           "column": 29,
           "endColumn": 49,
           "sourceFile": "src/routes/ServicesPage.jsx"
@@ -428,15 +428,15 @@
       }
     },
     {
-      "id": "src/routes/ServicesPage.jsx:447:39-to-src/routes/ContactPage.jsx",
+      "id": "src/routes/ServicesPage.jsx:450:39-to-src/routes/ContactPage.jsx",
       "source": "src/routes/ServicesPage.jsx",
       "target": "src/routes/ContactPage.jsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "navigate(\"/contact\")",
-          "line": 447,
-          "endLine": 447,
+          "line": 450,
+          "endLine": 450,
           "column": 39,
           "endColumn": 59,
           "sourceFile": "src/routes/ServicesPage.jsx"
@@ -444,15 +444,15 @@
       }
     },
     {
-      "id": "src/routes/ServicesPage.jsx:494:6-to-src/routes/CaseStudiesPage.jsx",
+      "id": "src/routes/ServicesPage.jsx:497:6-to-src/routes/CaseStudiesPage.jsx",
       "source": "src/routes/ServicesPage.jsx",
       "target": "src/routes/CaseStudiesPage.jsx",
       "data": {
         "viaRoute": "/case-studies",
         "trigger": {
           "element": "<Action\n        headingBefore=\"Ready to \"\n        headingHighlight=\"Automate\"\n        headingAfter=\" Your Business?\"\n        subtext=\"Tell us what's slowing your team down, and we'll show you exactly how automation could help.\"\n        secondaryLabel=\"See Case Studies\"\n        secondaryTo=\"/case-studies\"\n        markerColor=\"bg-cyan-400/40\"\n      />",
-          "line": 494,
-          "endLine": 502,
+          "line": 497,
+          "endLine": 505,
           "column": 6,
           "endColumn": 8,
           "sourceFile": "src/routes/ServicesPage.jsx"
@@ -540,15 +540,15 @@
       }
     },
     {
-      "id": "src/routes/CaseStudiesPage.jsx:299:6-to-src/routes/ServicesPage.jsx",
+      "id": "src/routes/CaseStudiesPage.jsx:302:6-to-src/routes/ServicesPage.jsx",
       "source": "src/routes/CaseStudiesPage.jsx",
       "target": "src/routes/ServicesPage.jsx",
       "data": {
         "viaRoute": "/services",
         "trigger": {
           "element": "<Action\n        headingBefore=\"Ready for \"\n        headingHighlight=\"Results\"\n        headingAfter=\" Like These?\"\n        subtext=\"These are real businesses that automated their busywork and got hours back every week. Yours could be next.\"\n        secondaryLabel=\"View Our Services\"\n        secondaryTo=\"/services\"\n        markerColor=\"bg-pink-400/40\"\n      />",
-          "line": 299,
-          "endLine": 307,
+          "line": 302,
+          "endLine": 310,
           "column": 6,
           "endColumn": 8,
           "sourceFile": "src/routes/CaseStudiesPage.jsx"
@@ -636,15 +636,15 @@
       }
     },
     {
-      "id": "src/routes/ResourcesPage.jsx:214:12-to-src/routes/CaseStudiesPage.jsx",
+      "id": "src/routes/ResourcesPage.jsx:217:12-to-src/routes/CaseStudiesPage.jsx",
       "source": "src/routes/ResourcesPage.jsx",
       "target": "src/routes/CaseStudiesPage.jsx",
       "data": {
         "viaRoute": "/case-studies",
         "trigger": {
           "element": "<Link\n              to=\"/case-studies\"\n              className=\"group px-5 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-md border border-gray-200 hover:shadow-lg transition-all duration-200\"\n            >\n              <span className=\"text-sm font-semibold text-gray-700 group-hover:text-pink-600 transition-colors\">\n                📊 Case Studies\n              </span>\n            </Link>",
-          "line": 214,
-          "endLine": 221,
+          "line": 217,
+          "endLine": 224,
           "column": 12,
           "endColumn": 19,
           "sourceFile": "src/routes/ResourcesPage.jsx"

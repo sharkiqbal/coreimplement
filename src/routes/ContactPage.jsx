@@ -393,6 +393,9 @@ const EnhancedContactPage = () => {
           ></div>
         </div>
 
+        {/* Bottom fade so the hero dissolves into the next section instead of cutting off */}
+        <div className="absolute bottom-0 inset-x-0 h-10 sm:h-16 bg-gradient-to-b from-transparent to-white pointer-events-none"></div>
+
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center w-full">
           <div className="inline-flex items-center px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-emerald-200 mb-4 sm:mb-6">
             <svg
@@ -427,7 +430,7 @@ const EnhancedContactPage = () => {
       </section>
 
       {/* Main Content with Tabs */}
-      <section ref={contactFormRef} className="py-10 sm:py-20">
+      <section ref={contactFormRef} className="py-10 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Tab Navigation */}
           <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-2 mb-6 sm:mb-8">
